@@ -1,0 +1,1605 @@
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32l4xx_hal_uart_ex.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.HAL_RS485Ex_Init,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	HAL_RS485Ex_Init
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	HAL_RS485Ex_Init:
+  28              	.LVL0:
+  29              	.LFB123:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_uart_ex
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   ******************************************************************************
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @file    stm32l4xx_hal_uart_ex.c
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @author  MCD Application Team
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief   Extended UART HAL module driver.
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          This file provides firmware functions to manage the following extended
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          functionalities of the Universal Asynchronous Receiver Transmitter Peripheral (UART).
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *           + Initialization and de-initialization functions
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *           + Peripheral Control functions
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   @verbatim
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   ==============================================================================
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****                ##### UART peripheral extended features  #####
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   ==============================================================================
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     (#) Declare a UART_HandleTypeDef handle structure.
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     (#) For the UART RS485 Driver Enable mode, initialize the UART registers
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         by calling the HAL_RS485Ex_Init() API.
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     (#) FIFO mode enabling/disabling and RX/TX FIFO threshold programming.
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         -@- When UART operates in FIFO mode, FIFO mode must be enabled prior
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****             starting RX/TX transfers. Also RX/TX FIFO thresholds must be
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****             configured prior starting RX/TX transfers.
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   @endverbatim
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   ******************************************************************************
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @attention
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * All rights reserved.</center></h2>
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * the "License"; You may not use this file except in compliance with the
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * License. You may obtain a copy of the License at:
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *                        opensource.org/licenses/BSD-3-Clause
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   ******************************************************************************
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /* Includes ------------------------------------------------------------------*/
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #include "stm32l4xx_hal.h"
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /** @addtogroup STM32L4xx_HAL_Driver
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @{
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /** @defgroup UARTEx UARTEx
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief UART Extended HAL module driver
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @{
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #ifdef HAL_UART_MODULE_ENABLED
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /* Private typedef -----------------------------------------------------------*/
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /* Private define ------------------------------------------------------------*/
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #if defined(USART_CR1_FIFOEN)
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /** @defgroup UARTEX_Private_Constants UARTEx Private Constants
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @{
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /* UART RX FIFO depth */
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #define RX_FIFO_DEPTH 8U
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /* UART TX FIFO depth */
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #define TX_FIFO_DEPTH 8U
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @}
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #endif /* USART_CR1_FIFOEN */
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /* Private macros ------------------------------------------------------------*/
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /* Private variables ---------------------------------------------------------*/
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /* Private function prototypes -----------------------------------------------*/
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /** @defgroup UARTEx_Private_Functions UARTEx Private Functions
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @{
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** static void UARTEx_Wakeup_AddressConfig(UART_HandleTypeDef *huart, UART_WakeUpTypeDef WakeUpSelecti
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #if defined(USART_CR1_FIFOEN)
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** static void UARTEx_SetNbDataToProcess(UART_HandleTypeDef *huart);
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #endif /* USART_CR1_FIFOEN */
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @}
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 3
+
+
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /* Exported functions --------------------------------------------------------*/
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /** @defgroup UARTEx_Exported_Functions  UARTEx Exported Functions
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @{
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /** @defgroup UARTEx_Exported_Functions_Group1 Initialization and de-initialization functions
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief    Extended Initialization and Configuration Functions
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** @verbatim
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** ===============================================================================
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****             ##### Initialization and Configuration functions #####
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****  ===============================================================================
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     [..]
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     This subsection provides a set of functions allowing to initialize the USARTx or the UARTy
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     in asynchronous mode.
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****       (+) For the asynchronous mode the parameters below can be configured:
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) Baud Rate
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) Word Length
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) Stop Bit
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) Parity: If the parity is enabled, then the MSB bit of the data written
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****              in the data register is transmitted but is changed by the parity bit.
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) Hardware flow control
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) Receiver/transmitter modes
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) Over Sampling Method
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) One-Bit Sampling Method
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****       (+) For the asynchronous mode, the following advanced features can be configured as well:
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) TX and/or RX pin level inversion
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) data logical level inversion
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) RX and TX pins swap
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) RX overrun detection disabling
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) DMA disabling on RX error
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) MSB first on communication line
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (++) auto Baud rate detection
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     [..]
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     The HAL_RS485Ex_Init() API follows the UART RS485 mode configuration
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****      procedures (details for the procedures are available in reference manual).
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** @endverbatim
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   Depending on the frame length defined by the M1 and M0 bits (7-bit,
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   8-bit or 9-bit), the possible UART formats are listed in the
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   following table.
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     Table 1. UART frame format.
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     +-----------------------------------------------------------------------+
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |  M1 bit |  M0 bit |  PCE bit  |             UART frame                |
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |---------|---------|-----------|---------------------------------------|
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |    0    |    0    |    0      |    | SB |    8 bit data   | STB |     |
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |---------|---------|-----------|---------------------------------------|
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |    0    |    0    |    1      |    | SB | 7 bit data | PB | STB |     |
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |---------|---------|-----------|---------------------------------------|
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |    0    |    1    |    0      |    | SB |    9 bit data   | STB |     |
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |---------|---------|-----------|---------------------------------------|
+ 141:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |    0    |    1    |    1      |    | SB | 8 bit data | PB | STB |     |
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |---------|---------|-----------|---------------------------------------|
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 4
+
+
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |    1    |    0    |    0      |    | SB |    7 bit data   | STB |     |
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |---------|---------|-----------|---------------------------------------|
+ 145:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     |    1    |    0    |    1      |    | SB | 6 bit data | PB | STB |     |
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     +-----------------------------------------------------------------------+
+ 147:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 148:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @{
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 151:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief Initialize the RS485 Driver enable feature according to the specified
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *         parameters in the UART_InitTypeDef and creates the associated handle.
+ 154:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param huart            UART handle.
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param Polarity         Select the driver enable polarity.
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          This parameter can be one of the following values:
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          @arg @ref UART_DE_POLARITY_HIGH DE signal is active high
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          @arg @ref UART_DE_POLARITY_LOW  DE signal is active low
+ 159:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param AssertionTime    Driver Enable assertion time:
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *       5-bit value defining the time between the activation of the DE (Driver Enable)
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *       signal and the beginning of the start bit. It is expressed in sample time
+ 162:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *       units (1/8 or 1/16 bit time, depending on the oversampling rate)
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param DeassertionTime  Driver Enable deassertion time:
+ 164:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *       5-bit value defining the time between the end of the last stop bit, in a
+ 165:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *       transmitted message, and the de-activation of the DE (Driver Enable) signal.
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *       It is expressed in sample time units (1/8 or 1/16 bit time, depending on the
+ 167:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *       oversampling rate).
+ 168:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval HAL status
+ 169:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 170:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_RS485Ex_Init(UART_HandleTypeDef *huart, uint32_t Polarity, uint32_t Assertion
+ 171:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****                                    uint32_t DeassertionTime)
+ 172:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+  31              		.loc 1 172 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   uint32_t temp;
+  35              		.loc 1 173 3 view .LVU1
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 175:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check the UART handle allocation */
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   if (huart == NULL)
+  36              		.loc 1 176 3 view .LVU2
+  37              		.loc 1 176 6 is_stmt 0 view .LVU3
+  38 0000 0028     		cmp	r0, #0
+  39 0002 40D0     		beq	.L14
+ 177:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     return HAL_ERROR;
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check the Driver Enable UART instance */
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_DRIVER_ENABLE_INSTANCE(huart->Instance));
+  40              		.loc 1 181 3 is_stmt 1 view .LVU4
+ 182:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check the Driver Enable polarity */
+ 184:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_DE_POLARITY(Polarity));
+  41              		.loc 1 184 3 view .LVU5
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 186:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check the Driver Enable assertion time */
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_ASSERTIONTIME(AssertionTime));
+  42              		.loc 1 187 3 view .LVU6
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 5
+
+
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check the Driver Enable deassertion time */
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_DEASSERTIONTIME(DeassertionTime));
+  43              		.loc 1 190 3 view .LVU7
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 192:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   if (huart->gState == HAL_UART_STATE_RESET)
+  44              		.loc 1 192 3 view .LVU8
+ 172:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   uint32_t temp;
+  45              		.loc 1 172 1 is_stmt 0 view .LVU9
+  46 0004 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+  47              	.LCFI0:
+  48              		.cfi_def_cfa_offset 24
+  49              		.cfi_offset 4, -24
+  50              		.cfi_offset 5, -20
+  51              		.cfi_offset 6, -16
+  52              		.cfi_offset 7, -12
+  53              		.cfi_offset 8, -8
+  54              		.cfi_offset 14, -4
+  55 0008 1D46     		mov	r5, r3
+  56              		.loc 1 192 12 view .LVU10
+  57 000a 436F     		ldr	r3, [r0, #116]
+  58              	.LVL1:
+  59              		.loc 1 192 12 view .LVU11
+  60 000c 8846     		mov	r8, r1
+  61 000e 1746     		mov	r7, r2
+  62 0010 0446     		mov	r4, r0
+  63              		.loc 1 192 6 view .LVU12
+  64 0012 002B     		cmp	r3, #0
+  65 0014 32D0     		beq	.L18
+  66              	.LVL2:
+  67              	.L4:
+ 193:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     /* Allocate lock resource and initialize it */
+ 195:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     huart->Lock = HAL_UNLOCKED;
+ 196:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 197:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #if (USE_HAL_UART_REGISTER_CALLBACKS == 1)
+ 198:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     UART_InitCallbacksToDefault(huart);
+ 199:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     if (huart->MspInitCallback == NULL)
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     {
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****       huart->MspInitCallback = HAL_UART_MspInit;
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     }
+ 204:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     /* Init the low level hardware */
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     huart->MspInitCallback(huart);
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #else
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     /* Init the low level hardware : GPIO, CLOCK, CORTEX */
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     HAL_UART_MspInit(huart);
+ 210:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #endif /* (USE_HAL_UART_REGISTER_CALLBACKS) */
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 212:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 213:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_BUSY;
+  68              		.loc 1 213 3 is_stmt 1 view .LVU13
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 215:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Disable the Peripheral */
+ 216:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UART_DISABLE(huart);
+  69              		.loc 1 216 3 is_stmt 0 view .LVU14
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 6
+
+
+  70 0016 2268     		ldr	r2, [r4]
+ 213:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+  71              		.loc 1 213 17 view .LVU15
+  72 0018 2423     		movs	r3, #36
+  73 001a 6367     		str	r3, [r4, #116]
+  74              		.loc 1 216 3 is_stmt 1 view .LVU16
+  75 001c 1368     		ldr	r3, [r2]
+  76 001e 23F00103 		bic	r3, r3, #1
+  77 0022 1360     		str	r3, [r2]
+ 217:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 218:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Set the UART Communication parameters */
+ 219:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   if (UART_SetConfig(huart) == HAL_ERROR)
+  78              		.loc 1 219 3 view .LVU17
+  79              		.loc 1 219 7 is_stmt 0 view .LVU18
+  80 0024 2046     		mov	r0, r4
+  81 0026 FFF7FEFF 		bl	UART_SetConfig
+  82              	.LVL3:
+  83              		.loc 1 219 6 view .LVU19
+  84 002a 0128     		cmp	r0, #1
+  85 002c 23D0     		beq	.L3
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 221:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     return HAL_ERROR;
+ 222:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 224:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   if (huart->AdvancedInit.AdvFeatureInit != UART_ADVFEATURE_NO_INIT)
+  86              		.loc 1 224 3 is_stmt 1 view .LVU20
+  87              		.loc 1 224 6 is_stmt 0 view .LVU21
+  88 002e 636A     		ldr	r3, [r4, #36]
+  89 0030 EBB9     		cbnz	r3, .L19
+  90              	.L6:
+ 225:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 226:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     UART_AdvFeatureConfig(huart);
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Enable the Driver Enable mode by setting the DEM bit in the CR3 register */
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   SET_BIT(huart->Instance->CR3, USART_CR3_DEM);
+  91              		.loc 1 230 3 is_stmt 1 view .LVU22
+  92 0032 2668     		ldr	r6, [r4]
+  93 0034 B368     		ldr	r3, [r6, #8]
+  94 0036 43F48043 		orr	r3, r3, #16384
+  95 003a B360     		str	r3, [r6, #8]
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 232:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Set the Driver Enable polarity */
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   MODIFY_REG(huart->Instance->CR3, USART_CR3_DEP, Polarity);
+  96              		.loc 1 233 3 view .LVU23
+  97 003c B368     		ldr	r3, [r6, #8]
+  98 003e 23F40043 		bic	r3, r3, #32768
+  99 0042 43EA0803 		orr	r3, r3, r8
+ 100 0046 B360     		str	r3, [r6, #8]
+ 234:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 235:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Set the Driver Enable assertion and deassertion times */
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   temp = (AssertionTime << UART_CR1_DEAT_ADDRESS_LSB_POS);
+ 101              		.loc 1 236 3 view .LVU24
+ 102              	.LVL4:
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   temp |= (DeassertionTime << UART_CR1_DEDT_ADDRESS_LSB_POS);
+ 103              		.loc 1 237 3 view .LVU25
+ 238:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   MODIFY_REG(huart->Instance->CR1, (USART_CR1_DEDT | USART_CR1_DEAT), temp);
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 7
+
+
+ 104              		.loc 1 238 3 view .LVU26
+ 105 0048 3168     		ldr	r1, [r6]
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   temp |= (DeassertionTime << UART_CR1_DEDT_ADDRESS_LSB_POS);
+ 106              		.loc 1 237 28 is_stmt 0 view .LVU27
+ 107 004a 2B04     		lsls	r3, r5, #16
+ 108              		.loc 1 238 3 view .LVU28
+ 109 004c 21F07F71 		bic	r1, r1, #66846720
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   temp |= (DeassertionTime << UART_CR1_DEDT_ADDRESS_LSB_POS);
+ 110              		.loc 1 237 8 view .LVU29
+ 111 0050 43EA4752 		orr	r2, r3, r7, lsl #21
+ 112              	.LVL5:
+ 113              		.loc 1 238 3 view .LVU30
+ 114 0054 21F44031 		bic	r1, r1, #196608
+ 115 0058 0A43     		orrs	r2, r2, r1
+ 116              	.LVL6:
+ 117              		.loc 1 238 3 view .LVU31
+ 118 005a 3260     		str	r2, [r6]
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 240:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Enable the Peripheral */
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UART_ENABLE(huart);
+ 119              		.loc 1 241 3 is_stmt 1 view .LVU32
+ 120 005c 3368     		ldr	r3, [r6]
+ 121 005e 43F00103 		orr	r3, r3, #1
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* TEACK and/or REACK to check before moving huart->gState and huart->RxState to Ready */
+ 244:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   return (UART_CheckIdleState(huart));
+ 122              		.loc 1 244 11 is_stmt 0 view .LVU33
+ 123 0062 2046     		mov	r0, r4
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 124              		.loc 1 241 3 view .LVU34
+ 125 0064 3360     		str	r3, [r6]
+ 126              		.loc 1 244 3 is_stmt 1 view .LVU35
+ 245:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 127              		.loc 1 245 1 is_stmt 0 view .LVU36
+ 128 0066 BDE8F041 		pop	{r4, r5, r6, r7, r8, lr}
+ 129              	.LCFI1:
+ 130              		.cfi_remember_state
+ 131              		.cfi_restore 14
+ 132              		.cfi_restore 8
+ 133              		.cfi_restore 7
+ 134              		.cfi_restore 6
+ 135              		.cfi_restore 5
+ 136              		.cfi_restore 4
+ 137              		.cfi_def_cfa_offset 0
+ 138              	.LVL7:
+ 244:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 139              		.loc 1 244 11 view .LVU37
+ 140 006a FFF7FEBF 		b	UART_CheckIdleState
+ 141              	.LVL8:
+ 142              	.L19:
+ 143              	.LCFI2:
+ 144              		.cfi_restore_state
+ 226:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 145              		.loc 1 226 5 is_stmt 1 view .LVU38
+ 146 006e 2046     		mov	r0, r4
+ 147 0070 FFF7FEFF 		bl	UART_AdvFeatureConfig
+ 148              	.LVL9:
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 8
+
+
+ 149 0074 DDE7     		b	.L6
+ 150              	.L3:
+ 151              		.loc 1 245 1 is_stmt 0 view .LVU39
+ 152 0076 0120     		movs	r0, #1
+ 153 0078 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 154              	.LVL10:
+ 155              	.L18:
+ 195:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 156              		.loc 1 195 5 is_stmt 1 view .LVU40
+ 195:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 157              		.loc 1 195 17 is_stmt 0 view .LVU41
+ 158 007c 80F87030 		strb	r3, [r0, #112]
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #endif /* (USE_HAL_UART_REGISTER_CALLBACKS) */
+ 159              		.loc 1 209 5 is_stmt 1 view .LVU42
+ 160 0080 FFF7FEFF 		bl	HAL_UART_MspInit
+ 161              	.LVL11:
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #endif /* (USE_HAL_UART_REGISTER_CALLBACKS) */
+ 162              		.loc 1 209 5 is_stmt 0 view .LVU43
+ 163 0084 C7E7     		b	.L4
+ 164              	.LVL12:
+ 165              	.L14:
+ 166              	.LCFI3:
+ 167              		.cfi_def_cfa_offset 0
+ 168              		.cfi_restore 4
+ 169              		.cfi_restore 5
+ 170              		.cfi_restore 6
+ 171              		.cfi_restore 7
+ 172              		.cfi_restore 8
+ 173              		.cfi_restore 14
+ 174              		.loc 1 245 1 view .LVU44
+ 175 0086 0120     		movs	r0, #1
+ 176              	.LVL13:
+ 177              		.loc 1 245 1 view .LVU45
+ 178 0088 7047     		bx	lr
+ 179              		.cfi_endproc
+ 180              	.LFE123:
+ 182 008a 00BF     		.section	.text.HAL_UARTEx_WakeupCallback,"ax",%progbits
+ 183              		.align	1
+ 184              		.p2align 2,,3
+ 185              		.weak	HAL_UARTEx_WakeupCallback
+ 186              		.syntax unified
+ 187              		.thumb
+ 188              		.thumb_func
+ 189              		.fpu fpv4-sp-d16
+ 191              	HAL_UARTEx_WakeupCallback:
+ 192              	.LVL14:
+ 193              	.LFB124:
+ 246:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 247:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 248:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @}
+ 249:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 250:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 251:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /** @defgroup UARTEx_Exported_Functions_Group2 IO operation functions
+ 252:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *  @brief Extended functions
+ 253:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *
+ 254:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** @verbatim
+ 255:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****  ===============================================================================
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 9
+
+
+ 256:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****                       ##### IO operation functions #####
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****  ===============================================================================
+ 258:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     This subsection provides a set of Wakeup and FIFO mode related callback functions.
+ 259:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     (#) Wakeup from Stop mode Callback:
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (+) HAL_UARTEx_WakeupCallback()
+ 262:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 263:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     (#) TX/RX Fifos Callbacks:
+ 264:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (+) HAL_UARTEx_RxFifoFullCallback()
+ 265:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****         (+) HAL_UARTEx_TxFifoEmptyCallback()
+ 266:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 267:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** @endverbatim
+ 268:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @{
+ 269:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 270:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 271:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 272:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief UART wakeup from Stop mode callback.
+ 273:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param huart UART handle.
+ 274:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval None
+ 275:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 276:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** __weak void HAL_UARTEx_WakeupCallback(UART_HandleTypeDef *huart)
+ 277:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 194              		.loc 1 277 1 is_stmt 1 view -0
+ 195              		.cfi_startproc
+ 196              		@ args = 0, pretend = 0, frame = 0
+ 197              		@ frame_needed = 0, uses_anonymous_args = 0
+ 198              		@ link register save eliminated.
+ 278:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Prevent unused argument(s) compilation warning */
+ 279:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   UNUSED(huart);
+ 199              		.loc 1 279 3 view .LVU47
+ 280:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 281:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* NOTE : This function should not be modified, when the callback is needed,
+ 282:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****             the HAL_UARTEx_WakeupCallback can be implemented in the user file.
+ 283:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****    */
+ 284:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 200              		.loc 1 284 1 is_stmt 0 view .LVU48
+ 201 0000 7047     		bx	lr
+ 202              		.cfi_endproc
+ 203              	.LFE124:
+ 205 0002 00BF     		.section	.text.HAL_UARTEx_EnableClockStopMode,"ax",%progbits
+ 206              		.align	1
+ 207              		.p2align 2,,3
+ 208              		.global	HAL_UARTEx_EnableClockStopMode
+ 209              		.syntax unified
+ 210              		.thumb
+ 211              		.thumb_func
+ 212              		.fpu fpv4-sp-d16
+ 214              	HAL_UARTEx_EnableClockStopMode:
+ 215              	.LVL15:
+ 216              	.LFB125:
+ 285:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 286:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #if defined(USART_CR1_FIFOEN)
+ 287:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 288:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief  UART RX Fifo full callback.
+ 289:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param  huart UART handle.
+ 290:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval None
+ 291:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 10
+
+
+ 292:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** __weak void HAL_UARTEx_RxFifoFullCallback(UART_HandleTypeDef *huart)
+ 293:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 294:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Prevent unused argument(s) compilation warning */
+ 295:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   UNUSED(huart);
+ 296:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 297:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* NOTE : This function should not be modified, when the callback is needed,
+ 298:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****             the HAL_UARTEx_RxFifoFullCallback can be implemented in the user file.
+ 299:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****    */
+ 300:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 301:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 302:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 303:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief  UART TX Fifo empty callback.
+ 304:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param  huart UART handle.
+ 305:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval None
+ 306:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 307:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** __weak void HAL_UARTEx_TxFifoEmptyCallback(UART_HandleTypeDef *huart)
+ 308:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 309:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Prevent unused argument(s) compilation warning */
+ 310:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   UNUSED(huart);
+ 311:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 312:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* NOTE : This function should not be modified, when the callback is needed,
+ 313:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****             the HAL_UARTEx_TxFifoEmptyCallback can be implemented in the user file.
+ 314:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****    */
+ 315:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 316:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #endif /* USART_CR1_FIFOEN */
+ 317:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 318:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 319:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @}
+ 320:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 321:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 322:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /** @defgroup UARTEx_Exported_Functions_Group3 Peripheral Control functions
+ 323:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief    Extended Peripheral Control functions
+ 324:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *
+ 325:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** @verbatim
+ 326:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****  ===============================================================================
+ 327:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****                       ##### Peripheral Control functions #####
+ 328:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****  ===============================================================================
+ 329:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     [..] This section provides the following functions:
+ 330:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****      (+) HAL_UARTEx_EnableClockStopMode() API enables the UART clock (HSI or LSE only) during stop 
+ 331:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****      (+) HAL_UARTEx_DisableClockStopMode() API disables the above functionality
+ 332:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****      (+) HAL_MultiProcessorEx_AddressLength_Set() API optionally sets the UART node address
+ 333:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****          detection length to more than 4 bits for multiprocessor address mark wake up.
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****      (+) HAL_UARTEx_StopModeWakeUpSourceConfig() API defines the wake-up from stop mode
+ 335:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****          trigger: address match, Start Bit detection or RXNE bit status.
+ 336:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****      (+) HAL_UARTEx_EnableStopMode() API enables the UART to wake up the MCU from stop mode
+ 337:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****      (+) HAL_UARTEx_DisableStopMode() API disables the above functionality
+ 338:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****      (+) HAL_UARTEx_EnableFifoMode() API enables the FIFO mode
+ 339:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****      (+) HAL_UARTEx_DisableFifoMode() API disables the FIFO mode
+ 340:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****      (+) HAL_UARTEx_SetTxFifoThreshold() API sets the TX FIFO threshold
+ 341:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****      (+) HAL_UARTEx_SetRxFifoThreshold() API sets the RX FIFO threshold
+ 342:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 343:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** @endverbatim
+ 344:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @{
+ 345:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 346:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 347:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #if defined(USART_CR3_UCESM)
+ 348:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 11
+
+
+ 349:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief  Keep UART Clock enabled when in Stop Mode.
+ 350:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @note   When the USART clock source is configured to be LSE or HSI, it is possible to keep enab
+ 351:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *         this clock during STOP mode by setting the UCESM bit in USART_CR3 control register.
+ 352:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @note   When LPUART is used to wakeup from stop with LSE is selected as LPUART clock source,
+ 353:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *         and desired baud rate is 9600 baud, the bit UCESM bit in LPUART_CR3 control register mu
+ 354:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param  huart UART handle.
+ 355:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval HAL status
+ 356:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 357:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_UARTEx_EnableClockStopMode(UART_HandleTypeDef *huart)
+ 358:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 217              		.loc 1 358 1 is_stmt 1 view -0
+ 218              		.cfi_startproc
+ 219              		@ args = 0, pretend = 0, frame = 0
+ 220              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221              		@ link register save eliminated.
+ 359:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 360:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_LOCK(huart);
+ 222              		.loc 1 360 3 view .LVU50
+ 223              		.loc 1 360 3 view .LVU51
+ 224 0000 90F87020 		ldrb	r2, [r0, #112]	@ zero_extendqisi2
+ 225 0004 012A     		cmp	r2, #1
+ 358:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 226              		.loc 1 358 1 is_stmt 0 view .LVU52
+ 227 0006 0346     		mov	r3, r0
+ 228              		.loc 1 360 3 view .LVU53
+ 229 0008 09D0     		beq	.L23
+ 230              		.loc 1 360 3 is_stmt 1 discriminator 2 view .LVU54
+ 231              		.loc 1 360 3 discriminator 2 view .LVU55
+ 361:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 362:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Set UCESM bit */
+ 363:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   SET_BIT(huart->Instance->CR3, USART_CR3_UCESM);
+ 232              		.loc 1 363 3 discriminator 2 view .LVU56
+ 233 000a 0068     		ldr	r0, [r0]
+ 234              	.LVL16:
+ 235              		.loc 1 363 3 is_stmt 0 discriminator 2 view .LVU57
+ 236 000c 8268     		ldr	r2, [r0, #8]
+ 364:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 365:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Unlocked */
+ 366:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UNLOCK(huart);
+ 237              		.loc 1 366 3 discriminator 2 view .LVU58
+ 238 000e 0021     		movs	r1, #0
+ 363:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 239              		.loc 1 363 3 discriminator 2 view .LVU59
+ 240 0010 42F40002 		orr	r2, r2, #8388608
+ 241 0014 8260     		str	r2, [r0, #8]
+ 242              		.loc 1 366 3 is_stmt 1 discriminator 2 view .LVU60
+ 243              		.loc 1 366 3 discriminator 2 view .LVU61
+ 367:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 368:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   return HAL_OK;
+ 244              		.loc 1 368 10 is_stmt 0 discriminator 2 view .LVU62
+ 245 0016 0846     		mov	r0, r1
+ 366:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 246              		.loc 1 366 3 discriminator 2 view .LVU63
+ 247 0018 83F87010 		strb	r1, [r3, #112]
+ 366:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 248              		.loc 1 366 3 is_stmt 1 discriminator 2 view .LVU64
+ 249              		.loc 1 368 3 discriminator 2 view .LVU65
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 12
+
+
+ 250              		.loc 1 368 10 is_stmt 0 discriminator 2 view .LVU66
+ 251 001c 7047     		bx	lr
+ 252              	.LVL17:
+ 253              	.L23:
+ 360:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 254              		.loc 1 360 3 view .LVU67
+ 255 001e 0220     		movs	r0, #2
+ 256              	.LVL18:
+ 369:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 257              		.loc 1 369 1 view .LVU68
+ 258 0020 7047     		bx	lr
+ 259              		.cfi_endproc
+ 260              	.LFE125:
+ 262 0022 00BF     		.section	.text.HAL_UARTEx_DisableClockStopMode,"ax",%progbits
+ 263              		.align	1
+ 264              		.p2align 2,,3
+ 265              		.global	HAL_UARTEx_DisableClockStopMode
+ 266              		.syntax unified
+ 267              		.thumb
+ 268              		.thumb_func
+ 269              		.fpu fpv4-sp-d16
+ 271              	HAL_UARTEx_DisableClockStopMode:
+ 272              	.LVL19:
+ 273              	.LFB126:
+ 370:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 371:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 372:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief  Disable UART Clock when in Stop Mode.
+ 373:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param  huart UART handle.
+ 374:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval HAL status
+ 375:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 376:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_UARTEx_DisableClockStopMode(UART_HandleTypeDef *huart)
+ 377:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 274              		.loc 1 377 1 is_stmt 1 view -0
+ 275              		.cfi_startproc
+ 276              		@ args = 0, pretend = 0, frame = 0
+ 277              		@ frame_needed = 0, uses_anonymous_args = 0
+ 278              		@ link register save eliminated.
+ 378:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 379:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_LOCK(huart);
+ 279              		.loc 1 379 3 view .LVU70
+ 280              		.loc 1 379 3 view .LVU71
+ 281 0000 90F87020 		ldrb	r2, [r0, #112]	@ zero_extendqisi2
+ 282 0004 012A     		cmp	r2, #1
+ 377:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 283              		.loc 1 377 1 is_stmt 0 view .LVU72
+ 284 0006 0346     		mov	r3, r0
+ 285              		.loc 1 379 3 view .LVU73
+ 286 0008 09D0     		beq	.L26
+ 287              		.loc 1 379 3 is_stmt 1 discriminator 2 view .LVU74
+ 288              		.loc 1 379 3 discriminator 2 view .LVU75
+ 380:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 381:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Clear UCESM bit */
+ 382:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   CLEAR_BIT(huart->Instance->CR3, USART_CR3_UCESM);
+ 289              		.loc 1 382 3 discriminator 2 view .LVU76
+ 290 000a 0068     		ldr	r0, [r0]
+ 291              	.LVL20:
+ 292              		.loc 1 382 3 is_stmt 0 discriminator 2 view .LVU77
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 13
+
+
+ 293 000c 8268     		ldr	r2, [r0, #8]
+ 383:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 384:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Unlocked */
+ 385:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UNLOCK(huart);
+ 294              		.loc 1 385 3 discriminator 2 view .LVU78
+ 295 000e 0021     		movs	r1, #0
+ 382:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 296              		.loc 1 382 3 discriminator 2 view .LVU79
+ 297 0010 22F40002 		bic	r2, r2, #8388608
+ 298 0014 8260     		str	r2, [r0, #8]
+ 299              		.loc 1 385 3 is_stmt 1 discriminator 2 view .LVU80
+ 300              		.loc 1 385 3 discriminator 2 view .LVU81
+ 386:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 387:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   return HAL_OK;
+ 301              		.loc 1 387 10 is_stmt 0 discriminator 2 view .LVU82
+ 302 0016 0846     		mov	r0, r1
+ 385:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 303              		.loc 1 385 3 discriminator 2 view .LVU83
+ 304 0018 83F87010 		strb	r1, [r3, #112]
+ 385:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 305              		.loc 1 385 3 is_stmt 1 discriminator 2 view .LVU84
+ 306              		.loc 1 387 3 discriminator 2 view .LVU85
+ 307              		.loc 1 387 10 is_stmt 0 discriminator 2 view .LVU86
+ 308 001c 7047     		bx	lr
+ 309              	.LVL21:
+ 310              	.L26:
+ 379:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 311              		.loc 1 379 3 view .LVU87
+ 312 001e 0220     		movs	r0, #2
+ 313              	.LVL22:
+ 388:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 314              		.loc 1 388 1 view .LVU88
+ 315 0020 7047     		bx	lr
+ 316              		.cfi_endproc
+ 317              	.LFE126:
+ 319 0022 00BF     		.section	.text.HAL_MultiProcessorEx_AddressLength_Set,"ax",%progbits
+ 320              		.align	1
+ 321              		.p2align 2,,3
+ 322              		.global	HAL_MultiProcessorEx_AddressLength_Set
+ 323              		.syntax unified
+ 324              		.thumb
+ 325              		.thumb_func
+ 326              		.fpu fpv4-sp-d16
+ 328              	HAL_MultiProcessorEx_AddressLength_Set:
+ 329              	.LVL23:
+ 330              	.LFB127:
+ 389:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 390:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #endif /* USART_CR3_UCESM */
+ 391:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 392:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief By default in multiprocessor mode, when the wake up method is set
+ 393:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *        to address mark, the UART handles only 4-bit long addresses detection;
+ 394:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *        this API allows to enable longer addresses detection (6-, 7- or 8-bit
+ 395:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *        long).
+ 396:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @note  Addresses detection lengths are: 6-bit address detection in 7-bit data mode,
+ 397:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *        7-bit address detection in 8-bit data mode, 8-bit address detection in 9-bit data mode.
+ 398:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param huart         UART handle.
+ 399:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param AddressLength This parameter can be one of the following values:
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 14
+
+
+ 400:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          @arg @ref UART_ADDRESS_DETECT_4B 4-bit long address
+ 401:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          @arg @ref UART_ADDRESS_DETECT_7B 6-, 7- or 8-bit long address
+ 402:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval HAL status
+ 403:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 404:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_MultiProcessorEx_AddressLength_Set(UART_HandleTypeDef *huart, uint32_t Addres
+ 405:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 331              		.loc 1 405 1 is_stmt 1 view -0
+ 332              		.cfi_startproc
+ 333              		@ args = 0, pretend = 0, frame = 0
+ 334              		@ frame_needed = 0, uses_anonymous_args = 0
+ 335              		@ link register save eliminated.
+ 406:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check the UART handle allocation */
+ 407:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   if (huart == NULL)
+ 336              		.loc 1 407 3 view .LVU90
+ 337              		.loc 1 407 6 is_stmt 0 view .LVU91
+ 338 0000 A0B1     		cbz	r0, .L28
+ 408:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 409:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     return HAL_ERROR;
+ 410:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 411:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 412:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check the address length parameter */
+ 413:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_ADDRESSLENGTH_DETECT(AddressLength));
+ 339              		.loc 1 413 3 is_stmt 1 view .LVU92
+ 414:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 415:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_BUSY;
+ 340              		.loc 1 415 3 view .LVU93
+ 405:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check the UART handle allocation */
+ 341              		.loc 1 405 1 is_stmt 0 view .LVU94
+ 342 0002 10B4     		push	{r4}
+ 343              	.LCFI4:
+ 344              		.cfi_def_cfa_offset 4
+ 345              		.cfi_offset 4, -4
+ 416:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 417:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Disable the Peripheral */
+ 418:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UART_DISABLE(huart);
+ 346              		.loc 1 418 3 view .LVU95
+ 347 0004 0268     		ldr	r2, [r0]
+ 415:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 348              		.loc 1 415 17 view .LVU96
+ 349 0006 2424     		movs	r4, #36
+ 350 0008 4467     		str	r4, [r0, #116]
+ 351              		.loc 1 418 3 is_stmt 1 view .LVU97
+ 352 000a 1368     		ldr	r3, [r2]
+ 419:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 420:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Set the address length */
+ 421:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   MODIFY_REG(huart->Instance->CR2, USART_CR2_ADDM7, AddressLength);
+ 422:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 423:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Enable the Peripheral */
+ 424:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UART_ENABLE(huart);
+ 425:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 426:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* TEACK and/or REACK to check before moving huart->gState to Ready */
+ 427:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   return (UART_CheckIdleState(huart));
+ 428:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 353              		.loc 1 428 1 is_stmt 0 view .LVU98
+ 354 000c 5DF8044B 		ldr	r4, [sp], #4
+ 355              	.LCFI5:
+ 356              		.cfi_restore 4
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 15
+
+
+ 357              		.cfi_def_cfa_offset 0
+ 418:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 358              		.loc 1 418 3 view .LVU99
+ 359 0010 23F00103 		bic	r3, r3, #1
+ 360 0014 1360     		str	r3, [r2]
+ 421:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 361              		.loc 1 421 3 is_stmt 1 view .LVU100
+ 362 0016 5368     		ldr	r3, [r2, #4]
+ 363 0018 23F01003 		bic	r3, r3, #16
+ 364 001c 1943     		orrs	r1, r1, r3
+ 365              	.LVL24:
+ 421:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 366              		.loc 1 421 3 is_stmt 0 view .LVU101
+ 367 001e 5160     		str	r1, [r2, #4]
+ 424:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 368              		.loc 1 424 3 is_stmt 1 view .LVU102
+ 369 0020 1368     		ldr	r3, [r2]
+ 370 0022 43F00103 		orr	r3, r3, #1
+ 371 0026 1360     		str	r3, [r2]
+ 427:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 372              		.loc 1 427 3 view .LVU103
+ 427:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 373              		.loc 1 427 11 is_stmt 0 view .LVU104
+ 374 0028 FFF7FEBF 		b	UART_CheckIdleState
+ 375              	.LVL25:
+ 376              	.L28:
+ 377              		.loc 1 428 1 view .LVU105
+ 378 002c 0120     		movs	r0, #1
+ 379              	.LVL26:
+ 380              		.loc 1 428 1 view .LVU106
+ 381 002e 7047     		bx	lr
+ 382              		.cfi_endproc
+ 383              	.LFE127:
+ 385              		.section	.text.HAL_UARTEx_StopModeWakeUpSourceConfig,"ax",%progbits
+ 386              		.align	1
+ 387              		.p2align 2,,3
+ 388              		.global	HAL_UARTEx_StopModeWakeUpSourceConfig
+ 389              		.syntax unified
+ 390              		.thumb
+ 391              		.thumb_func
+ 392              		.fpu fpv4-sp-d16
+ 394              	HAL_UARTEx_StopModeWakeUpSourceConfig:
+ 395              	.LVL27:
+ 396              	.LFB128:
+ 429:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 430:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 431:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief Set Wakeup from Stop mode interrupt flag selection.
+ 432:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @note It is the application responsibility to enable the interrupt used as
+ 433:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *       usart_wkup interrupt source before entering low-power mode.
+ 434:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param huart           UART handle.
+ 435:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param WakeUpSelection Address match, Start Bit detection or RXNE/RXFNE bit status.
+ 436:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          This parameter can be one of the following values:
+ 437:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          @arg @ref UART_WAKEUP_ON_ADDRESS
+ 438:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          @arg @ref UART_WAKEUP_ON_STARTBIT
+ 439:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          @arg @ref UART_WAKEUP_ON_READDATA_NONEMPTY
+ 440:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval HAL status
+ 441:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 16
+
+
+ 442:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_UARTEx_StopModeWakeUpSourceConfig(UART_HandleTypeDef *huart, UART_WakeUpTypeD
+ 443:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 397              		.loc 1 443 1 is_stmt 1 view -0
+ 398              		.cfi_startproc
+ 399              		@ args = 0, pretend = 0, frame = 8
+ 400              		@ frame_needed = 0, uses_anonymous_args = 0
+ 401              		.loc 1 443 1 is_stmt 0 view .LVU108
+ 402 0000 10B5     		push	{r4, lr}
+ 403              	.LCFI6:
+ 404              		.cfi_def_cfa_offset 8
+ 405              		.cfi_offset 4, -8
+ 406              		.cfi_offset 14, -4
+ 407 0002 84B0     		sub	sp, sp, #16
+ 408              	.LCFI7:
+ 409              		.cfi_def_cfa_offset 24
+ 410              		.loc 1 443 1 view .LVU109
+ 411 0004 04AB     		add	r3, sp, #16
+ 412 0006 03E90600 		stmdb	r3, {r1, r2}
+ 444:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 445:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   uint32_t tickstart;
+ 446:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 447:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* check the wake-up from stop mode UART instance */
+ 448:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_WAKEUP_FROMSTOP_INSTANCE(huart->Instance));
+ 449:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* check the wake-up selection parameter */
+ 450:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_WAKEUP_SELECTION(WakeUpSelection.WakeUpEvent));
+ 451:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 452:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 453:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_LOCK(huart);
+ 413              		.loc 1 453 3 view .LVU110
+ 414 000a 90F87030 		ldrb	r3, [r0, #112]	@ zero_extendqisi2
+ 415 000e 0299     		ldr	r1, [sp, #8]
+ 416              	.LVL28:
+ 444:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   HAL_StatusTypeDef status = HAL_OK;
+ 417              		.loc 1 444 3 is_stmt 1 view .LVU111
+ 445:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 418              		.loc 1 445 3 view .LVU112
+ 448:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* check the wake-up selection parameter */
+ 419              		.loc 1 448 3 view .LVU113
+ 450:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 420              		.loc 1 450 3 view .LVU114
+ 421              		.loc 1 453 3 view .LVU115
+ 422              		.loc 1 453 3 view .LVU116
+ 423 0010 012B     		cmp	r3, #1
+ 424 0012 39D0     		beq	.L36
+ 425              		.loc 1 453 3 discriminator 2 view .LVU117
+ 426 0014 0446     		mov	r4, r0
+ 454:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 455:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_BUSY;
+ 427              		.loc 1 455 17 is_stmt 0 discriminator 2 view .LVU118
+ 428 0016 2422     		movs	r2, #36
+ 456:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 457:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Disable the Peripheral */
+ 458:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UART_DISABLE(huart);
+ 429              		.loc 1 458 3 discriminator 2 view .LVU119
+ 430 0018 2368     		ldr	r3, [r4]
+ 455:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 431              		.loc 1 455 17 discriminator 2 view .LVU120
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 17
+
+
+ 432 001a 6267     		str	r2, [r4, #116]
+ 453:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 433              		.loc 1 453 3 discriminator 2 view .LVU121
+ 434 001c 0120     		movs	r0, #1
+ 435              	.LVL29:
+ 453:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 436              		.loc 1 453 3 discriminator 2 view .LVU122
+ 437 001e 84F87000 		strb	r0, [r4, #112]
+ 453:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 438              		.loc 1 453 3 is_stmt 1 discriminator 2 view .LVU123
+ 455:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 439              		.loc 1 455 3 discriminator 2 view .LVU124
+ 440              		.loc 1 458 3 discriminator 2 view .LVU125
+ 441 0022 1A68     		ldr	r2, [r3]
+ 442 0024 22F00102 		bic	r2, r2, #1
+ 443 0028 1A60     		str	r2, [r3]
+ 459:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 460:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Set the wake-up selection scheme */
+ 461:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   MODIFY_REG(huart->Instance->CR3, USART_CR3_WUS, WakeUpSelection.WakeUpEvent);
+ 444              		.loc 1 461 3 discriminator 2 view .LVU126
+ 445 002a 9A68     		ldr	r2, [r3, #8]
+ 446 002c 22F44012 		bic	r2, r2, #3145728
+ 447 0030 0A43     		orrs	r2, r2, r1
+ 448 0032 9A60     		str	r2, [r3, #8]
+ 462:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 463:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   if (WakeUpSelection.WakeUpEvent == UART_WAKEUP_ON_ADDRESS)
+ 449              		.loc 1 463 3 discriminator 2 view .LVU127
+ 450              		.loc 1 463 6 is_stmt 0 discriminator 2 view .LVU128
+ 451 0034 71B9     		cbnz	r1, .L34
+ 464:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 465:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     UARTEx_Wakeup_AddressConfig(huart, WakeUpSelection);
+ 452              		.loc 1 465 5 is_stmt 1 view .LVU129
+ 453              	.LBB4:
+ 454              	.LBB5:
+ 466:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 467:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 468:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Enable the Peripheral */
+ 469:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UART_ENABLE(huart);
+ 470:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 471:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Init tickstart for timeout managment*/
+ 472:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   tickstart = HAL_GetTick();
+ 473:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 474:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Wait until REACK flag is set */
+ 475:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   if (UART_WaitOnFlagUntilTimeout(huart, USART_ISR_REACK, RESET, tickstart, HAL_UART_TIMEOUT_VALUE)
+ 476:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 477:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     status = HAL_TIMEOUT;
+ 478:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 479:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   else
+ 480:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 481:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     /* Initialize the UART State */
+ 482:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****     huart->gState = HAL_UART_STATE_READY;
+ 483:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 484:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 485:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Unlocked */
+ 486:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UNLOCK(huart);
+ 487:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 488:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   return status;
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 18
+
+
+ 489:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 490:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 491:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 492:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief Enable UART Stop Mode.
+ 493:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @note The UART is able to wake up the MCU from Stop 1 mode as long as UART clock is HSI or LSE.
+ 494:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param huart UART handle.
+ 495:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval HAL status
+ 496:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 497:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_UARTEx_EnableStopMode(UART_HandleTypeDef *huart)
+ 498:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 499:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 500:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_LOCK(huart);
+ 501:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 502:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Set UESM bit */
+ 503:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   SET_BIT(huart->Instance->CR1, USART_CR1_UESM);
+ 504:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 505:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Unlocked */
+ 506:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UNLOCK(huart);
+ 507:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 508:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   return HAL_OK;
+ 509:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 510:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 511:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 512:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief Disable UART Stop Mode.
+ 513:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param huart UART handle.
+ 514:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval HAL status
+ 515:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 516:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_UARTEx_DisableStopMode(UART_HandleTypeDef *huart)
+ 517:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 518:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 519:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_LOCK(huart);
+ 520:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 521:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Clear UESM bit */
+ 522:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   CLEAR_BIT(huart->Instance->CR1, USART_CR1_UESM);
+ 523:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 524:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Unlocked */
+ 525:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UNLOCK(huart);
+ 526:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 527:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   return HAL_OK;
+ 528:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 529:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 530:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #if defined(USART_CR1_FIFOEN)
+ 531:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 532:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief  Enable the FIFO mode.
+ 533:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param huart      UART handle.
+ 534:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval HAL status
+ 535:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 536:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_UARTEx_EnableFifoMode(UART_HandleTypeDef *huart)
+ 537:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 538:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   uint32_t tmpcr1;
+ 539:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 540:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check parameters */
+ 541:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_FIFO_INSTANCE(huart->Instance));
+ 542:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 543:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 544:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_LOCK(huart);
+ 545:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 19
+
+
+ 546:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_BUSY;
+ 547:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 548:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Save actual UART configuration */
+ 549:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   tmpcr1 = READ_REG(huart->Instance->CR1);
+ 550:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 551:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Disable UART */
+ 552:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UART_DISABLE(huart);
+ 553:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 554:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Enable FIFO mode */
+ 555:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   SET_BIT(tmpcr1, USART_CR1_FIFOEN);
+ 556:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->FifoMode = UART_FIFOMODE_ENABLE;
+ 557:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 558:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Restore UART configuration */
+ 559:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   WRITE_REG(huart->Instance->CR1, tmpcr1);
+ 560:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 561:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Determine the number of data to process during RX/TX ISR execution */
+ 562:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   UARTEx_SetNbDataToProcess(huart);
+ 563:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 564:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_READY;
+ 565:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 566:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Unlocked */
+ 567:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UNLOCK(huart);
+ 568:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 569:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   return HAL_OK;
+ 570:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 571:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 572:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 573:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief  Disable the FIFO mode.
+ 574:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param huart      UART handle.
+ 575:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval HAL status
+ 576:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 577:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_UARTEx_DisableFifoMode(UART_HandleTypeDef *huart)
+ 578:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 579:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   uint32_t tmpcr1;
+ 580:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 581:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check parameters */
+ 582:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_FIFO_INSTANCE(huart->Instance));
+ 583:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 584:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 585:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_LOCK(huart);
+ 586:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 587:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_BUSY;
+ 588:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 589:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Save actual UART configuration */
+ 590:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   tmpcr1 = READ_REG(huart->Instance->CR1);
+ 591:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 592:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Disable UART */
+ 593:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UART_DISABLE(huart);
+ 594:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 595:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Enable FIFO mode */
+ 596:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   CLEAR_BIT(tmpcr1, USART_CR1_FIFOEN);
+ 597:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->FifoMode = UART_FIFOMODE_DISABLE;
+ 598:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 599:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Restore UART configuration */
+ 600:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   WRITE_REG(huart->Instance->CR1, tmpcr1);
+ 601:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 602:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_READY;
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 20
+
+
+ 603:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 604:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Unlocked */
+ 605:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UNLOCK(huart);
+ 606:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 607:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   return HAL_OK;
+ 608:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 609:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 610:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 611:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief  Set the TXFIFO threshold.
+ 612:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param huart      UART handle.
+ 613:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param Threshold  TX FIFO threshold value
+ 614:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          This parameter can be one of the following values:
+ 615:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_TXFIFO_THRESHOLD_1_8
+ 616:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_TXFIFO_THRESHOLD_1_4
+ 617:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_TXFIFO_THRESHOLD_1_2
+ 618:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_TXFIFO_THRESHOLD_3_4
+ 619:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_TXFIFO_THRESHOLD_7_8
+ 620:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_TXFIFO_THRESHOLD_8_8
+ 621:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval HAL status
+ 622:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 623:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_UARTEx_SetTxFifoThreshold(UART_HandleTypeDef *huart, uint32_t Threshold)
+ 624:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 625:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   uint32_t tmpcr1;
+ 626:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 627:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check parameters */
+ 628:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_FIFO_INSTANCE(huart->Instance));
+ 629:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_TXFIFO_THRESHOLD(Threshold));
+ 630:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 631:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 632:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_LOCK(huart);
+ 633:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 634:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_BUSY;
+ 635:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 636:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Save actual UART configuration */
+ 637:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   tmpcr1 = READ_REG(huart->Instance->CR1);
+ 638:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 639:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Disable UART */
+ 640:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UART_DISABLE(huart);
+ 641:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 642:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Update TX threshold configuration */
+ 643:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   MODIFY_REG(huart->Instance->CR3, USART_CR3_TXFTCFG, Threshold);
+ 644:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 645:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Determine the number of data to process during RX/TX ISR execution */
+ 646:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   UARTEx_SetNbDataToProcess(huart);
+ 647:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 648:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Restore UART configuration */
+ 649:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   WRITE_REG(huart->Instance->CR1, tmpcr1);
+ 650:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 651:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_READY;
+ 652:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 653:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Unlocked */
+ 654:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UNLOCK(huart);
+ 655:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 656:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   return HAL_OK;
+ 657:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 658:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 659:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 21
+
+
+ 660:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief  Set the RXFIFO threshold.
+ 661:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param huart      UART handle.
+ 662:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param Threshold  RX FIFO threshold value
+ 663:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *          This parameter can be one of the following values:
+ 664:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_RXFIFO_THRESHOLD_1_8
+ 665:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_RXFIFO_THRESHOLD_1_4
+ 666:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_RXFIFO_THRESHOLD_1_2
+ 667:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_RXFIFO_THRESHOLD_3_4
+ 668:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_RXFIFO_THRESHOLD_7_8
+ 669:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   *            @arg @ref UART_RXFIFO_THRESHOLD_8_8
+ 670:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval HAL status
+ 671:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 672:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** HAL_StatusTypeDef HAL_UARTEx_SetRxFifoThreshold(UART_HandleTypeDef *huart, uint32_t Threshold)
+ 673:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 674:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   uint32_t tmpcr1;
+ 675:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 676:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Check the parameters */
+ 677:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_FIFO_INSTANCE(huart->Instance));
+ 678:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_RXFIFO_THRESHOLD(Threshold));
+ 679:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 680:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 681:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_LOCK(huart);
+ 682:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 683:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_BUSY;
+ 684:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 685:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Save actual UART configuration */
+ 686:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   tmpcr1 = READ_REG(huart->Instance->CR1);
+ 687:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 688:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Disable UART */
+ 689:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UART_DISABLE(huart);
+ 690:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 691:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Update RX threshold configuration */
+ 692:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   MODIFY_REG(huart->Instance->CR3, USART_CR3_RXFTCFG, Threshold);
+ 693:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 694:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Determine the number of data to process during RX/TX ISR execution */
+ 695:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   UARTEx_SetNbDataToProcess(huart);
+ 696:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 697:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Restore UART configuration */
+ 698:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   WRITE_REG(huart->Instance->CR1, tmpcr1);
+ 699:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 700:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   huart->gState = HAL_UART_STATE_READY;
+ 701:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 702:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Unlocked */
+ 703:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   __HAL_UNLOCK(huart);
+ 704:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 705:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   return HAL_OK;
+ 706:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 707:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 708:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** #endif /* USART_CR1_FIFOEN */
+ 709:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 710:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @}
+ 711:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 712:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 713:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 714:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @}
+ 715:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 716:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 22
+
+
+ 717:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /** @addtogroup UARTEx_Private_Functions
+ 718:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @{
+ 719:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 720:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 721:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** /**
+ 722:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @brief Initialize the UART wake-up from stop mode parameters when triggered by address detectio
+ 723:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param huart           UART handle.
+ 724:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @param WakeUpSelection UART wake up from stop mode parameters.
+ 725:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   * @retval None
+ 726:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   */
+ 727:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** static void UARTEx_Wakeup_AddressConfig(UART_HandleTypeDef *huart, UART_WakeUpTypeDef WakeUpSelecti
+ 728:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 729:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   assert_param(IS_UART_ADDRESSLENGTH_DETECT(WakeUpSelection.AddressLength));
+ 730:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 731:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Set the USART address length */
+ 732:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   MODIFY_REG(huart->Instance->CR2, USART_CR2_ADDM7, WakeUpSelection.AddressLength);
+ 455              		.loc 1 732 3 is_stmt 0 view .LVU130
+ 456 0036 5968     		ldr	r1, [r3, #4]
+ 457              	.LVL30:
+ 458              		.loc 1 732 3 view .LVU131
+ 459 0038 BDF80C20 		ldrh	r2, [sp, #12]
+ 460              	.LBE5:
+ 461              	.LBE4:
+ 465:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 462              		.loc 1 465 5 view .LVU132
+ 463 003c 9DF80E00 		ldrb	r0, [sp, #14]	@ zero_extendqisi2
+ 464              	.LVL31:
+ 465              	.LBB7:
+ 466              	.LBI4:
+ 727:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** {
+ 467              		.loc 1 727 13 is_stmt 1 view .LVU133
+ 468              	.LBB6:
+ 729:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 469              		.loc 1 729 3 view .LVU134
+ 470              		.loc 1 732 3 view .LVU135
+ 471 0040 21F01001 		bic	r1, r1, #16
+ 472 0044 1143     		orrs	r1, r1, r2
+ 473 0046 5960     		str	r1, [r3, #4]
+ 733:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 734:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Set the USART address node */
+ 735:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   MODIFY_REG(huart->Instance->CR2, USART_CR2_ADD, ((uint32_t)WakeUpSelection.Address << UART_CR2_AD
+ 474              		.loc 1 735 3 view .LVU136
+ 475 0048 5A68     		ldr	r2, [r3, #4]
+ 476 004a 22F07F42 		bic	r2, r2, #-16777216
+ 477 004e 42EA0062 		orr	r2, r2, r0, lsl #24
+ 478 0052 5A60     		str	r2, [r3, #4]
+ 479              	.LVL32:
+ 480              	.L34:
+ 481              		.loc 1 735 3 is_stmt 0 view .LVU137
+ 482              	.LBE6:
+ 483              	.LBE7:
+ 469:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 484              		.loc 1 469 3 is_stmt 1 view .LVU138
+ 485 0054 1A68     		ldr	r2, [r3]
+ 486 0056 42F00102 		orr	r2, r2, #1
+ 487 005a 1A60     		str	r2, [r3]
+ 472:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 23
+
+
+ 488              		.loc 1 472 3 view .LVU139
+ 472:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 489              		.loc 1 472 15 is_stmt 0 view .LVU140
+ 490 005c FFF7FEFF 		bl	HAL_GetTick
+ 491              	.LVL33:
+ 475:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 492              		.loc 1 475 7 view .LVU141
+ 493 0060 6FF07E42 		mvn	r2, #-33554432
+ 472:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 494              		.loc 1 472 15 view .LVU142
+ 495 0064 0346     		mov	r3, r0
+ 496              	.LVL34:
+ 475:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 497              		.loc 1 475 3 is_stmt 1 view .LVU143
+ 475:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 498              		.loc 1 475 7 is_stmt 0 view .LVU144
+ 499 0066 0092     		str	r2, [sp]
+ 500 0068 4FF48001 		mov	r1, #4194304
+ 501 006c 0022     		movs	r2, #0
+ 502 006e 2046     		mov	r0, r4
+ 503              	.LVL35:
+ 475:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 504              		.loc 1 475 7 view .LVU145
+ 505 0070 FFF7FEFF 		bl	UART_WaitOnFlagUntilTimeout
+ 506              	.LVL36:
+ 475:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   {
+ 507              		.loc 1 475 6 view .LVU146
+ 508 0074 30B9     		cbnz	r0, .L37
+ 482:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 509              		.loc 1 482 5 is_stmt 1 view .LVU147
+ 482:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 510              		.loc 1 482 19 is_stmt 0 view .LVU148
+ 511 0076 2023     		movs	r3, #32
+ 512 0078 6367     		str	r3, [r4, #116]
+ 513              	.L35:
+ 514              	.LVL37:
+ 486:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 515              		.loc 1 486 3 is_stmt 1 view .LVU149
+ 486:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 516              		.loc 1 486 3 view .LVU150
+ 517 007a 0023     		movs	r3, #0
+ 518 007c 84F87030 		strb	r3, [r4, #112]
+ 486:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 519              		.loc 1 486 3 view .LVU151
+ 488:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 520              		.loc 1 488 3 view .LVU152
+ 489:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 521              		.loc 1 489 1 is_stmt 0 view .LVU153
+ 522 0080 04B0     		add	sp, sp, #16
+ 523              	.LCFI8:
+ 524              		.cfi_remember_state
+ 525              		.cfi_def_cfa_offset 8
+ 526              		@ sp needed
+ 527 0082 10BD     		pop	{r4, pc}
+ 528              	.LVL38:
+ 529              	.L37:
+ 530              	.LCFI9:
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 24
+
+
+ 531              		.cfi_restore_state
+ 477:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   }
+ 532              		.loc 1 477 12 view .LVU154
+ 533 0084 0320     		movs	r0, #3
+ 534 0086 F8E7     		b	.L35
+ 535              	.LVL39:
+ 536              	.L36:
+ 453:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 537              		.loc 1 453 3 view .LVU155
+ 538 0088 0220     		movs	r0, #2
+ 539              	.LVL40:
+ 489:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 540              		.loc 1 489 1 view .LVU156
+ 541 008a 04B0     		add	sp, sp, #16
+ 542              	.LCFI10:
+ 543              		.cfi_def_cfa_offset 8
+ 544              		@ sp needed
+ 545 008c 10BD     		pop	{r4, pc}
+ 546              		.cfi_endproc
+ 547              	.LFE128:
+ 549 008e 00BF     		.section	.text.HAL_UARTEx_EnableStopMode,"ax",%progbits
+ 550              		.align	1
+ 551              		.p2align 2,,3
+ 552              		.global	HAL_UARTEx_EnableStopMode
+ 553              		.syntax unified
+ 554              		.thumb
+ 555              		.thumb_func
+ 556              		.fpu fpv4-sp-d16
+ 558              	HAL_UARTEx_EnableStopMode:
+ 559              	.LVL41:
+ 560              	.LFB129:
+ 498:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 561              		.loc 1 498 1 is_stmt 1 view -0
+ 562              		.cfi_startproc
+ 563              		@ args = 0, pretend = 0, frame = 0
+ 564              		@ frame_needed = 0, uses_anonymous_args = 0
+ 565              		@ link register save eliminated.
+ 500:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 566              		.loc 1 500 3 view .LVU158
+ 500:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 567              		.loc 1 500 3 view .LVU159
+ 568 0000 90F87020 		ldrb	r2, [r0, #112]	@ zero_extendqisi2
+ 569 0004 012A     		cmp	r2, #1
+ 498:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 570              		.loc 1 498 1 is_stmt 0 view .LVU160
+ 571 0006 0346     		mov	r3, r0
+ 500:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 572              		.loc 1 500 3 view .LVU161
+ 573 0008 09D0     		beq	.L41
+ 500:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 574              		.loc 1 500 3 is_stmt 1 discriminator 2 view .LVU162
+ 500:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 575              		.loc 1 500 3 discriminator 2 view .LVU163
+ 503:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 576              		.loc 1 503 3 discriminator 2 view .LVU164
+ 577 000a 0068     		ldr	r0, [r0]
+ 578              	.LVL42:
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 25
+
+
+ 503:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 579              		.loc 1 503 3 is_stmt 0 discriminator 2 view .LVU165
+ 580 000c 0268     		ldr	r2, [r0]
+ 506:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 581              		.loc 1 506 3 discriminator 2 view .LVU166
+ 582 000e 0021     		movs	r1, #0
+ 503:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 583              		.loc 1 503 3 discriminator 2 view .LVU167
+ 584 0010 42F00202 		orr	r2, r2, #2
+ 585 0014 0260     		str	r2, [r0]
+ 506:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 586              		.loc 1 506 3 is_stmt 1 discriminator 2 view .LVU168
+ 506:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 587              		.loc 1 506 3 discriminator 2 view .LVU169
+ 508:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 588              		.loc 1 508 10 is_stmt 0 discriminator 2 view .LVU170
+ 589 0016 0846     		mov	r0, r1
+ 506:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 590              		.loc 1 506 3 discriminator 2 view .LVU171
+ 591 0018 83F87010 		strb	r1, [r3, #112]
+ 506:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 592              		.loc 1 506 3 is_stmt 1 discriminator 2 view .LVU172
+ 508:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 593              		.loc 1 508 3 discriminator 2 view .LVU173
+ 508:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 594              		.loc 1 508 10 is_stmt 0 discriminator 2 view .LVU174
+ 595 001c 7047     		bx	lr
+ 596              	.LVL43:
+ 597              	.L41:
+ 500:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 598              		.loc 1 500 3 view .LVU175
+ 599 001e 0220     		movs	r0, #2
+ 600              	.LVL44:
+ 509:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 601              		.loc 1 509 1 view .LVU176
+ 602 0020 7047     		bx	lr
+ 603              		.cfi_endproc
+ 604              	.LFE129:
+ 606 0022 00BF     		.section	.text.HAL_UARTEx_DisableStopMode,"ax",%progbits
+ 607              		.align	1
+ 608              		.p2align 2,,3
+ 609              		.global	HAL_UARTEx_DisableStopMode
+ 610              		.syntax unified
+ 611              		.thumb
+ 612              		.thumb_func
+ 613              		.fpu fpv4-sp-d16
+ 615              	HAL_UARTEx_DisableStopMode:
+ 616              	.LVL45:
+ 617              	.LFB130:
+ 517:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 618              		.loc 1 517 1 is_stmt 1 view -0
+ 619              		.cfi_startproc
+ 620              		@ args = 0, pretend = 0, frame = 0
+ 621              		@ frame_needed = 0, uses_anonymous_args = 0
+ 622              		@ link register save eliminated.
+ 519:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 623              		.loc 1 519 3 view .LVU178
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 26
+
+
+ 519:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 624              		.loc 1 519 3 view .LVU179
+ 625 0000 90F87020 		ldrb	r2, [r0, #112]	@ zero_extendqisi2
+ 626 0004 012A     		cmp	r2, #1
+ 517:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c ****   /* Process Locked */
+ 627              		.loc 1 517 1 is_stmt 0 view .LVU180
+ 628 0006 0346     		mov	r3, r0
+ 519:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 629              		.loc 1 519 3 view .LVU181
+ 630 0008 09D0     		beq	.L44
+ 519:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 631              		.loc 1 519 3 is_stmt 1 discriminator 2 view .LVU182
+ 519:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 632              		.loc 1 519 3 discriminator 2 view .LVU183
+ 522:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 633              		.loc 1 522 3 discriminator 2 view .LVU184
+ 634 000a 0068     		ldr	r0, [r0]
+ 635              	.LVL46:
+ 522:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 636              		.loc 1 522 3 is_stmt 0 discriminator 2 view .LVU185
+ 637 000c 0268     		ldr	r2, [r0]
+ 525:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 638              		.loc 1 525 3 discriminator 2 view .LVU186
+ 639 000e 0021     		movs	r1, #0
+ 522:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 640              		.loc 1 522 3 discriminator 2 view .LVU187
+ 641 0010 22F00202 		bic	r2, r2, #2
+ 642 0014 0260     		str	r2, [r0]
+ 525:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 643              		.loc 1 525 3 is_stmt 1 discriminator 2 view .LVU188
+ 525:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 644              		.loc 1 525 3 discriminator 2 view .LVU189
+ 527:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 645              		.loc 1 527 10 is_stmt 0 discriminator 2 view .LVU190
+ 646 0016 0846     		mov	r0, r1
+ 525:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 647              		.loc 1 525 3 discriminator 2 view .LVU191
+ 648 0018 83F87010 		strb	r1, [r3, #112]
+ 525:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 649              		.loc 1 525 3 is_stmt 1 discriminator 2 view .LVU192
+ 527:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 650              		.loc 1 527 3 discriminator 2 view .LVU193
+ 527:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** }
+ 651              		.loc 1 527 10 is_stmt 0 discriminator 2 view .LVU194
+ 652 001c 7047     		bx	lr
+ 653              	.LVL47:
+ 654              	.L44:
+ 519:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 655              		.loc 1 519 3 view .LVU195
+ 656 001e 0220     		movs	r0, #2
+ 657              	.LVL48:
+ 528:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_uart_ex.c **** 
+ 658              		.loc 1 528 1 view .LVU196
+ 659 0020 7047     		bx	lr
+ 660              		.cfi_endproc
+ 661              	.LFE130:
+ 663 0022 00BF     		.text
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 27
+
+
+ 664              	.Letext0:
+ 665              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 666              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 667              		.file 4 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arch
+ 668              		.file 5 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32
+ 669              		.file 6 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l496xx.
+ 670              		.file 7 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h"
+ 671              		.file 8 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 672              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_dma.h"
+ 673              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.
+ 674              		.file 11 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h
+ 675              		.file 12 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart_e
+ 676              		.file 13 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ARM GAS  T:\msys\tmp\ccezlP2E.s 			page 28
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32l4xx_hal_uart_ex.c
+T:\msys\tmp\ccezlP2E.s:18     .text.HAL_RS485Ex_Init:00000000 $t
+T:\msys\tmp\ccezlP2E.s:27     .text.HAL_RS485Ex_Init:00000000 HAL_RS485Ex_Init
+T:\msys\tmp\ccezlP2E.s:183    .text.HAL_UARTEx_WakeupCallback:00000000 $t
+T:\msys\tmp\ccezlP2E.s:191    .text.HAL_UARTEx_WakeupCallback:00000000 HAL_UARTEx_WakeupCallback
+T:\msys\tmp\ccezlP2E.s:206    .text.HAL_UARTEx_EnableClockStopMode:00000000 $t
+T:\msys\tmp\ccezlP2E.s:214    .text.HAL_UARTEx_EnableClockStopMode:00000000 HAL_UARTEx_EnableClockStopMode
+T:\msys\tmp\ccezlP2E.s:263    .text.HAL_UARTEx_DisableClockStopMode:00000000 $t
+T:\msys\tmp\ccezlP2E.s:271    .text.HAL_UARTEx_DisableClockStopMode:00000000 HAL_UARTEx_DisableClockStopMode
+T:\msys\tmp\ccezlP2E.s:320    .text.HAL_MultiProcessorEx_AddressLength_Set:00000000 $t
+T:\msys\tmp\ccezlP2E.s:328    .text.HAL_MultiProcessorEx_AddressLength_Set:00000000 HAL_MultiProcessorEx_AddressLength_Set
+T:\msys\tmp\ccezlP2E.s:386    .text.HAL_UARTEx_StopModeWakeUpSourceConfig:00000000 $t
+T:\msys\tmp\ccezlP2E.s:394    .text.HAL_UARTEx_StopModeWakeUpSourceConfig:00000000 HAL_UARTEx_StopModeWakeUpSourceConfig
+T:\msys\tmp\ccezlP2E.s:550    .text.HAL_UARTEx_EnableStopMode:00000000 $t
+T:\msys\tmp\ccezlP2E.s:558    .text.HAL_UARTEx_EnableStopMode:00000000 HAL_UARTEx_EnableStopMode
+T:\msys\tmp\ccezlP2E.s:607    .text.HAL_UARTEx_DisableStopMode:00000000 $t
+T:\msys\tmp\ccezlP2E.s:615    .text.HAL_UARTEx_DisableStopMode:00000000 HAL_UARTEx_DisableStopMode
+
+UNDEFINED SYMBOLS
+UART_SetConfig
+UART_CheckIdleState
+UART_AdvFeatureConfig
+HAL_UART_MspInit
+HAL_GetTick
+UART_WaitOnFlagUntilTimeout

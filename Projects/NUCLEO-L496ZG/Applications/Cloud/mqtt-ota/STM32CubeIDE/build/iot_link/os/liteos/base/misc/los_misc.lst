@@ -1,0 +1,273 @@
+ARM GAS  T:\msys\tmp\cc7CQp9W.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"los_misc.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.LOS_Align,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	LOS_Align
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	LOS_Align:
+  28              	.LVL0:
+  29              	.LFB135:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * ===============================================
+ARM GAS  T:\msys\tmp\cc7CQp9W.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** 
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** #include "los_base.ph"
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** #include "los_sys.ph"
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** #include "los_task.ph"
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** #include "los_hwi.h"
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** 
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** LITE_OS_SEC_TEXT UINT32 LOS_Align(UINT32 uwAddr, UINT32 uwBoundary)
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** {
+  31              		.loc 1 41 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     if (uwAddr + uwBoundary - 1 > uwAddr) {
+  36              		.loc 1 42 5 view .LVU1
+  37              		.loc 1 42 29 is_stmt 0 view .LVU2
+  38 0000 4B1E     		subs	r3, r1, #1
+  39 0002 0344     		add	r3, r3, r0
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****         return (uwAddr + uwBoundary - 1) & ~(uwBoundary - 1);
+  40              		.loc 1 43 44 view .LVU3
+  41 0004 4942     		rsbs	r1, r1, #0
+  42              	.LVL1:
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     if (uwAddr + uwBoundary - 1 > uwAddr) {
+  43              		.loc 1 42 8 view .LVU4
+  44 0006 8342     		cmp	r3, r0
+  45              		.loc 1 43 9 is_stmt 1 view .LVU5
+  46              		.loc 1 43 42 is_stmt 0 view .LVU6
+  47 0008 8CBF     		ite	hi
+  48 000a 01EA0300 		andhi	r0, r1, r3
+  49              	.LVL2:
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     } else {
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****         return uwAddr & ~(uwBoundary - 1);
+  50              		.loc 1 45 9 is_stmt 1 view .LVU7
+  51              		.loc 1 45 23 is_stmt 0 view .LVU8
+  52 000e 0840     		andls	r0, r0, r1
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     }
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** }
+  53              		.loc 1 47 1 view .LVU9
+  54 0010 7047     		bx	lr
+  55              		.cfi_endproc
+  56              	.LFE135:
+  58 0012 00BF     		.section	.text.LOS_Msleep,"ax",%progbits
+  59              		.align	1
+  60              		.p2align 2,,3
+  61              		.global	LOS_Msleep
+  62              		.syntax unified
+  63              		.thumb
+  64              		.thumb_func
+  65              		.fpu fpv4-sp-d16
+  67              	LOS_Msleep:
+  68              	.LVL3:
+  69              	.LFB136:
+ARM GAS  T:\msys\tmp\cc7CQp9W.s 			page 3
+
+
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** 
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** LITE_OS_SEC_TEXT_MINOR VOID LOS_Msleep(UINT32 uwMsecs)
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** {
+  70              		.loc 1 50 1 is_stmt 1 view -0
+  71              		.cfi_startproc
+  72              		@ args = 0, pretend = 0, frame = 0
+  73              		@ frame_needed = 0, uses_anonymous_args = 0
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     UINT32 uwInterval = 0;
+  74              		.loc 1 51 5 view .LVU11
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** 
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     if (OS_INT_ACTIVE)
+  75              		.loc 1 53 5 view .LVU12
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     UINT32 uwInterval = 0;
+  76              		.loc 1 50 1 is_stmt 0 view .LVU13
+  77 0000 08B5     		push	{r3, lr}
+  78              	.LCFI0:
+  79              		.cfi_def_cfa_offset 8
+  80              		.cfi_offset 3, -8
+  81              		.cfi_offset 14, -4
+  82              		.loc 1 53 9 view .LVU14
+  83 0002 0B4B     		ldr	r3, .L13
+  84              		.loc 1 53 8 view .LVU15
+  85 0004 1A68     		ldr	r2, [r3]
+  86 0006 8AB9     		cbnz	r2, .L5
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     {
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****         return;
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     }
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** 
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     if (uwMsecs == 0)
+  87              		.loc 1 58 5 is_stmt 1 view .LVU16
+  88 0008 0346     		mov	r3, r0
+  89              		.loc 1 58 8 is_stmt 0 view .LVU17
+  90 000a 20B9     		cbnz	r0, .L12
+  91              	.LVL4:
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     {
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****         uwInterval = 0;
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     }
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     else
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     {
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****         uwInterval = LOS_MS2Tick(uwMsecs);
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****         if (uwInterval == 0)
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****         {
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****              uwInterval = 1;
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****         }
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     }
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** 
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****     (VOID)LOS_TaskDelay(uwInterval);
+  92              		.loc 1 71 5 is_stmt 1 view .LVU18
+  93              		.loc 1 71 11 is_stmt 0 view .LVU19
+  94 000c 1846     		mov	r0, r3
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** }
+  95              		.loc 1 72 1 view .LVU20
+  96 000e BDE80840 		pop	{r3, lr}
+  97              	.LCFI1:
+  98              		.cfi_remember_state
+  99              		.cfi_restore 14
+ 100              		.cfi_restore 3
+ARM GAS  T:\msys\tmp\cc7CQp9W.s 			page 4
+
+
+ 101              		.cfi_def_cfa_offset 0
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** }
+ 102              		.loc 1 71 11 view .LVU21
+ 103 0012 FFF7FEBF 		b	LOS_TaskDelay
+ 104              	.LVL5:
+ 105              	.L12:
+ 106              	.LCFI2:
+ 107              		.cfi_restore_state
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****         if (uwInterval == 0)
+ 108              		.loc 1 64 9 is_stmt 1 view .LVU22
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****         if (uwInterval == 0)
+ 109              		.loc 1 64 22 is_stmt 0 view .LVU23
+ 110 0016 FFF7FEFF 		bl	LOS_MS2Tick
+ 111              	.LVL6:
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c ****         {
+ 112              		.loc 1 65 9 is_stmt 1 view .LVU24
+ 113 001a 0128     		cmp	r0, #1
+ 114 001c 0346     		mov	r3, r0
+ 115 001e 38BF     		it	cc
+ 116 0020 0123     		movcc	r3, #1
+ 117              	.LVL7:
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** }
+ 118              		.loc 1 71 5 view .LVU25
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** }
+ 119              		.loc 1 71 11 is_stmt 0 view .LVU26
+ 120 0022 1846     		mov	r0, r3
+ 121              		.loc 1 72 1 view .LVU27
+ 122 0024 BDE80840 		pop	{r3, lr}
+ 123              	.LCFI3:
+ 124              		.cfi_remember_state
+ 125              		.cfi_restore 14
+ 126              		.cfi_restore 3
+ 127              		.cfi_def_cfa_offset 0
+ 128              	.LVL8:
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/misc\los_misc.c **** }
+ 129              		.loc 1 71 11 view .LVU28
+ 130 0028 FFF7FEBF 		b	LOS_TaskDelay
+ 131              	.LVL9:
+ 132              	.L5:
+ 133              	.LCFI4:
+ 134              		.cfi_restore_state
+ 135              		.loc 1 72 1 view .LVU29
+ 136 002c 08BD     		pop	{r3, pc}
+ 137              	.L14:
+ 138 002e 00BF     		.align	2
+ 139              	.L13:
+ 140 0030 00000000 		.word	g_vuwIntCount
+ 141              		.cfi_endproc
+ 142              	.LFE136:
+ 144              		.text
+ 145              	.Letext0:
+ 146              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 147              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 148              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 149              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 150              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 151              		.file 7 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/incl
+ARM GAS  T:\msys\tmp\cc7CQp9W.s 			page 5
+
+
+ 152              		.file 8 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 153              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arch
+ 154              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm3
+ 155              		.file 11 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 156              		.file 12 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.
+ 157              		.file 13 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ 158              		.file 14 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 159              		.file 15 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 160              		.file 16 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 161              		.file 17 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arc
+ 162              		.file 18 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 163              		.file 19 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 164              		.file 20 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 165              		.file 21 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/bas
+ 166              		.file 22 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ARM GAS  T:\msys\tmp\cc7CQp9W.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_misc.c
+T:\msys\tmp\cc7CQp9W.s:18     .text.LOS_Align:00000000 $t
+T:\msys\tmp\cc7CQp9W.s:27     .text.LOS_Align:00000000 LOS_Align
+T:\msys\tmp\cc7CQp9W.s:59     .text.LOS_Msleep:00000000 $t
+T:\msys\tmp\cc7CQp9W.s:67     .text.LOS_Msleep:00000000 LOS_Msleep
+T:\msys\tmp\cc7CQp9W.s:140    .text.LOS_Msleep:00000030 $d
+
+UNDEFINED SYMBOLS
+LOS_TaskDelay
+LOS_MS2Tick
+g_vuwIntCount

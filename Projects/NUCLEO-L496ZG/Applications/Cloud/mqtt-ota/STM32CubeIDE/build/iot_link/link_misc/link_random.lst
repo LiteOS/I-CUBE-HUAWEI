@@ -1,0 +1,239 @@
+ARM GAS  T:\msys\tmp\ccjIj2ND.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"link_random.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.link_random,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.weak	link_random
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	link_random:
+  28              	.LVL0:
+  29              	.LFB3:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc/link
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * ===============================================
+ARM GAS  T:\msys\tmp\ccjIj2ND.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** /**
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  *  DATE                AUTHOR      INSTRUCTION
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  *  2019-05-10 10:26  zhangqianfu  The first version  
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  *
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****  */
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** #include <stdint.h>
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** #include <stddef.h>
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** 
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** #include <stdlib.h>
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** #include <string.h>
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** 
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** #include <osal.h>
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** 
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** __attribute__((weak)) int link_random(void* output, int len)
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** {
+  31              		.loc 1 48 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 8
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     int i;
+  35              		.loc 1 49 5 view .LVU1
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     int random_number;
+  36              		.loc 1 50 5 view .LVU2
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     char* pbuf;
+  37              		.loc 1 51 5 view .LVU3
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** 
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     if (NULL == output)
+  38              		.loc 1 53 5 view .LVU4
+  39              		.loc 1 53 8 is_stmt 0 view .LVU5
+  40 0000 E8B1     		cbz	r0, .L5
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     int i;
+  41              		.loc 1 48 1 view .LVU6
+  42 0002 70B5     		push	{r4, r5, r6, lr}
+  43              	.LCFI0:
+  44              		.cfi_def_cfa_offset 16
+  45              		.cfi_offset 4, -16
+  46              		.cfi_offset 5, -12
+  47              		.cfi_offset 6, -8
+  48              		.cfi_offset 14, -4
+  49 0004 82B0     		sub	sp, sp, #8
+  50              	.LCFI1:
+  51              		.cfi_def_cfa_offset 24
+  52 0006 0D46     		mov	r5, r1
+  53 0008 0646     		mov	r6, r0
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     {
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****         return -1;
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     }
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** 
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     pbuf = output;
+  54              		.loc 1 58 5 is_stmt 1 view .LVU7
+  55              	.LVL1:
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     srand(osal_sys_time());
+ARM GAS  T:\msys\tmp\ccjIj2ND.s 			page 3
+
+
+  56              		.loc 1 59 5 view .LVU8
+  57              		.loc 1 59 11 is_stmt 0 view .LVU9
+  58 000a FFF7FEFF 		bl	osal_sys_time
+  59              	.LVL2:
+  60              		.loc 1 59 5 view .LVU10
+  61 000e FFF7FEFF 		bl	srand
+  62              	.LVL3:
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** 
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     for (i = 0; i < len; i += sizeof(int))
+  63              		.loc 1 61 5 is_stmt 1 view .LVU11
+  64              		.loc 1 61 17 view .LVU12
+  65              		.loc 1 61 5 is_stmt 0 view .LVU13
+  66 0012 002D     		cmp	r5, #0
+  67              		.loc 1 61 12 view .LVU14
+  68 0014 C8BF     		it	gt
+  69 0016 0024     		movgt	r4, #0
+  70              		.loc 1 61 5 view .LVU15
+  71 0018 0EDD     		ble	.L4
+  72              	.LVL4:
+  73              	.L3:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     {
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****         random_number = rand();
+  74              		.loc 1 63 9 is_stmt 1 discriminator 3 view .LVU16
+  75              		.loc 1 63 25 is_stmt 0 discriminator 3 view .LVU17
+  76 001a FFF7FEFF 		bl	rand
+  77              	.LVL5:
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****         (void) memcpy(pbuf + i, &random_number,
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****                sizeof(int) > (unsigned int)(len - i)? (unsigned int)(len - i): sizeof(int));
+  78              		.loc 1 65 49 discriminator 3 view .LVU18
+  79 001e 2A1B     		subs	r2, r5, r4
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****         (void) memcpy(pbuf + i, &random_number,
+  80              		.loc 1 64 16 discriminator 3 view .LVU19
+  81 0020 042A     		cmp	r2, #4
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****         (void) memcpy(pbuf + i, &random_number,
+  82              		.loc 1 63 25 discriminator 3 view .LVU20
+  83 0022 0346     		mov	r3, r0
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****         (void) memcpy(pbuf + i, &random_number,
+  84              		.loc 1 64 16 discriminator 3 view .LVU21
+  85 0024 28BF     		it	cs
+  86 0026 0422     		movcs	r2, #4
+  87 0028 3019     		adds	r0, r6, r4
+  88 002a 01A9     		add	r1, sp, #4
+  89 002c 0434     		adds	r4, r4, #4
+  90              	.LVL6:
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****         (void) memcpy(pbuf + i, &random_number,
+  91              		.loc 1 63 23 discriminator 3 view .LVU22
+  92 002e 0193     		str	r3, [sp, #4]
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****         (void) memcpy(pbuf + i, &random_number,
+  93              		.loc 1 64 9 is_stmt 1 discriminator 3 view .LVU23
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****         (void) memcpy(pbuf + i, &random_number,
+  94              		.loc 1 64 16 is_stmt 0 discriminator 3 view .LVU24
+  95 0030 FFF7FEFF 		bl	memcpy
+  96              	.LVL7:
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     {
+  97              		.loc 1 61 26 is_stmt 1 discriminator 3 view .LVU25
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     {
+  98              		.loc 1 61 17 discriminator 3 view .LVU26
+ARM GAS  T:\msys\tmp\ccjIj2ND.s 			page 4
+
+
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     {
+  99              		.loc 1 61 5 is_stmt 0 discriminator 3 view .LVU27
+ 100 0034 A542     		cmp	r5, r4
+ 101 0036 F0DC     		bgt	.L3
+ 102              	.LVL8:
+ 103              	.L4:
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     }
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** 
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     return 0;
+ 104              		.loc 1 68 12 view .LVU28
+ 105 0038 0020     		movs	r0, #0
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c **** }
+ 106              		.loc 1 69 1 view .LVU29
+ 107 003a 02B0     		add	sp, sp, #8
+ 108              	.LCFI2:
+ 109              		.cfi_def_cfa_offset 16
+ 110              		@ sp needed
+ 111 003c 70BD     		pop	{r4, r5, r6, pc}
+ 112              	.LVL9:
+ 113              	.L5:
+ 114              	.LCFI3:
+ 115              		.cfi_def_cfa_offset 0
+ 116              		.cfi_restore 4
+ 117              		.cfi_restore 5
+ 118              		.cfi_restore 6
+ 119              		.cfi_restore 14
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc\link_random.c ****     }
+ 120              		.loc 1 55 16 view .LVU30
+ 121 003e 4FF0FF30 		mov	r0, #-1
+ 122              	.LVL10:
+ 123              		.loc 1 69 1 view .LVU31
+ 124 0042 7047     		bx	lr
+ 125              		.cfi_endproc
+ 126              	.LFE3:
+ 128              		.text
+ 129              	.Letext0:
+ 130              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 131              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 132              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 133              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 134              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\stdlib.h
+ 135              		.file 7 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/osal/osal.h
+ 136              		.file 8 "<built-in>"
+ARM GAS  T:\msys\tmp\ccjIj2ND.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 link_random.c
+T:\msys\tmp\ccjIj2ND.s:18     .text.link_random:00000000 $t
+T:\msys\tmp\ccjIj2ND.s:27     .text.link_random:00000000 link_random
+
+UNDEFINED SYMBOLS
+osal_sys_time
+srand
+rand
+memcpy

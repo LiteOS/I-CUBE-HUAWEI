@@ -1,0 +1,1459 @@
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32l4xx_hal_pwr.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.HAL_PWR_DeInit,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	HAL_PWR_DeInit
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	HAL_PWR_DeInit:
+  28              	.LFB123:
+  29              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c"
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   ******************************************************************************
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @file    stm32l4xx_hal_pwr.c
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @author  MCD Application Team
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief   PWR HAL module driver.
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *          This file provides firmware functions to manage the following
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *          functionalities of the Power Controller (PWR) peripheral:
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *           + Initialization/de-initialization functions
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *           + Peripheral Control functions
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   ******************************************************************************
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @attention
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * All rights reserved.</center></h2>
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * the "License"; You may not use this file except in compliance with the
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * License. You may obtain a copy of the License at:
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *                        opensource.org/licenses/BSD-3-Clause
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   ******************************************************************************
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /* Includes ------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** #include "stm32l4xx_hal.h"
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /** @addtogroup STM32L4xx_HAL_Driver
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @{
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 2
+
+
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /** @defgroup PWR PWR
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief PWR HAL module driver
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @{
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** #ifdef HAL_PWR_MODULE_ENABLED
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /* Private typedef -----------------------------------------------------------*/
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /* Private define ------------------------------------------------------------*/
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /** @defgroup PWR_Private_Defines PWR Private Defines
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @{
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /** @defgroup PWR_PVD_Mode_Mask PWR PVD Mode Mask
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @{
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** #define PVD_MODE_IT               ((uint32_t)0x00010000)  /*!< Mask for interruption yielded by PVD
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** #define PVD_MODE_EVT              ((uint32_t)0x00020000)  /*!< Mask for event yielded by PVD thresh
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** #define PVD_RISING_EDGE           ((uint32_t)0x00000001)  /*!< Mask for rising edge set as PVD trig
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** #define PVD_FALLING_EDGE          ((uint32_t)0x00000002)  /*!< Mask for falling edge set as PVD tri
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @}
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @}
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /* Private macro -------------------------------------------------------------*/
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /* Private variables ---------------------------------------------------------*/
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /* Private function prototypes -----------------------------------------------*/
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /* Exported functions --------------------------------------------------------*/
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /** @defgroup PWR_Exported_Functions PWR Exported Functions
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @{
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /** @defgroup PWR_Exported_Functions_Group1 Initialization and de-initialization functions
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *  @brief    Initialization and de-initialization functions
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** @verbatim
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****  ===============================================================================
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****               ##### Initialization and de-initialization functions #####
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****  ===============================================================================
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     [..]
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** @endverbatim
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @{
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Deinitialize the HAL PWR peripheral registers to their default reset values.
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 3
+
+
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_DeInit(void)
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+  30              		.loc 1 88 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   __HAL_RCC_PWR_FORCE_RESET();
+  35              		.loc 1 89 3 view .LVU1
+  36 0000 044B     		ldr	r3, .L3
+  37 0002 9A6B     		ldr	r2, [r3, #56]
+  38 0004 42F08052 		orr	r2, r2, #268435456
+  39 0008 9A63     		str	r2, [r3, #56]
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   __HAL_RCC_PWR_RELEASE_RESET();
+  40              		.loc 1 90 3 view .LVU2
+  41 000a 9A6B     		ldr	r2, [r3, #56]
+  42 000c 22F08052 		bic	r2, r2, #268435456
+  43 0010 9A63     		str	r2, [r3, #56]
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+  44              		.loc 1 91 1 is_stmt 0 view .LVU3
+  45 0012 7047     		bx	lr
+  46              	.L4:
+  47              		.align	2
+  48              	.L3:
+  49 0014 00100240 		.word	1073876992
+  50              		.cfi_endproc
+  51              	.LFE123:
+  53              		.section	.text.HAL_PWR_EnableBkUpAccess,"ax",%progbits
+  54              		.align	1
+  55              		.p2align 2,,3
+  56              		.global	HAL_PWR_EnableBkUpAccess
+  57              		.syntax unified
+  58              		.thumb
+  59              		.thumb_func
+  60              		.fpu fpv4-sp-d16
+  62              	HAL_PWR_EnableBkUpAccess:
+  63              	.LFB124:
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Enable access to the backup domain
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        (RTC registers, RTC backup data registers).
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  After reset, the backup domain is protected against
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        possible unwanted write accesses.
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  RTCSEL that sets the RTC clock source selection is in the RTC back-up domain.
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        In order to set or modify the RTC clock, the backup domain access must be
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        disabled.
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  LSEON bit that switches on and off the LSE crystal belongs as well to the
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        back-up domain.
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_EnableBkUpAccess(void)
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+  64              		.loc 1 106 1 is_stmt 1 view -0
+  65              		.cfi_startproc
+  66              		@ args = 0, pretend = 0, frame = 0
+  67              		@ frame_needed = 0, uses_anonymous_args = 0
+  68              		@ link register save eliminated.
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 4
+
+
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   SET_BIT(PWR->CR1, PWR_CR1_DBP);
+  69              		.loc 1 107 3 view .LVU5
+  70 0000 024A     		ldr	r2, .L6
+  71 0002 1368     		ldr	r3, [r2]
+  72 0004 43F48073 		orr	r3, r3, #256
+  73 0008 1360     		str	r3, [r2]
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+  74              		.loc 1 108 1 is_stmt 0 view .LVU6
+  75 000a 7047     		bx	lr
+  76              	.L7:
+  77              		.align	2
+  78              	.L6:
+  79 000c 00700040 		.word	1073770496
+  80              		.cfi_endproc
+  81              	.LFE124:
+  83              		.section	.text.HAL_PWR_DisableBkUpAccess,"ax",%progbits
+  84              		.align	1
+  85              		.p2align 2,,3
+  86              		.global	HAL_PWR_DisableBkUpAccess
+  87              		.syntax unified
+  88              		.thumb
+  89              		.thumb_func
+  90              		.fpu fpv4-sp-d16
+  92              	HAL_PWR_DisableBkUpAccess:
+  93              	.LFB125:
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Disable access to the backup domain
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        (RTC registers, RTC backup data registers).
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_DisableBkUpAccess(void)
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+  94              		.loc 1 116 1 is_stmt 1 view -0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              		@ link register save eliminated.
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   CLEAR_BIT(PWR->CR1, PWR_CR1_DBP);
+  99              		.loc 1 117 3 view .LVU8
+ 100 0000 024A     		ldr	r2, .L9
+ 101 0002 1368     		ldr	r3, [r2]
+ 102 0004 23F48073 		bic	r3, r3, #256
+ 103 0008 1360     		str	r3, [r2]
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 104              		.loc 1 118 1 is_stmt 0 view .LVU9
+ 105 000a 7047     		bx	lr
+ 106              	.L10:
+ 107              		.align	2
+ 108              	.L9:
+ 109 000c 00700040 		.word	1073770496
+ 110              		.cfi_endproc
+ 111              	.LFE125:
+ 113              		.section	.text.HAL_PWR_ConfigPVD,"ax",%progbits
+ 114              		.align	1
+ 115              		.p2align 2,,3
+ 116              		.global	HAL_PWR_ConfigPVD
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 5
+
+
+ 117              		.syntax unified
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.fpu fpv4-sp-d16
+ 122              	HAL_PWR_ConfigPVD:
+ 123              	.LVL0:
+ 124              	.LFB126:
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @}
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /** @defgroup PWR_Exported_Functions_Group2 Peripheral Control functions
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *  @brief Low Power modes configuration functions
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** @verbatim
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****  ===============================================================================
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****                  ##### Peripheral Control functions #####
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****  ===============================================================================
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****      [..]
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****      *** PVD configuration ***
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     =========================
+ 141:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     [..]
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) The PVD is used to monitor the VDD power supply by comparing it to a
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           threshold selected by the PVD Level (PLS[2:0] bits in PWR_CR2 register).
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 145:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) PVDO flag is available to indicate if VDD/VDDA is higher or lower
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           than the PVD threshold. This event is internally connected to the EXTI
+ 147:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           line16 and can generate an interrupt if enabled. This is done through
+ 148:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           __HAL_PVD_EXTI_ENABLE_IT() macro.
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) The PVD is stopped in Standby mode.
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 151:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     *** WakeUp pin configuration ***
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     ================================
+ 154:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     [..]
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) WakeUp pins are used to wakeup the system from Standby mode or Shutdown mode.
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           The polarity of these pins can be set to configure event detection on high
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           level (rising edge) or low level (falling edge).
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 159:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     *** Low Power modes configuration ***
+ 162:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     =====================================
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     [..]
+ 164:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       The devices feature 8 low-power modes:
+ 165:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Low-power Run mode: core and peripherals are running, main regulator off, low power regul
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Sleep mode: Cortex-M4 core stopped, peripherals kept running, main and low power regulato
+ 167:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Low-power Sleep mode: Cortex-M4 core stopped, peripherals kept running, main regulator of
+ 168:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Stop 0 mode: all clocks are stopped except LSI and LSE, main and low power regulators on.
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 6
+
+
+ 169:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Stop 1 mode: all clocks are stopped except LSI and LSE, main regulator off, low power reg
+ 170:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Stop 2 mode: all clocks are stopped except LSI and LSE, main regulator off, low power reg
+ 171:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Standby mode with SRAM2: all clocks are stopped except LSI and LSE, SRAM2 content preserv
+ 172:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Standby mode without SRAM2: all clocks are stopped except LSI and LSE, main and low power
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Shutdown mode: all clocks are stopped except LSE, main and low power regulators off.
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 175:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    *** Low-power run mode ***
+ 177:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    ==========================
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     [..]
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Entry: (from main run mode)
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         (++) set LPR bit with HAL_PWREx_EnableLowPowerRunMode() API after having decreased the syst
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 182:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Exit:
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         (++) clear LPR bit then wait for REGLP bit to be reset with HAL_PWREx_DisableLowPowerRunMod
+ 184:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****              then can the system clock frequency be increased above 2 MHz.
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 186:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    *** Sleep mode / Low-power sleep mode ***
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    =========================================
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     [..]
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Entry:
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           The Sleep mode / Low-power Sleep mode is entered thru HAL_PWR_EnterSLEEPMode() API
+ 192:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           in specifying whether or not the regulator is forced to low-power mode and if exit is int
+ 193:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) PWR_MAINREGULATOR_ON: Sleep mode (regulator in main mode).
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) PWR_LOWPOWERREGULATOR_ON: Low-power sleep (regulator in low power mode).
+ 195:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           In the latter case, the system clock frequency must have been decreased below 2 MHz befor
+ 196:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) PWR_SLEEPENTRY_WFI: enter SLEEP mode with WFI instruction
+ 197:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) PWR_SLEEPENTRY_WFE: enter SLEEP mode with WFE instruction
+ 198:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 199:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) WFI Exit:
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         (++) Any peripheral interrupt acknowledged by the nested vectored interrupt
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****              controller (NVIC) or any wake-up event.
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) WFE Exit:
+ 204:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         (++) Any wake-up event such as an EXTI line configured in event mode.
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****          [..] When exiting the Low-power sleep mode by issuing an interrupt or a wakeup event,
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****              the MCU is in Low-power Run mode.
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    *** Stop 0, Stop 1 and Stop 2 modes ***
+ 210:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    ===============================
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     [..]
+ 212:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Entry:
+ 213:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           The Stop 0, Stop 1 or Stop 2 modes are entered thru the following API's:
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) HAL_PWREx_EnterSTOP0Mode() for mode 0 or HAL_PWREx_EnterSTOP1Mode() for mode 1 or fo
+ 215:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) HAL_PWREx_EnterSTOP2Mode() for mode 2.
+ 216:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Regulator setting (applicable to HAL_PWR_EnterSTOPMode() only):
+ 217:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) PWR_MAINREGULATOR_ON
+ 218:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) PWR_LOWPOWERREGULATOR_ON
+ 219:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Exit (interrupt or event-triggered, specified when entering STOP mode):
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) PWR_STOPENTRY_WFI: enter Stop mode with WFI instruction
+ 221:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) PWR_STOPENTRY_WFE: enter Stop mode with WFE instruction
+ 222:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) WFI Exit:
+ 224:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) Any EXTI Line (Internal or External) configured in Interrupt mode.
+ 225:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) Some specific communication peripherals (USART, LPUART, I2C) interrupts
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 7
+
+
+ 226:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****                when programmed in wakeup mode.
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) WFE Exit:
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) Any EXTI Line (Internal or External) configured in Event mode.
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****        [..]
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           When exiting Stop 0 and Stop 1 modes, the MCU is either in Run mode or in Low-power Run m
+ 232:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           depending on the LPR bit setting.
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           When exiting Stop 2 mode, the MCU is in Run mode.
+ 234:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 235:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    *** Standby mode ***
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    ====================
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****      [..]
+ 238:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       The Standby mode offers two options:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) option a) all clocks off except LSI and LSE, RRS bit set (keeps voltage regulator in low 
+ 240:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         SRAM and registers contents are lost except for the SRAM2 content, the RTC registers, RTC b
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         and Standby circuitry.
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) option b) all clocks off except LSI and LSE, RRS bit cleared (voltage regulator then disa
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         SRAM and register contents are lost except for the RTC registers, RTC backup registers
+ 244:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         and Standby circuitry.
+ 245:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 246:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (++) Entry:
+ 247:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (+++) The Standby mode is entered thru HAL_PWR_EnterSTANDBYMode() API.
+ 248:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****                 SRAM1 and register contents are lost except for registers in the Backup domain and
+ 249:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****                 Standby circuitry. SRAM2 content can be preserved if the bit RRS is set in PWR_CR3 
+ 250:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****                 To enable this feature, the user can resort to HAL_PWREx_EnableSRAM2ContentRetentio
+ 251:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****                 to set RRS bit.
+ 252:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 253:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (++) Exit:
+ 254:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (+++) WKUP pin rising edge, RTC alarm or wakeup, tamper event, time-stamp event,
+ 255:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****                 external reset in NRST pin, IWDG reset.
+ 256:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       [..]    After waking up from Standby mode, program execution restarts in the same way as afte
+ 258:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 259:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     *** Shutdown mode ***
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    ======================
+ 262:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****      [..]
+ 263:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       In Shutdown mode,
+ 264:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         voltage regulator is disabled, all clocks are off except LSE, RRS bit is cleared.
+ 265:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         SRAM and registers contents are lost except for backup domain registers.
+ 266:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 267:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Entry:
+ 268:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           The Shutdown mode is entered thru HAL_PWREx_EnterSHUTDOWNMode() API.
+ 269:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 270:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) Exit:
+ 271:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****           (++) WKUP pin rising edge, RTC alarm or wakeup, tamper event, time-stamp event,
+ 272:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****                external reset in NRST pin.
+ 273:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 274:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****          [..] After waking up from Shutdown mode, program execution restarts in the same way as aft
+ 275:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 276:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 277:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    *** Auto-wakeup (AWU) from low-power mode ***
+ 278:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    =============================================
+ 279:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     [..]
+ 280:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       The MCU can be woken up from low-power mode by an RTC Alarm event, an RTC
+ 281:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       Wakeup event, a tamper event or a time-stamp event, without depending on
+ 282:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       an external interrupt (Auto-wakeup mode).
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 8
+
+
+ 283:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 284:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       (+) RTC auto-wakeup (AWU) from the Stop, Standby and Shutdown modes
+ 285:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 286:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 287:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         (++) To wake up from the Stop mode with an RTC alarm event, it is necessary to
+ 288:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****              configure the RTC to generate the RTC alarm using the HAL_RTC_SetAlarm_IT() function.
+ 289:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 290:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         (++) To wake up from the Stop mode with an RTC Tamper or time stamp event, it
+ 291:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****              is necessary to configure the RTC to detect the tamper or time stamp event using the
+ 292:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****              HAL_RTCEx_SetTimeStamp_IT() or HAL_RTCEx_SetTamper_IT() functions.
+ 293:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 294:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         (++) To wake up from the Stop mode with an RTC WakeUp event, it is necessary to
+ 295:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****               configure the RTC to generate the RTC WakeUp event using the HAL_RTCEx_SetWakeUpTimer
+ 296:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 297:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** @endverbatim
+ 298:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @{
+ 299:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 300:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 301:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 302:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 303:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 304:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Configure the voltage threshold detected by the Power Voltage Detector (PVD).
+ 305:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @param sConfigPVD: pointer to a PWR_PVDTypeDef structure that contains the PVD
+ 306:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        configuration information.
+ 307:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note Refer to the electrical characteristics of your device datasheet for
+ 308:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         more details about the voltage thresholds corresponding to each
+ 309:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         detection level.
+ 310:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 311:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 312:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** HAL_StatusTypeDef HAL_PWR_ConfigPVD(PWR_PVDTypeDef *sConfigPVD)
+ 313:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 125              		.loc 1 313 1 is_stmt 1 view -0
+ 126              		.cfi_startproc
+ 127              		@ args = 0, pretend = 0, frame = 0
+ 128              		@ frame_needed = 0, uses_anonymous_args = 0
+ 129              		@ link register save eliminated.
+ 314:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Check the parameters */
+ 315:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   assert_param(IS_PWR_PVD_LEVEL(sConfigPVD->PVDLevel));
+ 130              		.loc 1 315 3 view .LVU11
+ 316:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   assert_param(IS_PWR_PVD_MODE(sConfigPVD->Mode));
+ 131              		.loc 1 316 3 view .LVU12
+ 317:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 318:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Set PLS bits according to PVDLevel value */
+ 319:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   MODIFY_REG(PWR->CR2, PWR_CR2_PLS, sConfigPVD->PVDLevel);
+ 132              		.loc 1 319 3 view .LVU13
+ 133 0000 1C49     		ldr	r1, .L29
+ 320:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 321:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Clear any previous config. Keep it clear if no event or IT mode is selected */
+ 322:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   __HAL_PWR_PVD_EXTI_DISABLE_EVENT();
+ 134              		.loc 1 322 3 is_stmt 0 view .LVU14
+ 135 0002 1D4B     		ldr	r3, .L29+4
+ 319:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 136              		.loc 1 319 3 view .LVU15
+ 137 0004 4A68     		ldr	r2, [r1, #4]
+ 313:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Check the parameters */
+ 138              		.loc 1 313 1 view .LVU16
+ 139 0006 10B4     		push	{r4}
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 9
+
+
+ 140              	.LCFI0:
+ 141              		.cfi_def_cfa_offset 4
+ 142              		.cfi_offset 4, -4
+ 319:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 143              		.loc 1 319 3 view .LVU17
+ 144 0008 0468     		ldr	r4, [r0]
+ 145 000a 22F00E02 		bic	r2, r2, #14
+ 146 000e 2243     		orrs	r2, r2, r4
+ 147 0010 4A60     		str	r2, [r1, #4]
+ 148              		.loc 1 322 3 is_stmt 1 view .LVU18
+ 149 0012 5A68     		ldr	r2, [r3, #4]
+ 150 0014 22F48032 		bic	r2, r2, #65536
+ 151 0018 5A60     		str	r2, [r3, #4]
+ 323:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   __HAL_PWR_PVD_EXTI_DISABLE_IT();
+ 152              		.loc 1 323 3 view .LVU19
+ 153 001a 1A68     		ldr	r2, [r3]
+ 154 001c 22F48032 		bic	r2, r2, #65536
+ 155 0020 1A60     		str	r2, [r3]
+ 324:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   __HAL_PWR_PVD_EXTI_DISABLE_FALLING_EDGE();
+ 156              		.loc 1 324 3 view .LVU20
+ 157 0022 DA68     		ldr	r2, [r3, #12]
+ 158 0024 22F48032 		bic	r2, r2, #65536
+ 159 0028 DA60     		str	r2, [r3, #12]
+ 325:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   __HAL_PWR_PVD_EXTI_DISABLE_RISING_EDGE();
+ 160              		.loc 1 325 3 view .LVU21
+ 161 002a 9A68     		ldr	r2, [r3, #8]
+ 162 002c 22F48032 		bic	r2, r2, #65536
+ 163 0030 9A60     		str	r2, [r3, #8]
+ 326:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 327:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Configure interrupt mode */
+ 328:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   if((sConfigPVD->Mode & PVD_MODE_IT) == PVD_MODE_IT)
+ 164              		.loc 1 328 3 view .LVU22
+ 165              		.loc 1 328 17 is_stmt 0 view .LVU23
+ 166 0032 4268     		ldr	r2, [r0, #4]
+ 167              		.loc 1 328 5 view .LVU24
+ 168 0034 D403     		lsls	r4, r2, #15
+ 169 0036 03D5     		bpl	.L12
+ 329:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 330:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     __HAL_PWR_PVD_EXTI_ENABLE_IT();
+ 170              		.loc 1 330 5 is_stmt 1 view .LVU25
+ 171 0038 1968     		ldr	r1, [r3]
+ 172 003a 41F48031 		orr	r1, r1, #65536
+ 173 003e 1960     		str	r1, [r3]
+ 174              	.L12:
+ 331:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 332:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 333:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Configure event mode */
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   if((sConfigPVD->Mode & PVD_MODE_EVT) == PVD_MODE_EVT)
+ 175              		.loc 1 334 3 view .LVU26
+ 176              		.loc 1 334 5 is_stmt 0 view .LVU27
+ 177 0040 9003     		lsls	r0, r2, #14
+ 178              	.LVL1:
+ 179              		.loc 1 334 5 view .LVU28
+ 180 0042 04D5     		bpl	.L13
+ 335:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 336:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     __HAL_PWR_PVD_EXTI_ENABLE_EVENT();
+ 181              		.loc 1 336 5 is_stmt 1 view .LVU29
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 10
+
+
+ 182 0044 0C49     		ldr	r1, .L29+4
+ 183 0046 4B68     		ldr	r3, [r1, #4]
+ 184 0048 43F48033 		orr	r3, r3, #65536
+ 185 004c 4B60     		str	r3, [r1, #4]
+ 186              	.L13:
+ 337:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 338:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 339:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Configure the edge */
+ 340:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   if((sConfigPVD->Mode & PVD_RISING_EDGE) == PVD_RISING_EDGE)
+ 187              		.loc 1 340 3 view .LVU30
+ 188              		.loc 1 340 5 is_stmt 0 view .LVU31
+ 189 004e D107     		lsls	r1, r2, #31
+ 190 0050 04D5     		bpl	.L14
+ 341:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 342:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     __HAL_PWR_PVD_EXTI_ENABLE_RISING_EDGE();
+ 191              		.loc 1 342 5 is_stmt 1 view .LVU32
+ 192 0052 0949     		ldr	r1, .L29+4
+ 193 0054 8B68     		ldr	r3, [r1, #8]
+ 194 0056 43F48033 		orr	r3, r3, #65536
+ 195 005a 8B60     		str	r3, [r1, #8]
+ 196              	.L14:
+ 343:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 344:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 345:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   if((sConfigPVD->Mode & PVD_FALLING_EDGE) == PVD_FALLING_EDGE)
+ 197              		.loc 1 345 3 view .LVU33
+ 198              		.loc 1 345 5 is_stmt 0 view .LVU34
+ 199 005c 9307     		lsls	r3, r2, #30
+ 200 005e 04D5     		bpl	.L15
+ 346:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 347:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     __HAL_PWR_PVD_EXTI_ENABLE_FALLING_EDGE();
+ 201              		.loc 1 347 5 is_stmt 1 view .LVU35
+ 202 0060 054A     		ldr	r2, .L29+4
+ 203 0062 D368     		ldr	r3, [r2, #12]
+ 204 0064 43F48033 		orr	r3, r3, #65536
+ 205 0068 D360     		str	r3, [r2, #12]
+ 206              	.L15:
+ 348:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 349:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 350:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   return HAL_OK;
+ 207              		.loc 1 350 3 view .LVU36
+ 351:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 208              		.loc 1 351 1 is_stmt 0 view .LVU37
+ 209 006a 0020     		movs	r0, #0
+ 210 006c 5DF8044B 		ldr	r4, [sp], #4
+ 211              	.LCFI1:
+ 212              		.cfi_restore 4
+ 213              		.cfi_def_cfa_offset 0
+ 214 0070 7047     		bx	lr
+ 215              	.L30:
+ 216 0072 00BF     		.align	2
+ 217              	.L29:
+ 218 0074 00700040 		.word	1073770496
+ 219 0078 00040140 		.word	1073808384
+ 220              		.cfi_endproc
+ 221              	.LFE126:
+ 223              		.section	.text.HAL_PWR_EnablePVD,"ax",%progbits
+ 224              		.align	1
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 11
+
+
+ 225              		.p2align 2,,3
+ 226              		.global	HAL_PWR_EnablePVD
+ 227              		.syntax unified
+ 228              		.thumb
+ 229              		.thumb_func
+ 230              		.fpu fpv4-sp-d16
+ 232              	HAL_PWR_EnablePVD:
+ 233              	.LFB127:
+ 352:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 353:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 354:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 355:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Enable the Power Voltage Detector (PVD).
+ 356:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 357:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 358:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_EnablePVD(void)
+ 359:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 234              		.loc 1 359 1 is_stmt 1 view -0
+ 235              		.cfi_startproc
+ 236              		@ args = 0, pretend = 0, frame = 0
+ 237              		@ frame_needed = 0, uses_anonymous_args = 0
+ 238              		@ link register save eliminated.
+ 360:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   SET_BIT(PWR->CR2, PWR_CR2_PVDE);
+ 239              		.loc 1 360 3 view .LVU39
+ 240 0000 024A     		ldr	r2, .L32
+ 241 0002 5368     		ldr	r3, [r2, #4]
+ 242 0004 43F00103 		orr	r3, r3, #1
+ 243 0008 5360     		str	r3, [r2, #4]
+ 361:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 244              		.loc 1 361 1 is_stmt 0 view .LVU40
+ 245 000a 7047     		bx	lr
+ 246              	.L33:
+ 247              		.align	2
+ 248              	.L32:
+ 249 000c 00700040 		.word	1073770496
+ 250              		.cfi_endproc
+ 251              	.LFE127:
+ 253              		.section	.text.HAL_PWR_DisablePVD,"ax",%progbits
+ 254              		.align	1
+ 255              		.p2align 2,,3
+ 256              		.global	HAL_PWR_DisablePVD
+ 257              		.syntax unified
+ 258              		.thumb
+ 259              		.thumb_func
+ 260              		.fpu fpv4-sp-d16
+ 262              	HAL_PWR_DisablePVD:
+ 263              	.LFB128:
+ 362:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 363:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 364:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Disable the Power Voltage Detector (PVD).
+ 365:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 366:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 367:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_DisablePVD(void)
+ 368:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 264              		.loc 1 368 1 is_stmt 1 view -0
+ 265              		.cfi_startproc
+ 266              		@ args = 0, pretend = 0, frame = 0
+ 267              		@ frame_needed = 0, uses_anonymous_args = 0
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 12
+
+
+ 268              		@ link register save eliminated.
+ 369:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   CLEAR_BIT(PWR->CR2, PWR_CR2_PVDE);
+ 269              		.loc 1 369 3 view .LVU42
+ 270 0000 024A     		ldr	r2, .L35
+ 271 0002 5368     		ldr	r3, [r2, #4]
+ 272 0004 23F00103 		bic	r3, r3, #1
+ 273 0008 5360     		str	r3, [r2, #4]
+ 370:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 274              		.loc 1 370 1 is_stmt 0 view .LVU43
+ 275 000a 7047     		bx	lr
+ 276              	.L36:
+ 277              		.align	2
+ 278              	.L35:
+ 279 000c 00700040 		.word	1073770496
+ 280              		.cfi_endproc
+ 281              	.LFE128:
+ 283              		.section	.text.HAL_PWR_EnableWakeUpPin,"ax",%progbits
+ 284              		.align	1
+ 285              		.p2align 2,,3
+ 286              		.global	HAL_PWR_EnableWakeUpPin
+ 287              		.syntax unified
+ 288              		.thumb
+ 289              		.thumb_func
+ 290              		.fpu fpv4-sp-d16
+ 292              	HAL_PWR_EnableWakeUpPin:
+ 293              	.LVL2:
+ 294              	.LFB129:
+ 371:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 372:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 373:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 374:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 375:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 376:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Enable the WakeUp PINx functionality.
+ 377:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @param WakeUpPinPolarity: Specifies which Wake-Up pin to enable.
+ 378:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         This parameter can be one of the following legacy values which set the default polarity
+ 379:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         i.e. detection on high level (rising edge):
+ 380:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *           @arg @ref PWR_WAKEUP_PIN1, PWR_WAKEUP_PIN2, PWR_WAKEUP_PIN3, PWR_WAKEUP_PIN4, PWR_WAK
+ 381:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *
+ 382:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         or one of the following value where the user can explicitly specify the enabled pin and
+ 383:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         the chosen polarity:
+ 384:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *           @arg @ref PWR_WAKEUP_PIN1_HIGH or PWR_WAKEUP_PIN1_LOW
+ 385:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *           @arg @ref PWR_WAKEUP_PIN2_HIGH or PWR_WAKEUP_PIN2_LOW
+ 386:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *           @arg @ref PWR_WAKEUP_PIN3_HIGH or PWR_WAKEUP_PIN3_LOW
+ 387:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *           @arg @ref PWR_WAKEUP_PIN4_HIGH or PWR_WAKEUP_PIN4_LOW
+ 388:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *           @arg @ref PWR_WAKEUP_PIN5_HIGH or PWR_WAKEUP_PIN5_LOW
+ 389:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  PWR_WAKEUP_PINx and PWR_WAKEUP_PINx_HIGH are equivalent.
+ 390:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 391:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 392:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_EnableWakeUpPin(uint32_t WakeUpPinPolarity)
+ 393:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 295              		.loc 1 393 1 is_stmt 1 view -0
+ 296              		.cfi_startproc
+ 297              		@ args = 0, pretend = 0, frame = 0
+ 298              		@ frame_needed = 0, uses_anonymous_args = 0
+ 299              		@ link register save eliminated.
+ 394:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   assert_param(IS_PWR_WAKEUP_PIN(WakeUpPinPolarity));
+ 300              		.loc 1 394 3 view .LVU45
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 13
+
+
+ 395:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 396:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Specifies the Wake-Up pin polarity for the event detection
+ 397:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     (rising or falling edge) */
+ 398:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   MODIFY_REG(PWR->CR4, (PWR_CR3_EWUP & WakeUpPinPolarity), (WakeUpPinPolarity >> PWR_WUP_POLARITY_S
+ 301              		.loc 1 398 3 view .LVU46
+ 302 0000 064A     		ldr	r2, .L38
+ 303 0002 D368     		ldr	r3, [r2, #12]
+ 304 0004 00F01F01 		and	r1, r0, #31
+ 305 0008 23EA0103 		bic	r3, r3, r1
+ 306 000c 43EA5010 		orr	r0, r3, r0, lsr #5
+ 307              	.LVL3:
+ 308              		.loc 1 398 3 is_stmt 0 view .LVU47
+ 309 0010 D060     		str	r0, [r2, #12]
+ 399:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 400:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Enable wake-up pin */
+ 401:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   SET_BIT(PWR->CR3, (PWR_CR3_EWUP & WakeUpPinPolarity));
+ 310              		.loc 1 401 3 is_stmt 1 view .LVU48
+ 311 0012 9368     		ldr	r3, [r2, #8]
+ 312 0014 1943     		orrs	r1, r1, r3
+ 313 0016 9160     		str	r1, [r2, #8]
+ 402:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 403:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 404:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 314              		.loc 1 404 1 is_stmt 0 view .LVU49
+ 315 0018 7047     		bx	lr
+ 316              	.L39:
+ 317 001a 00BF     		.align	2
+ 318              	.L38:
+ 319 001c 00700040 		.word	1073770496
+ 320              		.cfi_endproc
+ 321              	.LFE129:
+ 323              		.section	.text.HAL_PWR_DisableWakeUpPin,"ax",%progbits
+ 324              		.align	1
+ 325              		.p2align 2,,3
+ 326              		.global	HAL_PWR_DisableWakeUpPin
+ 327              		.syntax unified
+ 328              		.thumb
+ 329              		.thumb_func
+ 330              		.fpu fpv4-sp-d16
+ 332              	HAL_PWR_DisableWakeUpPin:
+ 333              	.LVL4:
+ 334              	.LFB130:
+ 405:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 406:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 407:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Disable the WakeUp PINx functionality.
+ 408:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @param WakeUpPinx: Specifies the Power Wake-Up pin to disable.
+ 409:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         This parameter can be one of the following values:
+ 410:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *           @arg @ref PWR_WAKEUP_PIN1, PWR_WAKEUP_PIN2, PWR_WAKEUP_PIN3, PWR_WAKEUP_PIN4, PWR_WAK
+ 411:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 412:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 413:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_DisableWakeUpPin(uint32_t WakeUpPinx)
+ 414:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 335              		.loc 1 414 1 is_stmt 1 view -0
+ 336              		.cfi_startproc
+ 337              		@ args = 0, pretend = 0, frame = 0
+ 338              		@ frame_needed = 0, uses_anonymous_args = 0
+ 339              		@ link register save eliminated.
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 14
+
+
+ 415:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   assert_param(IS_PWR_WAKEUP_PIN(WakeUpPinx));
+ 340              		.loc 1 415 3 view .LVU51
+ 416:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 417:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   CLEAR_BIT(PWR->CR3, (PWR_CR3_EWUP & WakeUpPinx));
+ 341              		.loc 1 417 3 view .LVU52
+ 342 0000 034A     		ldr	r2, .L41
+ 343 0002 9368     		ldr	r3, [r2, #8]
+ 344 0004 00F01F00 		and	r0, r0, #31
+ 345              	.LVL5:
+ 346              		.loc 1 417 3 is_stmt 0 view .LVU53
+ 347 0008 23EA0003 		bic	r3, r3, r0
+ 348 000c 9360     		str	r3, [r2, #8]
+ 418:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 349              		.loc 1 418 1 view .LVU54
+ 350 000e 7047     		bx	lr
+ 351              	.L42:
+ 352              		.align	2
+ 353              	.L41:
+ 354 0010 00700040 		.word	1073770496
+ 355              		.cfi_endproc
+ 356              	.LFE130:
+ 358              		.section	.text.HAL_PWR_EnterSLEEPMode,"ax",%progbits
+ 359              		.align	1
+ 360              		.p2align 2,,3
+ 361              		.global	HAL_PWR_EnterSLEEPMode
+ 362              		.syntax unified
+ 363              		.thumb
+ 364              		.thumb_func
+ 365              		.fpu fpv4-sp-d16
+ 367              	HAL_PWR_EnterSLEEPMode:
+ 368              	.LVL6:
+ 369              	.LFB131:
+ 419:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 420:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 421:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 422:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Enter Sleep or Low-power Sleep mode.
+ 423:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  In Sleep/Low-power Sleep mode, all I/O pins keep the same state as in Run mode.
+ 424:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @param Regulator: Specifies the regulator state in Sleep/Low-power Sleep mode.
+ 425:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *          This parameter can be one of the following values:
+ 426:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *            @arg @ref PWR_MAINREGULATOR_ON Sleep mode (regulator in main mode)
+ 427:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *            @arg @ref PWR_LOWPOWERREGULATOR_ON Low-power Sleep mode (regulator in low-power mode
+ 428:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  Low-power Sleep mode is entered from Low-power Run mode. Therefore, if not yet
+ 429:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        in Low-power Run mode before calling HAL_PWR_EnterSLEEPMode() with Regulator set
+ 430:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        to PWR_LOWPOWERREGULATOR_ON, the user can optionally configure the
+ 431:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        Flash in power-down monde in setting the SLEEP_PD bit in FLASH_ACR register.
+ 432:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        Additionally, the clock frequency must be reduced below 2 MHz.
+ 433:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        Setting SLEEP_PD in FLASH_ACR then appropriately reducing the clock frequency must
+ 434:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        be done before calling HAL_PWR_EnterSLEEPMode() API.
+ 435:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  When exiting Low-power Sleep mode, the MCU is in Low-power Run mode. To move in
+ 436:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        Run mode, the user must resort to HAL_PWREx_DisableLowPowerRunMode() API.
+ 437:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @param SLEEPEntry: Specifies if Sleep mode is entered with WFI or WFE instruction.
+ 438:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *           This parameter can be one of the following values:
+ 439:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *            @arg @ref PWR_SLEEPENTRY_WFI enter Sleep or Low-power Sleep mode with WFI instructio
+ 440:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *            @arg @ref PWR_SLEEPENTRY_WFE enter Sleep or Low-power Sleep mode with WFE instructio
+ 441:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  When WFI entry is used, tick interrupt have to be disabled if not desired as
+ 442:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        the interrupt wake up source.
+ 443:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 15
+
+
+ 444:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 445:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_EnterSLEEPMode(uint32_t Regulator, uint8_t SLEEPEntry)
+ 446:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 370              		.loc 1 446 1 is_stmt 1 view -0
+ 371              		.cfi_startproc
+ 372              		@ args = 0, pretend = 0, frame = 0
+ 373              		@ frame_needed = 0, uses_anonymous_args = 0
+ 447:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Check the parameters */
+ 448:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   assert_param(IS_PWR_REGULATOR(Regulator));
+ 374              		.loc 1 448 3 view .LVU56
+ 449:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   assert_param(IS_PWR_SLEEP_ENTRY(SLEEPEntry));
+ 375              		.loc 1 449 3 view .LVU57
+ 450:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 451:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Set Regulator parameter */
+ 452:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   if (Regulator == PWR_MAINREGULATOR_ON)
+ 376              		.loc 1 452 3 view .LVU58
+ 453:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 454:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     /* If in low-power run mode at this point, exit it */
+ 455:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     if (HAL_IS_BIT_SET(PWR->SR2, PWR_SR2_REGLPF))
+ 377              		.loc 1 455 9 is_stmt 0 view .LVU59
+ 378 0000 0E4B     		ldr	r3, .L53
+ 446:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Check the parameters */
+ 379              		.loc 1 446 1 view .LVU60
+ 380 0002 10B5     		push	{r4, lr}
+ 381              	.LCFI2:
+ 382              		.cfi_def_cfa_offset 8
+ 383              		.cfi_offset 4, -8
+ 384              		.cfi_offset 14, -4
+ 385              		.loc 1 455 9 view .LVU61
+ 386 0004 5B69     		ldr	r3, [r3, #20]
+ 446:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Check the parameters */
+ 387              		.loc 1 446 1 view .LVU62
+ 388 0006 0C46     		mov	r4, r1
+ 452:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 389              		.loc 1 452 6 view .LVU63
+ 390 0008 60B9     		cbnz	r0, .L44
+ 391              		.loc 1 455 5 is_stmt 1 view .LVU64
+ 392              		.loc 1 455 8 is_stmt 0 view .LVU65
+ 393 000a 9A05     		lsls	r2, r3, #22
+ 394 000c 11D4     		bmi	.L51
+ 395              	.LVL7:
+ 396              	.L46:
+ 456:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     {
+ 457:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       if (HAL_PWREx_DisableLowPowerRunMode() != HAL_OK)
+ 458:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       {
+ 459:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****         return ;
+ 460:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       }
+ 461:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     }
+ 462:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     /* Regulator now in main mode. */
+ 463:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 464:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   else
+ 465:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 466:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     /* If in run mode, first move to low-power run mode.
+ 467:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****        The system clock frequency must be below 2 MHz at this point. */
+ 468:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     if (HAL_IS_BIT_SET(PWR->SR2, PWR_SR2_REGLPF) == RESET)
+ 469:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     {
+ 470:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       HAL_PWREx_EnableLowPowerRunMode();
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 16
+
+
+ 471:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     }
+ 472:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 473:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 474:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Clear SLEEPDEEP bit of Cortex System Control Register */
+ 475:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   CLEAR_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPDEEP_Msk));
+ 397              		.loc 1 475 3 is_stmt 1 view .LVU66
+ 398 000e 0C4A     		ldr	r2, .L53+4
+ 399 0010 1369     		ldr	r3, [r2, #16]
+ 476:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 477:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Select SLEEP mode entry -------------------------------------------------*/
+ 478:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   if(SLEEPEntry == PWR_SLEEPENTRY_WFI)
+ 400              		.loc 1 478 5 is_stmt 0 view .LVU67
+ 401 0012 012C     		cmp	r4, #1
+ 475:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 402              		.loc 1 475 3 view .LVU68
+ 403 0014 23F00403 		bic	r3, r3, #4
+ 404 0018 1361     		str	r3, [r2, #16]
+ 405              		.loc 1 478 3 is_stmt 1 view .LVU69
+ 406              		.loc 1 478 5 is_stmt 0 view .LVU70
+ 407 001a 08D0     		beq	.L52
+ 479:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 480:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     /* Request Wait For Interrupt */
+ 481:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     __WFI();
+ 482:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 483:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   else
+ 484:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 485:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     /* Request Wait For Event */
+ 486:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     __SEV();
+ 408              		.loc 1 486 5 is_stmt 1 view .LVU71
+ 409              		.syntax unified
+ 410              	@ 486 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c" 1
+ 411 001c 40BF     		sev
+ 412              	@ 0 "" 2
+ 487:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     __WFE();
+ 413              		.loc 1 487 5 view .LVU72
+ 414              	@ 487 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c" 1
+ 415 001e 20BF     		wfe
+ 416              	@ 0 "" 2
+ 488:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     __WFE();
+ 417              		.loc 1 488 5 view .LVU73
+ 418              	@ 488 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c" 1
+ 419 0020 20BF     		wfe
+ 420              	@ 0 "" 2
+ 489:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 490:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 491:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 421              		.loc 1 491 1 is_stmt 0 view .LVU74
+ 422              		.thumb
+ 423              		.syntax unified
+ 424 0022 10BD     		pop	{r4, pc}
+ 425              	.LVL8:
+ 426              	.L44:
+ 468:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     {
+ 427              		.loc 1 468 5 is_stmt 1 view .LVU75
+ 468:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     {
+ 428              		.loc 1 468 8 is_stmt 0 view .LVU76
+ 429 0024 9B05     		lsls	r3, r3, #22
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 17
+
+
+ 430 0026 F2D4     		bmi	.L46
+ 470:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     }
+ 431              		.loc 1 470 7 is_stmt 1 view .LVU77
+ 432 0028 FFF7FEFF 		bl	HAL_PWREx_EnableLowPowerRunMode
+ 433              	.LVL9:
+ 470:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     }
+ 434              		.loc 1 470 7 is_stmt 0 view .LVU78
+ 435 002c EFE7     		b	.L46
+ 436              	.L52:
+ 481:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 437              		.loc 1 481 5 is_stmt 1 view .LVU79
+ 438              		.syntax unified
+ 439              	@ 481 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c" 1
+ 440 002e 30BF     		wfi
+ 441              	@ 0 "" 2
+ 442              		.loc 1 491 1 is_stmt 0 view .LVU80
+ 443              		.thumb
+ 444              		.syntax unified
+ 445 0030 10BD     		pop	{r4, pc}
+ 446              	.LVL10:
+ 447              	.L51:
+ 457:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       {
+ 448              		.loc 1 457 7 is_stmt 1 view .LVU81
+ 457:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       {
+ 449              		.loc 1 457 11 is_stmt 0 view .LVU82
+ 450 0032 FFF7FEFF 		bl	HAL_PWREx_DisableLowPowerRunMode
+ 451              	.LVL11:
+ 457:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****       {
+ 452              		.loc 1 457 10 view .LVU83
+ 453 0036 0028     		cmp	r0, #0
+ 454 0038 E9D0     		beq	.L46
+ 455              		.loc 1 491 1 view .LVU84
+ 456 003a 10BD     		pop	{r4, pc}
+ 457              	.L54:
+ 458              		.align	2
+ 459              	.L53:
+ 460 003c 00700040 		.word	1073770496
+ 461 0040 00ED00E0 		.word	-536810240
+ 462              		.cfi_endproc
+ 463              	.LFE131:
+ 465              		.section	.text.HAL_PWR_EnterSTOPMode,"ax",%progbits
+ 466              		.align	1
+ 467              		.p2align 2,,3
+ 468              		.global	HAL_PWR_EnterSTOPMode
+ 469              		.syntax unified
+ 470              		.thumb
+ 471              		.thumb_func
+ 472              		.fpu fpv4-sp-d16
+ 474              	HAL_PWR_EnterSTOPMode:
+ 475              	.LVL12:
+ 476              	.LFB132:
+ 492:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 493:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 494:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 495:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Enter Stop mode
+ 496:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  This API is named HAL_PWR_EnterSTOPMode to ensure compatibility with legacy code running
+ 497:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        on devices where only "Stop mode" is mentioned with main or low power regulator ON.
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 18
+
+
+ 498:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  In Stop mode, all I/O pins keep the same state as in Run mode.
+ 499:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  All clocks in the VCORE domain are stopped; the PLL, the MSI,
+ 500:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        the HSI and the HSE oscillators are disabled. Some peripherals with the wakeup capabilit
+ 501:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        (I2Cx, USARTx and LPUART) can switch on the HSI to receive a frame, and switch off the H
+ 502:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        after receiving the frame if it is not a wakeup frame. In this case, the HSI clock is pr
+ 503:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        only to the peripheral requesting it.
+ 504:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        SRAM1, SRAM2 and register contents are preserved.
+ 505:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        The BOR is available.
+ 506:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        The voltage regulator can be configured either in normal (Stop 0) or low-power mode (Sto
+ 507:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  When exiting Stop 0 or Stop 1 mode by issuing an interrupt or a wakeup event,
+ 508:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         the HSI RC oscillator is selected as system clock if STOPWUCK bit in RCC_CFGR register
+ 509:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         is set; the MSI oscillator is selected if STOPWUCK is cleared.
+ 510:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  When the voltage regulator operates in low power mode (Stop 1), an additional
+ 511:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         startup delay is incurred when waking up.
+ 512:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         By keeping the internal regulator ON during Stop mode (Stop 0), the consumption
+ 513:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *         is higher although the startup time is reduced.
+ 514:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @param Regulator: Specifies the regulator state in Stop mode.
+ 515:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *          This parameter can be one of the following values:
+ 516:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *            @arg @ref PWR_MAINREGULATOR_ON  Stop 0 mode (main regulator ON)
+ 517:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *            @arg @ref PWR_LOWPOWERREGULATOR_ON  Stop 1 mode (low power regulator ON)
+ 518:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @param STOPEntry: Specifies Stop 0 or Stop 1 mode is entered with WFI or WFE instruction.
+ 519:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *          This parameter can be one of the following values:
+ 520:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *            @arg @ref PWR_STOPENTRY_WFI  Enter Stop 0 or Stop 1 mode with WFI instruction.
+ 521:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *            @arg @ref PWR_STOPENTRY_WFE  Enter Stop 0 or Stop 1 mode with WFE instruction.
+ 522:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 523:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 524:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_EnterSTOPMode(uint32_t Regulator, uint8_t STOPEntry)
+ 525:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 477              		.loc 1 525 1 is_stmt 1 view -0
+ 478              		.cfi_startproc
+ 479              		@ args = 0, pretend = 0, frame = 0
+ 480              		@ frame_needed = 0, uses_anonymous_args = 0
+ 481              		@ link register save eliminated.
+ 526:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Check the parameters */
+ 527:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   assert_param(IS_PWR_REGULATOR(Regulator));
+ 482              		.loc 1 527 3 view .LVU86
+ 528:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 529:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   if(Regulator == PWR_LOWPOWERREGULATOR_ON)
+ 483              		.loc 1 529 3 view .LVU87
+ 484              		.loc 1 529 5 is_stmt 0 view .LVU88
+ 485 0000 B0F5804F 		cmp	r0, #16384
+ 530:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 531:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     HAL_PWREx_EnterSTOP1Mode(STOPEntry);
+ 486              		.loc 1 531 5 view .LVU89
+ 487 0004 0846     		mov	r0, r1
+ 488              	.LVL13:
+ 529:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 489              		.loc 1 529 5 view .LVU90
+ 490 0006 01D0     		beq	.L57
+ 532:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 533:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   else
+ 534:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   {
+ 535:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****     HAL_PWREx_EnterSTOP0Mode(STOPEntry);
+ 491              		.loc 1 535 5 is_stmt 1 view .LVU91
+ 492 0008 FFF7FEBF 		b	HAL_PWREx_EnterSTOP0Mode
+ 493              	.LVL14:
+ 494              	.L57:
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 19
+
+
+ 531:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 495              		.loc 1 531 5 view .LVU92
+ 496 000c FFF7FEBF 		b	HAL_PWREx_EnterSTOP1Mode
+ 497              	.LVL15:
+ 531:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 498              		.loc 1 531 5 is_stmt 0 view .LVU93
+ 499              		.cfi_endproc
+ 500              	.LFE132:
+ 502              		.section	.text.HAL_PWR_EnterSTANDBYMode,"ax",%progbits
+ 503              		.align	1
+ 504              		.p2align 2,,3
+ 505              		.global	HAL_PWR_EnterSTANDBYMode
+ 506              		.syntax unified
+ 507              		.thumb
+ 508              		.thumb_func
+ 509              		.fpu fpv4-sp-d16
+ 511              	HAL_PWR_EnterSTANDBYMode:
+ 512              	.LFB133:
+ 536:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   }
+ 537:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 538:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 539:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 540:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Enter Standby mode.
+ 541:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  In Standby mode, the PLL, the HSI, the MSI and the HSE oscillators are switched
+ 542:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        off. The voltage regulator is disabled, except when SRAM2 content is preserved
+ 543:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        in which case the regulator is in low-power mode.
+ 544:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        SRAM1 and register contents are lost except for registers in the Backup domain and
+ 545:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        Standby circuitry. SRAM2 content can be preserved if the bit RRS is set in PWR_CR3 regis
+ 546:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        To enable this feature, the user can resort to HAL_PWREx_EnableSRAM2ContentRetention() A
+ 547:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        to set RRS bit.
+ 548:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        The BOR is available.
+ 549:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note  The I/Os can be configured either with a pull-up or pull-down or can be kept in analog s
+ 550:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        HAL_PWREx_EnableGPIOPullUp() and HAL_PWREx_EnableGPIOPullDown() respectively enable Pull
+ 551:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        Pull Down state, HAL_PWREx_DisableGPIOPullUp() and HAL_PWREx_DisableGPIOPullDown() disab
+ 552:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        same.
+ 553:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        These states are effective in Standby mode only if APC bit is set through
+ 554:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *        HAL_PWREx_EnablePullUpPullDownConfig() API.
+ 555:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 556:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 557:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_EnterSTANDBYMode(void)
+ 558:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 513              		.loc 1 558 1 is_stmt 1 view -0
+ 514              		.cfi_startproc
+ 515              		@ args = 0, pretend = 0, frame = 0
+ 516              		@ frame_needed = 0, uses_anonymous_args = 0
+ 517              		@ link register save eliminated.
+ 559:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Set Stand-by mode */
+ 560:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   MODIFY_REG(PWR->CR1, PWR_CR1_LPMS, PWR_CR1_LPMS_STANDBY);
+ 518              		.loc 1 560 3 view .LVU95
+ 519 0000 0649     		ldr	r1, .L59
+ 561:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 562:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Set SLEEPDEEP bit of Cortex System Control Register */
+ 563:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPDEEP_Msk));
+ 520              		.loc 1 563 3 is_stmt 0 view .LVU96
+ 521 0002 074A     		ldr	r2, .L59+4
+ 560:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 522              		.loc 1 560 3 view .LVU97
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 20
+
+
+ 523 0004 0B68     		ldr	r3, [r1]
+ 524 0006 23F00703 		bic	r3, r3, #7
+ 525 000a 43F00303 		orr	r3, r3, #3
+ 526 000e 0B60     		str	r3, [r1]
+ 527              		.loc 1 563 3 is_stmt 1 view .LVU98
+ 528 0010 1369     		ldr	r3, [r2, #16]
+ 529 0012 43F00403 		orr	r3, r3, #4
+ 530 0016 1361     		str	r3, [r2, #16]
+ 564:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 565:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /* This option is used to ensure that store operations are completed */
+ 566:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** #if defined ( __CC_ARM)
+ 567:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   __force_stores();
+ 568:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** #endif
+ 569:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Request Wait For Interrupt */
+ 570:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   __WFI();
+ 531              		.loc 1 570 3 view .LVU99
+ 532              		.syntax unified
+ 533              	@ 570 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_pwr.c" 1
+ 534 0018 30BF     		wfi
+ 535              	@ 0 "" 2
+ 571:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 536              		.loc 1 571 1 is_stmt 0 view .LVU100
+ 537              		.thumb
+ 538              		.syntax unified
+ 539 001a 7047     		bx	lr
+ 540              	.L60:
+ 541              		.align	2
+ 542              	.L59:
+ 543 001c 00700040 		.word	1073770496
+ 544 0020 00ED00E0 		.word	-536810240
+ 545              		.cfi_endproc
+ 546              	.LFE133:
+ 548              		.section	.text.HAL_PWR_EnableSleepOnExit,"ax",%progbits
+ 549              		.align	1
+ 550              		.p2align 2,,3
+ 551              		.global	HAL_PWR_EnableSleepOnExit
+ 552              		.syntax unified
+ 553              		.thumb
+ 554              		.thumb_func
+ 555              		.fpu fpv4-sp-d16
+ 557              	HAL_PWR_EnableSleepOnExit:
+ 558              	.LFB134:
+ 572:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 573:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 574:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 575:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 576:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Indicate Sleep-On-Exit when returning from Handler mode to Thread mode.
+ 577:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note Set SLEEPONEXIT bit of SCR register. When this bit is set, the processor
+ 578:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *       re-enters SLEEP mode when an interruption handling is over.
+ 579:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *       Setting this bit is useful when the processor is expected to run only on
+ 580:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *       interruptions handling.
+ 581:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 582:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 583:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_EnableSleepOnExit(void)
+ 584:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 559              		.loc 1 584 1 is_stmt 1 view -0
+ 560              		.cfi_startproc
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 21
+
+
+ 561              		@ args = 0, pretend = 0, frame = 0
+ 562              		@ frame_needed = 0, uses_anonymous_args = 0
+ 563              		@ link register save eliminated.
+ 585:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Set SLEEPONEXIT bit of Cortex System Control Register */
+ 586:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPONEXIT_Msk));
+ 564              		.loc 1 586 3 view .LVU102
+ 565 0000 024A     		ldr	r2, .L62
+ 566 0002 1369     		ldr	r3, [r2, #16]
+ 567 0004 43F00203 		orr	r3, r3, #2
+ 568 0008 1361     		str	r3, [r2, #16]
+ 587:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 569              		.loc 1 587 1 is_stmt 0 view .LVU103
+ 570 000a 7047     		bx	lr
+ 571              	.L63:
+ 572              		.align	2
+ 573              	.L62:
+ 574 000c 00ED00E0 		.word	-536810240
+ 575              		.cfi_endproc
+ 576              	.LFE134:
+ 578              		.section	.text.HAL_PWR_DisableSleepOnExit,"ax",%progbits
+ 579              		.align	1
+ 580              		.p2align 2,,3
+ 581              		.global	HAL_PWR_DisableSleepOnExit
+ 582              		.syntax unified
+ 583              		.thumb
+ 584              		.thumb_func
+ 585              		.fpu fpv4-sp-d16
+ 587              	HAL_PWR_DisableSleepOnExit:
+ 588              	.LFB135:
+ 588:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 589:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 590:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 591:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Disable Sleep-On-Exit feature when returning from Handler mode to Thread mode.
+ 592:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note Clear SLEEPONEXIT bit of SCR register. When this bit is set, the processor
+ 593:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *       re-enters SLEEP mode when an interruption handling is over.
+ 594:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 595:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 596:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_DisableSleepOnExit(void)
+ 597:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 589              		.loc 1 597 1 is_stmt 1 view -0
+ 590              		.cfi_startproc
+ 591              		@ args = 0, pretend = 0, frame = 0
+ 592              		@ frame_needed = 0, uses_anonymous_args = 0
+ 593              		@ link register save eliminated.
+ 598:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Clear SLEEPONEXIT bit of Cortex System Control Register */
+ 599:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   CLEAR_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SLEEPONEXIT_Msk));
+ 594              		.loc 1 599 3 view .LVU105
+ 595 0000 024A     		ldr	r2, .L65
+ 596 0002 1369     		ldr	r3, [r2, #16]
+ 597 0004 23F00203 		bic	r3, r3, #2
+ 598 0008 1361     		str	r3, [r2, #16]
+ 600:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 599              		.loc 1 600 1 is_stmt 0 view .LVU106
+ 600 000a 7047     		bx	lr
+ 601              	.L66:
+ 602              		.align	2
+ 603              	.L65:
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 22
+
+
+ 604 000c 00ED00E0 		.word	-536810240
+ 605              		.cfi_endproc
+ 606              	.LFE135:
+ 608              		.section	.text.HAL_PWR_EnableSEVOnPend,"ax",%progbits
+ 609              		.align	1
+ 610              		.p2align 2,,3
+ 611              		.global	HAL_PWR_EnableSEVOnPend
+ 612              		.syntax unified
+ 613              		.thumb
+ 614              		.thumb_func
+ 615              		.fpu fpv4-sp-d16
+ 617              	HAL_PWR_EnableSEVOnPend:
+ 618              	.LFB136:
+ 601:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 602:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 603:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 604:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 605:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Enable CORTEX M4 SEVONPEND bit.
+ 606:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note Set SEVONPEND bit of SCR register. When this bit is set, this causes
+ 607:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *       WFE to wake up when an interrupt moves from inactive to pended.
+ 608:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 609:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 610:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_EnableSEVOnPend(void)
+ 611:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 619              		.loc 1 611 1 is_stmt 1 view -0
+ 620              		.cfi_startproc
+ 621              		@ args = 0, pretend = 0, frame = 0
+ 622              		@ frame_needed = 0, uses_anonymous_args = 0
+ 623              		@ link register save eliminated.
+ 612:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Set SEVONPEND bit of Cortex System Control Register */
+ 613:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   SET_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SEVONPEND_Msk));
+ 624              		.loc 1 613 3 view .LVU108
+ 625 0000 024A     		ldr	r2, .L68
+ 626 0002 1369     		ldr	r3, [r2, #16]
+ 627 0004 43F01003 		orr	r3, r3, #16
+ 628 0008 1361     		str	r3, [r2, #16]
+ 614:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 629              		.loc 1 614 1 is_stmt 0 view .LVU109
+ 630 000a 7047     		bx	lr
+ 631              	.L69:
+ 632              		.align	2
+ 633              	.L68:
+ 634 000c 00ED00E0 		.word	-536810240
+ 635              		.cfi_endproc
+ 636              	.LFE136:
+ 638              		.section	.text.HAL_PWR_DisableSEVOnPend,"ax",%progbits
+ 639              		.align	1
+ 640              		.p2align 2,,3
+ 641              		.global	HAL_PWR_DisableSEVOnPend
+ 642              		.syntax unified
+ 643              		.thumb
+ 644              		.thumb_func
+ 645              		.fpu fpv4-sp-d16
+ 647              	HAL_PWR_DisableSEVOnPend:
+ 648              	.LFB137:
+ 615:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 616:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 23
+
+
+ 617:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 618:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief Disable CORTEX M4 SEVONPEND bit.
+ 619:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @note Clear SEVONPEND bit of SCR register. When this bit is set, this causes
+ 620:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   *       WFE to wake up when an interrupt moves from inactive to pended.
+ 621:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 622:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 623:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** void HAL_PWR_DisableSEVOnPend(void)
+ 624:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 649              		.loc 1 624 1 is_stmt 1 view -0
+ 650              		.cfi_startproc
+ 651              		@ args = 0, pretend = 0, frame = 0
+ 652              		@ frame_needed = 0, uses_anonymous_args = 0
+ 653              		@ link register save eliminated.
+ 625:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* Clear SEVONPEND bit of Cortex System Control Register */
+ 626:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   CLEAR_BIT(SCB->SCR, ((uint32_t)SCB_SCR_SEVONPEND_Msk));
+ 654              		.loc 1 626 3 view .LVU111
+ 655 0000 024A     		ldr	r2, .L71
+ 656 0002 1369     		ldr	r3, [r2, #16]
+ 657 0004 23F01003 		bic	r3, r3, #16
+ 658 0008 1361     		str	r3, [r2, #16]
+ 627:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 659              		.loc 1 627 1 is_stmt 0 view .LVU112
+ 660 000a 7047     		bx	lr
+ 661              	.L72:
+ 662              		.align	2
+ 663              	.L71:
+ 664 000c 00ED00E0 		.word	-536810240
+ 665              		.cfi_endproc
+ 666              	.LFE137:
+ 668              		.section	.text.HAL_PWR_PVDCallback,"ax",%progbits
+ 669              		.align	1
+ 670              		.p2align 2,,3
+ 671              		.weak	HAL_PWR_PVDCallback
+ 672              		.syntax unified
+ 673              		.thumb
+ 674              		.thumb_func
+ 675              		.fpu fpv4-sp-d16
+ 677              	HAL_PWR_PVDCallback:
+ 678              	.LFB138:
+ 628:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 629:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 630:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 631:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 632:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** 
+ 633:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** /**
+ 634:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @brief PWR PVD interrupt callback
+ 635:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   * @retval None
+ 636:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   */
+ 637:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** __weak void HAL_PWR_PVDCallback(void)
+ 638:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** {
+ 679              		.loc 1 638 1 is_stmt 1 view -0
+ 680              		.cfi_startproc
+ 681              		@ args = 0, pretend = 0, frame = 0
+ 682              		@ frame_needed = 0, uses_anonymous_args = 0
+ 683              		@ link register save eliminated.
+ 639:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****   /* NOTE : This function should not be modified; when the callback is needed,
+ 640:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****             the HAL_PWR_PVDCallback can be implemented in the user file
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 24
+
+
+ 641:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c ****    */
+ 642:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_pwr.c **** }
+ 684              		.loc 1 642 1 view .LVU114
+ 685 0000 7047     		bx	lr
+ 686              		.cfi_endproc
+ 687              	.LFE138:
+ 689 0002 00BF     		.text
+ 690              	.Letext0:
+ 691              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 692              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 693              		.file 4 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arch
+ 694              		.file 5 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32
+ 695              		.file 6 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l496xx.
+ 696              		.file 7 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l4xx.h"
+ 697              		.file 8 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 698              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h
+ 699              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr.h"
+ 700              		.file 11 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ 701              		.file 12 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_pwr_ex
+ARM GAS  T:\msys\tmp\ccdH4r4b.s 			page 25
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32l4xx_hal_pwr.c
+T:\msys\tmp\ccdH4r4b.s:18     .text.HAL_PWR_DeInit:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:27     .text.HAL_PWR_DeInit:00000000 HAL_PWR_DeInit
+T:\msys\tmp\ccdH4r4b.s:49     .text.HAL_PWR_DeInit:00000014 $d
+T:\msys\tmp\ccdH4r4b.s:54     .text.HAL_PWR_EnableBkUpAccess:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:62     .text.HAL_PWR_EnableBkUpAccess:00000000 HAL_PWR_EnableBkUpAccess
+T:\msys\tmp\ccdH4r4b.s:79     .text.HAL_PWR_EnableBkUpAccess:0000000c $d
+T:\msys\tmp\ccdH4r4b.s:84     .text.HAL_PWR_DisableBkUpAccess:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:92     .text.HAL_PWR_DisableBkUpAccess:00000000 HAL_PWR_DisableBkUpAccess
+T:\msys\tmp\ccdH4r4b.s:109    .text.HAL_PWR_DisableBkUpAccess:0000000c $d
+T:\msys\tmp\ccdH4r4b.s:114    .text.HAL_PWR_ConfigPVD:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:122    .text.HAL_PWR_ConfigPVD:00000000 HAL_PWR_ConfigPVD
+T:\msys\tmp\ccdH4r4b.s:218    .text.HAL_PWR_ConfigPVD:00000074 $d
+T:\msys\tmp\ccdH4r4b.s:224    .text.HAL_PWR_EnablePVD:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:232    .text.HAL_PWR_EnablePVD:00000000 HAL_PWR_EnablePVD
+T:\msys\tmp\ccdH4r4b.s:249    .text.HAL_PWR_EnablePVD:0000000c $d
+T:\msys\tmp\ccdH4r4b.s:254    .text.HAL_PWR_DisablePVD:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:262    .text.HAL_PWR_DisablePVD:00000000 HAL_PWR_DisablePVD
+T:\msys\tmp\ccdH4r4b.s:279    .text.HAL_PWR_DisablePVD:0000000c $d
+T:\msys\tmp\ccdH4r4b.s:284    .text.HAL_PWR_EnableWakeUpPin:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:292    .text.HAL_PWR_EnableWakeUpPin:00000000 HAL_PWR_EnableWakeUpPin
+T:\msys\tmp\ccdH4r4b.s:319    .text.HAL_PWR_EnableWakeUpPin:0000001c $d
+T:\msys\tmp\ccdH4r4b.s:324    .text.HAL_PWR_DisableWakeUpPin:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:332    .text.HAL_PWR_DisableWakeUpPin:00000000 HAL_PWR_DisableWakeUpPin
+T:\msys\tmp\ccdH4r4b.s:354    .text.HAL_PWR_DisableWakeUpPin:00000010 $d
+T:\msys\tmp\ccdH4r4b.s:359    .text.HAL_PWR_EnterSLEEPMode:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:367    .text.HAL_PWR_EnterSLEEPMode:00000000 HAL_PWR_EnterSLEEPMode
+T:\msys\tmp\ccdH4r4b.s:460    .text.HAL_PWR_EnterSLEEPMode:0000003c $d
+T:\msys\tmp\ccdH4r4b.s:466    .text.HAL_PWR_EnterSTOPMode:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:474    .text.HAL_PWR_EnterSTOPMode:00000000 HAL_PWR_EnterSTOPMode
+T:\msys\tmp\ccdH4r4b.s:503    .text.HAL_PWR_EnterSTANDBYMode:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:511    .text.HAL_PWR_EnterSTANDBYMode:00000000 HAL_PWR_EnterSTANDBYMode
+T:\msys\tmp\ccdH4r4b.s:543    .text.HAL_PWR_EnterSTANDBYMode:0000001c $d
+T:\msys\tmp\ccdH4r4b.s:549    .text.HAL_PWR_EnableSleepOnExit:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:557    .text.HAL_PWR_EnableSleepOnExit:00000000 HAL_PWR_EnableSleepOnExit
+T:\msys\tmp\ccdH4r4b.s:574    .text.HAL_PWR_EnableSleepOnExit:0000000c $d
+T:\msys\tmp\ccdH4r4b.s:579    .text.HAL_PWR_DisableSleepOnExit:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:587    .text.HAL_PWR_DisableSleepOnExit:00000000 HAL_PWR_DisableSleepOnExit
+T:\msys\tmp\ccdH4r4b.s:604    .text.HAL_PWR_DisableSleepOnExit:0000000c $d
+T:\msys\tmp\ccdH4r4b.s:609    .text.HAL_PWR_EnableSEVOnPend:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:617    .text.HAL_PWR_EnableSEVOnPend:00000000 HAL_PWR_EnableSEVOnPend
+T:\msys\tmp\ccdH4r4b.s:634    .text.HAL_PWR_EnableSEVOnPend:0000000c $d
+T:\msys\tmp\ccdH4r4b.s:639    .text.HAL_PWR_DisableSEVOnPend:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:647    .text.HAL_PWR_DisableSEVOnPend:00000000 HAL_PWR_DisableSEVOnPend
+T:\msys\tmp\ccdH4r4b.s:664    .text.HAL_PWR_DisableSEVOnPend:0000000c $d
+T:\msys\tmp\ccdH4r4b.s:669    .text.HAL_PWR_PVDCallback:00000000 $t
+T:\msys\tmp\ccdH4r4b.s:677    .text.HAL_PWR_PVDCallback:00000000 HAL_PWR_PVDCallback
+
+UNDEFINED SYMBOLS
+HAL_PWREx_EnableLowPowerRunMode
+HAL_PWREx_DisableLowPowerRunMode
+HAL_PWREx_EnterSTOP0Mode
+HAL_PWREx_EnterSTOP1Mode

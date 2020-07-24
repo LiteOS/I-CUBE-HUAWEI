@@ -1,0 +1,247 @@
+ARM GAS  T:\msys\tmp\cc07yMff.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32l4xx_hal_flash_ramfunc.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.RamFunc,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	HAL_FLASHEx_EnableRunPowerDown
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	HAL_FLASHEx_EnableRunPowerDown:
+  28              	.LFB123:
+  29              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_flash_r
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /**
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   ******************************************************************************
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @file    stm32l4xx_hal_flash_ramfunc.c
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @author  MCD Application Team
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @brief   FLASH RAMFUNC driver.
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   *          This file provides a Flash firmware functions which should be
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   *          executed from internal SRAM
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   *            + FLASH HalfPage Programming
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   *            + FLASH Power Down in Run mode
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   *
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   *  @verbatim
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   ==============================================================================
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****                    ##### Flash RAM functions #####
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   ==============================================================================
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****     *** ARM Compiler ***
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****     --------------------
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****     [..] RAM functions are defined using the toolchain options.
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****          Functions that are executed in RAM should reside in a separate
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****          source module. Using the 'Options for File' dialog you can simply change
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****          the 'Code / Const' area of a module to a memory space in physical RAM.
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****          Available memory areas are declared in the 'Target' tab of the
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****          Options for Target' dialog.
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****     *** ICCARM Compiler ***
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****     -----------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****     [..] RAM functions are defined using a specific toolchain keyword "__ramfunc".
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****     *** GNU Compiler ***
+ARM GAS  T:\msys\tmp\cc07yMff.s 			page 2
+
+
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****     --------------------
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****     [..] RAM functions are defined using a specific toolchain attribute
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****          "__attribute__((section(".RamFunc")))".
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   @endverbatim
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   ******************************************************************************
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @attention
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   *
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * All rights reserved.</center></h2>
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   *
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * the "License"; You may not use this file except in compliance with the
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * License. You may obtain a copy of the License at:
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   *                       opensource.org/licenses/BSD-3-Clause
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   *
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   ******************************************************************************
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   */
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /* Includes ------------------------------------------------------------------*/
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** #include "stm32l4xx_hal.h"
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /** @addtogroup STM32L4xx_HAL_Driver
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @{
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   */
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /** @defgroup FLASH_RAMFUNC FLASH_RAMFUNC
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @brief FLASH functions executed from RAM
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @{
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   */
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** #ifdef HAL_FLASH_MODULE_ENABLED
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /* Private typedef -----------------------------------------------------------*/
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /* Private define ------------------------------------------------------------*/
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /* Private macro -------------------------------------------------------------*/
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /* Private variables ---------------------------------------------------------*/
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** extern FLASH_ProcessTypeDef pFlash;
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /* Private function prototypes -----------------------------------------------*/
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /* Exported functions -------------------------------------------------------*/
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /** @defgroup FLASH_RAMFUNC_Exported_Functions FLASH in RAM function Exported Functions
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @{
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   */
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /** @defgroup FLASH_RAMFUNC_Exported_Functions_Group1 Peripheral features functions
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****  *  @brief   Data transfers functions
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****  *
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** @verbatim
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****  ===============================================================================
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****                       ##### ramfunc functions #####
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****  ===============================================================================
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****     [..]
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****     This subsection provides a set of functions that should be executed from RAM.
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** @endverbatim
+ARM GAS  T:\msys\tmp\cc07yMff.s 			page 3
+
+
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @{
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   */
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /**
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @brief   Enable the Power down in Run Mode
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @note    This function should be called and executed from SRAM memory
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @retval  HAL status
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   */
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** __RAM_FUNC HAL_StatusTypeDef HAL_FLASHEx_EnableRunPowerDown(void)
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** {
+  30              		.loc 1 96 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   /* Enable the Power Down in Run mode*/
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   __HAL_FLASH_POWER_DOWN_ENABLE();
+  35              		.loc 1 98 3 view .LVU1
+  36              		.loc 1 98 3 view .LVU2
+  37 0000 054B     		ldr	r3, .L3
+  38 0002 0649     		ldr	r1, .L3+4
+  39 0004 064A     		ldr	r2, .L3+8
+  40 0006 5960     		str	r1, [r3, #4]
+  41              		.loc 1 98 3 view .LVU3
+  42 0008 5A60     		str	r2, [r3, #4]
+  43              		.loc 1 98 3 view .LVU4
+  44 000a 1A68     		ldr	r2, [r3]
+  45 000c 42F40052 		orr	r2, r2, #8192
+  46 0010 1A60     		str	r2, [r3]
+  47              		.loc 1 98 3 view .LVU5
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   return HAL_OK;
+  48              		.loc 1 100 3 view .LVU6
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** }
+  49              		.loc 1 102 1 is_stmt 0 view .LVU7
+  50 0012 0020     		movs	r0, #0
+  51 0014 7047     		bx	lr
+  52              	.L4:
+  53 0016 00BF     		.align	2
+  54              	.L3:
+  55 0018 00200240 		.word	1073881088
+  56 001c 37261504 		.word	68494903
+  57 0020 FDFCFBFA 		.word	-84148995
+  58              		.cfi_endproc
+  59              	.LFE123:
+  61              		.align	1
+  62              		.p2align 2,,3
+  63              		.global	HAL_FLASHEx_DisableRunPowerDown
+  64              		.syntax unified
+  65              		.thumb
+  66              		.thumb_func
+  67              		.fpu fpv4-sp-d16
+  69              	HAL_FLASHEx_DisableRunPowerDown:
+  70              	.LFB124:
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** /**
+ARM GAS  T:\msys\tmp\cc07yMff.s 			page 4
+
+
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @brief   Disable the Power down in Run Mode
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @note    This function should be called and executed from SRAM memory
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   * @retval  HAL status
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   */
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** __RAM_FUNC HAL_StatusTypeDef HAL_FLASHEx_DisableRunPowerDown(void)
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** {
+  71              		.loc 1 110 1 is_stmt 1 view -0
+  72              		.cfi_startproc
+  73              		@ args = 0, pretend = 0, frame = 0
+  74              		@ frame_needed = 0, uses_anonymous_args = 0
+  75              		@ link register save eliminated.
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   /* Disable the Power Down in Run mode*/
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   __HAL_FLASH_POWER_DOWN_DISABLE();
+  76              		.loc 1 112 3 view .LVU9
+  77              		.loc 1 112 3 view .LVU10
+  78 0024 054B     		ldr	r3, .L6
+  79 0026 0649     		ldr	r1, .L6+4
+  80 0028 064A     		ldr	r2, .L6+8
+  81 002a 5960     		str	r1, [r3, #4]
+  82              		.loc 1 112 3 view .LVU11
+  83 002c 5A60     		str	r2, [r3, #4]
+  84              		.loc 1 112 3 view .LVU12
+  85 002e 1A68     		ldr	r2, [r3]
+  86 0030 22F40052 		bic	r2, r2, #8192
+  87 0034 1A60     		str	r2, [r3]
+  88              		.loc 1 112 3 view .LVU13
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** 
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c ****   return HAL_OK;
+  89              		.loc 1 114 3 view .LVU14
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_flash_ramfunc.c **** }
+  90              		.loc 1 115 1 is_stmt 0 view .LVU15
+  91 0036 0020     		movs	r0, #0
+  92 0038 7047     		bx	lr
+  93              	.L7:
+  94 003a 00BF     		.align	2
+  95              	.L6:
+  96 003c 00200240 		.word	1073881088
+  97 0040 37261504 		.word	68494903
+  98 0044 FDFCFBFA 		.word	-84148995
+  99              		.cfi_endproc
+ 100              	.LFE124:
+ 102              		.text
+ 103              	.Letext0:
+ 104              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 105              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 106              		.file 4 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arch
+ 107              		.file 5 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32
+ 108              		.file 6 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l496xx.
+ 109              		.file 7 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 110              		.file 8 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h
+ 111              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ARM GAS  T:\msys\tmp\cc07yMff.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32l4xx_hal_flash_ramfunc.c
+T:\msys\tmp\cc07yMff.s:18     .RamFunc:00000000 $t
+T:\msys\tmp\cc07yMff.s:27     .RamFunc:00000000 HAL_FLASHEx_EnableRunPowerDown
+T:\msys\tmp\cc07yMff.s:55     .RamFunc:00000018 $d
+T:\msys\tmp\cc07yMff.s:61     .RamFunc:00000024 $t
+T:\msys\tmp\cc07yMff.s:69     .RamFunc:00000024 HAL_FLASHEx_DisableRunPowerDown
+T:\msys\tmp\cc07yMff.s:96     .RamFunc:0000003c $d
+
+NO UNDEFINED SYMBOLS

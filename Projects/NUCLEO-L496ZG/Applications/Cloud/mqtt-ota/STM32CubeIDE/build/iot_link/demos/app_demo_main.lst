@@ -1,0 +1,218 @@
+ARM GAS  T:\msys\tmp\ccPeGwsn.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"app_demo_main.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.standard_app_demo_main.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 5B25735D 		.ascii	"[%s][%u][%s] %s:###please implement app demo by you"
+  20      5B25755D 
+  20      5B25735D 
+  20      2025733A 
+  20      23232370 
+  21 0033 7273656C 		.ascii	"rself####\012\015\015\012\000"
+  21      66232323 
+  21      230A0D0D 
+  21      0A00
+  22              		.section	.text.standard_app_demo_main,"ax",%progbits
+  23              		.align	1
+  24              		.p2align 2,,3
+  25              		.weak	standard_app_demo_main
+  26              		.arch armv7e-m
+  27              		.syntax unified
+  28              		.thumb
+  29              		.thumb_func
+  30              		.fpu fpv4-sp-d16
+  32              	standard_app_demo_main:
+  33              	.LFB3:
+  34              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos/app_demo
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+ARM GAS  T:\msys\tmp\ccPeGwsn.s 			page 2
+
+
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * ===============================================
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c **** /**
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  *  DATE                AUTHOR      INSTRUCTION
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  *  2020-04-05 20:54  zhangqianfu  The first version
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  *
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****  */
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c **** #include <link_log.h>
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c **** 
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c **** __attribute__ ((weak)) int standard_app_demo_main(void)
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c **** {
+  35              		.loc 1 42 1 view -0
+  36              		.cfi_startproc
+  37              		@ args = 0, pretend = 0, frame = 0
+  38              		@ frame_needed = 0, uses_anonymous_args = 0
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****     LINK_LOG_DEBUG("%s:###please implement app demo by yourself####\n\r",__FUNCTION__);
+  39              		.loc 1 43 5 view .LVU1
+  40              		.loc 1 43 5 view .LVU2
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****     LINK_LOG_DEBUG("%s:###please implement app demo by yourself####\n\r",__FUNCTION__);
+  41              		.loc 1 42 1 is_stmt 0 view .LVU3
+  42 0000 10B5     		push	{r4, lr}
+  43              	.LCFI0:
+  44              		.cfi_def_cfa_offset 8
+  45              		.cfi_offset 4, -8
+  46              		.cfi_offset 14, -4
+  47 0002 82B0     		sub	sp, sp, #8
+  48              	.LCFI1:
+  49              		.cfi_def_cfa_offset 16
+  50              		.loc 1 43 5 view .LVU4
+  51 0004 FFF7FEFF 		bl	link_log_level_get
+  52              	.LVL0:
+  53 0008 0128     		cmp	r0, #1
+  54 000a 03D9     		bls	.L5
+  55              		.loc 1 43 5 is_stmt 1 discriminator 3 view .LVU5
+  56              		.loc 1 43 5 discriminator 3 view .LVU6
+  57              		.loc 1 43 5 discriminator 3 view .LVU7
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****     return -1;
+  58              		.loc 1 44 5 discriminator 3 view .LVU8
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c **** }
+  59              		.loc 1 45 1 is_stmt 0 discriminator 3 view .LVU9
+  60 000c 4FF0FF30 		mov	r0, #-1
+  61 0010 02B0     		add	sp, sp, #8
+  62              	.LCFI2:
+ARM GAS  T:\msys\tmp\ccPeGwsn.s 			page 3
+
+
+  63              		.cfi_remember_state
+  64              		.cfi_def_cfa_offset 8
+  65              		@ sp needed
+  66 0012 10BD     		pop	{r4, pc}
+  67              	.L5:
+  68              	.LCFI3:
+  69              		.cfi_restore_state
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****     return -1;
+  70              		.loc 1 43 5 is_stmt 1 discriminator 1 view .LVU10
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****     return -1;
+  71              		.loc 1 43 5 discriminator 1 view .LVU11
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****     return -1;
+  72              		.loc 1 43 5 discriminator 1 view .LVU12
+  73 0014 0120     		movs	r0, #1
+  74 0016 FFF7FEFF 		bl	link_log_level_name
+  75              	.LVL1:
+  76 001a 0446     		mov	r4, r0
+  77 001c FFF7FEFF 		bl	osal_sys_time
+  78              	.LVL2:
+  79 0020 074B     		ldr	r3, .L6
+  80 0022 0093     		str	r3, [sp]
+  81 0024 0246     		mov	r2, r0
+  82 0026 2146     		mov	r1, r4
+  83 0028 0648     		ldr	r0, .L6+4
+  84 002a FFF7FEFF 		bl	printf
+  85              	.LVL3:
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****     return -1;
+  86              		.loc 1 43 5 discriminator 1 view .LVU13
+  87 002e 064B     		ldr	r3, .L6+8
+  88 0030 1B68     		ldr	r3, [r3]
+  89 0032 9868     		ldr	r0, [r3, #8]
+  90 0034 FFF7FEFF 		bl	fflush
+  91              	.LVL4:
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****     return -1;
+  92              		.loc 1 43 5 discriminator 1 view .LVU14
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****     return -1;
+  93              		.loc 1 43 5 discriminator 1 view .LVU15
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****     return -1;
+  94              		.loc 1 43 5 discriminator 1 view .LVU16
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/demos\app_demo_main.c ****     return -1;
+  95              		.loc 1 44 5 discriminator 1 view .LVU17
+  96              		.loc 1 45 1 is_stmt 0 discriminator 1 view .LVU18
+  97 0038 4FF0FF30 		mov	r0, #-1
+  98 003c 02B0     		add	sp, sp, #8
+  99              	.LCFI4:
+ 100              		.cfi_def_cfa_offset 8
+ 101              		@ sp needed
+ 102 003e 10BD     		pop	{r4, pc}
+ 103              	.L7:
+ 104              		.align	2
+ 105              	.L6:
+ 106 0040 00000000 		.word	.LANCHOR0
+ 107 0044 00000000 		.word	.LC0
+ 108 0048 00000000 		.word	_impure_ptr
+ 109              		.cfi_endproc
+ 110              	.LFE3:
+ 112              		.section	.rodata.__FUNCTION__.6594,"a"
+ARM GAS  T:\msys\tmp\ccPeGwsn.s 			page 4
+
+
+ 113              		.align	2
+ 114              		.set	.LANCHOR0,. + 0
+ 117              	__FUNCTION__.6594:
+ 118 0000 7374616E 		.ascii	"standard_app_demo_main\000"
+ 118      64617264 
+ 118      5F617070 
+ 118      5F64656D 
+ 118      6F5F6D61 
+ 119              		.text
+ 120              	.Letext0:
+ 121              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 122              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 123              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 124              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 125              		.file 6 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/inc/link_log.h
+ 126              		.file 7 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\stdio.h"
+ARM GAS  T:\msys\tmp\ccPeGwsn.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 app_demo_main.c
+T:\msys\tmp\ccPeGwsn.s:18     .rodata.standard_app_demo_main.str1.4:00000000 $d
+T:\msys\tmp\ccPeGwsn.s:23     .text.standard_app_demo_main:00000000 $t
+T:\msys\tmp\ccPeGwsn.s:32     .text.standard_app_demo_main:00000000 standard_app_demo_main
+T:\msys\tmp\ccPeGwsn.s:106    .text.standard_app_demo_main:00000040 $d
+T:\msys\tmp\ccPeGwsn.s:113    .rodata.__FUNCTION__.6594:00000000 $d
+T:\msys\tmp\ccPeGwsn.s:117    .rodata.__FUNCTION__.6594:00000000 __FUNCTION__.6594
+
+UNDEFINED SYMBOLS
+link_log_level_get
+link_log_level_name
+osal_sys_time
+printf
+fflush
+_impure_ptr

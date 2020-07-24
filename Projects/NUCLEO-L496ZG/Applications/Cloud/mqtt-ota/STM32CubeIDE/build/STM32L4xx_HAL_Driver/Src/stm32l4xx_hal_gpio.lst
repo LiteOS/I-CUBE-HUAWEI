@@ -1,0 +1,1840 @@
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"stm32l4xx_hal_gpio.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.HAL_GPIO_Init,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	HAL_GPIO_Init
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	HAL_GPIO_Init:
+  28              	.LVL0:
+  29              	.LFB123:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src/stm32l4xx_hal_gpio.c"
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /**
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   ******************************************************************************
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @file    stm32l4xx_hal_gpio.c
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @author  MCD Application Team
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @brief   GPIO HAL module driver.
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *          This file provides firmware functions to manage the following
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *          functionalities of the General Purpose Input/Output (GPIO) peripheral:
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *           + Initialization and de-initialization functions
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *           + IO operation functions
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   @verbatim
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   ==============================================================================
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****                     ##### GPIO Peripheral features #####
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   ==============================================================================
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   [..]
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (+) Each port bit of the general-purpose I/O (GPIO) ports can be individually
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         configured by software in several modes:
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (++) Input mode
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (++) Analog mode
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (++) Output mode
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (++) Alternate function mode
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (++) External interrupt/event lines
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (+) During and just after reset, the alternate functions and external interrupt
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         lines are not active and the I/O ports are configured in input floating mode.
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (+) All GPIO pins have weak internal pull-up and pull-down resistors, which can be
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         activated or not.
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (+) In Output or Alternate mode, each IO can be configured on open-drain or push-pull
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         type and the IO speed can be selected depending on the VDD value.
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (+) The microcontroller IO pins are connected to onboard peripherals/modules through a
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         multiplexer that allows only one peripheral alternate function (AF) connected
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****        to an IO pin at a time. In this way, there can be no conflict between peripherals
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****        sharing the same IO pin.
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (+) All ports have external interrupt/event capability. To use external interrupt
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         lines, the port must be configured in input mode. All available GPIO pins are
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         connected to the 16 external interrupt/event lines from EXTI0 to EXTI15.
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (+) The external interrupt/event controller consists of up to 39 edge detectors
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (16 lines are connected to GPIO) for generating event/interrupt requests (each
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         input line can be independently configured to select the type (interrupt or event)
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         and the corresponding trigger event (rising or falling or both). Each line can
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         also be masked independently.
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****                      ##### How to use this driver #####
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   ==============================================================================
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   [..]
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (#) Enable the GPIO AHB clock using the following function: __HAL_RCC_GPIOx_CLK_ENABLE().
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (#) Configure the GPIO pin(s) using HAL_GPIO_Init().
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (++) Configure the IO mode using "Mode" member from GPIO_InitTypeDef structure
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (++) Activate Pull-up, Pull-down resistor using "Pull" member from GPIO_InitTypeDef
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****              structure.
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (++) In case of Output or alternate function mode selection: the speed is
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****              configured through "Speed" member from GPIO_InitTypeDef structure.
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (++) In alternate mode is selection, the alternate function connected to the IO
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****              is configured through "Alternate" member from GPIO_InitTypeDef structure.
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (++) Analog mode is required when a pin is to be used as ADC channel
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****              or DAC output.
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (++) In case of external interrupt/event selection the "Mode" member from
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****              GPIO_InitTypeDef structure select the type (interrupt or event) and
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****              the corresponding trigger event (rising or falling or both).
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (#) In case of external interrupt/event mode selection, configure NVIC IRQ priority
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         mapped to the EXTI line using HAL_NVIC_SetPriority() and enable it using
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         HAL_NVIC_EnableIRQ().
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (#) To get the level of a pin configured in input mode use HAL_GPIO_ReadPin().
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (#) To set/reset the level of a pin configured in output mode use
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         HAL_GPIO_WritePin()/HAL_GPIO_TogglePin().
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****    (#) To lock pin configuration until next reset use HAL_GPIO_LockPin().
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (#) During and just after reset, the alternate functions are not
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         active and the GPIO pins are configured in input floating mode (except JTAG
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         pins).
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (#) The LSE oscillator pins OSC32_IN and OSC32_OUT can be used as general purpose
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         (PC14 and PC15, respectively) when the LSE oscillator is off. The LSE has
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         priority over the GPIO function.
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 3
+
+
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     (#) The HSE oscillator pins OSC_IN/OSC_OUT can be used as
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         general purpose PH0 and PH1, respectively, when the HSE oscillator is off.
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         The HSE has priority over the GPIO function.
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   @endverbatim
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   ******************************************************************************
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @attention
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * All rights reserved.</center></h2>
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * the "License"; You may not use this file except in compliance with the
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * License. You may obtain a copy of the License at:
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *                        opensource.org/licenses/BSD-3-Clause
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   ******************************************************************************
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /* Includes ------------------------------------------------------------------*/
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #include "stm32l4xx_hal.h"
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /** @addtogroup STM32L4xx_HAL_Driver
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @{
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /** @defgroup GPIO GPIO
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @brief GPIO HAL module driver
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @{
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /** MISRA C:2012 deviation rule has been granted for following rules:
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * Rule-12.2 - Medium: RHS argument is in interval [0,INF] which is out of
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * range of the shift operator in following API :
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * HAL_GPIO_Init
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * HAL_GPIO_DeInit
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #ifdef HAL_GPIO_MODULE_ENABLED
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /* Private typedef -----------------------------------------------------------*/
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /* Private defines -----------------------------------------------------------*/
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /** @defgroup GPIO_Private_Defines GPIO Private Defines
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @{
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #define GPIO_MODE             (0x00000003u)
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #define ANALOG_MODE           (0x00000008u)
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #define EXTI_MODE             (0x10000000u)
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #define GPIO_MODE_IT          (0x00010000u)
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #define GPIO_MODE_EVT         (0x00020000u)
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #define RISING_EDGE           (0x00100000u)
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #define FALLING_EDGE          (0x00200000u)
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #define GPIO_OUTPUT_TYPE      (0x00000010u)
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #define GPIO_NUMBER           (16u)
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /**
+ 141:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @}
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 4
+
+
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /* Private macros ------------------------------------------------------------*/
+ 145:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /* Private variables ---------------------------------------------------------*/
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /* Private function prototypes -----------------------------------------------*/
+ 147:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /* Exported functions --------------------------------------------------------*/
+ 148:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /** @defgroup GPIO_Exported_Functions GPIO Exported Functions
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @{
+ 151:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /** @defgroup GPIO_Exported_Functions_Group1 Initialization/de-initialization functions
+ 154:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****  *  @brief    Initialization and Configuration functions
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****  *
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** @verbatim
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****  ===============================================================================
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****               ##### Initialization and de-initialization functions #####
+ 159:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****  ===============================================================================
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** @endverbatim
+ 162:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @{
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 164:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 165:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /**
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @brief  Initialize the GPIOx peripheral according to the specified parameters in the GPIO_Init.
+ 167:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIOx where x can be (A..H) to select the GPIO peripheral for STM32L4 family
+ 168:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIO_Init pointer to a GPIO_InitTypeDef structure that contains
+ 169:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *         the configuration information for the specified GPIO peripheral.
+ 170:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @retval None
+ 171:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 172:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** void HAL_GPIO_Init(GPIO_TypeDef  *GPIOx, GPIO_InitTypeDef *GPIO_Init)
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** {
+  31              		.loc 1 173 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 8
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t position = 0x00u;
+  35              		.loc 1 174 3 view .LVU1
+ 175:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t iocurrent;
+  36              		.loc 1 175 3 view .LVU2
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t temp;
+  37              		.loc 1 176 3 view .LVU3
+ 177:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Check the parameters */
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_ALL_INSTANCE(GPIOx));
+  38              		.loc 1 179 3 view .LVU4
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_PIN(GPIO_Init->Pin));
+  39              		.loc 1 180 3 view .LVU5
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_MODE(GPIO_Init->Mode));
+  40              		.loc 1 181 3 view .LVU6
+ 182:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_PULL(GPIO_Init->Pull));
+  41              		.loc 1 182 3 view .LVU7
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 184:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Configure the port pins */
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   while (((GPIO_Init->Pin) >> position) != 0x00u)
+  42              		.loc 1 185 3 view .LVU8
+  43              		.loc 1 185 9 view .LVU9
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t position = 0x00u;
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 5
+
+
+  44              		.loc 1 173 1 is_stmt 0 view .LVU10
+  45 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  46              	.LCFI0:
+  47              		.cfi_def_cfa_offset 36
+  48              		.cfi_offset 4, -36
+  49              		.cfi_offset 5, -32
+  50              		.cfi_offset 6, -28
+  51              		.cfi_offset 7, -24
+  52              		.cfi_offset 8, -20
+  53              		.cfi_offset 9, -16
+  54              		.cfi_offset 10, -12
+  55              		.cfi_offset 11, -8
+  56              		.cfi_offset 14, -4
+  57              		.loc 1 185 21 view .LVU11
+  58 0004 0E68     		ldr	r6, [r1]
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t position = 0x00u;
+  59              		.loc 1 173 1 view .LVU12
+  60 0006 83B0     		sub	sp, sp, #12
+  61              	.LCFI1:
+  62              		.cfi_def_cfa_offset 48
+  63              		.loc 1 185 9 view .LVU13
+  64 0008 002E     		cmp	r6, #0
+  65 000a 00F09580 		beq	.L1
+ 186:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     /* Get current io position */
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     iocurrent = (GPIO_Init->Pin) & (1uL << position);
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     if (iocurrent != 0x00u)
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     {
+ 192:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /*--------------------- GPIO Mode Configuration ------------------------*/
+ 193:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* In case of Output or Alternate function mode selection */
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       if((GPIO_Init->Mode == GPIO_MODE_OUTPUT_PP) || (GPIO_Init->Mode == GPIO_MODE_AF_PP) ||
+ 195:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****          (GPIO_Init->Mode == GPIO_MODE_OUTPUT_OD) || (GPIO_Init->Mode == GPIO_MODE_AF_OD))
+ 196:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 197:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Check the Speed parameter */
+ 198:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         assert_param(IS_GPIO_SPEED(GPIO_Init->Speed));
+ 199:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Configure the IO Speed */
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp = GPIOx->OSPEEDR;
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(GPIO_OSPEEDR_OSPEED0 << (position * 2u));
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_Init->Speed << (position * 2u));
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->OSPEEDR = temp;
+ 204:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Configure the IO Output Type */
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp = GPIOx->OTYPER;
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(GPIO_OTYPER_OT0 << position) ;
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (((GPIO_Init->Mode & GPIO_OUTPUT_TYPE) >> 4u) << position);
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->OTYPER = temp;
+ 210:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 212:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #if defined(STM32L471xx) || defined(STM32L475xx) || defined(STM32L476xx) || defined(STM32L485xx) ||
+ 213:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* In case of Analog mode, check if ADC control mode is selected */
+ 215:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       if((GPIO_Init->Mode & GPIO_MODE_ANALOG) == GPIO_MODE_ANALOG)
+ 216:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 217:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Configure the IO Output Type */
+ 218:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp = GPIOx->ASCR;
+ 219:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(GPIO_ASCR_ASC0 << position) ;
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 6
+
+
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (((GPIO_Init->Mode & ANALOG_MODE) >> 3) << position);
+ 221:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->ASCR = temp;
+ 222:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 224:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #endif /* STM32L471xx || STM32L475xx || STM32L476xx || STM32L485xx || STM32L486xx */
+ 225:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 226:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* Activate the Pull-up or Pull down resistor for the current IO */
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp = GPIOx->PUPDR;
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp &= ~(GPIO_PUPDR_PUPD0 << (position * 2u));
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp |= ((GPIO_Init->Pull) << (position * 2u));
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->PUPDR = temp;
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 232:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* In case of Alternate function mode selection */
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       if((GPIO_Init->Mode == GPIO_MODE_AF_PP) || (GPIO_Init->Mode == GPIO_MODE_AF_OD))
+ 234:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 235:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Check the Alternate function parameters */
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         assert_param(IS_GPIO_AF_INSTANCE(GPIOx));
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         assert_param(IS_GPIO_AF(GPIO_Init->Alternate));
+ 238:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Configure Alternate function mapped with the current IO */
+ 240:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp = GPIOx->AFR[position >> 3u];
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(0xFu << ((position & 0x07u) * 4u));
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= ((GPIO_Init->Alternate) << ((position & 0x07u) * 4u));
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->AFR[position >> 3u] = temp;
+ 244:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 245:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 246:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* Configure IO Direction mode (Input, Output, Alternate or Analog) */
+ 247:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp = GPIOx->MODER;
+ 248:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp &= ~(GPIO_MODER_MODE0 << (position * 2u));
+ 249:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp |= ((GPIO_Init->Mode & GPIO_MODE) << (position * 2u));
+ 250:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->MODER = temp;
+ 251:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 252:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /*--------------------- EXTI Mode Configuration ------------------------*/
+ 253:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* Configure the External Interrupt or event for the current IO */
+ 254:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       if((GPIO_Init->Mode & EXTI_MODE) == EXTI_MODE)
+ 255:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 256:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Enable SYSCFG Clock */
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         __HAL_RCC_SYSCFG_CLK_ENABLE();
+ 258:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 259:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp = SYSCFG->EXTICR[position >> 2u];
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(0x0FuL << (4u * (position & 0x03u)));
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u)));
+ 262:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] = temp;
+ 263:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 264:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Clear EXTI line configuration */
+ 265:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp = EXTI->IMR1;
+  66              		.loc 1 265 14 view .LVU14
+  67 000e DFF80CE2 		ldr	lr, .L41+32
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t iocurrent;
+  68              		.loc 1 174 12 view .LVU15
+  69 0012 0023     		movs	r3, #0
+  70              	.LVL1:
+  71              	.L2:
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  72              		.loc 1 188 5 is_stmt 1 view .LVU16
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+  73              		.loc 1 188 41 is_stmt 0 view .LVU17
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 7
+
+
+  74 0014 0122     		movs	r2, #1
+  75 0016 9A40     		lsls	r2, r2, r3
+  76              	.LVL2:
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     {
+  77              		.loc 1 190 5 is_stmt 1 view .LVU18
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     {
+  78              		.loc 1 190 8 is_stmt 0 view .LVU19
+  79 0018 12EA060C 		ands	ip, r2, r6
+  80              	.LVL3:
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     {
+  81              		.loc 1 190 8 view .LVU20
+  82 001c 00F08780 		beq	.L4
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****          (GPIO_Init->Mode == GPIO_MODE_OUTPUT_OD) || (GPIO_Init->Mode == GPIO_MODE_AF_OD))
+  83              		.loc 1 194 7 is_stmt 1 view .LVU21
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****          (GPIO_Init->Mode == GPIO_MODE_OUTPUT_OD) || (GPIO_Init->Mode == GPIO_MODE_AF_OD))
+  84              		.loc 1 194 20 is_stmt 0 view .LVU22
+  85 0020 4D68     		ldr	r5, [r1, #4]
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****          (GPIO_Init->Mode == GPIO_MODE_OUTPUT_OD) || (GPIO_Init->Mode == GPIO_MODE_AF_OD))
+  86              		.loc 1 194 9 view .LVU23
+  87 0022 25F0100A 		bic	r10, r5, #16
+  88 0026 0AF1FF34 		add	r4, r10, #-1
+  89 002a 012C     		cmp	r4, #1
+  90 002c 4FEA4308 		lsl	r8, r3, #1
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_Init->Speed << (position * 2u));
+  91              		.loc 1 201 40 view .LVU24
+  92 0030 4FF00304 		mov	r4, #3
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****          (GPIO_Init->Mode == GPIO_MODE_OUTPUT_OD) || (GPIO_Init->Mode == GPIO_MODE_AF_OD))
+  93              		.loc 1 194 9 view .LVU25
+  94 0034 40F28380 		bls	.L5
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp &= ~(GPIO_PUPDR_PUPD0 << (position * 2u));
+  95              		.loc 1 227 7 is_stmt 1 discriminator 1 view .LVU26
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp &= ~(GPIO_PUPDR_PUPD0 << (position * 2u));
+  96              		.loc 1 227 12 is_stmt 0 discriminator 1 view .LVU27
+  97 0038 C768     		ldr	r7, [r0, #12]
+  98              	.LVL4:
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp |= ((GPIO_Init->Pull) << (position * 2u));
+  99              		.loc 1 228 7 is_stmt 1 discriminator 1 view .LVU28
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->PUPDR = temp;
+ 100              		.loc 1 229 34 is_stmt 0 discriminator 1 view .LVU29
+ 101 003a 8A68     		ldr	r2, [r1, #8]
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp |= ((GPIO_Init->Pull) << (position * 2u));
+ 102              		.loc 1 228 34 discriminator 1 view .LVU30
+ 103 003c 04FA08F4 		lsl	r4, r4, r8
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp |= ((GPIO_Init->Pull) << (position * 2u));
+ 104              		.loc 1 228 12 discriminator 1 view .LVU31
+ 105 0040 27EA0407 		bic	r7, r7, r4
+ 106              	.LVL5:
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->PUPDR = temp;
+ 107              		.loc 1 229 7 is_stmt 1 discriminator 1 view .LVU32
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->PUPDR = temp;
+ 108              		.loc 1 229 34 is_stmt 0 discriminator 1 view .LVU33
+ 109 0044 02FA08F2 		lsl	r2, r2, r8
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->PUPDR = temp;
+ 110              		.loc 1 229 12 discriminator 1 view .LVU34
+ 111 0048 3A43     		orrs	r2, r2, r7
+ 112              	.LVL6:
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 8
+
+
+ 113              		.loc 1 230 7 is_stmt 1 discriminator 1 view .LVU35
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 114              		.loc 1 230 20 is_stmt 0 discriminator 1 view .LVU36
+ 115 004a C260     		str	r2, [r0, #12]
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 116              		.loc 1 233 7 is_stmt 1 discriminator 1 view .LVU37
+ 117              	.LVL7:
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp |= ((GPIO_Init->Pull) << (position * 2u));
+ 118              		.loc 1 228 15 is_stmt 0 discriminator 1 view .LVU38
+ 119 004c E743     		mvns	r7, r4
+ 120              	.L6:
+ 247:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp &= ~(GPIO_MODER_MODE0 << (position * 2u));
+ 121              		.loc 1 247 7 is_stmt 1 view .LVU39
+ 247:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp &= ~(GPIO_MODER_MODE0 << (position * 2u));
+ 122              		.loc 1 247 12 is_stmt 0 view .LVU40
+ 123 004e 0268     		ldr	r2, [r0]
+ 124              	.LVL8:
+ 248:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp |= ((GPIO_Init->Mode & GPIO_MODE) << (position * 2u));
+ 125              		.loc 1 248 7 is_stmt 1 view .LVU41
+ 249:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->MODER = temp;
+ 126              		.loc 1 249 33 is_stmt 0 view .LVU42
+ 127 0050 05F00304 		and	r4, r5, #3
+ 248:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp |= ((GPIO_Init->Mode & GPIO_MODE) << (position * 2u));
+ 128              		.loc 1 248 12 view .LVU43
+ 129 0054 1740     		ands	r7, r7, r2
+ 130              	.LVL9:
+ 249:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->MODER = temp;
+ 131              		.loc 1 249 7 is_stmt 1 view .LVU44
+ 249:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->MODER = temp;
+ 132              		.loc 1 249 46 is_stmt 0 view .LVU45
+ 133 0056 04FA08F4 		lsl	r4, r4, r8
+ 249:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->MODER = temp;
+ 134              		.loc 1 249 12 view .LVU46
+ 135 005a 3C43     		orrs	r4, r4, r7
+ 136              	.LVL10:
+ 250:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 137              		.loc 1 250 7 is_stmt 1 view .LVU47
+ 250:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 138              		.loc 1 250 20 is_stmt 0 view .LVU48
+ 139 005c 0460     		str	r4, [r0]
+ 254:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 140              		.loc 1 254 7 is_stmt 1 view .LVU49
+ 254:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 141              		.loc 1 254 9 is_stmt 0 view .LVU50
+ 142 005e EC00     		lsls	r4, r5, #3
+ 143              	.LVL11:
+ 254:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 144              		.loc 1 254 9 view .LVU51
+ 145 0060 65D5     		bpl	.L4
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 146              		.loc 1 257 9 is_stmt 1 view .LVU52
+ 147              	.LBB2:
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 148              		.loc 1 257 9 view .LVU53
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 149              		.loc 1 257 9 view .LVU54
+ 150 0062 664C     		ldr	r4, .L41
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 9
+
+
+ 151 0064 226E     		ldr	r2, [r4, #96]
+ 152 0066 42F00102 		orr	r2, r2, #1
+ 153 006a 2266     		str	r2, [r4, #96]
+ 154              	.LVL12:
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 155              		.loc 1 257 9 view .LVU55
+ 156 006c 246E     		ldr	r4, [r4, #96]
+ 157 006e 23F00302 		bic	r2, r3, #3
+ 158 0072 02F18042 		add	r2, r2, #1073741824
+ 159 0076 04F00104 		and	r4, r4, #1
+ 160 007a 02F58032 		add	r2, r2, #65536
+ 161 007e 0194     		str	r4, [sp, #4]
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 162              		.loc 1 257 9 view .LVU56
+ 163              	.LBE2:
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u)));
+ 164              		.loc 1 260 45 is_stmt 0 view .LVU57
+ 165 0080 03F00304 		and	r4, r3, #3
+ 166              	.LBB3:
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 167              		.loc 1 257 9 view .LVU58
+ 168 0084 019F     		ldr	r7, [sp, #4]
+ 169              	.LVL13:
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 170              		.loc 1 257 9 view .LVU59
+ 171              	.LBE3:
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 172              		.loc 1 257 9 is_stmt 1 view .LVU60
+ 259:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(0x0FuL << (4u * (position & 0x03u)));
+ 173              		.loc 1 259 9 view .LVU61
+ 259:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(0x0FuL << (4u * (position & 0x03u)));
+ 174              		.loc 1 259 14 is_stmt 0 view .LVU62
+ 175 0086 D2F80880 		ldr	r8, [r2, #8]
+ 176              	.LVL14:
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u)));
+ 177              		.loc 1 260 9 is_stmt 1 view .LVU63
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u)));
+ 178              		.loc 1 260 33 is_stmt 0 view .LVU64
+ 179 008a 4FEA8409 		lsl	r9, r4, #2
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u)));
+ 180              		.loc 1 260 26 view .LVU65
+ 181 008e 0F27     		movs	r7, #15
+ 182 0090 07FA09F7 		lsl	r7, r7, r9
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] = temp;
+ 183              		.loc 1 261 18 view .LVU66
+ 184 0094 B0F1904F 		cmp	r0, #1207959552
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u)));
+ 185              		.loc 1 260 14 view .LVU67
+ 186 0098 28EA0707 		bic	r7, r8, r7
+ 187              	.LVL15:
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] = temp;
+ 188              		.loc 1 261 9 is_stmt 1 view .LVU68
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] = temp;
+ 189              		.loc 1 261 18 is_stmt 0 view .LVU69
+ 190 009c 20D0     		beq	.L8
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] = temp;
+ 191              		.loc 1 261 18 discriminator 1 view .LVU70
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 10
+
+
+ 192 009e 584C     		ldr	r4, .L41+4
+ 193 00a0 A042     		cmp	r0, r4
+ 194 00a2 00F08C80 		beq	.L35
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] = temp;
+ 195              		.loc 1 261 18 discriminator 3 view .LVU71
+ 196 00a6 574C     		ldr	r4, .L41+8
+ 197 00a8 A042     		cmp	r0, r4
+ 198 00aa 00F08E80 		beq	.L36
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] = temp;
+ 199              		.loc 1 261 18 discriminator 5 view .LVU72
+ 200 00ae 564C     		ldr	r4, .L41+12
+ 201 00b0 A042     		cmp	r0, r4
+ 202 00b2 7ED0     		beq	.L37
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] = temp;
+ 203              		.loc 1 261 18 discriminator 7 view .LVU73
+ 204 00b4 554C     		ldr	r4, .L41+16
+ 205 00b6 A042     		cmp	r0, r4
+ 206 00b8 00F09380 		beq	.L38
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] = temp;
+ 207              		.loc 1 261 18 discriminator 9 view .LVU74
+ 208 00bc 544C     		ldr	r4, .L41+20
+ 209 00be A042     		cmp	r0, r4
+ 210 00c0 00F09580 		beq	.L39
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] = temp;
+ 211              		.loc 1 261 18 discriminator 11 view .LVU75
+ 212 00c4 534C     		ldr	r4, .L41+24
+ 213 00c6 A042     		cmp	r0, r4
+ 214 00c8 00F08580 		beq	.L40
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] = temp;
+ 215              		.loc 1 261 18 discriminator 13 view .LVU76
+ 216 00cc 524C     		ldr	r4, .L41+28
+ 217 00ce A042     		cmp	r0, r4
+ 218 00d0 0CBF     		ite	eq
+ 219 00d2 4FF00708 		moveq	r8, #7
+ 220 00d6 4FF00808 		movne	r8, #8
+ 221 00da 08FA09F4 		lsl	r4, r8, r9
+ 222 00de 2743     		orrs	r7, r7, r4
+ 223              	.LVL16:
+ 224              	.L8:
+ 262:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 225              		.loc 1 262 9 is_stmt 1 discriminator 32 view .LVU77
+ 262:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 226              		.loc 1 262 40 is_stmt 0 discriminator 32 view .LVU78
+ 227 00e0 9760     		str	r7, [r2, #8]
+ 228              		.loc 1 265 9 is_stmt 1 discriminator 32 view .LVU79
+ 229              		.loc 1 265 14 is_stmt 0 discriminator 32 view .LVU80
+ 230 00e2 DEF80040 		ldr	r4, [lr]
+ 231              	.LVL17:
+ 266:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(iocurrent);
+ 232              		.loc 1 266 9 is_stmt 1 discriminator 32 view .LVU81
+ 233              		.loc 1 266 17 is_stmt 0 discriminator 32 view .LVU82
+ 234 00e6 6FEA0C07 		mvn	r7, ip
+ 235              	.LVL18:
+ 267:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         if((GPIO_Init->Mode & GPIO_MODE_IT) == GPIO_MODE_IT)
+ 236              		.loc 1 267 9 is_stmt 1 discriminator 32 view .LVU83
+ 237              		.loc 1 267 11 is_stmt 0 discriminator 32 view .LVU84
+ 238 00ea EA03     		lsls	r2, r5, #15
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 11
+
+
+ 266:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(iocurrent);
+ 239              		.loc 1 266 14 discriminator 32 view .LVU85
+ 240 00ec 54BF     		ite	pl
+ 241 00ee 3C40     		andpl	r4, r4, r7
+ 242              	.LVL19:
+ 268:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         {
+ 269:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****           temp |= iocurrent;
+ 243              		.loc 1 269 11 is_stmt 1 discriminator 32 view .LVU86
+ 244              		.loc 1 269 16 is_stmt 0 discriminator 32 view .LVU87
+ 245 00f0 4CEA0404 		orrmi	r4, ip, r4
+ 246              	.LVL20:
+ 270:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         }
+ 271:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         EXTI->IMR1 = temp;
+ 247              		.loc 1 271 9 is_stmt 1 discriminator 32 view .LVU88
+ 248              		.loc 1 271 20 is_stmt 0 discriminator 32 view .LVU89
+ 249 00f4 CEF80040 		str	r4, [lr]
+ 272:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 273:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp = EXTI->EMR1;
+ 250              		.loc 1 273 9 is_stmt 1 discriminator 32 view .LVU90
+ 251              		.loc 1 273 14 is_stmt 0 discriminator 32 view .LVU91
+ 252 00f8 DEF80440 		ldr	r4, [lr, #4]
+ 253              	.LVL21:
+ 274:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(iocurrent);
+ 254              		.loc 1 274 9 is_stmt 1 discriminator 32 view .LVU92
+ 275:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         if((GPIO_Init->Mode & GPIO_MODE_EVT) == GPIO_MODE_EVT)
+ 255              		.loc 1 275 9 discriminator 32 view .LVU93
+ 256              		.loc 1 275 11 is_stmt 0 discriminator 32 view .LVU94
+ 257 00fc AA03     		lsls	r2, r5, #14
+ 274:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(iocurrent);
+ 258              		.loc 1 274 14 discriminator 32 view .LVU95
+ 259 00fe 54BF     		ite	pl
+ 260 0100 3C40     		andpl	r4, r4, r7
+ 261              	.LVL22:
+ 276:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         {
+ 277:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****           temp |= iocurrent;
+ 262              		.loc 1 277 11 is_stmt 1 discriminator 32 view .LVU96
+ 263              		.loc 1 277 16 is_stmt 0 discriminator 32 view .LVU97
+ 264 0102 4CEA0404 		orrmi	r4, ip, r4
+ 265              	.LVL23:
+ 278:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         }
+ 279:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         EXTI->EMR1 = temp;
+ 266              		.loc 1 279 9 is_stmt 1 discriminator 32 view .LVU98
+ 267              		.loc 1 279 20 is_stmt 0 discriminator 32 view .LVU99
+ 268 0106 CEF80440 		str	r4, [lr, #4]
+ 280:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 281:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Clear Rising Falling edge configuration */
+ 282:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp = EXTI->RTSR1;
+ 269              		.loc 1 282 9 is_stmt 1 discriminator 32 view .LVU100
+ 270              		.loc 1 282 14 is_stmt 0 discriminator 32 view .LVU101
+ 271 010a DEF80840 		ldr	r4, [lr, #8]
+ 272              	.LVL24:
+ 283:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(iocurrent);
+ 273              		.loc 1 283 9 is_stmt 1 discriminator 32 view .LVU102
+ 284:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         if((GPIO_Init->Mode & RISING_EDGE) == RISING_EDGE)
+ 274              		.loc 1 284 9 discriminator 32 view .LVU103
+ 275              		.loc 1 284 11 is_stmt 0 discriminator 32 view .LVU104
+ 276 010e EA02     		lsls	r2, r5, #11
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 12
+
+
+ 283:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(iocurrent);
+ 277              		.loc 1 283 14 discriminator 32 view .LVU105
+ 278 0110 54BF     		ite	pl
+ 279 0112 3C40     		andpl	r4, r4, r7
+ 280              	.LVL25:
+ 285:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         {
+ 286:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****           temp |= iocurrent;
+ 281              		.loc 1 286 11 is_stmt 1 discriminator 32 view .LVU106
+ 282              		.loc 1 286 16 is_stmt 0 discriminator 32 view .LVU107
+ 283 0114 4CEA0404 		orrmi	r4, ip, r4
+ 284              	.LVL26:
+ 287:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         }
+ 288:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         EXTI->RTSR1 = temp;
+ 285              		.loc 1 288 9 is_stmt 1 discriminator 32 view .LVU108
+ 286              		.loc 1 288 21 is_stmt 0 discriminator 32 view .LVU109
+ 287 0118 CEF80840 		str	r4, [lr, #8]
+ 289:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 290:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp = EXTI->FTSR1;
+ 288              		.loc 1 290 9 is_stmt 1 discriminator 32 view .LVU110
+ 289              		.loc 1 290 14 is_stmt 0 discriminator 32 view .LVU111
+ 290 011c DEF80C20 		ldr	r2, [lr, #12]
+ 291              	.LVL27:
+ 291:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(iocurrent);
+ 292              		.loc 1 291 9 is_stmt 1 discriminator 32 view .LVU112
+ 292:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         if((GPIO_Init->Mode & FALLING_EDGE) == FALLING_EDGE)
+ 293              		.loc 1 292 9 discriminator 32 view .LVU113
+ 294              		.loc 1 292 11 is_stmt 0 discriminator 32 view .LVU114
+ 295 0120 AC02     		lsls	r4, r5, #10
+ 291:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(iocurrent);
+ 296              		.loc 1 291 14 discriminator 32 view .LVU115
+ 297 0122 54BF     		ite	pl
+ 298 0124 3A40     		andpl	r2, r2, r7
+ 299              	.LVL28:
+ 293:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         {
+ 294:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****           temp |= iocurrent;
+ 300              		.loc 1 294 11 is_stmt 1 discriminator 32 view .LVU116
+ 301              		.loc 1 294 16 is_stmt 0 discriminator 32 view .LVU117
+ 302 0126 4CEA0202 		orrmi	r2, ip, r2
+ 303              	.LVL29:
+ 295:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         }
+ 296:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         EXTI->FTSR1 = temp;
+ 304              		.loc 1 296 9 is_stmt 1 discriminator 32 view .LVU118
+ 305              		.loc 1 296 21 is_stmt 0 discriminator 32 view .LVU119
+ 306 012a CEF80C20 		str	r2, [lr, #12]
+ 307              	.LVL30:
+ 308              	.L4:
+ 297:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 298:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     }
+ 299:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 300:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     position++;
+ 309              		.loc 1 300 5 is_stmt 1 view .LVU120
+ 310              		.loc 1 300 13 is_stmt 0 view .LVU121
+ 311 012e 0133     		adds	r3, r3, #1
+ 312              	.LVL31:
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 313              		.loc 1 185 9 is_stmt 1 view .LVU122
+ 314 0130 36FA03F2 		lsrs	r2, r6, r3
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 13
+
+
+ 315 0134 7FF46EAF 		bne	.L2
+ 316              	.LVL32:
+ 317              	.L1:
+ 301:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ 302:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** }
+ 318              		.loc 1 302 1 is_stmt 0 view .LVU123
+ 319 0138 03B0     		add	sp, sp, #12
+ 320              	.LCFI2:
+ 321              		.cfi_remember_state
+ 322              		.cfi_def_cfa_offset 36
+ 323              		@ sp needed
+ 324 013a BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 325              	.LVL33:
+ 326              	.L5:
+ 327              	.LCFI3:
+ 328              		.cfi_restore_state
+ 198:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Configure the IO Speed */
+ 329              		.loc 1 198 9 is_stmt 1 view .LVU124
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(GPIO_OSPEEDR_OSPEED0 << (position * 2u));
+ 330              		.loc 1 200 9 view .LVU125
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(GPIO_OSPEEDR_OSPEED0 << (position * 2u));
+ 331              		.loc 1 200 14 is_stmt 0 view .LVU126
+ 332 013e 8768     		ldr	r7, [r0, #8]
+ 333              	.LVL34:
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_Init->Speed << (position * 2u));
+ 334              		.loc 1 201 9 is_stmt 1 view .LVU127
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->PUPDR = temp;
+ 335              		.loc 1 229 34 is_stmt 0 view .LVU128
+ 336 0140 D1F80890 		ldr	r9, [r1, #8]
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_Init->Speed << (position * 2u));
+ 337              		.loc 1 201 40 view .LVU129
+ 338 0144 04FA08F4 		lsl	r4, r4, r8
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_Init->Speed << (position * 2u));
+ 339              		.loc 1 201 14 view .LVU130
+ 340 0148 27EA040B 		bic	fp, r7, r4
+ 341              	.LVL35:
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->OSPEEDR = temp;
+ 342              		.loc 1 202 9 is_stmt 1 view .LVU131
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->OSPEEDR = temp;
+ 343              		.loc 1 202 35 is_stmt 0 view .LVU132
+ 344 014c CF68     		ldr	r7, [r1, #12]
+ 345 014e 07FA08F7 		lsl	r7, r7, r8
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->OSPEEDR = temp;
+ 346              		.loc 1 202 14 view .LVU133
+ 347 0152 47EA0B07 		orr	r7, r7, fp
+ 348              	.LVL36:
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 349              		.loc 1 203 9 is_stmt 1 view .LVU134
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 350              		.loc 1 203 24 is_stmt 0 view .LVU135
+ 351 0156 8760     		str	r7, [r0, #8]
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(GPIO_OTYPER_OT0 << position) ;
+ 352              		.loc 1 206 9 is_stmt 1 view .LVU136
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(GPIO_OTYPER_OT0 << position) ;
+ 353              		.loc 1 206 14 is_stmt 0 view .LVU137
+ 354 0158 4768     		ldr	r7, [r0, #4]
+ 355              	.LVL37:
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 14
+
+
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (((GPIO_Init->Mode & GPIO_OUTPUT_TYPE) >> 4u) << position);
+ 356              		.loc 1 207 9 is_stmt 1 view .LVU138
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->OTYPER = temp;
+ 357              		.loc 1 208 56 is_stmt 0 view .LVU139
+ 358 015a C5F3001B 		ubfx	fp, r5, #4, #1
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (((GPIO_Init->Mode & GPIO_OUTPUT_TYPE) >> 4u) << position);
+ 359              		.loc 1 207 14 view .LVU140
+ 360 015e 27EA0207 		bic	r7, r7, r2
+ 361              	.LVL38:
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->OTYPER = temp;
+ 362              		.loc 1 208 9 is_stmt 1 view .LVU141
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->OTYPER = temp;
+ 363              		.loc 1 208 63 is_stmt 0 view .LVU142
+ 364 0162 5A46     		mov	r2, fp
+ 365 0164 9A40     		lsls	r2, r2, r3
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->OTYPER = temp;
+ 366              		.loc 1 208 14 view .LVU143
+ 367 0166 3A43     		orrs	r2, r2, r7
+ 368              	.LVL39:
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 369              		.loc 1 209 9 is_stmt 1 view .LVU144
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 370              		.loc 1 209 23 is_stmt 0 view .LVU145
+ 371 0168 4260     		str	r2, [r0, #4]
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp &= ~(GPIO_PUPDR_PUPD0 << (position * 2u));
+ 372              		.loc 1 227 7 is_stmt 1 view .LVU146
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp &= ~(GPIO_PUPDR_PUPD0 << (position * 2u));
+ 373              		.loc 1 227 12 is_stmt 0 view .LVU147
+ 374 016a C268     		ldr	r2, [r0, #12]
+ 375              	.LVL40:
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp |= ((GPIO_Init->Pull) << (position * 2u));
+ 376              		.loc 1 228 7 is_stmt 1 view .LVU148
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->PUPDR = temp;
+ 377              		.loc 1 229 34 is_stmt 0 view .LVU149
+ 378 016c 09FA08F9 		lsl	r9, r9, r8
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       temp |= ((GPIO_Init->Pull) << (position * 2u));
+ 379              		.loc 1 228 12 view .LVU150
+ 380 0170 22EA0402 		bic	r2, r2, r4
+ 381              	.LVL41:
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->PUPDR = temp;
+ 382              		.loc 1 229 7 is_stmt 1 view .LVU151
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->PUPDR = temp;
+ 383              		.loc 1 229 12 is_stmt 0 view .LVU152
+ 384 0174 49EA0202 		orr	r2, r9, r2
+ 385              	.LVL42:
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 386              		.loc 1 230 7 is_stmt 1 view .LVU153
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 387              		.loc 1 233 9 is_stmt 0 view .LVU154
+ 388 0178 BAF1020F 		cmp	r10, #2
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= (GPIO_Init->Speed << (position * 2u));
+ 389              		.loc 1 201 17 view .LVU155
+ 390 017c 6FEA0407 		mvn	r7, r4
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 391              		.loc 1 230 20 view .LVU156
+ 392 0180 C260     		str	r2, [r0, #12]
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 15
+
+
+ 393              		.loc 1 233 7 is_stmt 1 view .LVU157
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 394              		.loc 1 233 9 is_stmt 0 view .LVU158
+ 395 0182 7FF464AF 		bne	.L6
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         assert_param(IS_GPIO_AF(GPIO_Init->Alternate));
+ 396              		.loc 1 236 9 is_stmt 1 view .LVU159
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 397              		.loc 1 237 9 view .LVU160
+ 240:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(0xFu << ((position & 0x07u) * 4u));
+ 398              		.loc 1 240 9 view .LVU161
+ 240:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(0xFu << ((position & 0x07u) * 4u));
+ 399              		.loc 1 240 36 is_stmt 0 view .LVU162
+ 400 0186 4FEAD309 		lsr	r9, r3, #3
+ 401 018a 00EB8909 		add	r9, r0, r9, lsl #2
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= ((GPIO_Init->Alternate) << ((position & 0x07u) * 4u));
+ 402              		.loc 1 241 38 view .LVU163
+ 403 018e 03F00704 		and	r4, r3, #7
+ 240:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp &= ~(0xFu << ((position & 0x07u) * 4u));
+ 404              		.loc 1 240 14 view .LVU164
+ 405 0192 D9F82020 		ldr	r2, [r9, #32]
+ 406              	.LVL43:
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= ((GPIO_Init->Alternate) << ((position & 0x07u) * 4u));
+ 407              		.loc 1 241 9 is_stmt 1 view .LVU165
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= ((GPIO_Init->Alternate) << ((position & 0x07u) * 4u));
+ 408              		.loc 1 241 47 is_stmt 0 view .LVU166
+ 409 0196 A400     		lsls	r4, r4, #2
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= ((GPIO_Init->Alternate) << ((position & 0x07u) * 4u));
+ 410              		.loc 1 241 24 view .LVU167
+ 411 0198 4FF00F0B 		mov	fp, #15
+ 412 019c 0BFA04FB 		lsl	fp, fp, r4
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         temp |= ((GPIO_Init->Alternate) << ((position & 0x07u) * 4u));
+ 413              		.loc 1 241 14 view .LVU168
+ 414 01a0 22EA0B0A 		bic	r10, r2, fp
+ 415              	.LVL44:
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->AFR[position >> 3u] = temp;
+ 416              		.loc 1 242 9 is_stmt 1 view .LVU169
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->AFR[position >> 3u] = temp;
+ 417              		.loc 1 242 41 is_stmt 0 view .LVU170
+ 418 01a4 0A69     		ldr	r2, [r1, #16]
+ 419 01a6 A240     		lsls	r2, r2, r4
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         GPIOx->AFR[position >> 3u] = temp;
+ 420              		.loc 1 242 14 view .LVU171
+ 421 01a8 42EA0A02 		orr	r2, r2, r10
+ 422              	.LVL45:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 423              		.loc 1 243 9 is_stmt 1 view .LVU172
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 424              		.loc 1 243 36 is_stmt 0 view .LVU173
+ 425 01ac C9F82020 		str	r2, [r9, #32]
+ 426 01b0 4DE7     		b	.L6
+ 427              	.LVL46:
+ 428              	.L37:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 429              		.loc 1 243 36 view .LVU174
+ 430 01b2 4FF00308 		mov	r8, #3
+ 431 01b6 08FA09F4 		lsl	r4, r8, r9
+ 432 01ba 2743     		orrs	r7, r7, r4
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 16
+
+
+ 433              	.LVL47:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 434              		.loc 1 243 36 view .LVU175
+ 435 01bc 90E7     		b	.L8
+ 436              	.LVL48:
+ 437              	.L35:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 438              		.loc 1 243 36 view .LVU176
+ 439 01be 4FF00108 		mov	r8, #1
+ 440 01c2 08FA09F4 		lsl	r4, r8, r9
+ 441 01c6 2743     		orrs	r7, r7, r4
+ 442              	.LVL49:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 443              		.loc 1 243 36 view .LVU177
+ 444 01c8 8AE7     		b	.L8
+ 445              	.LVL50:
+ 446              	.L36:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 447              		.loc 1 243 36 view .LVU178
+ 448 01ca 4FF00208 		mov	r8, #2
+ 449 01ce 08FA09F4 		lsl	r4, r8, r9
+ 450 01d2 2743     		orrs	r7, r7, r4
+ 451              	.LVL51:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 452              		.loc 1 243 36 view .LVU179
+ 453 01d4 84E7     		b	.L8
+ 454              	.LVL52:
+ 455              	.L40:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 456              		.loc 1 243 36 view .LVU180
+ 457 01d6 4FF00608 		mov	r8, #6
+ 458 01da 08FA09F4 		lsl	r4, r8, r9
+ 459 01de 2743     		orrs	r7, r7, r4
+ 460              	.LVL53:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 461              		.loc 1 243 36 view .LVU181
+ 462 01e0 7EE7     		b	.L8
+ 463              	.LVL54:
+ 464              	.L38:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 465              		.loc 1 243 36 view .LVU182
+ 466 01e2 4FF00408 		mov	r8, #4
+ 467 01e6 08FA09F4 		lsl	r4, r8, r9
+ 468 01ea 2743     		orrs	r7, r7, r4
+ 469              	.LVL55:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 470              		.loc 1 243 36 view .LVU183
+ 471 01ec 78E7     		b	.L8
+ 472              	.LVL56:
+ 473              	.L39:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 474              		.loc 1 243 36 view .LVU184
+ 475 01ee 4FF00508 		mov	r8, #5
+ 476 01f2 08FA09F4 		lsl	r4, r8, r9
+ 477 01f6 2743     		orrs	r7, r7, r4
+ 478              	.LVL57:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 17
+
+
+ 479              		.loc 1 243 36 view .LVU185
+ 480 01f8 72E7     		b	.L8
+ 481              	.L42:
+ 482 01fa 00BF     		.align	2
+ 483              	.L41:
+ 484 01fc 00100240 		.word	1073876992
+ 485 0200 00040048 		.word	1207960576
+ 486 0204 00080048 		.word	1207961600
+ 487 0208 000C0048 		.word	1207962624
+ 488 020c 00100048 		.word	1207963648
+ 489 0210 00140048 		.word	1207964672
+ 490 0214 00180048 		.word	1207965696
+ 491 0218 001C0048 		.word	1207966720
+ 492 021c 00040140 		.word	1073808384
+ 493              		.cfi_endproc
+ 494              	.LFE123:
+ 496              		.section	.text.HAL_GPIO_DeInit,"ax",%progbits
+ 497              		.align	1
+ 498              		.p2align 2,,3
+ 499              		.global	HAL_GPIO_DeInit
+ 500              		.syntax unified
+ 501              		.thumb
+ 502              		.thumb_func
+ 503              		.fpu fpv4-sp-d16
+ 505              	HAL_GPIO_DeInit:
+ 506              	.LVL58:
+ 507              	.LFB124:
+ 303:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 304:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /**
+ 305:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @brief  De-initialize the GPIOx peripheral registers to their default reset values.
+ 306:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIOx where x can be (A..H) to select the GPIO peripheral for STM32L4 family
+ 307:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIO_Pin specifies the port bit to be written.
+ 308:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *         This parameter can be any combination of GPIO_Pin_x where x can be (0..15).
+ 309:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @retval None
+ 310:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 311:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** void HAL_GPIO_DeInit(GPIO_TypeDef  *GPIOx, uint32_t GPIO_Pin)
+ 312:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** {
+ 508              		.loc 1 312 1 is_stmt 1 view -0
+ 509              		.cfi_startproc
+ 510              		@ args = 0, pretend = 0, frame = 8
+ 511              		@ frame_needed = 0, uses_anonymous_args = 0
+ 313:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t position = 0x00u;
+ 512              		.loc 1 313 3 view .LVU187
+ 314:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t iocurrent;
+ 513              		.loc 1 314 3 view .LVU188
+ 315:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t tmp;
+ 514              		.loc 1 315 3 view .LVU189
+ 316:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 317:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Check the parameters */
+ 318:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_ALL_INSTANCE(GPIOx));
+ 515              		.loc 1 318 3 view .LVU190
+ 319:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_PIN(GPIO_Pin));
+ 516              		.loc 1 319 3 view .LVU191
+ 320:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 321:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Configure the port pins */
+ 322:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   while ((GPIO_Pin >> position) != 0x00u)
+ 517              		.loc 1 322 3 view .LVU192
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 18
+
+
+ 518              		.loc 1 322 9 view .LVU193
+ 519 0000 0029     		cmp	r1, #0
+ 520 0002 00F0A280 		beq	.L63
+ 312:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t position = 0x00u;
+ 521              		.loc 1 312 1 is_stmt 0 view .LVU194
+ 522 0006 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 523              	.LCFI4:
+ 524              		.cfi_def_cfa_offset 36
+ 525              		.cfi_offset 4, -36
+ 526              		.cfi_offset 5, -32
+ 527              		.cfi_offset 6, -28
+ 528              		.cfi_offset 7, -24
+ 529              		.cfi_offset 8, -20
+ 530              		.cfi_offset 9, -16
+ 531              		.cfi_offset 10, -12
+ 532              		.cfi_offset 11, -8
+ 533              		.cfi_offset 14, -4
+ 323:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 324:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     /* Get current io position */
+ 325:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     iocurrent = (GPIO_Pin) & (1uL << position);
+ 326:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 327:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     if (iocurrent != 0x00u)
+ 328:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     {
+ 329:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /*------------------------- EXTI Mode Configuration --------------------*/
+ 330:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* Clear the External Interrupt or Event for the current IO */
+ 331:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 332:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       tmp = SYSCFG->EXTICR[position >> 2u];
+ 333:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       tmp &= (0x0FuL << (4u * (position & 0x03u)));
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       if (tmp == (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u))))
+ 335:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 336:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Clear EXTI line configuration */
+ 337:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         EXTI->IMR1 &= ~(iocurrent);
+ 534              		.loc 1 337 20 view .LVU195
+ 535 000a DFF854E1 		ldr	lr, .L72+20
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 536              		.loc 1 334 19 view .LVU196
+ 537 000e DFF85491 		ldr	r9, .L72+24
+ 538 0012 DFF854A1 		ldr	r10, .L72+28
+ 312:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t position = 0x00u;
+ 539              		.loc 1 312 1 view .LVU197
+ 540 0016 83B0     		sub	sp, sp, #12
+ 541              	.LCFI5:
+ 542              		.cfi_def_cfa_offset 48
+ 313:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   uint32_t iocurrent;
+ 543              		.loc 1 313 12 view .LVU198
+ 544 0018 0023     		movs	r3, #0
+ 325:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 545              		.loc 1 325 35 view .LVU199
+ 546 001a 4FF00108 		mov	r8, #1
+ 547              	.LVL59:
+ 548              	.L44:
+ 325:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 549              		.loc 1 325 5 is_stmt 1 view .LVU200
+ 325:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 550              		.loc 1 325 35 is_stmt 0 view .LVU201
+ 551 001e 08FA03F4 		lsl	r4, r8, r3
+ 552              	.LVL60:
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 19
+
+
+ 327:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     {
+ 553              		.loc 1 327 5 is_stmt 1 view .LVU202
+ 327:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     {
+ 554              		.loc 1 327 8 is_stmt 0 view .LVU203
+ 555 0022 14EA0106 		ands	r6, r4, r1
+ 556              	.LVL61:
+ 327:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     {
+ 557              		.loc 1 327 8 view .LVU204
+ 558 0026 6DD0     		beq	.L45
+ 332:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       tmp &= (0x0FuL << (4u * (position & 0x03u)));
+ 559              		.loc 1 332 7 is_stmt 1 view .LVU205
+ 560 0028 23F00305 		bic	r5, r3, #3
+ 561 002c 05F18045 		add	r5, r5, #1073741824
+ 562 0030 05F58035 		add	r5, r5, #65536
+ 333:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       if (tmp == (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u))))
+ 563              		.loc 1 333 41 is_stmt 0 view .LVU206
+ 564 0034 03F00302 		and	r2, r3, #3
+ 332:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       tmp &= (0x0FuL << (4u * (position & 0x03u)));
+ 565              		.loc 1 332 11 view .LVU207
+ 566 0038 AF68     		ldr	r7, [r5, #8]
+ 567              	.LVL62:
+ 333:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       if (tmp == (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u))))
+ 568              		.loc 1 333 7 is_stmt 1 view .LVU208
+ 333:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       if (tmp == (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u))))
+ 569              		.loc 1 333 29 is_stmt 0 view .LVU209
+ 570 003a 9200     		lsls	r2, r2, #2
+ 333:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       if (tmp == (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u))))
+ 571              		.loc 1 333 22 view .LVU210
+ 572 003c 4FF00F0C 		mov	ip, #15
+ 573 0040 0CFA02FC 		lsl	ip, ip, r2
+ 333:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       if (tmp == (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u))))
+ 574              		.loc 1 333 11 view .LVU211
+ 575 0044 0CEA0707 		and	r7, ip, r7
+ 576              	.LVL63:
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 577              		.loc 1 334 19 view .LVU212
+ 578 0048 B0F1904F 		cmp	r0, #1207959552
+ 333:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       if (tmp == (GPIO_GET_INDEX(GPIOx) << (4u * (position & 0x03u))))
+ 579              		.loc 1 333 11 view .LVU213
+ 580 004c 0197     		str	r7, [sp, #4]
+ 581              	.LVL64:
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 582              		.loc 1 334 7 is_stmt 1 view .LVU214
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 583              		.loc 1 334 19 is_stmt 0 view .LVU215
+ 584 004e 19D0     		beq	.L57
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 585              		.loc 1 334 19 discriminator 1 view .LVU216
+ 586 0050 4845     		cmp	r0, r9
+ 587 0052 5ED0     		beq	.L66
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 588              		.loc 1 334 19 discriminator 3 view .LVU217
+ 589 0054 5045     		cmp	r0, r10
+ 590 0056 5FD0     		beq	.L67
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 591              		.loc 1 334 19 discriminator 5 view .LVU218
+ 592 0058 3C4F     		ldr	r7, .L72
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 20
+
+
+ 593              	.LVL65:
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 594              		.loc 1 334 19 discriminator 5 view .LVU219
+ 595 005a B842     		cmp	r0, r7
+ 596 005c 66D0     		beq	.L68
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 597              		.loc 1 334 19 discriminator 7 view .LVU220
+ 598 005e 3C4F     		ldr	r7, .L72+4
+ 599 0060 B842     		cmp	r0, r7
+ 600 0062 68D0     		beq	.L69
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 601              		.loc 1 334 19 discriminator 9 view .LVU221
+ 602 0064 3B4F     		ldr	r7, .L72+8
+ 603 0066 B842     		cmp	r0, r7
+ 604 0068 5BD0     		beq	.L70
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 605              		.loc 1 334 19 discriminator 11 view .LVU222
+ 606 006a 3B4F     		ldr	r7, .L72+12
+ 607 006c B842     		cmp	r0, r7
+ 608 006e 67D0     		beq	.L71
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 609              		.loc 1 334 19 discriminator 13 view .LVU223
+ 610 0070 3A4F     		ldr	r7, .L72+16
+ 611 0072 B842     		cmp	r0, r7
+ 612 0074 14BF     		ite	ne
+ 613 0076 4FF0080B 		movne	fp, #8
+ 614 007a 4FF0070B 		moveq	fp, #7
+ 615 007e 0BFA02F2 		lsl	r2, fp, r2
+ 616 0082 00E0     		b	.L46
+ 617              	.LVL66:
+ 618              	.L57:
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 619              		.loc 1 334 19 discriminator 13 view .LVU224
+ 620 0084 0022     		movs	r2, #0
+ 621              	.LVL67:
+ 622              	.L46:
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       {
+ 623              		.loc 1 334 10 discriminator 32 view .LVU225
+ 624 0086 019F     		ldr	r7, [sp, #4]
+ 625 0088 9742     		cmp	r7, r2
+ 626 008a 1BD1     		bne	.L54
+ 627              		.loc 1 337 9 is_stmt 1 view .LVU226
+ 628              		.loc 1 337 20 is_stmt 0 view .LVU227
+ 629 008c DEF80020 		ldr	r2, [lr]
+ 630 0090 22EA0602 		bic	r2, r2, r6
+ 631 0094 CEF80020 		str	r2, [lr]
+ 338:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         EXTI->EMR1 &= ~(iocurrent);
+ 632              		.loc 1 338 9 is_stmt 1 view .LVU228
+ 633              		.loc 1 338 20 is_stmt 0 view .LVU229
+ 634 0098 DEF80420 		ldr	r2, [lr, #4]
+ 635 009c 22EA0602 		bic	r2, r2, r6
+ 636 00a0 CEF80420 		str	r2, [lr, #4]
+ 339:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 340:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         /* Clear Rising Falling edge configuration */
+ 341:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         EXTI->RTSR1 &= ~(iocurrent);
+ 637              		.loc 1 341 9 is_stmt 1 view .LVU230
+ 638              		.loc 1 341 21 is_stmt 0 view .LVU231
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 21
+
+
+ 639 00a4 DEF80820 		ldr	r2, [lr, #8]
+ 640 00a8 22EA0602 		bic	r2, r2, r6
+ 641 00ac CEF80820 		str	r2, [lr, #8]
+ 342:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         EXTI->FTSR1 &= ~(iocurrent);
+ 642              		.loc 1 342 9 is_stmt 1 view .LVU232
+ 643              		.loc 1 342 21 is_stmt 0 view .LVU233
+ 644 00b0 DEF80C20 		ldr	r2, [lr, #12]
+ 645 00b4 22EA0606 		bic	r6, r2, r6
+ 646              	.LVL68:
+ 647              		.loc 1 342 21 view .LVU234
+ 648 00b8 CEF80C60 		str	r6, [lr, #12]
+ 343:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 344:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         tmp = 0x0FuL << (4u * (position & 0x03u));
+ 649              		.loc 1 344 9 is_stmt 1 view .LVU235
+ 650              	.LVL69:
+ 345:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****         SYSCFG->EXTICR[position >> 2u] &= ~tmp;
+ 651              		.loc 1 345 9 view .LVU236
+ 652              		.loc 1 345 40 is_stmt 0 view .LVU237
+ 653 00bc AA68     		ldr	r2, [r5, #8]
+ 654 00be 22EA0C02 		bic	r2, r2, ip
+ 655 00c2 AA60     		str	r2, [r5, #8]
+ 656              	.LVL70:
+ 657              	.L54:
+ 346:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       }
+ 347:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 348:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /*------------------------- GPIO Mode Configuration --------------------*/
+ 349:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* Configure IO in Analog Mode */
+ 350:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->MODER |= (GPIO_MODER_MODE0 << (position * 2u));
+ 658              		.loc 1 350 7 is_stmt 1 view .LVU238
+ 659              		.loc 1 350 20 is_stmt 0 view .LVU239
+ 660 00c4 0268     		ldr	r2, [r0]
+ 661              		.loc 1 350 41 view .LVU240
+ 662 00c6 5D00     		lsls	r5, r3, #1
+ 663 00c8 0326     		movs	r6, #3
+ 664 00ca AE40     		lsls	r6, r6, r5
+ 351:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 352:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* Configure the default Alternate Function in current IO */
+ 353:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->AFR[position >> 3u] &= ~(0xFu << ((position & 0x07u) * 4u)) ;
+ 665              		.loc 1 353 34 view .LVU241
+ 666 00cc DD08     		lsrs	r5, r3, #3
+ 350:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 667              		.loc 1 350 20 view .LVU242
+ 668 00ce 3243     		orrs	r2, r2, r6
+ 669 00d0 00EB8505 		add	r5, r0, r5, lsl #2
+ 670 00d4 0260     		str	r2, [r0]
+ 671              		.loc 1 353 7 is_stmt 1 view .LVU243
+ 672              		.loc 1 353 58 is_stmt 0 view .LVU244
+ 673 00d6 03F00702 		and	r2, r3, #7
+ 674              		.loc 1 353 34 view .LVU245
+ 675 00da 2F6A     		ldr	r7, [r5, #32]
+ 676              		.loc 1 353 67 view .LVU246
+ 677 00dc 9200     		lsls	r2, r2, #2
+ 678              		.loc 1 353 44 view .LVU247
+ 679 00de 4FF00F0C 		mov	ip, #15
+ 680 00e2 0CFA02F2 		lsl	r2, ip, r2
+ 681              		.loc 1 353 34 view .LVU248
+ 682 00e6 27EA0202 		bic	r2, r7, r2
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 22
+
+
+ 683 00ea 2A62     		str	r2, [r5, #32]
+ 354:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 355:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* Configure the default value for IO Speed */
+ 356:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->OSPEEDR &= ~(GPIO_OSPEEDR_OSPEED0 << (position * 2u));
+ 684              		.loc 1 356 7 is_stmt 1 view .LVU249
+ 685              		.loc 1 356 22 is_stmt 0 view .LVU250
+ 686 00ec 8268     		ldr	r2, [r0, #8]
+ 687 00ee 22EA0602 		bic	r2, r2, r6
+ 688 00f2 8260     		str	r2, [r0, #8]
+ 357:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 358:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* Configure the default value IO Output Type */
+ 359:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->OTYPER  &= ~(GPIO_OTYPER_OT0 << position) ;
+ 689              		.loc 1 359 7 is_stmt 1 view .LVU251
+ 690              		.loc 1 359 22 is_stmt 0 view .LVU252
+ 691 00f4 4268     		ldr	r2, [r0, #4]
+ 692 00f6 22EA0404 		bic	r4, r2, r4
+ 693              	.LVL71:
+ 694              		.loc 1 359 22 view .LVU253
+ 695 00fa 4460     		str	r4, [r0, #4]
+ 360:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 361:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* Deactivate the Pull-up and Pull-down resistor for the current IO */
+ 362:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->PUPDR &= ~(GPIO_PUPDR_PUPD0 << (position * 2u));
+ 696              		.loc 1 362 7 is_stmt 1 view .LVU254
+ 697              		.loc 1 362 20 is_stmt 0 view .LVU255
+ 698 00fc C268     		ldr	r2, [r0, #12]
+ 699 00fe 22EA0606 		bic	r6, r2, r6
+ 700 0102 C660     		str	r6, [r0, #12]
+ 701              	.L45:
+ 363:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 364:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #if defined(STM32L471xx) || defined(STM32L475xx) || defined(STM32L476xx) || defined(STM32L485xx) ||
+ 365:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       /* Deactivate the Control bit of Analog mode for the current IO */
+ 366:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****       GPIOx->ASCR &= ~(GPIO_ASCR_ASC0<< position);
+ 367:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** #endif /* STM32L471xx || STM32L475xx || STM32L476xx || STM32L485xx || STM32L486xx */
+ 368:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     }
+ 369:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 370:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     position++;
+ 702              		.loc 1 370 5 is_stmt 1 view .LVU256
+ 703              		.loc 1 370 13 is_stmt 0 view .LVU257
+ 704 0104 0133     		adds	r3, r3, #1
+ 705              	.LVL72:
+ 322:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 706              		.loc 1 322 9 is_stmt 1 view .LVU258
+ 707 0106 31FA03F2 		lsrs	r2, r1, r3
+ 708 010a 88D1     		bne	.L44
+ 371:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ 372:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** }
+ 709              		.loc 1 372 1 is_stmt 0 view .LVU259
+ 710 010c 03B0     		add	sp, sp, #12
+ 711              	.LCFI6:
+ 712              		.cfi_remember_state
+ 713              		.cfi_def_cfa_offset 36
+ 714              		@ sp needed
+ 715 010e BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 716              	.LVL73:
+ 717              	.L66:
+ 718              	.LCFI7:
+ 719              		.cfi_restore_state
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 23
+
+
+ 720              		.loc 1 372 1 view .LVU260
+ 721 0112 08FA02F2 		lsl	r2, r8, r2
+ 722 0116 B6E7     		b	.L46
+ 723              	.L67:
+ 724 0118 4FF0020B 		mov	fp, #2
+ 725 011c 0BFA02F2 		lsl	r2, fp, r2
+ 726 0120 B1E7     		b	.L46
+ 727              	.LVL74:
+ 728              	.L70:
+ 729              		.loc 1 372 1 view .LVU261
+ 730 0122 4FF0050B 		mov	fp, #5
+ 731 0126 0BFA02F2 		lsl	r2, fp, r2
+ 732 012a ACE7     		b	.L46
+ 733              	.L68:
+ 734 012c 4FF0030B 		mov	fp, #3
+ 735 0130 0BFA02F2 		lsl	r2, fp, r2
+ 736 0134 A7E7     		b	.L46
+ 737              	.L69:
+ 738 0136 4FF0040B 		mov	fp, #4
+ 739 013a 0BFA02F2 		lsl	r2, fp, r2
+ 740 013e A2E7     		b	.L46
+ 741              	.L71:
+ 742 0140 4FF0060B 		mov	fp, #6
+ 743 0144 0BFA02F2 		lsl	r2, fp, r2
+ 744 0148 9DE7     		b	.L46
+ 745              	.LVL75:
+ 746              	.L63:
+ 747              	.LCFI8:
+ 748              		.cfi_def_cfa_offset 0
+ 749              		.cfi_restore 4
+ 750              		.cfi_restore 5
+ 751              		.cfi_restore 6
+ 752              		.cfi_restore 7
+ 753              		.cfi_restore 8
+ 754              		.cfi_restore 9
+ 755              		.cfi_restore 10
+ 756              		.cfi_restore 11
+ 757              		.cfi_restore 14
+ 758              		.loc 1 372 1 view .LVU262
+ 759 014a 7047     		bx	lr
+ 760              	.L73:
+ 761              		.align	2
+ 762              	.L72:
+ 763 014c 000C0048 		.word	1207962624
+ 764 0150 00100048 		.word	1207963648
+ 765 0154 00140048 		.word	1207964672
+ 766 0158 00180048 		.word	1207965696
+ 767 015c 001C0048 		.word	1207966720
+ 768 0160 00040140 		.word	1073808384
+ 769 0164 00040048 		.word	1207960576
+ 770 0168 00080048 		.word	1207961600
+ 771              		.cfi_endproc
+ 772              	.LFE124:
+ 774              		.section	.text.HAL_GPIO_ReadPin,"ax",%progbits
+ 775              		.align	1
+ 776              		.p2align 2,,3
+ 777              		.global	HAL_GPIO_ReadPin
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 24
+
+
+ 778              		.syntax unified
+ 779              		.thumb
+ 780              		.thumb_func
+ 781              		.fpu fpv4-sp-d16
+ 783              	HAL_GPIO_ReadPin:
+ 784              	.LVL76:
+ 785              	.LFB125:
+ 373:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 374:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /**
+ 375:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @}
+ 376:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 377:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 378:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /** @defgroup GPIO_Exported_Functions_Group2 IO operation functions
+ 379:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****  *  @brief GPIO Read, Write, Toggle, Lock and EXTI management functions.
+ 380:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****  *
+ 381:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** @verbatim
+ 382:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****  ===============================================================================
+ 383:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****                        ##### IO operation functions #####
+ 384:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****  ===============================================================================
+ 385:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 386:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** @endverbatim
+ 387:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @{
+ 388:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 389:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 390:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /**
+ 391:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @brief  Read the specified input port pin.
+ 392:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIOx where x can be (A..H) to select the GPIO peripheral for STM32L4 family
+ 393:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIO_Pin specifies the port bit to read.
+ 394:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *         This parameter can be any combination of GPIO_Pin_x where x can be (0..15).
+ 395:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @retval The input port pin value.
+ 396:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 397:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** GPIO_PinState HAL_GPIO_ReadPin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+ 398:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** {
+ 786              		.loc 1 398 1 is_stmt 1 view -0
+ 787              		.cfi_startproc
+ 788              		@ args = 0, pretend = 0, frame = 0
+ 789              		@ frame_needed = 0, uses_anonymous_args = 0
+ 790              		@ link register save eliminated.
+ 399:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   GPIO_PinState bitstatus;
+ 791              		.loc 1 399 3 view .LVU264
+ 400:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 401:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Check the parameters */
+ 402:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_PIN(GPIO_Pin));
+ 792              		.loc 1 402 3 view .LVU265
+ 403:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 404:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   if ((GPIOx->IDR & GPIO_Pin) != 0x00u)
+ 793              		.loc 1 404 3 view .LVU266
+ 794              		.loc 1 404 13 is_stmt 0 view .LVU267
+ 795 0000 0369     		ldr	r3, [r0, #16]
+ 796              	.LVL77:
+ 405:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 406:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     bitstatus = GPIO_PIN_SET;
+ 407:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ 408:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   else
+ 409:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 410:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     bitstatus = GPIO_PIN_RESET;
+ 411:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 25
+
+
+ 412:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   return bitstatus;
+ 797              		.loc 1 412 3 is_stmt 1 view .LVU268
+ 404:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 798              		.loc 1 404 6 is_stmt 0 view .LVU269
+ 799 0002 1942     		tst	r1, r3
+ 413:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** }
+ 800              		.loc 1 413 1 view .LVU270
+ 801 0004 14BF     		ite	ne
+ 802 0006 0120     		movne	r0, #1
+ 803              	.LVL78:
+ 804              		.loc 1 413 1 view .LVU271
+ 805 0008 0020     		moveq	r0, #0
+ 806 000a 7047     		bx	lr
+ 807              		.cfi_endproc
+ 808              	.LFE125:
+ 810              		.section	.text.HAL_GPIO_WritePin,"ax",%progbits
+ 811              		.align	1
+ 812              		.p2align 2,,3
+ 813              		.global	HAL_GPIO_WritePin
+ 814              		.syntax unified
+ 815              		.thumb
+ 816              		.thumb_func
+ 817              		.fpu fpv4-sp-d16
+ 819              	HAL_GPIO_WritePin:
+ 820              	.LVL79:
+ 821              	.LFB126:
+ 414:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 415:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /**
+ 416:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @brief  Set or clear the selected data port bit.
+ 417:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *
+ 418:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @note   This function uses GPIOx_BSRR and GPIOx_BRR registers to allow atomic read/modify
+ 419:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *         accesses. In this way, there is no risk of an IRQ occurring between
+ 420:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *         the read and the modify access.
+ 421:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *
+ 422:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIOx where x can be (A..H) to select the GPIO peripheral for STM32L4 family
+ 423:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIO_Pin specifies the port bit to be written.
+ 424:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *         This parameter can be any combination of GPIO_Pin_x where x can be (0..15).
+ 425:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  PinState specifies the value to be written to the selected bit.
+ 426:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *         This parameter can be one of the GPIO_PinState enum values:
+ 427:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *            @arg GPIO_PIN_RESET: to clear the port pin
+ 428:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *            @arg GPIO_PIN_SET: to set the port pin
+ 429:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @retval None
+ 430:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 431:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** void HAL_GPIO_WritePin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin, GPIO_PinState PinState)
+ 432:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** {
+ 822              		.loc 1 432 1 is_stmt 1 view -0
+ 823              		.cfi_startproc
+ 824              		@ args = 0, pretend = 0, frame = 0
+ 825              		@ frame_needed = 0, uses_anonymous_args = 0
+ 826              		@ link register save eliminated.
+ 433:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Check the parameters */
+ 434:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_PIN(GPIO_Pin));
+ 827              		.loc 1 434 3 view .LVU273
+ 435:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_PIN_ACTION(PinState));
+ 828              		.loc 1 435 3 view .LVU274
+ 436:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 437:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   if(PinState != GPIO_PIN_RESET)
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 26
+
+
+ 829              		.loc 1 437 3 view .LVU275
+ 830              		.loc 1 437 5 is_stmt 0 view .LVU276
+ 831 0000 0AB1     		cbz	r2, .L76
+ 438:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 439:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     GPIOx->BSRR = (uint32_t)GPIO_Pin;
+ 832              		.loc 1 439 5 is_stmt 1 view .LVU277
+ 833              		.loc 1 439 17 is_stmt 0 view .LVU278
+ 834 0002 8161     		str	r1, [r0, #24]
+ 835 0004 7047     		bx	lr
+ 836              	.L76:
+ 440:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ 441:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   else
+ 442:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 443:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     GPIOx->BRR = (uint32_t)GPIO_Pin;
+ 837              		.loc 1 443 5 is_stmt 1 view .LVU279
+ 838              		.loc 1 443 16 is_stmt 0 view .LVU280
+ 839 0006 8162     		str	r1, [r0, #40]
+ 444:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ 445:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** }
+ 840              		.loc 1 445 1 view .LVU281
+ 841 0008 7047     		bx	lr
+ 842              		.cfi_endproc
+ 843              	.LFE126:
+ 845 000a 00BF     		.section	.text.HAL_GPIO_TogglePin,"ax",%progbits
+ 846              		.align	1
+ 847              		.p2align 2,,3
+ 848              		.global	HAL_GPIO_TogglePin
+ 849              		.syntax unified
+ 850              		.thumb
+ 851              		.thumb_func
+ 852              		.fpu fpv4-sp-d16
+ 854              	HAL_GPIO_TogglePin:
+ 855              	.LVL80:
+ 856              	.LFB127:
+ 446:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 447:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /**
+ 448:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @brief  Toggle the specified GPIO pin.
+ 449:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIOx where x can be (A..H) to select the GPIO peripheral for STM32L4 family
+ 450:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIO_Pin specifies the pin to be toggled.
+ 451:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @retval None
+ 452:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 453:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** void HAL_GPIO_TogglePin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+ 454:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** {
+ 857              		.loc 1 454 1 is_stmt 1 view -0
+ 858              		.cfi_startproc
+ 859              		@ args = 0, pretend = 0, frame = 0
+ 860              		@ frame_needed = 0, uses_anonymous_args = 0
+ 861              		@ link register save eliminated.
+ 455:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Check the parameters */
+ 456:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_PIN(GPIO_Pin));
+ 862              		.loc 1 456 3 view .LVU283
+ 457:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 458:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   if ((GPIOx->ODR & GPIO_Pin) != 0x00u)
+ 863              		.loc 1 458 3 view .LVU284
+ 864              		.loc 1 458 13 is_stmt 0 view .LVU285
+ 865 0000 4369     		ldr	r3, [r0, #20]
+ 866              		.loc 1 458 6 view .LVU286
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 27
+
+
+ 867 0002 0B42     		tst	r3, r1
+ 459:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 460:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     GPIOx->BRR = (uint32_t)GPIO_Pin;
+ 868              		.loc 1 460 5 is_stmt 1 view .LVU287
+ 869              		.loc 1 460 16 is_stmt 0 view .LVU288
+ 870 0004 14BF     		ite	ne
+ 871 0006 8162     		strne	r1, [r0, #40]
+ 461:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ 462:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   else
+ 463:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 464:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     GPIOx->BSRR = (uint32_t)GPIO_Pin;
+ 872              		.loc 1 464 5 is_stmt 1 view .LVU289
+ 873              		.loc 1 464 17 is_stmt 0 view .LVU290
+ 874 0008 8161     		streq	r1, [r0, #24]
+ 465:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ 466:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** }
+ 875              		.loc 1 466 1 view .LVU291
+ 876 000a 7047     		bx	lr
+ 877              		.cfi_endproc
+ 878              	.LFE127:
+ 880              		.section	.text.HAL_GPIO_LockPin,"ax",%progbits
+ 881              		.align	1
+ 882              		.p2align 2,,3
+ 883              		.global	HAL_GPIO_LockPin
+ 884              		.syntax unified
+ 885              		.thumb
+ 886              		.thumb_func
+ 887              		.fpu fpv4-sp-d16
+ 889              	HAL_GPIO_LockPin:
+ 890              	.LVL81:
+ 891              	.LFB128:
+ 467:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 468:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /**
+ 469:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** * @brief  Lock GPIO Pins configuration registers.
+ 470:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @note   The locked registers are GPIOx_MODER, GPIOx_OTYPER, GPIOx_OSPEEDR,
+ 471:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *         GPIOx_PUPDR, GPIOx_AFRL and GPIOx_AFRH.
+ 472:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @note   The configuration of the locked GPIO pins can no longer be modified
+ 473:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *         until the next reset.
+ 474:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIOx where x can be (A..H) to select the GPIO peripheral for STM32L4 family
+ 475:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIO_Pin specifies the port bits to be locked.
+ 476:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   *         This parameter can be any combination of GPIO_Pin_x where x can be (0..15).
+ 477:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @retval None
+ 478:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 479:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** HAL_StatusTypeDef HAL_GPIO_LockPin(GPIO_TypeDef* GPIOx, uint16_t GPIO_Pin)
+ 480:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** {
+ 892              		.loc 1 480 1 is_stmt 1 view -0
+ 893              		.cfi_startproc
+ 894              		@ args = 0, pretend = 0, frame = 8
+ 895              		@ frame_needed = 0, uses_anonymous_args = 0
+ 896              		@ link register save eliminated.
+ 481:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   __IO uint32_t tmp = GPIO_LCKR_LCKK;
+ 897              		.loc 1 481 3 view .LVU293
+ 480:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   __IO uint32_t tmp = GPIO_LCKR_LCKK;
+ 898              		.loc 1 480 1 is_stmt 0 view .LVU294
+ 899 0000 82B0     		sub	sp, sp, #8
+ 900              	.LCFI9:
+ 901              		.cfi_def_cfa_offset 8
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 28
+
+
+ 902              		.loc 1 481 17 view .LVU295
+ 903 0002 4FF48033 		mov	r3, #65536
+ 904 0006 0193     		str	r3, [sp, #4]
+ 482:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 483:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Check the parameters */
+ 484:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_LOCK_INSTANCE(GPIOx));
+ 905              		.loc 1 484 3 is_stmt 1 view .LVU296
+ 485:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   assert_param(IS_GPIO_PIN(GPIO_Pin));
+ 906              		.loc 1 485 3 view .LVU297
+ 486:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 487:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Apply lock key write sequence */
+ 488:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   tmp |= GPIO_Pin;
+ 907              		.loc 1 488 3 view .LVU298
+ 908              		.loc 1 488 7 is_stmt 0 view .LVU299
+ 909 0008 019B     		ldr	r3, [sp, #4]
+ 910 000a 0B43     		orrs	r3, r3, r1
+ 911 000c 0193     		str	r3, [sp, #4]
+ 489:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Set LCKx bit(s): LCKK='1' + LCK[15-0] */
+ 490:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   GPIOx->LCKR = tmp;
+ 912              		.loc 1 490 3 is_stmt 1 view .LVU300
+ 913              		.loc 1 490 15 is_stmt 0 view .LVU301
+ 914 000e 019B     		ldr	r3, [sp, #4]
+ 915 0010 C361     		str	r3, [r0, #28]
+ 491:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Reset LCKx bit(s): LCKK='0' + LCK[15-0] */
+ 492:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   GPIOx->LCKR = GPIO_Pin;
+ 916              		.loc 1 492 3 is_stmt 1 view .LVU302
+ 917              		.loc 1 492 15 is_stmt 0 view .LVU303
+ 918 0012 C161     		str	r1, [r0, #28]
+ 493:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Set LCKx bit(s): LCKK='1' + LCK[15-0] */
+ 494:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   GPIOx->LCKR = tmp;
+ 919              		.loc 1 494 3 is_stmt 1 view .LVU304
+ 920              		.loc 1 494 15 is_stmt 0 view .LVU305
+ 921 0014 019B     		ldr	r3, [sp, #4]
+ 922 0016 C361     		str	r3, [r0, #28]
+ 495:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Read LCKK register. This read is mandatory to complete key lock sequence */
+ 496:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   tmp = GPIOx->LCKR;
+ 923              		.loc 1 496 3 is_stmt 1 view .LVU306
+ 924              		.loc 1 496 14 is_stmt 0 view .LVU307
+ 925 0018 C369     		ldr	r3, [r0, #28]
+ 926              		.loc 1 496 7 view .LVU308
+ 927 001a 0193     		str	r3, [sp, #4]
+ 497:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 498:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Read again in order to confirm lock is active */
+ 499:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   if ((GPIOx->LCKR & GPIO_LCKR_LCKK) != 0x00u)
+ 928              		.loc 1 499 3 is_stmt 1 view .LVU309
+ 929              		.loc 1 499 13 is_stmt 0 view .LVU310
+ 930 001c C069     		ldr	r0, [r0, #28]
+ 931              	.LVL82:
+ 932              		.loc 1 499 6 view .LVU311
+ 933 001e 80F48030 		eor	r0, r0, #65536
+ 500:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 501:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     return HAL_OK;
+ 502:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ 503:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   else
+ 504:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 505:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     return HAL_ERROR;
+ 506:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 29
+
+
+ 507:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** }
+ 934              		.loc 1 507 1 view .LVU312
+ 935 0022 C0F30040 		ubfx	r0, r0, #16, #1
+ 936 0026 02B0     		add	sp, sp, #8
+ 937              	.LCFI10:
+ 938              		.cfi_def_cfa_offset 0
+ 939              		@ sp needed
+ 940 0028 7047     		bx	lr
+ 941              		.cfi_endproc
+ 942              	.LFE128:
+ 944 002a 00BF     		.section	.text.HAL_GPIO_EXTI_Callback,"ax",%progbits
+ 945              		.align	1
+ 946              		.p2align 2,,3
+ 947              		.weak	HAL_GPIO_EXTI_Callback
+ 948              		.syntax unified
+ 949              		.thumb
+ 950              		.thumb_func
+ 951              		.fpu fpv4-sp-d16
+ 953              	HAL_GPIO_EXTI_Callback:
+ 954              	.LVL83:
+ 955              	.LFB130:
+ 508:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 509:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /**
+ 510:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @brief  Handle EXTI interrupt request.
+ 511:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIO_Pin Specifies the port pin connected to corresponding EXTI line.
+ 512:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @retval None
+ 513:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 514:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** void HAL_GPIO_EXTI_IRQHandler(uint16_t GPIO_Pin)
+ 515:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** {
+ 516:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* EXTI line interrupt detected */
+ 517:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   if(__HAL_GPIO_EXTI_GET_IT(GPIO_Pin) != 0x00u)
+ 518:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 519:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     __HAL_GPIO_EXTI_CLEAR_IT(GPIO_Pin);
+ 520:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     HAL_GPIO_EXTI_Callback(GPIO_Pin);
+ 521:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ 522:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** }
+ 523:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 524:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** /**
+ 525:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @brief  EXTI line detection callback.
+ 526:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @param  GPIO_Pin Specifies the port pin connected to corresponding EXTI line.
+ 527:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   * @retval None
+ 528:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   */
+ 529:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** __weak void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+ 530:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** {
+ 956              		.loc 1 530 1 is_stmt 1 view -0
+ 957              		.cfi_startproc
+ 958              		@ args = 0, pretend = 0, frame = 0
+ 959              		@ frame_needed = 0, uses_anonymous_args = 0
+ 960              		@ link register save eliminated.
+ 531:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* Prevent unused argument(s) compilation warning */
+ 532:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   UNUSED(GPIO_Pin);
+ 961              		.loc 1 532 3 view .LVU314
+ 533:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 534:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* NOTE: This function should not be modified, when the callback is needed,
+ 535:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****            the HAL_GPIO_EXTI_Callback could be implemented in the user file
+ 536:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****    */
+ 537:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** }
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 30
+
+
+ 962              		.loc 1 537 1 is_stmt 0 view .LVU315
+ 963 0000 7047     		bx	lr
+ 964              		.cfi_endproc
+ 965              	.LFE130:
+ 967 0002 00BF     		.section	.text.HAL_GPIO_EXTI_IRQHandler,"ax",%progbits
+ 968              		.align	1
+ 969              		.p2align 2,,3
+ 970              		.global	HAL_GPIO_EXTI_IRQHandler
+ 971              		.syntax unified
+ 972              		.thumb
+ 973              		.thumb_func
+ 974              		.fpu fpv4-sp-d16
+ 976              	HAL_GPIO_EXTI_IRQHandler:
+ 977              	.LVL84:
+ 978              	.LFB129:
+ 515:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* EXTI line interrupt detected */
+ 979              		.loc 1 515 1 is_stmt 1 view -0
+ 980              		.cfi_startproc
+ 981              		@ args = 0, pretend = 0, frame = 0
+ 982              		@ frame_needed = 0, uses_anonymous_args = 0
+ 517:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 983              		.loc 1 517 3 view .LVU317
+ 517:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 984              		.loc 1 517 6 is_stmt 0 view .LVU318
+ 985 0000 044A     		ldr	r2, .L94
+ 986 0002 5169     		ldr	r1, [r2, #20]
+ 517:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   {
+ 987              		.loc 1 517 5 view .LVU319
+ 988 0004 0142     		tst	r1, r0
+ 989 0006 00D1     		bne	.L93
+ 990 0008 7047     		bx	lr
+ 991              	.L93:
+ 519:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     HAL_GPIO_EXTI_Callback(GPIO_Pin);
+ 992              		.loc 1 519 5 is_stmt 1 view .LVU320
+ 515:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   /* EXTI line interrupt detected */
+ 993              		.loc 1 515 1 is_stmt 0 view .LVU321
+ 994 000a 08B5     		push	{r3, lr}
+ 995              	.LCFI11:
+ 996              		.cfi_def_cfa_offset 8
+ 997              		.cfi_offset 3, -8
+ 998              		.cfi_offset 14, -4
+ 519:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****     HAL_GPIO_EXTI_Callback(GPIO_Pin);
+ 999              		.loc 1 519 5 view .LVU322
+ 1000 000c 5061     		str	r0, [r2, #20]
+ 520:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c ****   }
+ 1001              		.loc 1 520 5 is_stmt 1 view .LVU323
+ 1002 000e FFF7FEFF 		bl	HAL_GPIO_EXTI_Callback
+ 1003              	.LVL85:
+ 522:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Src\stm32l4xx_hal_gpio.c **** 
+ 1004              		.loc 1 522 1 is_stmt 0 view .LVU324
+ 1005 0012 08BD     		pop	{r3, pc}
+ 1006              	.L95:
+ 1007              		.align	2
+ 1008              	.L94:
+ 1009 0014 00040140 		.word	1073808384
+ 1010              		.cfi_endproc
+ 1011              	.LFE129:
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 31
+
+
+ 1013              		.text
+ 1014              	.Letext0:
+ 1015              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 1016              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 1017              		.file 4 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arch
+ 1018              		.file 5 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm32
+ 1019              		.file 6 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/stm32l496xx.
+ 1020              		.file 7 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 1021              		.file 8 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_gpio.h"
+ 1022              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.h
+ 1023              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ARM GAS  T:\msys\tmp\cctnJp0g.s 			page 32
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32l4xx_hal_gpio.c
+T:\msys\tmp\cctnJp0g.s:18     .text.HAL_GPIO_Init:00000000 $t
+T:\msys\tmp\cctnJp0g.s:27     .text.HAL_GPIO_Init:00000000 HAL_GPIO_Init
+T:\msys\tmp\cctnJp0g.s:484    .text.HAL_GPIO_Init:000001fc $d
+T:\msys\tmp\cctnJp0g.s:497    .text.HAL_GPIO_DeInit:00000000 $t
+T:\msys\tmp\cctnJp0g.s:505    .text.HAL_GPIO_DeInit:00000000 HAL_GPIO_DeInit
+T:\msys\tmp\cctnJp0g.s:763    .text.HAL_GPIO_DeInit:0000014c $d
+T:\msys\tmp\cctnJp0g.s:775    .text.HAL_GPIO_ReadPin:00000000 $t
+T:\msys\tmp\cctnJp0g.s:783    .text.HAL_GPIO_ReadPin:00000000 HAL_GPIO_ReadPin
+T:\msys\tmp\cctnJp0g.s:811    .text.HAL_GPIO_WritePin:00000000 $t
+T:\msys\tmp\cctnJp0g.s:819    .text.HAL_GPIO_WritePin:00000000 HAL_GPIO_WritePin
+T:\msys\tmp\cctnJp0g.s:846    .text.HAL_GPIO_TogglePin:00000000 $t
+T:\msys\tmp\cctnJp0g.s:854    .text.HAL_GPIO_TogglePin:00000000 HAL_GPIO_TogglePin
+T:\msys\tmp\cctnJp0g.s:881    .text.HAL_GPIO_LockPin:00000000 $t
+T:\msys\tmp\cctnJp0g.s:889    .text.HAL_GPIO_LockPin:00000000 HAL_GPIO_LockPin
+T:\msys\tmp\cctnJp0g.s:945    .text.HAL_GPIO_EXTI_Callback:00000000 $t
+T:\msys\tmp\cctnJp0g.s:953    .text.HAL_GPIO_EXTI_Callback:00000000 HAL_GPIO_EXTI_Callback
+T:\msys\tmp\cctnJp0g.s:968    .text.HAL_GPIO_EXTI_IRQHandler:00000000 $t
+T:\msys\tmp\cctnJp0g.s:976    .text.HAL_GPIO_EXTI_IRQHandler:00000000 HAL_GPIO_EXTI_IRQHandler
+T:\msys\tmp\cctnJp0g.s:1009   .text.HAL_GPIO_EXTI_IRQHandler:00000014 $d
+
+NO UNDEFINED SYMBOLS

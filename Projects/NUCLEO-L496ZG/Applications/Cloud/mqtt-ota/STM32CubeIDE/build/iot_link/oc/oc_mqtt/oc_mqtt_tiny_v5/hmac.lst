@@ -1,0 +1,488 @@
+ARM GAS  T:\msys\tmp\cc2DH4CI.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"hmac.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.mbedtls_hmac_calc.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 5B25735D 		.ascii	"[%s][%u][%s] mbedtls_md_setup() returned -0x%04x\012"
+  20      5B25755D 
+  20      5B25735D 
+  20      206D6265 
+  20      64746C73 
+  21 0031 0D0A00   		.ascii	"\015\012\000"
+  22              		.section	.text.mbedtls_hmac_calc,"ax",%progbits
+  23              		.align	1
+  24              		.p2align 2,,3
+  25              		.global	mbedtls_hmac_calc
+  26              		.arch armv7e-m
+  27              		.syntax unified
+  28              		.thumb
+  29              		.thumb_func
+  30              		.fpu fpv4-sp-d16
+  32              	mbedtls_hmac_calc:
+  33              	.LVL0:
+  34              	.LFB18:
+  35              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * Copyright (c) <2016-2018>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ARM GAS  T:\msys\tmp\cc2DH4CI.s 			page 2
+
+
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * ===============================================
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "hmac.h"
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include <string.h>
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include <link_log.h>
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/md.h"
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/ssl.h"
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/entropy.h"
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/ctr_drbg.h"
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/platform.h"
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "mbedtls/md_internal.h"
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** #include "dtls_interface.h"
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** typedef struct _mbedtls_hmac_t
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** {
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     const unsigned char *secret;
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     const unsigned char *input;
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     unsigned char *digest;
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     size_t secret_len;
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     size_t input_len;
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     size_t digest_len;
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     mbedtls_md_type_t hmac_type;
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** }mbedtls_hmac_t;
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** int mbedtls_hmac_calc(mbedtls_hmac_t *hmac_info)
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** {
+  36              		.loc 1 59 1 view -0
+  37              		.cfi_startproc
+  38              		@ args = 0, pretend = 0, frame = 16
+  39              		@ frame_needed = 0, uses_anonymous_args = 0
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     int ret;
+  40              		.loc 1 60 5 view .LVU1
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     mbedtls_md_context_t mbedtls_md_ctx;
+  41              		.loc 1 62 5 view .LVU2
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     const mbedtls_md_info_t *md_info;
+  42              		.loc 1 63 5 view .LVU3
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     if (hmac_info == NULL || hmac_info->secret == NULL || hmac_info->input == NULL
+  43              		.loc 1 65 5 view .LVU4
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     int ret;
+  44              		.loc 1 59 1 is_stmt 0 view .LVU5
+  45 0000 30B5     		push	{r4, r5, lr}
+ARM GAS  T:\msys\tmp\cc2DH4CI.s 			page 3
+
+
+  46              	.LCFI0:
+  47              		.cfi_def_cfa_offset 12
+  48              		.cfi_offset 4, -12
+  49              		.cfi_offset 5, -8
+  50              		.cfi_offset 14, -4
+  51 0002 87B0     		sub	sp, sp, #28
+  52              	.LCFI1:
+  53              		.cfi_def_cfa_offset 40
+  54              		.loc 1 65 8 view .LVU6
+  55 0004 0028     		cmp	r0, #0
+  56 0006 54D0     		beq	.L4
+  57              		.loc 1 65 27 discriminator 1 view .LVU7
+  58 0008 0368     		ldr	r3, [r0]
+  59 000a 0446     		mov	r4, r0
+  60 000c 002B     		cmp	r3, #0
+  61 000e 50D0     		beq	.L4
+  62              		.loc 1 65 56 discriminator 2 view .LVU8
+  63 0010 4368     		ldr	r3, [r0, #4]
+  64 0012 002B     		cmp	r3, #0
+  65 0014 4DD0     		beq	.L4
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         || hmac_info->secret_len == 0 || hmac_info->input_len == 0 || hmac_info->digest_len == 0)
+  66              		.loc 1 66 9 view .LVU9
+  67 0016 C368     		ldr	r3, [r0, #12]
+  68 0018 002B     		cmp	r3, #0
+  69 001a 4AD0     		beq	.L4
+  70              		.loc 1 66 39 discriminator 1 view .LVU10
+  71 001c 0369     		ldr	r3, [r0, #16]
+  72 001e 002B     		cmp	r3, #0
+  73 0020 47D0     		beq	.L4
+  74              		.loc 1 66 68 discriminator 2 view .LVU11
+  75 0022 4369     		ldr	r3, [r0, #20]
+  76 0024 002B     		cmp	r3, #0
+  77 0026 44D0     		beq	.L4
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     {
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         return MBEDTLS_ERR_MD_BAD_INPUT_DATA;
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     }
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     md_info = mbedtls_md_info_from_type(hmac_info->hmac_type);
+  78              		.loc 1 71 5 is_stmt 1 view .LVU12
+  79              		.loc 1 71 15 is_stmt 0 view .LVU13
+  80 0028 007E     		ldrb	r0, [r0, #24]	@ zero_extendqisi2
+  81              	.LVL1:
+  82              		.loc 1 71 15 view .LVU14
+  83 002a FFF7FEFF 		bl	mbedtls_md_info_from_type
+  84              	.LVL2:
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     if (md_info == NULL || (size_t)md_info->size > hmac_info->digest_len)
+  85              		.loc 1 72 5 is_stmt 1 view .LVU15
+  86              		.loc 1 72 8 is_stmt 0 view .LVU16
+  87 002e 0546     		mov	r5, r0
+  88 0030 0028     		cmp	r0, #0
+  89 0032 3ED0     		beq	.L4
+  90              		.loc 1 72 25 discriminator 1 view .LVU17
+  91 0034 8268     		ldr	r2, [r0, #8]
+  92 0036 6369     		ldr	r3, [r4, #20]
+  93 0038 9A42     		cmp	r2, r3
+  94 003a 3AD8     		bhi	.L4
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     {
+ARM GAS  T:\msys\tmp\cc2DH4CI.s 			page 4
+
+
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         return MBEDTLS_ERR_MD_BAD_INPUT_DATA;
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     }
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     mbedtls_md_init(&mbedtls_md_ctx);
+  95              		.loc 1 77 5 is_stmt 1 view .LVU18
+  96 003c 03A8     		add	r0, sp, #12
+  97              	.LVL3:
+  98              		.loc 1 77 5 is_stmt 0 view .LVU19
+  99 003e FFF7FEFF 		bl	mbedtls_md_init
+ 100              	.LVL4:
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     (void) memset(hmac_info->digest, 0x00, hmac_info->digest_len);
+ 101              		.loc 1 78 5 is_stmt 1 view .LVU20
+ 102              		.loc 1 78 12 is_stmt 0 view .LVU21
+ 103 0042 6269     		ldr	r2, [r4, #20]
+ 104 0044 A068     		ldr	r0, [r4, #8]
+ 105 0046 0021     		movs	r1, #0
+ 106 0048 FFF7FEFF 		bl	memset
+ 107              	.LVL5:
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     ret = mbedtls_md_setup(&mbedtls_md_ctx, md_info, 1);
+ 108              		.loc 1 80 5 is_stmt 1 view .LVU22
+ 109              		.loc 1 80 11 is_stmt 0 view .LVU23
+ 110 004c 2946     		mov	r1, r5
+ 111 004e 03A8     		add	r0, sp, #12
+ 112 0050 0122     		movs	r2, #1
+ 113 0052 FFF7FEFF 		bl	mbedtls_md_setup
+ 114              	.LVL6:
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     if (ret != 0)
+ 115              		.loc 1 81 5 is_stmt 1 view .LVU24
+ 116              		.loc 1 81 8 is_stmt 0 view .LVU25
+ 117 0056 0546     		mov	r5, r0
+ 118              	.LVL7:
+ 119              		.loc 1 81 8 view .LVU26
+ 120 0058 98B9     		cbnz	r0, .L27
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     {
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         LINK_LOG_DEBUG("mbedtls_md_setup() returned -0x%04x\n", -ret);
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         goto exit;
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     }
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     (void)mbedtls_md_hmac_starts(&mbedtls_md_ctx, hmac_info->secret, hmac_info->secret_len);
+ 121              		.loc 1 87 5 is_stmt 1 view .LVU27
+ 122              		.loc 1 87 11 is_stmt 0 view .LVU28
+ 123 005a E268     		ldr	r2, [r4, #12]
+ 124 005c 2168     		ldr	r1, [r4]
+ 125 005e 03A8     		add	r0, sp, #12
+ 126              	.LVL8:
+ 127              		.loc 1 87 11 view .LVU29
+ 128 0060 FFF7FEFF 		bl	mbedtls_md_hmac_starts
+ 129              	.LVL9:
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     (void)mbedtls_md_hmac_update(&mbedtls_md_ctx, hmac_info->input, hmac_info->input_len);
+ 130              		.loc 1 88 5 is_stmt 1 view .LVU30
+ 131              		.loc 1 88 11 is_stmt 0 view .LVU31
+ 132 0064 6168     		ldr	r1, [r4, #4]
+ 133 0066 2269     		ldr	r2, [r4, #16]
+ 134 0068 03A8     		add	r0, sp, #12
+ 135 006a FFF7FEFF 		bl	mbedtls_md_hmac_update
+ 136              	.LVL10:
+ARM GAS  T:\msys\tmp\cc2DH4CI.s 			page 5
+
+
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     (void)mbedtls_md_hmac_finish(&mbedtls_md_ctx, hmac_info->digest);
+ 137              		.loc 1 89 5 is_stmt 1 view .LVU32
+ 138              		.loc 1 89 11 is_stmt 0 view .LVU33
+ 139 006e A168     		ldr	r1, [r4, #8]
+ 140 0070 03A8     		add	r0, sp, #12
+ 141 0072 FFF7FEFF 		bl	mbedtls_md_hmac_finish
+ 142              	.LVL11:
+ 143              	.L6:
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     exit:
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     mbedtls_md_free(&mbedtls_md_ctx);
+ 144              		.loc 1 92 5 is_stmt 1 view .LVU34
+ 145 0076 03A8     		add	r0, sp, #12
+ 146 0078 FFF7FEFF 		bl	mbedtls_md_free
+ 147              	.LVL12:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     return ret;
+ 148              		.loc 1 94 5 view .LVU35
+ 149              	.L1:
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** }
+ 150              		.loc 1 95 1 is_stmt 0 view .LVU36
+ 151 007c 2846     		mov	r0, r5
+ 152 007e 07B0     		add	sp, sp, #28
+ 153              	.LCFI2:
+ 154              		.cfi_remember_state
+ 155              		.cfi_def_cfa_offset 12
+ 156              		@ sp needed
+ 157 0080 30BD     		pop	{r4, r5, pc}
+ 158              	.LVL13:
+ 159              	.L27:
+ 160              	.LCFI3:
+ 161              		.cfi_restore_state
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         goto exit;
+ 162              		.loc 1 83 9 is_stmt 1 view .LVU37
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         goto exit;
+ 163              		.loc 1 83 9 view .LVU38
+ 164 0082 FFF7FEFF 		bl	link_log_level_get
+ 165              	.LVL14:
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         goto exit;
+ 166              		.loc 1 83 9 is_stmt 0 view .LVU39
+ 167 0086 0128     		cmp	r0, #1
+ 168 0088 F5D8     		bhi	.L6
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         goto exit;
+ 169              		.loc 1 83 9 is_stmt 1 discriminator 1 view .LVU40
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         goto exit;
+ 170              		.loc 1 83 9 discriminator 1 view .LVU41
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         goto exit;
+ 171              		.loc 1 83 9 discriminator 1 view .LVU42
+ 172 008a 0120     		movs	r0, #1
+ 173 008c FFF7FEFF 		bl	link_log_level_name
+ 174              	.LVL15:
+ 175 0090 0446     		mov	r4, r0
+ 176              	.LVL16:
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         goto exit;
+ 177              		.loc 1 83 9 is_stmt 0 discriminator 1 view .LVU43
+ 178 0092 FFF7FEFF 		bl	osal_sys_time
+ 179              	.LVL17:
+ARM GAS  T:\msys\tmp\cc2DH4CI.s 			page 6
+
+
+ 180 0096 6B42     		rsbs	r3, r5, #0
+ 181 0098 0246     		mov	r2, r0
+ 182 009a 0093     		str	r3, [sp]
+ 183 009c 2146     		mov	r1, r4
+ 184 009e 064B     		ldr	r3, .L28
+ 185 00a0 0648     		ldr	r0, .L28+4
+ 186 00a2 FFF7FEFF 		bl	printf
+ 187              	.LVL18:
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****         goto exit;
+ 188              		.loc 1 83 9 is_stmt 1 discriminator 1 view .LVU44
+ 189 00a6 064B     		ldr	r3, .L28+8
+ 190 00a8 1B68     		ldr	r3, [r3]
+ 191 00aa 9868     		ldr	r0, [r3, #8]
+ 192 00ac FFF7FEFF 		bl	fflush
+ 193              	.LVL19:
+ 194 00b0 E1E7     		b	.L6
+ 195              	.LVL20:
+ 196              	.L4:
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     }
+ 197              		.loc 1 68 16 is_stmt 0 view .LVU45
+ 198 00b2 044D     		ldr	r5, .L28+12
+ 199 00b4 E2E7     		b	.L1
+ 200              	.L29:
+ 201 00b6 00BF     		.align	2
+ 202              	.L28:
+ 203 00b8 00000000 		.word	.LANCHOR0
+ 204 00bc 00000000 		.word	.LC0
+ 205 00c0 00000000 		.word	_impure_ptr
+ 206 00c4 00AFFFFF 		.word	-20736
+ 207              		.cfi_endproc
+ 208              	.LFE18:
+ 210              		.section	.text.hmac_generate_passwd,"ax",%progbits
+ 211              		.align	1
+ 212              		.p2align 2,,3
+ 213              		.global	hmac_generate_passwd
+ 214              		.syntax unified
+ 215              		.thumb
+ 216              		.thumb_func
+ 217              		.fpu fpv4-sp-d16
+ 219              	hmac_generate_passwd:
+ 220              	.LVL21:
+ 221              	.LFB19:
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** int hmac_generate_passwd(char *content, int contentlen,char *key,int keylen, unsigned char *buf,int
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** {
+ 222              		.loc 1 98 1 is_stmt 1 view -0
+ 223              		.cfi_startproc
+ 224              		@ args = 8, pretend = 0, frame = 32
+ 225              		@ frame_needed = 0, uses_anonymous_args = 0
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     int ret = -1;
+ 226              		.loc 1 99 5 view .LVU47
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     mbedtls_hmac_t hmac;
+ 227              		.loc 1 100 5 view .LVU48
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.secret = (uint8_t *)key;
+ 228              		.loc 1 101 5 view .LVU49
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     int ret = -1;
+ 229              		.loc 1 98 1 is_stmt 0 view .LVU50
+ARM GAS  T:\msys\tmp\cc2DH4CI.s 			page 7
+
+
+ 230 0000 70B5     		push	{r4, r5, r6, lr}
+ 231              	.LCFI4:
+ 232              		.cfi_def_cfa_offset 16
+ 233              		.cfi_offset 4, -16
+ 234              		.cfi_offset 5, -12
+ 235              		.cfi_offset 6, -8
+ 236              		.cfi_offset 14, -4
+ 237 0002 88B0     		sub	sp, sp, #32
+ 238              	.LCFI5:
+ 239              		.cfi_def_cfa_offset 48
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     int ret = -1;
+ 240              		.loc 1 98 1 view .LVU51
+ 241 0004 DDE90C65 		ldrd	r6, r5, [sp, #48]
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.secret_len = keylen;
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.input = (unsigned char *)content;
+ 242              		.loc 1 103 16 view .LVU52
+ 243 0008 0290     		str	r0, [sp, #8]
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.input_len = contentlen;
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.digest =(unsigned char *) buf;
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.digest_len = buflen;
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.hmac_type = MBEDTLS_MD_SHA256;
+ 244              		.loc 1 107 20 view .LVU53
+ 245 000a 0624     		movs	r4, #6
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     ret = mbedtls_hmac_calc(&hmac);
+ 246              		.loc 1 109 11 view .LVU54
+ 247 000c 01A8     		add	r0, sp, #4
+ 248              	.LVL22:
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.digest_len = buflen;
+ 249              		.loc 1 105 17 view .LVU55
+ 250 000e CDE90363 		strd	r6, r3, [sp, #12]
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.input_len = contentlen;
+ 251              		.loc 1 104 20 view .LVU56
+ 252 0012 0591     		str	r1, [sp, #20]
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.secret_len = keylen;
+ 253              		.loc 1 101 17 view .LVU57
+ 254 0014 0192     		str	r2, [sp, #4]
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.input = (unsigned char *)content;
+ 255              		.loc 1 102 5 is_stmt 1 view .LVU58
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.hmac_type = MBEDTLS_MD_SHA256;
+ 256              		.loc 1 106 5 view .LVU59
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     hmac.hmac_type = MBEDTLS_MD_SHA256;
+ 257              		.loc 1 106 21 is_stmt 0 view .LVU60
+ 258 0016 0695     		str	r5, [sp, #24]
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+ 259              		.loc 1 107 5 is_stmt 1 view .LVU61
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+ 260              		.loc 1 107 20 is_stmt 0 view .LVU62
+ 261 0018 8DF81C40 		strb	r4, [sp, #28]
+ 262              		.loc 1 109 5 is_stmt 1 view .LVU63
+ 263              		.loc 1 109 11 is_stmt 0 view .LVU64
+ 264 001c FFF7FEFF 		bl	mbedtls_hmac_calc
+ 265              	.LVL23:
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** 
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c ****     return ret;
+ 266              		.loc 1 111 5 is_stmt 1 view .LVU65
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_tiny_v5\hmac.c **** }
+ARM GAS  T:\msys\tmp\cc2DH4CI.s 			page 8
+
+
+ 267              		.loc 1 112 1 is_stmt 0 view .LVU66
+ 268 0020 08B0     		add	sp, sp, #32
+ 269              	.LCFI6:
+ 270              		.cfi_def_cfa_offset 16
+ 271              		@ sp needed
+ 272 0022 70BD     		pop	{r4, r5, r6, pc}
+ 273              		.loc 1 112 1 view .LVU67
+ 274              		.cfi_endproc
+ 275              	.LFE19:
+ 277              		.section	.rodata.__FUNCTION__.9947,"a"
+ 278              		.align	2
+ 279              		.set	.LANCHOR0,. + 0
+ 282              	__FUNCTION__.9947:
+ 283 0000 6D626564 		.ascii	"mbedtls_hmac_calc\000"
+ 283      746C735F 
+ 283      686D6163 
+ 283      5F63616C 
+ 283      6300
+ 284              		.text
+ 285              	.Letext0:
+ 286              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 287              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 288              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 289              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 290              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 291              		.file 7 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 292              		.file 8 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/inc/link_log.h
+ 293              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/m
+ 294              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/
+ 295              		.file 11 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/
+ 296              		.file 12 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\stdlib.
+ 297              		.file 13 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\time.h"
+ 298              		.file 14 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/
+ 299              		.file 15 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/
+ 300              		.file 16 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\stdio.h
+ 301              		.file 17 "<built-in>"
+ARM GAS  T:\msys\tmp\cc2DH4CI.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 hmac.c
+T:\msys\tmp\cc2DH4CI.s:18     .rodata.mbedtls_hmac_calc.str1.4:00000000 $d
+T:\msys\tmp\cc2DH4CI.s:23     .text.mbedtls_hmac_calc:00000000 $t
+T:\msys\tmp\cc2DH4CI.s:32     .text.mbedtls_hmac_calc:00000000 mbedtls_hmac_calc
+T:\msys\tmp\cc2DH4CI.s:203    .text.mbedtls_hmac_calc:000000b8 $d
+T:\msys\tmp\cc2DH4CI.s:211    .text.hmac_generate_passwd:00000000 $t
+T:\msys\tmp\cc2DH4CI.s:219    .text.hmac_generate_passwd:00000000 hmac_generate_passwd
+T:\msys\tmp\cc2DH4CI.s:278    .rodata.__FUNCTION__.9947:00000000 $d
+T:\msys\tmp\cc2DH4CI.s:282    .rodata.__FUNCTION__.9947:00000000 __FUNCTION__.9947
+
+UNDEFINED SYMBOLS
+mbedtls_md_info_from_type
+mbedtls_md_init
+memset
+mbedtls_md_setup
+mbedtls_md_hmac_starts
+mbedtls_md_hmac_update
+mbedtls_md_hmac_finish
+mbedtls_md_free
+link_log_level_get
+link_log_level_name
+osal_sys_time
+printf
+fflush
+_impure_ptr

@@ -1,0 +1,849 @@
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"sha256_check.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.rodata.sha256_check.str1.4,"aMS",%progbits,1
+  18              		.align	2
+  19              	.LC0:
+  20 0000 5B25735D 		.ascii	"[%s][%u][%s] SIGNATURE DATA LENGTH ERROR\015\012\000"
+  20      5B25755D 
+  20      5B25735D 
+  20      20534947 
+  20      4E415455 
+  21 002b 00       		.align	2
+  22              	.LC1:
+  23 002c 5B25735D 		.ascii	"[%s][%u][%s] COULD NOT GET THE HASH METHOD\015\012\000"
+  23      5B25755D 
+  23      5B25735D 
+  23      20434F55 
+  23      4C44204E 
+  24 0059 000000   		.align	2
+  25              	.LC2:
+  26 005c 5B25735D 		.ascii	"[%s][%u][%s] COULD NOT SETUP THE HASH METHOD\015\012"
+  26      5B25755D 
+  26      5B25735D 
+  26      20434F55 
+  26      4C44204E 
+  27 008a 00       		.ascii	"\000"
+  28 008b 00       		.align	2
+  29              	.LC3:
+  30 008c 5B25735D 		.ascii	"[%s][%u][%s] COULD NOT START THE HASH METHOD\015\012"
+  30      5B25755D 
+  30      5B25735D 
+  30      20434F55 
+  30      4C44204E 
+  31 00ba 00       		.ascii	"\000"
+  32 00bb 00       		.align	2
+  33              	.LC4:
+  34 00bc 5B25735D 		.ascii	"[%s][%u][%s] READ DOWNLOAD DATA:OFFSET:%d LEN:%d FA"
+  34      5B25755D 
+  34      5B25735D 
+  34      20524541 
+  34      4420444F 
+  35 00ef 494C4544 		.ascii	"ILED\015\012\000"
+  35      0D0A00
+  36 00f6 0000     		.align	2
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 2
+
+
+  37              	.LC5:
+  38 00f8 5B25735D 		.ascii	"[%s][%u][%s] HASH COMPUTE ERROR\015\012\000"
+  38      5B25755D 
+  38      5B25735D 
+  38      20484153 
+  38      4820434F 
+  39              		.section	.text.sha256_check,"ax",%progbits
+  40              		.align	1
+  41              		.p2align 2,,3
+  42              		.global	sha256_check
+  43              		.arch armv7e-m
+  44              		.syntax unified
+  45              		.thumb
+  46              		.thumb_func
+  47              		.fpu fpv4-sp-d16
+  49              	sha256_check:
+  50              	.LVL0:
+  51              	.LFB7:
+  52              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/downl
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * ===============================================
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** /**
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  *  DATE                AUTHOR      INSTRUCTION
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  *  2020-06-05 09:37  zhangqianfu  The first version
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  */
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 3
+
+
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** #include "sha256_check.h"
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** #include <string.h>
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** #include <link_misc.h>
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** #include <mbedtls/md.h>
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** #include <mbedtls/pk.h>
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** #include <ota_img.h>
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** ///< now we only support the SHA256
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** #define CN_SHA256_HASHLEN 32
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** #define CN_SHA256_CACHELEN (CN_SHA256_HASHLEN*2)
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** static int sha256_compute(en_ota_type_t  ota_type,int offset, int len, uint8_t *buf_out, int buf_ou
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** {
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     int ret = -1;
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     uint8_t buf_in[CN_SHA256_CACHELEN];
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     int cur_len = 0;
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     int file_offset;
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     int file_left;
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     mbedtls_md_context_t ctx;
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     const mbedtls_md_info_t *md_info;
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     md_info = mbedtls_md_info_from_type(MBEDTLS_MD_SHA256);
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     if (md_info == NULL)
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         LINK_LOG_ERROR("COULD NOT GET THE HASH METHOD");
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     mbedtls_md_init( &ctx );
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     if( ( ret = mbedtls_md_setup( &ctx, md_info, 0 ) ) != 0 )
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         LINK_LOG_ERROR("COULD NOT SETUP THE HASH METHOD");
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     if( ( ret = mbedtls_md_starts( &ctx ) ) != 0 )
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         LINK_LOG_ERROR("COULD NOT START THE HASH METHOD");
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     file_offset = offset;
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     file_left = len;
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     while(file_left > 0)
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         cur_len = file_left > CN_SHA256_CACHELEN? CN_SHA256_CACHELEN:file_left;
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         ret = ota_img_read(ota_type,EN_OTA_IMG_DOWNLOAD,file_offset,buf_in, cur_len);
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         if(0 != ret)
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         {
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****             LINK_LOG_ERROR("READ DOWNLOAD DATA:OFFSET:%d LEN:%d FAILED",file_offset, cur_len);
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****             break;
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         }
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         mbedtls_md_update( &ctx, buf_in, cur_len );
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 4
+
+
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         file_offset += cur_len;
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         file_left -= cur_len;
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     if(0 == ret)
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         mbedtls_md_finish(&ctx, buf_out);
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** EXIT_CLEAN:
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     mbedtls_md_free( &ctx );
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     return( ret );
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** }
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** /**
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * @brief: use this function to do the verify
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * @param:verify_para: the user supply the parameter to do the check
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  *
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * @return: 0 success while others failed
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****  * */
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** int sha256_check(sha256_check_t *param)
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** {
+  53              		.loc 1 116 1 view -0
+  54              		.cfi_startproc
+  55              		@ args = 0, pretend = 0, frame = 144
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     int ret = -1;
+  57              		.loc 1 117 5 view .LVU1
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     uint8_t hash[CN_SHA256_HASHLEN];
+  58              		.loc 1 118 5 view .LVU2
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     uint8_t sha256[CN_SHA256_HASHLEN];
+  59              		.loc 1 119 5 view .LVU3
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     if(strlen(param->sha256) != (CN_SHA256_HASHLEN*2))
+  60              		.loc 1 121 5 view .LVU4
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     int ret = -1;
+  61              		.loc 1 116 1 is_stmt 0 view .LVU5
+  62 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+  63              	.LCFI0:
+  64              		.cfi_def_cfa_offset 28
+  65              		.cfi_offset 4, -28
+  66              		.cfi_offset 5, -24
+  67              		.cfi_offset 6, -20
+  68              		.cfi_offset 7, -16
+  69              		.cfi_offset 8, -12
+  70              		.cfi_offset 9, -8
+  71              		.cfi_offset 14, -4
+  72              		.loc 1 121 8 view .LVU6
+  73 0004 0568     		ldr	r5, [r0]
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     int ret = -1;
+  74              		.loc 1 116 1 view .LVU7
+  75 0006 A7B0     		sub	sp, sp, #156
+  76              	.LCFI1:
+  77              		.cfi_def_cfa_offset 184
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     int ret = -1;
+  78              		.loc 1 116 1 view .LVU8
+  79 0008 0446     		mov	r4, r0
+  80              		.loc 1 121 8 view .LVU9
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 5
+
+
+  81 000a 2846     		mov	r0, r5
+  82              	.LVL1:
+  83              		.loc 1 121 8 view .LVU10
+  84 000c FFF7FEFF 		bl	strlen
+  85              	.LVL2:
+  86              		.loc 1 121 7 view .LVU11
+  87 0010 4028     		cmp	r0, #64
+  88 0012 40F09980 		bne	.L18
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         LINK_LOG_ERROR("SIGNATURE DATA LENGTH ERROR");
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     hexstr2byte((const char *)param->sha256, strlen(param->sha256),(char *)sha256);
+  89              		.loc 1 126 5 is_stmt 1 view .LVU12
+  90 0016 0146     		mov	r1, r0
+  91 0018 0EAA     		add	r2, sp, #56
+  92 001a 2846     		mov	r0, r5
+  93 001c FFF7FEFF 		bl	hexstr2byte
+  94              	.LVL3:
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     ///< compute the hash code
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     ret = sha256_compute(param->ota_type,param->data_offset,param->data_len,hash,CN_SHA256_HASHLEN)
+  95              		.loc 1 129 5 view .LVU13
+  96              	.LBB4:
+  97              	.LBB5:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     if (md_info == NULL)
+  98              		.loc 1 62 15 is_stmt 0 view .LVU14
+  99 0020 0620     		movs	r0, #6
+ 100              	.LBE5:
+ 101              	.LBE4:
+ 102              		.loc 1 129 11 view .LVU15
+ 103 0022 D4E90175 		ldrd	r7, r5, [r4, #4]
+ 104 0026 94F80C80 		ldrb	r8, [r4, #12]	@ zero_extendqisi2
+ 105              	.LVL4:
+ 106              	.LBB11:
+ 107              	.LBI4:
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** {
+ 108              		.loc 1 51 12 is_stmt 1 view .LVU16
+ 109              	.LBB6:
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     uint8_t buf_in[CN_SHA256_CACHELEN];
+ 110              		.loc 1 53 5 view .LVU17
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     int cur_len = 0;
+ 111              		.loc 1 54 5 view .LVU18
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     int file_offset;
+ 112              		.loc 1 55 5 view .LVU19
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     int file_left;
+ 113              		.loc 1 56 5 view .LVU20
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 114              		.loc 1 57 5 view .LVU21
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     const mbedtls_md_info_t *md_info;
+ 115              		.loc 1 59 5 view .LVU22
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 116              		.loc 1 60 5 view .LVU23
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     if (md_info == NULL)
+ 117              		.loc 1 62 5 view .LVU24
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     if (md_info == NULL)
+ 118              		.loc 1 62 15 is_stmt 0 view .LVU25
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 6
+
+
+ 119 002a FFF7FEFF 		bl	mbedtls_md_info_from_type
+ 120              	.LVL5:
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 121              		.loc 1 63 5 is_stmt 1 view .LVU26
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 122              		.loc 1 63 8 is_stmt 0 view .LVU27
+ 123 002e 0446     		mov	r4, r0
+ 124              	.LVL6:
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 125              		.loc 1 63 8 view .LVU28
+ 126 0030 0028     		cmp	r0, #0
+ 127 0032 00F09D80 		beq	.L19
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 128              		.loc 1 68 5 is_stmt 1 view .LVU29
+ 129 0036 03A8     		add	r0, sp, #12
+ 130              	.LVL7:
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 131              		.loc 1 68 5 is_stmt 0 view .LVU30
+ 132 0038 FFF7FEFF 		bl	mbedtls_md_init
+ 133              	.LVL8:
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 134              		.loc 1 70 5 is_stmt 1 view .LVU31
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 135              		.loc 1 70 17 is_stmt 0 view .LVU32
+ 136 003c 2146     		mov	r1, r4
+ 137 003e 03A8     		add	r0, sp, #12
+ 138 0040 0022     		movs	r2, #0
+ 139 0042 FFF7FEFF 		bl	mbedtls_md_setup
+ 140              	.LVL9:
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 141              		.loc 1 70 7 view .LVU33
+ 142 0046 0446     		mov	r4, r0
+ 143              	.LVL10:
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 144              		.loc 1 70 7 view .LVU34
+ 145 0048 38BB     		cbnz	r0, .L20
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 146              		.loc 1 76 5 is_stmt 1 view .LVU35
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 147              		.loc 1 76 17 is_stmt 0 view .LVU36
+ 148 004a 03A8     		add	r0, sp, #12
+ 149              	.LVL11:
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 150              		.loc 1 76 17 view .LVU37
+ 151 004c FFF7FEFF 		bl	mbedtls_md_starts
+ 152              	.LVL12:
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 153              		.loc 1 76 7 view .LVU38
+ 154 0050 8146     		mov	r9, r0
+ 155 0052 A8B1     		cbz	r0, .L16
+ 156 0054 63E0     		b	.L8
+ 157              	.LVL13:
+ 158              	.L9:
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 159              		.loc 1 86 9 is_stmt 1 view .LVU39
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 160              		.loc 1 86 17 is_stmt 0 view .LVU40
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 7
+
+
+ 161 0056 402D     		cmp	r5, #64
+ 162 0058 2E46     		mov	r6, r5
+ 163 005a A8BF     		it	ge
+ 164 005c 4026     		movge	r6, #64
+ 165              	.LVL14:
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         if(0 != ret)
+ 166              		.loc 1 88 9 is_stmt 1 view .LVU41
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         if(0 != ret)
+ 167              		.loc 1 88 15 is_stmt 0 view .LVU42
+ 168 005e 3A46     		mov	r2, r7
+ 169 0060 0121     		movs	r1, #1
+ 170 0062 0096     		str	r6, [sp]
+ 171 0064 16AB     		add	r3, sp, #88
+ 172 0066 4046     		mov	r0, r8
+ 173 0068 FFF7FEFF 		bl	ota_img_read
+ 174              	.LVL15:
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 175              		.loc 1 94 9 is_stmt 1 view .LVU43
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         if(0 != ret)
+ 176              		.loc 1 88 15 is_stmt 0 view .LVU44
+ 177 006c 0446     		mov	r4, r0
+ 178              	.LVL16:
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         {
+ 179              		.loc 1 89 9 is_stmt 1 view .LVU45
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 180              		.loc 1 97 19 is_stmt 0 view .LVU46
+ 181 006e AD1B     		subs	r5, r5, r6
+ 182              	.LVL17:
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 183              		.loc 1 94 9 view .LVU47
+ 184 0070 3246     		mov	r2, r6
+ 185 0072 16A9     		add	r1, sp, #88
+ 186 0074 03A8     		add	r0, sp, #12
+ 187              	.LVL18:
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         {
+ 188              		.loc 1 89 11 view .LVU48
+ 189 0076 002C     		cmp	r4, #0
+ 190 0078 3BD1     		bne	.L21
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** 
+ 191              		.loc 1 94 9 view .LVU49
+ 192 007a FFF7FEFF 		bl	mbedtls_md_update
+ 193              	.LVL19:
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         file_left -= cur_len;
+ 194              		.loc 1 96 9 is_stmt 1 view .LVU50
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         file_left -= cur_len;
+ 195              		.loc 1 96 21 is_stmt 0 view .LVU51
+ 196 007e 3744     		add	r7, r7, r6
+ 197              	.LVL20:
+ 198              	.L16:
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 199              		.loc 1 97 9 is_stmt 1 view .LVU52
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 200              		.loc 1 84 10 view .LVU53
+ 201 0080 002D     		cmp	r5, #0
+ 202 0082 E8DC     		bgt	.L9
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 203              		.loc 1 99 5 view .LVU54
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 8
+
+
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 204              		.loc 1 101 9 view .LVU55
+ 205 0084 06A9     		add	r1, sp, #24
+ 206              	.LVL21:
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 207              		.loc 1 101 9 is_stmt 0 view .LVU56
+ 208 0086 03A8     		add	r0, sp, #12
+ 209 0088 FFF7FEFF 		bl	mbedtls_md_finish
+ 210              	.LVL22:
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     return( ret );
+ 211              		.loc 1 105 5 is_stmt 1 view .LVU57
+ 212 008c 03A8     		add	r0, sp, #12
+ 213 008e FFF7FEFF 		bl	mbedtls_md_free
+ 214              	.LVL23:
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** }
+ 215              		.loc 1 106 5 view .LVU58
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** }
+ 216              		.loc 1 106 5 is_stmt 0 view .LVU59
+ 217              	.LBE6:
+ 218              	.LBE11:
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     if(ret != 0)
+ 219              		.loc 1 130 5 is_stmt 1 view .LVU60
+ 220              	.L1:
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         LINK_LOG_ERROR("HASH COMPUTE ERROR");
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     return ret;
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** }
+ 221              		.loc 1 136 1 is_stmt 0 view .LVU61
+ 222 0092 4846     		mov	r0, r9
+ 223 0094 27B0     		add	sp, sp, #156
+ 224              	.LCFI2:
+ 225              		.cfi_remember_state
+ 226              		.cfi_def_cfa_offset 28
+ 227              		@ sp needed
+ 228 0096 BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 229              	.LVL24:
+ 230              	.L20:
+ 231              	.LCFI3:
+ 232              		.cfi_restore_state
+ 233              	.LBB12:
+ 234              	.LBB7:
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 235              		.loc 1 72 9 is_stmt 1 view .LVU62
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 236              		.loc 1 72 9 view .LVU63
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 237              		.loc 1 72 9 view .LVU64
+ 238 009a 0420     		movs	r0, #4
+ 239              	.LVL25:
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 240              		.loc 1 72 9 is_stmt 0 view .LVU65
+ 241 009c FFF7FEFF 		bl	link_log_level_name
+ 242              	.LVL26:
+ 243 00a0 0546     		mov	r5, r0
+ 244              	.LVL27:
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 9
+
+
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 245              		.loc 1 72 9 view .LVU66
+ 246 00a2 FFF7FEFF 		bl	osal_sys_time
+ 247              	.LVL28:
+ 248 00a6 DFF81081 		ldr	r8, .L22+28
+ 249              	.LVL29:
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 250              		.loc 1 72 9 view .LVU67
+ 251 00aa 3C4B     		ldr	r3, .L22
+ 252 00ac 0246     		mov	r2, r0
+ 253 00ae 2946     		mov	r1, r5
+ 254 00b0 3B48     		ldr	r0, .L22+4
+ 255 00b2 FFF7FEFF 		bl	printf
+ 256              	.LVL30:
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 257              		.loc 1 72 9 is_stmt 1 view .LVU68
+ 258 00b6 D8F80030 		ldr	r3, [r8]
+ 259 00ba 9868     		ldr	r0, [r3, #8]
+ 260 00bc FFF7FEFF 		bl	fflush
+ 261              	.LVL31:
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 262              		.loc 1 72 9 view .LVU69
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 263              		.loc 1 72 9 view .LVU70
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 264              		.loc 1 73 9 view .LVU71
+ 265              	.L7:
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     return( ret );
+ 266              		.loc 1 105 5 view .LVU72
+ 267 00c0 03A8     		add	r0, sp, #12
+ 268 00c2 FFF7FEFF 		bl	mbedtls_md_free
+ 269              	.LVL32:
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** }
+ 270              		.loc 1 106 5 view .LVU73
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c **** }
+ 271              		.loc 1 106 5 is_stmt 0 view .LVU74
+ 272              	.LBE7:
+ 273              	.LBE12:
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 274              		.loc 1 130 5 is_stmt 1 view .LVU75
+ 275              	.L5:
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 276              		.loc 1 132 9 view .LVU76
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 277              		.loc 1 132 9 view .LVU77
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 278              		.loc 1 132 9 view .LVU78
+ 279 00c6 0420     		movs	r0, #4
+ 280 00c8 FFF7FEFF 		bl	link_log_level_name
+ 281              	.LVL33:
+ 282 00cc 0546     		mov	r5, r0
+ 283 00ce FFF7FEFF 		bl	osal_sys_time
+ 284              	.LVL34:
+ 285 00d2 2946     		mov	r1, r5
+ 286 00d4 0246     		mov	r2, r0
+ 287 00d6 334B     		ldr	r3, .L22+8
+ 288 00d8 3348     		ldr	r0, .L22+12
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 10
+
+
+ 289 00da FFF7FEFF 		bl	printf
+ 290              	.LVL35:
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 291              		.loc 1 132 9 view .LVU79
+ 292 00de D8F80030 		ldr	r3, [r8]
+ 293 00e2 9868     		ldr	r0, [r3, #8]
+ 294 00e4 FFF7FEFF 		bl	fflush
+ 295              	.LVL36:
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 296              		.loc 1 132 9 view .LVU80
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 297              		.loc 1 132 9 view .LVU81
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 298              		.loc 1 133 9 view .LVU82
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 299              		.loc 1 133 16 is_stmt 0 view .LVU83
+ 300 00e8 A146     		mov	r9, r4
+ 301              		.loc 1 136 1 view .LVU84
+ 302 00ea 4846     		mov	r0, r9
+ 303 00ec 27B0     		add	sp, sp, #156
+ 304              	.LCFI4:
+ 305              		.cfi_remember_state
+ 306              		.cfi_def_cfa_offset 28
+ 307              		@ sp needed
+ 308 00ee BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 309              	.LVL37:
+ 310              	.L21:
+ 311              	.LCFI5:
+ 312              		.cfi_restore_state
+ 313              	.LBB13:
+ 314              	.LBB8:
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****             break;
+ 315              		.loc 1 91 13 is_stmt 1 view .LVU85
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****             break;
+ 316              		.loc 1 91 13 view .LVU86
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****             break;
+ 317              		.loc 1 91 13 view .LVU87
+ 318 00f2 0420     		movs	r0, #4
+ 319 00f4 FFF7FEFF 		bl	link_log_level_name
+ 320              	.LVL38:
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****             break;
+ 321              		.loc 1 91 13 is_stmt 0 view .LVU88
+ 322 00f8 0546     		mov	r5, r0
+ 323 00fa FFF7FEFF 		bl	osal_sys_time
+ 324              	.LVL39:
+ 325 00fe DFF8B880 		ldr	r8, .L22+28
+ 326              	.LVL40:
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****             break;
+ 327              		.loc 1 91 13 view .LVU89
+ 328 0102 264B     		ldr	r3, .L22
+ 329 0104 0196     		str	r6, [sp, #4]
+ 330 0106 0246     		mov	r2, r0
+ 331 0108 2946     		mov	r1, r5
+ 332 010a 0097     		str	r7, [sp]
+ 333 010c 2748     		ldr	r0, .L22+16
+ 334 010e FFF7FEFF 		bl	printf
+ 335              	.LVL41:
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 11
+
+
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****             break;
+ 336              		.loc 1 91 13 is_stmt 1 view .LVU90
+ 337 0112 D8F80030 		ldr	r3, [r8]
+ 338 0116 9868     		ldr	r0, [r3, #8]
+ 339 0118 FFF7FEFF 		bl	fflush
+ 340              	.LVL42:
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****             break;
+ 341              		.loc 1 91 13 view .LVU91
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****             break;
+ 342              		.loc 1 91 13 view .LVU92
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         }
+ 343              		.loc 1 92 13 view .LVU93
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 344              		.loc 1 99 5 view .LVU94
+ 345 011c D0E7     		b	.L7
+ 346              	.LVL43:
+ 347              	.L8:
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 348              		.loc 1 78 9 view .LVU95
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 349              		.loc 1 78 9 view .LVU96
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 350              		.loc 1 78 9 view .LVU97
+ 351 011e 0420     		movs	r0, #4
+ 352              	.LVL44:
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 353              		.loc 1 78 9 is_stmt 0 view .LVU98
+ 354 0120 FFF7FEFF 		bl	link_log_level_name
+ 355              	.LVL45:
+ 356 0124 0446     		mov	r4, r0
+ 357 0126 FFF7FEFF 		bl	osal_sys_time
+ 358              	.LVL46:
+ 359 012a DFF88C80 		ldr	r8, .L22+28
+ 360              	.LVL47:
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 361              		.loc 1 78 9 view .LVU99
+ 362 012e 1B4B     		ldr	r3, .L22
+ 363 0130 0246     		mov	r2, r0
+ 364 0132 2146     		mov	r1, r4
+ 365 0134 1E48     		ldr	r0, .L22+20
+ 366 0136 FFF7FEFF 		bl	printf
+ 367              	.LVL48:
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 368              		.loc 1 78 9 is_stmt 1 view .LVU100
+ 369 013a D8F80030 		ldr	r3, [r8]
+ 370 013e 9868     		ldr	r0, [r3, #8]
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 371              		.loc 1 79 9 is_stmt 0 view .LVU101
+ 372 0140 4C46     		mov	r4, r9
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 373              		.loc 1 78 9 view .LVU102
+ 374 0142 FFF7FEFF 		bl	fflush
+ 375              	.LVL49:
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 376              		.loc 1 78 9 is_stmt 1 view .LVU103
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         goto EXIT_CLEAN;
+ 377              		.loc 1 78 9 view .LVU104
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 12
+
+
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 378              		.loc 1 79 9 view .LVU105
+ 379 0146 BBE7     		b	.L7
+ 380              	.LVL50:
+ 381              	.L18:
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 382              		.loc 1 79 9 is_stmt 0 view .LVU106
+ 383              	.LBE8:
+ 384              	.LBE13:
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 385              		.loc 1 123 9 is_stmt 1 view .LVU107
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 386              		.loc 1 123 9 view .LVU108
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 387              		.loc 1 123 9 view .LVU109
+ 388 0148 0420     		movs	r0, #4
+ 389 014a FFF7FEFF 		bl	link_log_level_name
+ 390              	.LVL51:
+ 391 014e 0446     		mov	r4, r0
+ 392              	.LVL52:
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 393              		.loc 1 123 9 is_stmt 0 view .LVU110
+ 394 0150 FFF7FEFF 		bl	osal_sys_time
+ 395              	.LVL53:
+ 396 0154 134B     		ldr	r3, .L22+8
+ 397 0156 0246     		mov	r2, r0
+ 398 0158 2146     		mov	r1, r4
+ 399 015a 1648     		ldr	r0, .L22+24
+ 400 015c FFF7FEFF 		bl	printf
+ 401              	.LVL54:
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 402              		.loc 1 123 9 is_stmt 1 view .LVU111
+ 403 0160 154B     		ldr	r3, .L22+28
+ 404 0162 1B68     		ldr	r3, [r3]
+ 405 0164 9868     		ldr	r0, [r3, #8]
+ 406 0166 FFF7FEFF 		bl	fflush
+ 407              	.LVL55:
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 408              		.loc 1 123 9 view .LVU112
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 409              		.loc 1 123 9 view .LVU113
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 410              		.loc 1 124 9 view .LVU114
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 411              		.loc 1 124 16 is_stmt 0 view .LVU115
+ 412 016a 4FF0FF39 		mov	r9, #-1
+ 413 016e 90E7     		b	.L1
+ 414              	.LVL56:
+ 415              	.L19:
+ 416              	.LBB14:
+ 417              	.LBB9:
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 418              		.loc 1 65 9 is_stmt 1 view .LVU116
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 419              		.loc 1 65 9 view .LVU117
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 420              		.loc 1 65 9 view .LVU118
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 13
+
+
+ 421 0170 0420     		movs	r0, #4
+ 422              	.LVL57:
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 423              		.loc 1 65 9 is_stmt 0 view .LVU119
+ 424 0172 FFF7FEFF 		bl	link_log_level_name
+ 425              	.LVL58:
+ 426 0176 0446     		mov	r4, r0
+ 427              	.LVL59:
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 428              		.loc 1 65 9 view .LVU120
+ 429 0178 FFF7FEFF 		bl	osal_sys_time
+ 430              	.LVL60:
+ 431 017c DFF83880 		ldr	r8, .L22+28
+ 432              	.LVL61:
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 433              		.loc 1 65 9 view .LVU121
+ 434 0180 064B     		ldr	r3, .L22
+ 435 0182 0246     		mov	r2, r0
+ 436 0184 2146     		mov	r1, r4
+ 437 0186 0D48     		ldr	r0, .L22+32
+ 438 0188 FFF7FEFF 		bl	printf
+ 439              	.LVL62:
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 440              		.loc 1 65 9 is_stmt 1 view .LVU122
+ 441 018c D8F80030 		ldr	r3, [r8]
+ 442 0190 9868     		ldr	r0, [r3, #8]
+ 443 0192 FFF7FEFF 		bl	fflush
+ 444              	.LVL63:
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 445              		.loc 1 65 9 view .LVU123
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****         return ret;
+ 446              		.loc 1 65 9 view .LVU124
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 447              		.loc 1 66 9 view .LVU125
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 448              		.loc 1 66 9 is_stmt 0 view .LVU126
+ 449              	.LBE9:
+ 450              	.LBE14:
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     {
+ 451              		.loc 1 130 5 is_stmt 1 view .LVU127
+ 452              	.LBB15:
+ 453              	.LBB10:
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/download_check/sha256check\sha256_check.c ****     }
+ 454              		.loc 1 66 16 is_stmt 0 view .LVU128
+ 455 0196 4FF0FF34 		mov	r4, #-1
+ 456 019a 94E7     		b	.L5
+ 457              	.L23:
+ 458              		.align	2
+ 459              	.L22:
+ 460 019c 00000000 		.word	.LANCHOR1
+ 461 01a0 5C000000 		.word	.LC2
+ 462 01a4 00000000 		.word	.LANCHOR0
+ 463 01a8 F8000000 		.word	.LC5
+ 464 01ac BC000000 		.word	.LC4
+ 465 01b0 8C000000 		.word	.LC3
+ 466 01b4 00000000 		.word	.LC0
+ 467 01b8 00000000 		.word	_impure_ptr
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 14
+
+
+ 468 01bc 2C000000 		.word	.LC1
+ 469              	.LBE10:
+ 470              	.LBE15:
+ 471              		.cfi_endproc
+ 472              	.LFE7:
+ 474              		.section	.rodata.__FUNCTION__.7954,"a"
+ 475              		.align	2
+ 476              		.set	.LANCHOR1,. + 0
+ 479              	__FUNCTION__.7954:
+ 480 0000 73686132 		.ascii	"sha256_compute\000"
+ 480      35365F63 
+ 480      6F6D7075 
+ 480      746500
+ 481              		.section	.rodata.__FUNCTION__.7965,"a"
+ 482              		.align	2
+ 483              		.set	.LANCHOR0,. + 0
+ 486              	__FUNCTION__.7965:
+ 487 0000 73686132 		.ascii	"sha256_check\000"
+ 487      35365F63 
+ 487      6865636B 
+ 487      00
+ 488              		.text
+ 489              	.Letext0:
+ 490              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 491              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 492              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 493              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 494              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 495              		.file 7 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 496              		.file 8 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/inc/link_log.h
+ 497              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/ota_i
+ 498              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/down
+ 499              		.file 11 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/
+ 500              		.file 12 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\stdio.h
+ 501              		.file 13 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\string.
+ 502              		.file 14 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_misc/lin
+ARM GAS  T:\msys\tmp\ccLg2yra.s 			page 15
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 sha256_check.c
+T:\msys\tmp\ccLg2yra.s:18     .rodata.sha256_check.str1.4:00000000 $d
+T:\msys\tmp\ccLg2yra.s:40     .text.sha256_check:00000000 $t
+T:\msys\tmp\ccLg2yra.s:49     .text.sha256_check:00000000 sha256_check
+T:\msys\tmp\ccLg2yra.s:460    .text.sha256_check:0000019c $d
+T:\msys\tmp\ccLg2yra.s:475    .rodata.__FUNCTION__.7954:00000000 $d
+T:\msys\tmp\ccLg2yra.s:479    .rodata.__FUNCTION__.7954:00000000 __FUNCTION__.7954
+T:\msys\tmp\ccLg2yra.s:482    .rodata.__FUNCTION__.7965:00000000 $d
+T:\msys\tmp\ccLg2yra.s:486    .rodata.__FUNCTION__.7965:00000000 __FUNCTION__.7965
+
+UNDEFINED SYMBOLS
+strlen
+hexstr2byte
+mbedtls_md_info_from_type
+mbedtls_md_init
+mbedtls_md_setup
+mbedtls_md_starts
+ota_img_read
+mbedtls_md_update
+mbedtls_md_finish
+mbedtls_md_free
+link_log_level_name
+osal_sys_time
+printf
+fflush
+_impure_ptr

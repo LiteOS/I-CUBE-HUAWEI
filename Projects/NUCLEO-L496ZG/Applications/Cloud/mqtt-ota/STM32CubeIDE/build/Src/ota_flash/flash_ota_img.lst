@@ -1,0 +1,919 @@
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"flash_ota_img.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.innerflash_erase,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.arch armv7e-m
+  21              		.syntax unified
+  22              		.thumb
+  23              		.thumb_func
+  24              		.fpu fpv4-sp-d16
+  26              	innerflash_erase:
+  27              	.LVL0:
+  28              	.LFB7:
+  29              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/S
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * ===============================================
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 2
+
+
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #include <stdint.h>
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #include <stddef.h>
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #include <stdbool.h>
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #include <hal_flash.h>
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #include <ota_img.h>
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #define CONFIG_OTAIMG_RUNNINGBASE       (0x08020000)
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #ifndef CONFIG_OTAIMG_RUNNINGSIZE
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #define CONFIG_OTAIMG_RUNNINGSIZE       (256*1024)
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #endif
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #define CONFIG_OTAIMG_BACKUPBASE        (CONFIG_OTAIMG_RUNNINGSIZE + CONFIG_OTAIMG_RUNNINGBASE)
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #ifndef CONFIG_OTAIMG_BACKUPSIZE
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #define CONFIG_OTAIMG_BACKUPSIZE        (256*1024)
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #endif
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #define CONFIG_OTAIMG_DOWNLOADBASE      (CONFIG_OTAIMG_BACKUPSIZE + CONFIG_OTAIMG_BACKUPBASE)
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #ifndef CONFIG_OTAIMG_DOWNLOADSIZE
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #define CONFIG_OTAIMG_DOWNLOADSIZE      (256*1024)
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #endif
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #define CONFIG_OTAIMG_FLAGBASE          (CONFIG_OTAIMG_DOWNLOADSIZE + CONFIG_OTAIMG_DOWNLOADBASE)
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #ifndef CONFIG_OTAIMG_FLAGSIZE
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #define CONFIG_OTAIMG_FLAGSIZE          (4096)
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #endif
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #define CONFIG_OTAIMG_FLAGBACKUPBASE    (CONFIG_OTAIMG_FLAGSIZE + CONFIG_OTAIMG_FLAGBASE)
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #ifndef CONFIG_OTAIMG_FLAGBACKUPSIZE
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #define CONFIG_OTAIMG_FLAGBACKUPSIZE    (4096)
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** #endif
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** static int innerflash_read(uintptr_t arg, int offset, void *buf, int len)
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** {
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     int ret;
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     uint32_t location;
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     location = (uint32_t)arg + (uint32_t)offset;
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     ret = hal_flash_read(buf,len, location);
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     return ret;
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** }
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** static struct {
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     uint32_t location;
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     bool     caching;
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     union {
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         uint64_t qword;
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 3
+
+
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         uint8_t  buff [8];
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     };
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** } cached_data = { 0 };
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** static int innerflash_flush(uintptr_t arg, int size)
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** {
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     if (!cached_data.caching) {
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return 0;
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     }
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     cached_data.caching = false;
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     return hal_flash_write (cached_data.buff, 8, &cached_data.location);
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** }
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** static int innerflash_write_byte (uintptr_t arg, uint32_t offset, char ch)
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** {
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     uint32_t location = arg + offset;
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     if (cached_data.caching) {
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if ((location < cached_data.location) || location - cached_data.location >= 8) {
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****             if (innerflash_flush (0, 0) != 0) {
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****                 return -1;
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****             }
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         }
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     }
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     if (!cached_data.caching) {
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         cached_data.caching  = true;
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         cached_data.location = location & ~7;
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         cached_data.qword    = 0;
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     }
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     cached_data.buff [location - cached_data.location] = ch;
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     if ((location & 7) == 7) {
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return innerflash_flush (0, 0);
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     }
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     return 0;
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** }
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** static int innerflash_write(uintptr_t arg, int offset, const void *buf, int len)
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** {
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     int i;
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     for (i = 0; i < len; i++) {
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if (innerflash_write_byte (arg, (uint32_t) offset + i, ((const char *) buf) [i]) != 0) {
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****             return -1;
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         }
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     }
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     return 0;
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** }
+ 141:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** static int innerflash_erase(uintptr_t arg, int size)
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** {
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 4
+
+
+  30              		.loc 1 143 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     int ret;
+  35              		.loc 1 144 5 view .LVU1
+ 145:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     int32_t location;
+  36              		.loc 1 145 5 view .LVU2
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 147:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     location = (int32_t)arg;
+  37              		.loc 1 147 5 view .LVU3
+ 148:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     ret = hal_flash_erase(location, size);
+  38              		.loc 1 148 5 view .LVU4
+  39              		.loc 1 148 11 is_stmt 0 view .LVU5
+  40 0000 FFF7FEBF 		b	hal_flash_erase
+  41              	.LVL1:
+  42              		.loc 1 148 11 view .LVU6
+  43              		.cfi_endproc
+  44              	.LFE7:
+  46              		.section	.text.innerflash_read,"ax",%progbits
+  47              		.align	1
+  48              		.p2align 2,,3
+  49              		.syntax unified
+  50              		.thumb
+  51              		.thumb_func
+  52              		.fpu fpv4-sp-d16
+  54              	innerflash_read:
+  55              	.LVL2:
+  56              	.LFB3:
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     int ret;
+  57              		.loc 1 72 1 is_stmt 1 view -0
+  58              		.cfi_startproc
+  59              		@ args = 0, pretend = 0, frame = 0
+  60              		@ frame_needed = 0, uses_anonymous_args = 0
+  61              		@ link register save eliminated.
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     uint32_t location;
+  62              		.loc 1 73 5 view .LVU8
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  63              		.loc 1 74 5 view .LVU9
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     ret = hal_flash_read(buf,len, location);
+  64              		.loc 1 76 5 view .LVU10
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     int ret;
+  65              		.loc 1 72 1 is_stmt 0 view .LVU11
+  66 0000 10B4     		push	{r4}
+  67              	.LCFI0:
+  68              		.cfi_def_cfa_offset 4
+  69              		.cfi_offset 4, -4
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     int ret;
+  70              		.loc 1 72 1 view .LVU12
+  71 0002 0446     		mov	r4, r0
+  72              	.LVL3:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  73              		.loc 1 77 5 is_stmt 1 view .LVU13
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     int ret;
+  74              		.loc 1 72 1 is_stmt 0 view .LVU14
+  75 0004 1046     		mov	r0, r2
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 5
+
+
+  76              	.LVL4:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  77              		.loc 1 77 11 view .LVU15
+  78 0006 0A19     		adds	r2, r1, r4
+  79              	.LVL5:
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  80              		.loc 1 80 1 view .LVU16
+  81 0008 5DF8044B 		ldr	r4, [sp], #4
+  82              	.LCFI1:
+  83              		.cfi_restore 4
+  84              		.cfi_def_cfa_offset 0
+  85              	.LVL6:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  86              		.loc 1 77 11 view .LVU17
+  87 000c 1946     		mov	r1, r3
+  88              	.LVL7:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  89              		.loc 1 77 11 view .LVU18
+  90 000e FFF7FEBF 		b	hal_flash_read
+  91              	.LVL8:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+  92              		.loc 1 77 11 view .LVU19
+  93              		.cfi_endproc
+  94              	.LFE3:
+  96 0012 00BF     		.section	.text.innerflash_flush.part.0,"ax",%progbits
+  97              		.align	1
+  98              		.p2align 2,,3
+  99              		.syntax unified
+ 100              		.thumb
+ 101              		.thumb_func
+ 102              		.fpu fpv4-sp-d16
+ 104              	innerflash_flush.part.0:
+ 105              	.LFB9:
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** {
+ 106              		.loc 1 91 12 is_stmt 1 view -0
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110              		@ link register save eliminated.
+ 111              	.LVL9:
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 112              		.loc 1 97 5 view .LVU21
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 113              		.loc 1 97 25 is_stmt 0 view .LVU22
+ 114 0000 034A     		ldr	r2, .L6
+ 115 0002 0023     		movs	r3, #0
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** }
+ 116              		.loc 1 99 12 view .LVU23
+ 117 0004 02F10800 		add	r0, r2, #8
+ 118 0008 0821     		movs	r1, #8
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 119              		.loc 1 97 25 view .LVU24
+ 120 000a 1371     		strb	r3, [r2, #4]
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** }
+ 121              		.loc 1 99 5 is_stmt 1 view .LVU25
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** }
+ 122              		.loc 1 99 12 is_stmt 0 view .LVU26
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 6
+
+
+ 123 000c FFF7FEBF 		b	hal_flash_write
+ 124              	.LVL10:
+ 125              	.L7:
+ 126              		.align	2
+ 127              	.L6:
+ 128 0010 00000000 		.word	.LANCHOR0
+ 129              		.cfi_endproc
+ 130              	.LFE9:
+ 132              		.section	.text.innerflash_flush,"ax",%progbits
+ 133              		.align	1
+ 134              		.p2align 2,,3
+ 135              		.syntax unified
+ 136              		.thumb
+ 137              		.thumb_func
+ 138              		.fpu fpv4-sp-d16
+ 140              	innerflash_flush:
+ 141              	.LVL11:
+ 142              	.LFB4:
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     if (!cached_data.caching) {
+ 143              		.loc 1 92 1 is_stmt 1 view -0
+ 144              		.cfi_startproc
+ 145              		@ args = 0, pretend = 0, frame = 0
+ 146              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147              		@ link register save eliminated.
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return 0;
+ 148              		.loc 1 93 5 view .LVU28
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return 0;
+ 149              		.loc 1 93 21 is_stmt 0 view .LVU29
+ 150 0000 024B     		ldr	r3, .L11
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return 0;
+ 151              		.loc 1 93 8 view .LVU30
+ 152 0002 1879     		ldrb	r0, [r3, #4]	@ zero_extendqisi2
+ 153              	.LVL12:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return 0;
+ 154              		.loc 1 93 8 view .LVU31
+ 155 0004 00B9     		cbnz	r0, .L10
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 156              		.loc 1 100 1 view .LVU32
+ 157 0006 7047     		bx	lr
+ 158              	.L10:
+ 159 0008 FFF7FEBF 		b	innerflash_flush.part.0
+ 160              	.LVL13:
+ 161              	.L12:
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 162              		.loc 1 100 1 view .LVU33
+ 163              		.align	2
+ 164              	.L11:
+ 165 000c 00000000 		.word	.LANCHOR0
+ 166              		.cfi_endproc
+ 167              	.LFE4:
+ 169              		.section	.text.innerflash_write,"ax",%progbits
+ 170              		.align	1
+ 171              		.p2align 2,,3
+ 172              		.syntax unified
+ 173              		.thumb
+ 174              		.thumb_func
+ 175              		.fpu fpv4-sp-d16
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 7
+
+
+ 177              	innerflash_write:
+ 178              	.LVL14:
+ 179              	.LFB6:
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     int i;
+ 180              		.loc 1 130 1 is_stmt 1 view -0
+ 181              		.cfi_startproc
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 184              		.loc 1 131 5 view .LVU35
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if (innerflash_write_byte (arg, (uint32_t) offset + i, ((const char *) buf) [i]) != 0) {
+ 185              		.loc 1 133 5 view .LVU36
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if (innerflash_write_byte (arg, (uint32_t) offset + i, ((const char *) buf) [i]) != 0) {
+ 186              		.loc 1 133 17 view .LVU37
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     int i;
+ 187              		.loc 1 130 1 is_stmt 0 view .LVU38
+ 188 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 189              	.LCFI2:
+ 190              		.cfi_def_cfa_offset 40
+ 191              		.cfi_offset 3, -40
+ 192              		.cfi_offset 4, -36
+ 193              		.cfi_offset 5, -32
+ 194              		.cfi_offset 6, -28
+ 195              		.cfi_offset 7, -24
+ 196              		.cfi_offset 8, -20
+ 197              		.cfi_offset 9, -16
+ 198              		.cfi_offset 10, -12
+ 199              		.cfi_offset 11, -8
+ 200              		.cfi_offset 14, -4
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if (innerflash_write_byte (arg, (uint32_t) offset + i, ((const char *) buf) [i]) != 0) {
+ 201              		.loc 1 133 5 view .LVU39
+ 202 0004 002B     		cmp	r3, #0
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if (innerflash_write_byte (arg, (uint32_t) offset + i, ((const char *) buf) [i]) != 0) {
+ 203              		.loc 1 133 5 view .LVU40
+ 204 0006 43DD     		ble	.L22
+ 205 0008 02F1FF38 		add	r8, r2, #-1
+ 206 000c 224D     		ldr	r5, .L37
+ 207 000e 1746     		mov	r7, r2
+ 208 0010 0E18     		adds	r6, r1, r0
+ 209 0012 08EB030B 		add	fp, r8, r3
+ 210              	.LBB12:
+ 211              	.LBB13:
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         cached_data.location = location & ~7;
+ 212              		.loc 1 115 30 view .LVU41
+ 213 0016 4FF0010A 		mov	r10, #1
+ 214 001a 15E0     		b	.L21
+ 215              	.LVL15:
+ 216              	.L36:
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****             if (innerflash_flush (0, 0) != 0) {
+ 217              		.loc 1 107 9 is_stmt 1 view .LVU42
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****             if (innerflash_flush (0, 0) != 0) {
+ 218              		.loc 1 107 36 is_stmt 0 view .LVU43
+ 219 001c 2B68     		ldr	r3, [r5]
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****             if (innerflash_flush (0, 0) != 0) {
+ 220              		.loc 1 107 12 view .LVU44
+ 221 001e A342     		cmp	r3, r4
+ 222 0020 02D8     		bhi	.L17
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 8
+
+
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****             if (innerflash_flush (0, 0) != 0) {
+ 223              		.loc 1 107 59 view .LVU45
+ 224 0022 E31A     		subs	r3, r4, r3
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****             if (innerflash_flush (0, 0) != 0) {
+ 225              		.loc 1 107 47 view .LVU46
+ 226 0024 072B     		cmp	r3, #7
+ 227 0026 06D9     		bls	.L18
+ 228              	.L17:
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****                 return -1;
+ 229              		.loc 1 108 13 is_stmt 1 view .LVU47
+ 230              	.LVL16:
+ 231              	.LBB14:
+ 232              	.LBI14:
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** {
+ 233              		.loc 1 91 12 view .LVU48
+ 234              	.LBB15:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return 0;
+ 235              		.loc 1 93 5 view .LVU49
+ 236 0028 FFF7FEFF 		bl	innerflash_flush.part.0
+ 237              	.LVL17:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return 0;
+ 238              		.loc 1 93 5 is_stmt 0 view .LVU50
+ 239              	.LBE15:
+ 240              	.LBE14:
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****                 return -1;
+ 241              		.loc 1 108 16 view .LVU51
+ 242 002c 60BB     		cbnz	r0, .L24
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         cached_data.caching  = true;
+ 243              		.loc 1 114 5 is_stmt 1 view .LVU52
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         cached_data.caching  = true;
+ 244              		.loc 1 114 8 is_stmt 0 view .LVU53
+ 245 002e 2B79     		ldrb	r3, [r5, #4]	@ zero_extendqisi2
+ 246 0030 93B1     		cbz	r3, .L16
+ 247 0032 2B68     		ldr	r3, [r5]
+ 248 0034 E31A     		subs	r3, r4, r3
+ 249              	.L18:
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 250              		.loc 1 120 5 is_stmt 1 view .LVU54
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 251              		.loc 1 120 56 is_stmt 0 view .LVU55
+ 252 0036 2B44     		add	r3, r3, r5
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return innerflash_flush (0, 0);
+ 253              		.loc 1 122 19 view .LVU56
+ 254 0038 04F00704 		and	r4, r4, #7
+ 255              	.LVL18:
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return innerflash_flush (0, 0);
+ 256              		.loc 1 122 8 view .LVU57
+ 257 003c 072C     		cmp	r4, #7
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 258              		.loc 1 120 56 view .LVU58
+ 259 003e 83F80890 		strb	r9, [r3, #8]
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return innerflash_flush (0, 0);
+ 260              		.loc 1 122 5 is_stmt 1 view .LVU59
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return innerflash_flush (0, 0);
+ 261              		.loc 1 122 8 is_stmt 0 view .LVU60
+ 262 0042 1AD0     		beq	.L20
+ 263              	.LVL19:
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 9
+
+
+ 264              	.L23:
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return innerflash_flush (0, 0);
+ 265              		.loc 1 122 8 view .LVU61
+ 266              	.LBE13:
+ 267              	.LBE12:
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if (innerflash_write_byte (arg, (uint32_t) offset + i, ((const char *) buf) [i]) != 0) {
+ 268              		.loc 1 133 26 is_stmt 1 view .LVU62
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if (innerflash_write_byte (arg, (uint32_t) offset + i, ((const char *) buf) [i]) != 0) {
+ 269              		.loc 1 133 17 view .LVU63
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if (innerflash_write_byte (arg, (uint32_t) offset + i, ((const char *) buf) [i]) != 0) {
+ 270              		.loc 1 133 5 is_stmt 0 view .LVU64
+ 271 0044 C345     		cmp	fp, r8
+ 272 0046 23D0     		beq	.L22
+ 273              	.LVL20:
+ 274              	.L21:
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****             return -1;
+ 275              		.loc 1 134 9 is_stmt 1 view .LVU65
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****             return -1;
+ 276              		.loc 1 134 13 is_stmt 0 view .LVU66
+ 277 0048 18F8019F 		ldrb	r9, [r8, #1]!	@ zero_extendqisi2
+ 278              	.LVL21:
+ 279              	.LBB19:
+ 280              	.LBI12:
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** {
+ 281              		.loc 1 102 12 is_stmt 1 view .LVU67
+ 282              	.LBB18:
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 283              		.loc 1 104 5 view .LVU68
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if ((location < cached_data.location) || location - cached_data.location >= 8) {
+ 284              		.loc 1 106 8 is_stmt 0 view .LVU69
+ 285 004c 2B79     		ldrb	r3, [r5, #4]	@ zero_extendqisi2
+ 286 004e A8EB0704 		sub	r4, r8, r7
+ 287 0052 3444     		add	r4, r4, r6
+ 288              	.LVL22:
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if ((location < cached_data.location) || location - cached_data.location >= 8) {
+ 289              		.loc 1 106 5 is_stmt 1 view .LVU70
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         if ((location < cached_data.location) || location - cached_data.location >= 8) {
+ 290              		.loc 1 106 8 is_stmt 0 view .LVU71
+ 291 0054 002B     		cmp	r3, #0
+ 292 0056 E1D1     		bne	.L36
+ 293              	.L16:
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         cached_data.location = location & ~7;
+ 294              		.loc 1 115 9 is_stmt 1 view .LVU72
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     }
+ 295              		.loc 1 117 30 is_stmt 0 view .LVU73
+ 296 0058 0023     		movs	r3, #0
+ 297 005a 0022     		movs	r2, #0
+ 298 005c C5E90223 		strd	r2, [r5, #8]
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         cached_data.qword    = 0;
+ 299              		.loc 1 116 41 view .LVU74
+ 300 0060 24F00703 		bic	r3, r4, #7
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         cached_data.qword    = 0;
+ 301              		.loc 1 116 30 view .LVU75
+ 302 0064 2B60     		str	r3, [r5]
+ 303 0066 E31A     		subs	r3, r4, r3
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 304              		.loc 1 120 56 view .LVU76
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 10
+
+
+ 305 0068 2B44     		add	r3, r3, r5
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return innerflash_flush (0, 0);
+ 306              		.loc 1 122 19 view .LVU77
+ 307 006a 04F00704 		and	r4, r4, #7
+ 308              	.LVL23:
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return innerflash_flush (0, 0);
+ 309              		.loc 1 122 8 view .LVU78
+ 310 006e 072C     		cmp	r4, #7
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         cached_data.location = location & ~7;
+ 311              		.loc 1 115 30 view .LVU79
+ 312 0070 85F804A0 		strb	r10, [r5, #4]
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         cached_data.qword    = 0;
+ 313              		.loc 1 116 9 is_stmt 1 view .LVU80
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     }
+ 314              		.loc 1 117 9 view .LVU81
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 315              		.loc 1 120 5 view .LVU82
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 316              		.loc 1 120 56 is_stmt 0 view .LVU83
+ 317 0074 83F80890 		strb	r9, [r3, #8]
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return innerflash_flush (0, 0);
+ 318              		.loc 1 122 5 is_stmt 1 view .LVU84
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return innerflash_flush (0, 0);
+ 319              		.loc 1 122 8 is_stmt 0 view .LVU85
+ 320 0078 E4D1     		bne	.L23
+ 321              	.L20:
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     }
+ 322              		.loc 1 123 9 is_stmt 1 view .LVU86
+ 323              	.LVL24:
+ 324              	.LBB16:
+ 325              	.LBI16:
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** {
+ 326              		.loc 1 91 12 view .LVU87
+ 327              	.LBB17:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return 0;
+ 328              		.loc 1 93 5 view .LVU88
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return 0;
+ 329              		.loc 1 93 8 is_stmt 0 view .LVU89
+ 330 007a 2B79     		ldrb	r3, [r5, #4]	@ zero_extendqisi2
+ 331 007c 002B     		cmp	r3, #0
+ 332 007e E1D0     		beq	.L23
+ 333 0080 FFF7FEFF 		bl	innerflash_flush.part.0
+ 334              	.LVL25:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         return 0;
+ 335              		.loc 1 93 8 view .LVU90
+ 336              	.LBE17:
+ 337              	.LBE16:
+ 338              	.LBE18:
+ 339              	.LBE19:
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****             return -1;
+ 340              		.loc 1 134 12 view .LVU91
+ 341 0084 0028     		cmp	r0, #0
+ 342 0086 DDD0     		beq	.L23
+ 343              	.L24:
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         }
+ 344              		.loc 1 135 20 view .LVU92
+ 345 0088 4FF0FF30 		mov	r0, #-1
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 11
+
+
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 346              		.loc 1 140 1 view .LVU93
+ 347 008c BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 348              	.LVL26:
+ 349              	.L22:
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** }
+ 350              		.loc 1 139 12 view .LVU94
+ 351 0090 0020     		movs	r0, #0
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 352              		.loc 1 140 1 view .LVU95
+ 353 0092 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 354              	.L38:
+ 355 0096 00BF     		.align	2
+ 356              	.L37:
+ 357 0098 00000000 		.word	.LANCHOR0
+ 358              		.cfi_endproc
+ 359              	.LFE6:
+ 361              		.section	.text.ota_img_init,"ax",%progbits
+ 362              		.align	1
+ 363              		.p2align 2,,3
+ 364              		.global	ota_img_init
+ 365              		.syntax unified
+ 366              		.thumb
+ 367              		.thumb_func
+ 368              		.fpu fpv4-sp-d16
+ 370              	ota_img_init:
+ 371              	.LFB8:
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     return ret;
+ 151:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** }
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** static const ota_img_t  g_otaimg_running = {
+ 154:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .name = "RUNNING",
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .size = CONFIG_OTAIMG_RUNNINGSIZE,
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .type = EN_OTA_IMG_RUNNING,
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .arg  = (uintptr_t)CONFIG_OTAIMG_RUNNINGBASE,
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     {
+ 159:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .write = innerflash_write,
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .read  = innerflash_read,
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .erase = innerflash_erase,
+ 162:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .flush = innerflash_flush,
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     },
+ 164:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** };
+ 165:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 167:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** static const ota_img_t  g_otaimg_backup = {
+ 168:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .name = "BACKUP",
+ 169:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .size = CONFIG_OTAIMG_BACKUPSIZE,
+ 170:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .type = EN_OTA_IMG_BACKUP,
+ 171:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .arg  = (uintptr_t)CONFIG_OTAIMG_BACKUPBASE,
+ 172:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     {
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .write = innerflash_write,
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .read  = innerflash_read,
+ 175:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .erase = innerflash_erase,
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .flush = innerflash_flush,
+ 177:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     },
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** };
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 12
+
+
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** static const ota_img_t  g_otaimg_download = {
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .name = "DOWNLOAD",
+ 182:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .size = CONFIG_OTAIMG_DOWNLOADSIZE,
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .type = EN_OTA_IMG_DOWNLOAD,
+ 184:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .arg  = (uintptr_t)CONFIG_OTAIMG_DOWNLOADBASE,
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     {
+ 186:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .write = innerflash_write,
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .read  = innerflash_read,
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .erase = innerflash_erase,
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .flush = innerflash_flush,
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     },
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** };
+ 192:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 193:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** static const ota_img_t  g_otaimg_flag = {
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .name = "FLAG",
+ 195:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .size = CONFIG_OTAIMG_FLAGSIZE,
+ 196:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .type = EN_OTA_IMG_FLAG,
+ 197:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .arg  = (uintptr_t)CONFIG_OTAIMG_FLAGBASE,
+ 198:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     {
+ 199:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .write = innerflash_write,
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .read  = innerflash_read,
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .erase = innerflash_erase,
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .flush = innerflash_flush,
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     },
+ 204:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** };
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** static const ota_img_t  g_otaimg_flagbackup = {
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .name = "FLAGBACKUP",
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .size = CONFIG_OTAIMG_FLAGBACKUPSIZE,
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .type = EN_OTA_IMG_FLAGBACKUP,
+ 210:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     .arg  = (uintptr_t)CONFIG_OTAIMG_FLAGBACKUPBASE,
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     {
+ 212:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .write = innerflash_write,
+ 213:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .read  = innerflash_read,
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .erase = innerflash_erase,
+ 215:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****         .flush = innerflash_flush,
+ 216:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     },
+ 217:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** };
+ 218:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 219:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** int ota_img_init()
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** {
+ 372              		.loc 1 220 1 is_stmt 1 view -0
+ 373              		.cfi_startproc
+ 374              		@ args = 0, pretend = 0, frame = 0
+ 375              		@ frame_needed = 0, uses_anonymous_args = 0
+ 221:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     ota_img_bind(EN_OTA_TYPE_FOTA,&g_otaimg_running);
+ 376              		.loc 1 221 5 view .LVU97
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     ota_img_bind(EN_OTA_TYPE_FOTA,&g_otaimg_running);
+ 377              		.loc 1 220 1 is_stmt 0 view .LVU98
+ 378 0000 08B5     		push	{r3, lr}
+ 379              	.LCFI3:
+ 380              		.cfi_def_cfa_offset 8
+ 381              		.cfi_offset 3, -8
+ 382              		.cfi_offset 14, -4
+ 383              		.loc 1 221 5 view .LVU99
+ 384 0002 0B49     		ldr	r1, .L41
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 13
+
+
+ 385 0004 0020     		movs	r0, #0
+ 386 0006 FFF7FEFF 		bl	ota_img_bind
+ 387              	.LVL27:
+ 222:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     ota_img_bind(EN_OTA_TYPE_FOTA,&g_otaimg_backup);
+ 388              		.loc 1 222 5 is_stmt 1 view .LVU100
+ 389 000a 0A49     		ldr	r1, .L41+4
+ 390 000c 0020     		movs	r0, #0
+ 391 000e FFF7FEFF 		bl	ota_img_bind
+ 392              	.LVL28:
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     ota_img_bind(EN_OTA_TYPE_FOTA,&g_otaimg_download);
+ 393              		.loc 1 223 5 view .LVU101
+ 394 0012 0949     		ldr	r1, .L41+8
+ 395 0014 0020     		movs	r0, #0
+ 396 0016 FFF7FEFF 		bl	ota_img_bind
+ 397              	.LVL29:
+ 224:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     ota_img_bind(EN_OTA_TYPE_FOTA,&g_otaimg_flag);
+ 398              		.loc 1 224 5 view .LVU102
+ 399 001a 0849     		ldr	r1, .L41+12
+ 400 001c 0020     		movs	r0, #0
+ 401 001e FFF7FEFF 		bl	ota_img_bind
+ 402              	.LVL30:
+ 225:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     ota_img_bind(EN_OTA_TYPE_FOTA,&g_otaimg_flagbackup);
+ 403              		.loc 1 225 5 view .LVU103
+ 404 0022 0749     		ldr	r1, .L41+16
+ 405 0024 0020     		movs	r0, #0
+ 406 0026 FFF7FEFF 		bl	ota_img_bind
+ 407              	.LVL31:
+ 226:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** 
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c ****     return 0;
+ 408              		.loc 1 227 5 view .LVU104
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/Src/ota_flash\flash_ota_img.c **** }
+ 409              		.loc 1 228 1 is_stmt 0 view .LVU105
+ 410 002a 0020     		movs	r0, #0
+ 411 002c 08BD     		pop	{r3, pc}
+ 412              	.L42:
+ 413 002e 00BF     		.align	2
+ 414              	.L41:
+ 415 0030 00000000 		.word	.LANCHOR1
+ 416 0034 00000000 		.word	.LANCHOR2
+ 417 0038 00000000 		.word	.LANCHOR3
+ 418 003c 00000000 		.word	.LANCHOR4
+ 419 0040 00000000 		.word	.LANCHOR5
+ 420              		.cfi_endproc
+ 421              	.LFE8:
+ 423              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 424              		.align	2
+ 425              	.LC0:
+ 426 0000 464C4147 		.ascii	"FLAGBACKUP\000"
+ 426      4241434B 
+ 426      555000
+ 427 000b 00       		.align	2
+ 428              	.LC1:
+ 429 000c 464C4147 		.ascii	"FLAG\000"
+ 429      00
+ 430 0011 000000   		.align	2
+ 431              	.LC2:
+ 432 0014 444F574E 		.ascii	"DOWNLOAD\000"
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 14
+
+
+ 432      4C4F4144 
+ 432      00
+ 433 001d 000000   		.align	2
+ 434              	.LC3:
+ 435 0020 4241434B 		.ascii	"BACKUP\000"
+ 435      555000
+ 436 0027 00       		.align	2
+ 437              	.LC4:
+ 438 0028 52554E4E 		.ascii	"RUNNING\000"
+ 438      494E4700 
+ 439              		.section	.bss.cached_data,"aw",%nobits
+ 440              		.align	3
+ 441              		.set	.LANCHOR0,. + 0
+ 444              	cached_data:
+ 445 0000 00000000 		.space	16
+ 445      00000000 
+ 445      00000000 
+ 445      00000000 
+ 446              		.section	.rodata.g_otaimg_backup,"a"
+ 447              		.align	2
+ 448              		.set	.LANCHOR2,. + 0
+ 451              	g_otaimg_backup:
+ 452 0000 20000000 		.word	.LC3
+ 453 0004 00000400 		.word	262144
+ 454 0008 02       		.byte	2
+ 455 0009 000000   		.space	3
+ 456 000c 00000608 		.word	134610944
+ 457 0010 00000000 		.word	innerflash_write
+ 458 0014 00000000 		.word	innerflash_read
+ 459 0018 00000000 		.word	innerflash_erase
+ 460 001c 00000000 		.word	innerflash_flush
+ 461              		.section	.rodata.g_otaimg_download,"a"
+ 462              		.align	2
+ 463              		.set	.LANCHOR3,. + 0
+ 466              	g_otaimg_download:
+ 467 0000 14000000 		.word	.LC2
+ 468 0004 00000400 		.word	262144
+ 469 0008 01       		.byte	1
+ 470 0009 000000   		.space	3
+ 471 000c 00000A08 		.word	134873088
+ 472 0010 00000000 		.word	innerflash_write
+ 473 0014 00000000 		.word	innerflash_read
+ 474 0018 00000000 		.word	innerflash_erase
+ 475 001c 00000000 		.word	innerflash_flush
+ 476              		.section	.rodata.g_otaimg_flag,"a"
+ 477              		.align	2
+ 478              		.set	.LANCHOR4,. + 0
+ 481              	g_otaimg_flag:
+ 482 0000 0C000000 		.word	.LC1
+ 483 0004 00100000 		.word	4096
+ 484 0008 03       		.byte	3
+ 485 0009 000000   		.space	3
+ 486 000c 00000E08 		.word	135135232
+ 487 0010 00000000 		.word	innerflash_write
+ 488 0014 00000000 		.word	innerflash_read
+ 489 0018 00000000 		.word	innerflash_erase
+ 490 001c 00000000 		.word	innerflash_flush
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 15
+
+
+ 491              		.section	.rodata.g_otaimg_flagbackup,"a"
+ 492              		.align	2
+ 493              		.set	.LANCHOR5,. + 0
+ 496              	g_otaimg_flagbackup:
+ 497 0000 00000000 		.word	.LC0
+ 498 0004 00100000 		.word	4096
+ 499 0008 04       		.byte	4
+ 500 0009 000000   		.space	3
+ 501 000c 00100E08 		.word	135139328
+ 502 0010 00000000 		.word	innerflash_write
+ 503 0014 00000000 		.word	innerflash_read
+ 504 0018 00000000 		.word	innerflash_erase
+ 505 001c 00000000 		.word	innerflash_flush
+ 506              		.section	.rodata.g_otaimg_running,"a"
+ 507              		.align	2
+ 508              		.set	.LANCHOR1,. + 0
+ 511              	g_otaimg_running:
+ 512 0000 28000000 		.word	.LC4
+ 513 0004 00000400 		.word	262144
+ 514 0008 00       		.byte	0
+ 515 0009 000000   		.space	3
+ 516 000c 00000208 		.word	134348800
+ 517 0010 00000000 		.word	innerflash_write
+ 518 0014 00000000 		.word	innerflash_read
+ 519 0018 00000000 		.word	innerflash_erase
+ 520 001c 00000000 		.word	innerflash_flush
+ 521              		.text
+ 522              	.Letext0:
+ 523              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 524              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 525              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 526              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 527              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 528              		.file 7 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 529              		.file 8 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_ota/ota_i
+ 530              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/targets/NUCLEO-L496ZG/S
+ARM GAS  T:\msys\tmp\ccpX4bPC.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 flash_ota_img.c
+T:\msys\tmp\ccpX4bPC.s:18     .text.innerflash_erase:00000000 $t
+T:\msys\tmp\ccpX4bPC.s:26     .text.innerflash_erase:00000000 innerflash_erase
+T:\msys\tmp\ccpX4bPC.s:47     .text.innerflash_read:00000000 $t
+T:\msys\tmp\ccpX4bPC.s:54     .text.innerflash_read:00000000 innerflash_read
+T:\msys\tmp\ccpX4bPC.s:97     .text.innerflash_flush.part.0:00000000 $t
+T:\msys\tmp\ccpX4bPC.s:104    .text.innerflash_flush.part.0:00000000 innerflash_flush.part.0
+T:\msys\tmp\ccpX4bPC.s:128    .text.innerflash_flush.part.0:00000010 $d
+T:\msys\tmp\ccpX4bPC.s:133    .text.innerflash_flush:00000000 $t
+T:\msys\tmp\ccpX4bPC.s:140    .text.innerflash_flush:00000000 innerflash_flush
+T:\msys\tmp\ccpX4bPC.s:165    .text.innerflash_flush:0000000c $d
+T:\msys\tmp\ccpX4bPC.s:170    .text.innerflash_write:00000000 $t
+T:\msys\tmp\ccpX4bPC.s:177    .text.innerflash_write:00000000 innerflash_write
+T:\msys\tmp\ccpX4bPC.s:357    .text.innerflash_write:00000098 $d
+T:\msys\tmp\ccpX4bPC.s:362    .text.ota_img_init:00000000 $t
+T:\msys\tmp\ccpX4bPC.s:370    .text.ota_img_init:00000000 ota_img_init
+T:\msys\tmp\ccpX4bPC.s:415    .text.ota_img_init:00000030 $d
+T:\msys\tmp\ccpX4bPC.s:424    .rodata.str1.4:00000000 $d
+T:\msys\tmp\ccpX4bPC.s:440    .bss.cached_data:00000000 $d
+T:\msys\tmp\ccpX4bPC.s:444    .bss.cached_data:00000000 cached_data
+T:\msys\tmp\ccpX4bPC.s:447    .rodata.g_otaimg_backup:00000000 $d
+T:\msys\tmp\ccpX4bPC.s:451    .rodata.g_otaimg_backup:00000000 g_otaimg_backup
+T:\msys\tmp\ccpX4bPC.s:462    .rodata.g_otaimg_download:00000000 $d
+T:\msys\tmp\ccpX4bPC.s:466    .rodata.g_otaimg_download:00000000 g_otaimg_download
+T:\msys\tmp\ccpX4bPC.s:477    .rodata.g_otaimg_flag:00000000 $d
+T:\msys\tmp\ccpX4bPC.s:481    .rodata.g_otaimg_flag:00000000 g_otaimg_flag
+T:\msys\tmp\ccpX4bPC.s:492    .rodata.g_otaimg_flagbackup:00000000 $d
+T:\msys\tmp\ccpX4bPC.s:496    .rodata.g_otaimg_flagbackup:00000000 g_otaimg_flagbackup
+T:\msys\tmp\ccpX4bPC.s:507    .rodata.g_otaimg_running:00000000 $d
+T:\msys\tmp\ccpX4bPC.s:511    .rodata.g_otaimg_running:00000000 g_otaimg_running
+
+UNDEFINED SYMBOLS
+hal_flash_erase
+hal_flash_read
+hal_flash_write
+ota_img_bind

@@ -1,0 +1,229 @@
+ARM GAS  T:\msys\tmp\cc8mKGlk.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"version.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.mbedtls_version_get_number,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	mbedtls_version_get_number
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	mbedtls_version_get_number:
+  28              	.LFB0:
+  29              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/m
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** /*
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  Version information
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  SPDX-License-Identifier: Apache-2.0
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  not use this file except in compliance with the License.
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  You may obtain a copy of the License at
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  http://www.apache.org/licenses/LICENSE-2.0
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  Unless required by applicable law or agreed to in writing, software
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  See the License for the specific language governing permissions and
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  limitations under the License.
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  *  This file is part of mbed TLS (https://tls.mbed.org)
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****  */
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** 
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** #if !defined(MBEDTLS_CONFIG_FILE)
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** #include "mbedtls/config.h"
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** #else
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** #include MBEDTLS_CONFIG_FILE
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** #endif
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** 
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** #if defined(MBEDTLS_VERSION_C)
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** 
+ARM GAS  T:\msys\tmp\cc8mKGlk.s 			page 2
+
+
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** #include "mbedtls/version.h"
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** #include <string.h>
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** 
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** unsigned int mbedtls_version_get_number( void )
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** {
+  30              		.loc 1 34 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****     return( MBEDTLS_VERSION_NUMBER );
+  35              		.loc 1 35 5 view .LVU1
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** }
+  36              		.loc 1 36 1 is_stmt 0 view .LVU2
+  37 0000 0048     		ldr	r0, .L3
+  38 0002 7047     		bx	lr
+  39              	.L4:
+  40              		.align	2
+  41              	.L3:
+  42 0004 00021002 		.word	34603520
+  43              		.cfi_endproc
+  44              	.LFE0:
+  46              		.section	.rodata.mbedtls_version_get_string.str1.4,"aMS",%progbits,1
+  47              		.align	2
+  48              	.LC0:
+  49 0000 322E3136 		.ascii	"2.16.2\000"
+  49      2E3200
+  50              		.section	.text.mbedtls_version_get_string,"ax",%progbits
+  51              		.align	1
+  52              		.p2align 2,,3
+  53              		.global	mbedtls_version_get_string
+  54              		.syntax unified
+  55              		.thumb
+  56              		.thumb_func
+  57              		.fpu fpv4-sp-d16
+  59              	mbedtls_version_get_string:
+  60              	.LVL0:
+  61              	.LFB1:
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** 
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** void mbedtls_version_get_string( char *string )
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** {
+  62              		.loc 1 39 1 is_stmt 1 view -0
+  63              		.cfi_startproc
+  64              		@ args = 0, pretend = 0, frame = 0
+  65              		@ frame_needed = 0, uses_anonymous_args = 0
+  66              		@ link register save eliminated.
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****     memcpy( string, MBEDTLS_VERSION_STRING,
+  67              		.loc 1 40 5 view .LVU4
+  68 0000 044A     		ldr	r2, .L6
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****     memcpy( string, MBEDTLS_VERSION_STRING,
+  69              		.loc 1 39 1 is_stmt 0 view .LVU5
+  70 0002 0346     		mov	r3, r0
+  71              		.loc 1 40 5 view .LVU6
+  72 0004 9188     		ldrh	r1, [r2, #4]	@ unaligned
+  73 0006 1068     		ldr	r0, [r2]
+  74              	.LVL1:
+  75              		.loc 1 40 5 view .LVU7
+ARM GAS  T:\msys\tmp\cc8mKGlk.s 			page 3
+
+
+  76 0008 9279     		ldrb	r2, [r2, #6]	@ zero_extendqisi2
+  77 000a 1860     		str	r0, [r3]	@ unaligned
+  78 000c 9980     		strh	r1, [r3, #4]	@ unaligned
+  79 000e 9A71     		strb	r2, [r3, #6]
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****             sizeof( MBEDTLS_VERSION_STRING ) );
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** }
+  80              		.loc 1 42 1 view .LVU8
+  81 0010 7047     		bx	lr
+  82              	.L7:
+  83 0012 00BF     		.align	2
+  84              	.L6:
+  85 0014 00000000 		.word	.LC0
+  86              		.cfi_endproc
+  87              	.LFE1:
+  89              		.section	.rodata.mbedtls_version_get_string_full.str1.4,"aMS",%progbits,1
+  90              		.align	2
+  91              	.LC1:
+  92 0000 6D626564 		.ascii	"mbed TLS 2.16.2\000"
+  92      20544C53 
+  92      20322E31 
+  92      362E3200 
+  93              		.section	.text.mbedtls_version_get_string_full,"ax",%progbits
+  94              		.align	1
+  95              		.p2align 2,,3
+  96              		.global	mbedtls_version_get_string_full
+  97              		.syntax unified
+  98              		.thumb
+  99              		.thumb_func
+ 100              		.fpu fpv4-sp-d16
+ 102              	mbedtls_version_get_string_full:
+ 103              	.LVL2:
+ 104              	.LFB2:
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** 
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** void mbedtls_version_get_string_full( char *string )
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** {
+ 105              		.loc 1 45 1 is_stmt 1 view -0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109              		@ link register save eliminated.
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****     memcpy( string, MBEDTLS_VERSION_STRING_FULL,
+ 110              		.loc 1 46 5 view .LVU10
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****     memcpy( string, MBEDTLS_VERSION_STRING_FULL,
+ 111              		.loc 1 45 1 is_stmt 0 view .LVU11
+ 112 0000 30B4     		push	{r4, r5}
+ 113              	.LCFI0:
+ 114              		.cfi_def_cfa_offset 8
+ 115              		.cfi_offset 4, -8
+ 116              		.cfi_offset 5, -4
+ 117              		.loc 1 46 5 view .LVU12
+ 118 0002 044D     		ldr	r5, .L10
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****     memcpy( string, MBEDTLS_VERSION_STRING_FULL,
+ 119              		.loc 1 45 1 view .LVU13
+ 120 0004 0446     		mov	r4, r0
+ 121              		.loc 1 46 5 view .LVU14
+ 122 0006 0FCD     		ldmia	r5!, {r0, r1, r2, r3}
+ 123              	.LVL3:
+ARM GAS  T:\msys\tmp\cc8mKGlk.s 			page 4
+
+
+ 124              		.loc 1 46 5 view .LVU15
+ 125 0008 2060     		str	r0, [r4]	@ unaligned
+ 126 000a 6160     		str	r1, [r4, #4]	@ unaligned
+ 127 000c A260     		str	r2, [r4, #8]	@ unaligned
+ 128 000e E360     		str	r3, [r4, #12]	@ unaligned
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c ****             sizeof( MBEDTLS_VERSION_STRING_FULL ) );
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\version.c **** }
+ 129              		.loc 1 48 1 view .LVU16
+ 130 0010 30BC     		pop	{r4, r5}
+ 131              	.LCFI1:
+ 132              		.cfi_restore 5
+ 133              		.cfi_restore 4
+ 134              		.cfi_def_cfa_offset 0
+ 135              	.LVL4:
+ 136              		.loc 1 48 1 view .LVU17
+ 137 0012 7047     		bx	lr
+ 138              	.L11:
+ 139              		.align	2
+ 140              	.L10:
+ 141 0014 00000000 		.word	.LC1
+ 142              		.cfi_endproc
+ 143              	.LFE2:
+ 145              		.text
+ 146              	.Letext0:
+ 147              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 148              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 149              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 150              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ARM GAS  T:\msys\tmp\cc8mKGlk.s 			page 5
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 version.c
+T:\msys\tmp\cc8mKGlk.s:18     .text.mbedtls_version_get_number:00000000 $t
+T:\msys\tmp\cc8mKGlk.s:27     .text.mbedtls_version_get_number:00000000 mbedtls_version_get_number
+T:\msys\tmp\cc8mKGlk.s:42     .text.mbedtls_version_get_number:00000004 $d
+T:\msys\tmp\cc8mKGlk.s:47     .rodata.mbedtls_version_get_string.str1.4:00000000 $d
+T:\msys\tmp\cc8mKGlk.s:51     .text.mbedtls_version_get_string:00000000 $t
+T:\msys\tmp\cc8mKGlk.s:59     .text.mbedtls_version_get_string:00000000 mbedtls_version_get_string
+T:\msys\tmp\cc8mKGlk.s:85     .text.mbedtls_version_get_string:00000014 $d
+T:\msys\tmp\cc8mKGlk.s:90     .rodata.mbedtls_version_get_string_full.str1.4:00000000 $d
+T:\msys\tmp\cc8mKGlk.s:94     .text.mbedtls_version_get_string_full:00000000 $t
+T:\msys\tmp\cc8mKGlk.s:102    .text.mbedtls_version_get_string_full:00000000 mbedtls_version_get_string_full
+T:\msys\tmp\cc8mKGlk.s:141    .text.mbedtls_version_get_string_full:00000014 $d
+
+NO UNDEFINED SYMBOLS

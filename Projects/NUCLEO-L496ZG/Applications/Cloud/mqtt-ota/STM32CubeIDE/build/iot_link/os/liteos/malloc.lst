@@ -1,0 +1,355 @@
+ARM GAS  T:\msys\tmp\cc2A5d9t.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"malloc.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.free,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.weak	free
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	free:
+  28              	.LVL0:
+  29              	.LFB3:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/mall
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** /************************************************************************
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  *
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * Redistribution and use in source and binary forms, with or without
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * modification, are permitted provided that the following conditions
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * are met:
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * 1. Redistributions of source code must retain the above copyright
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  *    notice,this list of conditions and the following disclaimer.
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * 2. Redistributions in binary form must reproduce the above copyright
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  *    notice,this list of conditions and the following disclaimer in the
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  *    documentation and/or other materials provided with the distribution.
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * 3. Neither the name of the copyright holder nor the names of its
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  *    contributors may be used to endorse or promote products derived from
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  *    this software without specific prior written permission.
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  *
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * POSSIBILITY OF SUCH DAMAGE.
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  ************************************************************************/
+ARM GAS  T:\msys\tmp\cc2A5d9t.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** /************************************************************************
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * Notice of Export Control Law
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * ===============================================
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations,
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * which might include those applicable to Huawei LiteOS of U.S. and the country
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * in which you are located.
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  * compliance with such applicable export control laws and regulations.
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****  ************************************************************************/
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** #include <stdint.h>
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** #include <stddef.h>
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** #include <stdlib.h>
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** #include <osal.h>
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** #if defined(LOS_LIBC_MALLOC_ALIGN) && !defined(LOS_LIBC_MALLOC_ALIGN_SIZE)
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** #error "macro LOS_LIBC_MALLOC_ALIGN_SIZE undefined"
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** #endif
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** /*****************************************************************************
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Function         :      free
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Description      :      Deallocates the memory previously allocated by a call to calloc, malloc, or
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 realloc. The argument ptr points to the space that was previously allocated.
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 If ptr points to a memory block that was not allocated with calloc, malloc,
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 or realloc, or is a space that has been deallocated, then the result is
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 undefined.
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Input            :      [1] void *ptr, pointed to the memory need to free.
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Output           :      nothing.
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Return           :      No value is returned.
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** *****************************************************************************/
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** __attribute__((weak)) void free(void *ptr)
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** {
+  31              		.loc 1 61 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****     osal_free(ptr);
+  36              		.loc 1 62 5 view .LVU1
+  37 0000 FFF7FEBF 		b	osal_free
+  38              	.LVL1:
+  39              		.loc 1 62 5 is_stmt 0 view .LVU2
+  40              		.cfi_endproc
+  41              	.LFE3:
+  43              		.section	.text.malloc,"ax",%progbits
+  44              		.align	1
+  45              		.p2align 2,,3
+  46              		.weak	malloc
+  47              		.syntax unified
+  48              		.thumb
+  49              		.thumb_func
+  50              		.fpu fpv4-sp-d16
+  52              	malloc:
+  53              	.LVL2:
+  54              	.LFB4:
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****     return;
+ARM GAS  T:\msys\tmp\cc2A5d9t.s 			page 3
+
+
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** }
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** /*****************************************************************************
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Function         :      malloc
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Description      :      Allocates the requested memory and returns a pointer to it. The requested
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 size is size bytes. The value of the space is indeterminate.
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Input            :      [1] size_t size, spcified the size need to allocate.
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Output           :      nothing.
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Return           :      On success a pointer to the requested space is returned.
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 On failure a null pointer is returned.
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** *****************************************************************************/
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** __attribute__((weak)) void *malloc(size_t size) /*lint !e31 !e10*/
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** {
+  55              		.loc 1 77 1 is_stmt 1 view -0
+  56              		.cfi_startproc
+  57              		@ args = 0, pretend = 0, frame = 0
+  58              		@ frame_needed = 0, uses_anonymous_args = 0
+  59              		@ link register save eliminated.
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****     return osal_malloc(size);
+  60              		.loc 1 78 5 view .LVU4
+  61              		.loc 1 78 12 is_stmt 0 view .LVU5
+  62 0000 FFF7FEBF 		b	osal_malloc
+  63              	.LVL3:
+  64              		.loc 1 78 12 view .LVU6
+  65              		.cfi_endproc
+  66              	.LFE4:
+  68              		.section	.text.zalloc,"ax",%progbits
+  69              		.align	1
+  70              		.p2align 2,,3
+  71              		.weak	zalloc
+  72              		.syntax unified
+  73              		.thumb
+  74              		.thumb_func
+  75              		.fpu fpv4-sp-d16
+  77              	zalloc:
+  78              	.LVL4:
+  79              	.LFB5:
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** }
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** __attribute__((weak)) void *zalloc(size_t size) /*lint !e10*/
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** {
+  80              		.loc 1 84 1 is_stmt 1 view -0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****     return osal_zalloc(size);
+  85              		.loc 1 85 5 view .LVU8
+  86              		.loc 1 85 12 is_stmt 0 view .LVU9
+  87 0000 FFF7FEBF 		b	osal_zalloc
+  88              	.LVL5:
+  89              		.loc 1 85 12 view .LVU10
+  90              		.cfi_endproc
+  91              	.LFE5:
+ARM GAS  T:\msys\tmp\cc2A5d9t.s 			page 4
+
+
+  93              		.section	.text.calloc,"ax",%progbits
+  94              		.align	1
+  95              		.p2align 2,,3
+  96              		.weak	calloc
+  97              		.syntax unified
+  98              		.thumb
+  99              		.thumb_func
+ 100              		.fpu fpv4-sp-d16
+ 102              	calloc:
+ 103              	.LVL6:
+ 104              	.LFB6:
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** }
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** /*****************************************************************************
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Function         :      calloc
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Description      :    Allocates the requested memory and returns a pointer to it. The requested
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 size is nitems each size bytes long (total memory requested is nitems*size).
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 The space is initialized to all zero bits.
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Input            :      [1] size_t nitems,
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 [2] size_t size,
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Output           :      nothing.
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Return           :      On success a pointer to the requested space is returned.
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 On failure a null pointer is returned.
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** *****************************************************************************/
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** __attribute__((weak)) void *calloc(size_t nitems, size_t size) /*lint !e578*/
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** {
+ 105              		.loc 1 102 1 is_stmt 1 view -0
+ 106              		.cfi_startproc
+ 107              		@ args = 0, pretend = 0, frame = 0
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+ 109              		@ link register save eliminated.
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****     return osal_calloc(nitems,size);
+ 110              		.loc 1 103 5 view .LVU12
+ 111              		.loc 1 103 12 is_stmt 0 view .LVU13
+ 112 0000 FFF7FEBF 		b	osal_calloc
+ 113              	.LVL7:
+ 114              		.loc 1 103 12 view .LVU14
+ 115              		.cfi_endproc
+ 116              	.LFE6:
+ 118              		.section	.text.memalign,"ax",%progbits
+ 119              		.align	1
+ 120              		.p2align 2,,3
+ 121              		.weak	memalign
+ 122              		.syntax unified
+ 123              		.thumb
+ 124              		.thumb_func
+ 125              		.fpu fpv4-sp-d16
+ 127              	memalign:
+ 128              	.LVL8:
+ 129              	.LFB7:
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** }
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** /*****************************************************************************
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Function         :      memalign
+ARM GAS  T:\msys\tmp\cc2A5d9t.s 			page 5
+
+
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Description      :      allocates a block of size bytes whose address is a multiple of boundary.
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                The boundary must be a power of two!
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Input            :      [1] size_t size, spcified the size need to allocate.
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                [2] size_t boundary, the returned memory address will be a multiple of boundary.
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                This argument must be a power of two. This property is not checked by
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                memalign, so misuse may result in random runtime errors.
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Output           :      nothing.
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Return           :      On success a pointer to the requested space is returned.
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                On failure a null pointer is returned.
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** *****************************************************************************/
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** __attribute__((weak)) void *memalign (size_t boundary, size_t size)  /*lint !e18 !e578*/
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** {
+ 130              		.loc 1 120 1 is_stmt 1 view -0
+ 131              		.cfi_startproc
+ 132              		@ args = 0, pretend = 0, frame = 0
+ 133              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134              		@ link register save eliminated.
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****     return osal_malloc(size);
+ 135              		.loc 1 121 5 view .LVU16
+ 136              		.loc 1 121 12 is_stmt 0 view .LVU17
+ 137 0000 0846     		mov	r0, r1
+ 138              	.LVL9:
+ 139              		.loc 1 121 12 view .LVU18
+ 140 0002 FFF7FEBF 		b	osal_malloc
+ 141              	.LVL10:
+ 142              		.loc 1 121 12 view .LVU19
+ 143              		.cfi_endproc
+ 144              	.LFE7:
+ 146 0006 00BF     		.section	.text.realloc,"ax",%progbits
+ 147              		.align	1
+ 148              		.p2align 2,,3
+ 149              		.global	realloc
+ 150              		.syntax unified
+ 151              		.thumb
+ 152              		.thumb_func
+ 153              		.fpu fpv4-sp-d16
+ 155              	realloc:
+ 156              	.LVL11:
+ 157              	.LFB8:
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** }
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** 
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** /*****************************************************************************
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Function         :      realloc
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Description      :      Attempts to resize the memory block pointed to by ptr that was previously
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 allocated with a call to malloc or calloc. The contents pointed to by ptr are
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 unchanged. If the value of size is greater than the previous size of the
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 block, then the additional bytes have an undeterminate value. If the value
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 of size is less than the previous size of the block, then the difference of
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 bytes at the end of the block are freed. If ptr is null, then it behaves like
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 malloc. If ptr points to a memory block that was not allocated with calloc
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 or malloc, or is a space that has been deallocated, then the result is
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 undefined. If the new space cannot be allocated, then the contents pointed
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 to by ptr are unchanged. If size is zero, then the memory block is completely
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 freed.
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Input            :      [1] void *ptr, pointed to the memory which need to remalloc.
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 [2] size_t size, specified the size to remalloc.
+ARM GAS  T:\msys\tmp\cc2A5d9t.s 			page 6
+
+
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Output           :      nothing.
+ 141:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** Return           :      On success a pointer to the memory block is returned (which may be in a
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                 different location as before).
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****                On failure or if size is zero, a null pointer is returned.
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** *****************************************************************************/
+ 145:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** void *realloc(void *ptr, size_t size)
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c **** {
+ 158              		.loc 1 146 1 is_stmt 1 view -0
+ 159              		.cfi_startproc
+ 160              		@ args = 0, pretend = 0, frame = 0
+ 161              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162              		@ link register save eliminated.
+ 147:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\malloc.c ****     return osal_realloc(ptr,size);
+ 163              		.loc 1 147 5 view .LVU21
+ 164              		.loc 1 147 12 is_stmt 0 view .LVU22
+ 165 0000 FFF7FEBF 		b	osal_realloc
+ 166              	.LVL12:
+ 167              		.loc 1 147 12 view .LVU23
+ 168              		.cfi_endproc
+ 169              	.LFE8:
+ 171              		.text
+ 172              	.Letext0:
+ 173              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 174              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 175              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 176              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 177              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\stdlib.h
+ 178              		.file 7 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/osal/osal.h
+ARM GAS  T:\msys\tmp\cc2A5d9t.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 malloc.c
+T:\msys\tmp\cc2A5d9t.s:18     .text.free:00000000 $t
+T:\msys\tmp\cc2A5d9t.s:27     .text.free:00000000 free
+T:\msys\tmp\cc2A5d9t.s:44     .text.malloc:00000000 $t
+T:\msys\tmp\cc2A5d9t.s:52     .text.malloc:00000000 malloc
+T:\msys\tmp\cc2A5d9t.s:69     .text.zalloc:00000000 $t
+T:\msys\tmp\cc2A5d9t.s:77     .text.zalloc:00000000 zalloc
+T:\msys\tmp\cc2A5d9t.s:94     .text.calloc:00000000 $t
+T:\msys\tmp\cc2A5d9t.s:102    .text.calloc:00000000 calloc
+T:\msys\tmp\cc2A5d9t.s:119    .text.memalign:00000000 $t
+T:\msys\tmp\cc2A5d9t.s:127    .text.memalign:00000000 memalign
+T:\msys\tmp\cc2A5d9t.s:147    .text.realloc:00000000 $t
+T:\msys\tmp\cc2A5d9t.s:155    .text.realloc:00000000 realloc
+
+UNDEFINED SYMBOLS
+osal_free
+osal_malloc
+osal_zalloc
+osal_calloc
+osal_realloc

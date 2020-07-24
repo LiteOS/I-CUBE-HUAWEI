@@ -1,0 +1,332 @@
+ARM GAS  T:\msys\tmp\ccgUa5DT.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"los_tick.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.osTickHandler,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	osTickHandler
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	osTickHandler:
+  28              	.LFB133:
+  29              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * ===============================================
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+ARM GAS  T:\msys\tmp\ccgUa5DT.s 			page 2
+
+
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #include "los_tick.inc"
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #include "los_base.ph"
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #include "los_swtmr.ph"
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #include "los_task.ph"
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #include "los_timeslice.ph"
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #if (LOSCFG_KERNEL_TICKLESS == YES)
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #include "los_tickless.ph"
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #ifdef __cplusplus
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #if __cplusplus
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** extern "C" {
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif /* __cplusplus */
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif /* __cplusplus */
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** LITE_OS_SEC_BSS UINT64      g_ullTickCount;
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** LITE_OS_SEC_BSS UINT32      g_uwTicksPerSec;
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** LITE_OS_SEC_BSS UINT32      g_uwCyclePerSec;
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** LITE_OS_SEC_BSS UINT32      g_uwCyclesPerTick;
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** LITE_OS_SEC_BSS UINT32      g_uwSysClock;
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** LITE_OS_SEC_DATA_INIT BOOL  g_bSysTickStart = FALSE;
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #if (LOSCFG_KERNEL_TICKLESS == YES)
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** /*****************************************************************************
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  Description : Tick interruption handler
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  Input       : None
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  Output      : None
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  Return      : None
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  *****************************************************************************/
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** LITE_OS_SEC_TEXT VOID osTickHandlerLoop(UINT32 uwElapseTicks)
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** {
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     UINT32 uwIndex;
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     for (uwIndex = 0; uwIndex < uwElapseTicks; uwIndex++)
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     {
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #if (LOSCFG_BASE_CORE_TICK_HW_TIME == YES)
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****         platform_tick_handler();
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****         g_ullTickCount ++;
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #if(LOSCFG_BASE_CORE_TIMESLICE == YES)
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****         osTimesliceCheck();
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****         osTaskScan();   //task timeout scan
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #if (LOSCFG_BASE_CORE_SWTMR == YES)
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****         (VOID)osSwtmrScan();
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     }
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** }
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+ARM GAS  T:\msys\tmp\ccgUa5DT.s 			page 3
+
+
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** /*****************************************************************************
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  Description : Tick interruption handler
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  Input       : None
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  Output      : None
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  Return      : None
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****  *****************************************************************************/
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** LITE_OS_SEC_TEXT VOID osTickHandler(VOID)
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** {
+  30              		.loc 1 96 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     if (!g_bSysTickStart)
+  34              		.loc 1 97 5 view .LVU1
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     if (!g_bSysTickStart)
+  35              		.loc 1 96 1 is_stmt 0 view .LVU2
+  36 0000 08B5     		push	{r3, lr}
+  37              	.LCFI0:
+  38              		.cfi_def_cfa_offset 8
+  39              		.cfi_offset 3, -8
+  40              		.cfi_offset 14, -4
+  41              		.loc 1 97 9 view .LVU3
+  42 0002 0C4B     		ldr	r3, .L7
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     {
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****         g_ullTickCount++;
+  43              		.loc 1 99 23 view .LVU4
+  44 0004 0C4A     		ldr	r2, .L7+4
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     {
+  45              		.loc 1 97 8 view .LVU5
+  46 0006 1B68     		ldr	r3, [r3]
+  47 0008 3BB9     		cbnz	r3, .L2
+  48              		.loc 1 99 9 is_stmt 1 view .LVU6
+  49              		.loc 1 99 23 is_stmt 0 view .LVU7
+  50 000a D2E90031 		ldrd	r3, r1, [r2]
+  51 000e 0133     		adds	r3, r3, #1
+  52 0010 41F10001 		adc	r1, r1, #0
+  53 0014 C2E90031 		strd	r3, r1, [r2]
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****         return;
+  54              		.loc 1 100 9 is_stmt 1 view .LVU8
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     }
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #if (LOSCFG_KERNEL_TICKLESS == YES)
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     if (g_bReloadSysTickFlag)
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     {
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****         LOS_SysTickReload(OS_SYS_CLOCK / LOSCFG_BASE_CORE_TICK_PER_SECOND);
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****         g_bReloadSysTickFlag = 0;
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     }
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     g_bTickIrqFlag = g_bTicklessFlag;
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     #if (LOSCFG_PLATFORM_HWI == NO)
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     if (g_uwSysTickIntFlag == TICKLESS_OS_TICK_INT_WAIT)
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     {
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****         g_uwSysTickIntFlag = TICKLESS_OS_TICK_INT_SET;
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     }
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     #endif
+ARM GAS  T:\msys\tmp\ccgUa5DT.s 			page 4
+
+
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #if (LOSCFG_BASE_CORE_TICK_HW_TIME == YES)
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     platform_tick_handler();
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     g_ullTickCount ++;
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #if(LOSCFG_BASE_CORE_TIMESLICE == YES)
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     osTimesliceCheck();
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     osTaskScan();   //task timeout scan
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #if (LOSCFG_BASE_CORE_SWTMR == YES)
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     (VOID)osSwtmrScan();
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** }
+  55              		.loc 1 134 1 is_stmt 0 view .LVU9
+  56 0018 08BD     		pop	{r3, pc}
+  57              	.L2:
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  58              		.loc 1 123 5 is_stmt 1 view .LVU10
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  59              		.loc 1 123 20 is_stmt 0 view .LVU11
+  60 001a D2E90031 		ldrd	r3, r1, [r2]
+  61 001e 0133     		adds	r3, r3, #1
+  62 0020 41F10001 		adc	r1, r1, #0
+  63 0024 C2E90031 		strd	r3, r1, [r2]
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** #endif
+  64              		.loc 1 126 5 is_stmt 1 view .LVU12
+  65 0028 FFF7FEFF 		bl	osTimesliceCheck
+  66              	.LVL0:
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  67              		.loc 1 129 5 view .LVU13
+  68              		.loc 1 134 1 is_stmt 0 view .LVU14
+  69 002c BDE80840 		pop	{r3, lr}
+  70              	.LCFI1:
+  71              		.cfi_restore 14
+  72              		.cfi_restore 3
+  73              		.cfi_def_cfa_offset 0
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+  74              		.loc 1 129 5 view .LVU15
+  75 0030 FFF7FEBF 		b	osTaskScan
+  76              	.LVL1:
+  77              	.L8:
+  78              		.align	2
+  79              	.L7:
+  80 0034 00000000 		.word	.LANCHOR0
+  81 0038 00000000 		.word	g_ullTickCount
+  82              		.cfi_endproc
+  83              	.LFE133:
+  85              		.section	.text.LOS_SysClockGet,"ax",%progbits
+  86              		.align	1
+  87              		.p2align 2,,3
+  88              		.global	LOS_SysClockGet
+  89              		.syntax unified
+ARM GAS  T:\msys\tmp\ccgUa5DT.s 			page 5
+
+
+  90              		.thumb
+  91              		.thumb_func
+  92              		.fpu fpv4-sp-d16
+  94              	LOS_SysClockGet:
+  95              	.LFB134:
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** 
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** LITE_OS_SEC_TEXT UINT32 LOS_SysClockGet(void)
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** {
+  96              		.loc 1 137 1 is_stmt 1 view -0
+  97              		.cfi_startproc
+  98              		@ args = 0, pretend = 0, frame = 0
+  99              		@ frame_needed = 0, uses_anonymous_args = 0
+ 100              		@ link register save eliminated.
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c ****     return g_uwSysClock;
+ 101              		.loc 1 138 5 view .LVU17
+ 102              		.loc 1 138 12 is_stmt 0 view .LVU18
+ 103 0000 014B     		ldr	r3, .L10
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/core\los_tick.c **** }
+ 104              		.loc 1 139 1 view .LVU19
+ 105 0002 1868     		ldr	r0, [r3]
+ 106 0004 7047     		bx	lr
+ 107              	.L11:
+ 108 0006 00BF     		.align	2
+ 109              	.L10:
+ 110 0008 00000000 		.word	g_uwSysClock
+ 111              		.cfi_endproc
+ 112              	.LFE134:
+ 114              		.global	g_bSysTickStart
+ 115              		.comm	g_uwSysClock,4,4
+ 116              		.comm	g_uwCyclesPerTick,4,4
+ 117              		.comm	g_uwCyclePerSec,4,4
+ 118              		.comm	g_uwTicksPerSec,4,4
+ 119              		.comm	g_ullTickCount,8,8
+ 120              		.section	.bss.g_bSysTickStart,"aw",%nobits
+ 121              		.align	2
+ 122              		.set	.LANCHOR0,. + 0
+ 125              	g_bSysTickStart:
+ 126 0000 00000000 		.space	4
+ 127              		.text
+ 128              	.Letext0:
+ 129              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 130              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 131              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 132              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 133              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 134              		.file 7 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/incl
+ 135              		.file 8 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 136              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arch
+ 137              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm3
+ 138              		.file 11 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 139              		.file 12 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.
+ 140              		.file 13 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ 141              		.file 14 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 142              		.file 15 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 143              		.file 16 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 144              		.file 17 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 145              		.file 18 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/bas
+ARM GAS  T:\msys\tmp\ccgUa5DT.s 			page 6
+
+
+ 146              		.file 19 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arc
+ 147              		.file 20 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 148              		.file 21 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 149              		.file 22 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 150              		.file 23 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/bas
+ 151              		.file 24 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/bas
+ 152              		.file 25 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/bas
+ARM GAS  T:\msys\tmp\ccgUa5DT.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_tick.c
+T:\msys\tmp\ccgUa5DT.s:18     .text.osTickHandler:00000000 $t
+T:\msys\tmp\ccgUa5DT.s:27     .text.osTickHandler:00000000 osTickHandler
+T:\msys\tmp\ccgUa5DT.s:80     .text.osTickHandler:00000034 $d
+                            *COM*:00000008 g_ullTickCount
+T:\msys\tmp\ccgUa5DT.s:86     .text.LOS_SysClockGet:00000000 $t
+T:\msys\tmp\ccgUa5DT.s:94     .text.LOS_SysClockGet:00000000 LOS_SysClockGet
+T:\msys\tmp\ccgUa5DT.s:110    .text.LOS_SysClockGet:00000008 $d
+                            *COM*:00000004 g_uwSysClock
+T:\msys\tmp\ccgUa5DT.s:125    .bss.g_bSysTickStart:00000000 g_bSysTickStart
+                            *COM*:00000004 g_uwCyclesPerTick
+                            *COM*:00000004 g_uwCyclePerSec
+                            *COM*:00000004 g_uwTicksPerSec
+T:\msys\tmp\ccgUa5DT.s:121    .bss.g_bSysTickStart:00000000 $d
+
+UNDEFINED SYMBOLS
+osTimesliceCheck
+osTaskScan

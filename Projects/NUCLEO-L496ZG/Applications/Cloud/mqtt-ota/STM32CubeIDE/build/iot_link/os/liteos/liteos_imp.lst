@@ -1,0 +1,1342 @@
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"liteos_imp.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.liteos_reboot,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.weak	liteos_reboot
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	liteos_reboot:
+  28              	.LFB151:
+  29              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/lite
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * ===============================================
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 2
+
+
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** /**
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  *  DATE                AUTHOR      INSTRUCTION
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  *  2019-05-14 17:22  zhangqianfu  The first version
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  *
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****  */
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** //include the file which implement the function
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** #include  <string.h>
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** #include  <osal_imp.h>
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** ///< this is implement for the task
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** #include <los_task.ph>
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** #include <los_queue.h>
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static void __task_sleep(int ms)
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     (void)LOS_TaskDelay(ms);//which tick is ms
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return;
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static void *__task_create(const char *name,int (*task_entry)(void *args),\
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         void *args,int stack_size,void *stack,int prior)
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     void *ret = NULL;
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     UINT32 uwRet = LOS_OK;
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     UINT32  handle;
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     TSK_INIT_PARAM_S task_init_param;
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     memset (&task_init_param, 0, sizeof (TSK_INIT_PARAM_S));
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.uwArg = (unsigned int)(uintptr_t)args;
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.usTaskPrio = (unsigned short)prior;
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.pcName =(char *) name;
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.pfnTaskEntry = (TSK_ENTRY_FUNC)task_entry;
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.uwStackSize = stack_size;
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     uwRet = LOS_TaskCreate(&handle, &task_init_param);
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK != uwRet){
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return ret;
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     ret = (void *)(uintptr_t)handle;
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return ret;
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static int __task_kill(void *task)
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     int ret = -1;
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     UINT32 handle;
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(NULL != task)
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         handle = (UINT32) (uintptr_t)task;
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         if(LOS_OK == LOS_TaskDelete(handle))
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         {
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****             ret = 0;
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         }
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 3
+
+
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return ret;
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static void __task_exit()
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     UINT32 handle;
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     handle = LOS_CurTaskIDGet();
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     (void) LOS_TaskDelete(handle);
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return;
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** ///< this is implement for the mutex
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** #include <los_mux.h>
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** //creat a mutex for the os
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static bool_t  __mutex_create(osal_mutex_t *mutex)
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxCreate((UINT32 *)mutex))
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return true;
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     else
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return false;
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** //lock the mutex
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static bool_t  __mutex_lock(osal_mutex_t mutex)
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxPend((UINT32)(uintptr_t)mutex,LOS_WAIT_FOREVER))
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return true;
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     else
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return false;
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** //unlock the mutex
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static bool_t  __mutex_unlock(osal_mutex_t mutex)
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxPost((UINT32)(uintptr_t)mutex))
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return true;
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     else
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return false;
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 141:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** //delete the mutex
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static bool_t  __mutex_del(osal_mutex_t mutex)
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 4
+
+
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxDelete((UINT32)(uintptr_t)mutex))
+ 145:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return true;
+ 147:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 148:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     else
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return false;
+ 151:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 154:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** ///< this is implement for the semp
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** #include <los_sem.h>
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 159:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** //semp of the os
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static bool_t  __semp_create(osal_semp_t *semp,int limit,int initvalue)
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 162:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     extern UINT32 osSemCreate (UINT16 usCount, UINT16 usMaxCount, UINT32 *puwSemHandle);
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == osSemCreate(initvalue,limit,(UINT32 *)semp))
+ 164:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 165:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return true;
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 167:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     else
+ 168:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 169:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return false;
+ 170:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 171:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 172:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static bool_t  __semp_pend(osal_semp_t semp,unsigned int timeout)
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(timeout == cn_osal_timeout_forever)
+ 175:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         timeout = LOS_WAIT_FOREVER;
+ 177:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_SemPend((unsigned int)(UINT32)(uintptr_t)semp,(UINT32)timeout))
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return true;
+ 182:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     else
+ 184:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return false;
+ 186:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static bool_t  __semp_post(osal_semp_t semp)
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_SemPost((UINT32)(uintptr_t)semp))
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 192:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return true;
+ 193:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     else
+ 195:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 196:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return false;
+ 197:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 198:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 199:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static bool_t  __semp_del(osal_semp_t semp)
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 5
+
+
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_SemDelete((UINT32)(uintptr_t)semp))
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 204:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return true;
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     else
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return false;
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 210:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 212:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 213:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** ///< this implement for the memory management
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** #include <los_memory.h>
+ 215:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 216:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 217:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static void *__mem_malloc(int size)
+ 218:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 219:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     void *ret = NULL;
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 221:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(size > 0)
+ 222:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         ret = LOS_MemAlloc(m_aucSysMem0,size);
+ 224:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 225:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 226:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return ret;
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static void __mem_free(void *addr)
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     (void) LOS_MemFree(m_aucSysMem0,addr);
+ 232:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 234:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** void *los_mem_realloc(void *old, int newlen)
+ 235:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return LOS_MemRealloc(m_aucSysMem0, old, newlen);
+ 238:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 240:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** ///< sys time
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** #include <los_sys.ph>
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 244:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** extern UINT64 osKernelGetTickCount (void);
+ 245:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static unsigned long long __get_sys_time()
+ 246:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 247:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return osKernelGetTickCount() * (OS_SYS_MS_PER_SECOND / LOSCFG_BASE_CORE_TICK_PER_SECOND);
+ 248:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 249:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 250:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** __attribute__((weak)) int liteos_reboot()
+ 251:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+  30              		.loc 1 251 1 view -0
+  31              		.cfi_startproc
+  32              		@ args = 0, pretend = 0, frame = 0
+  33              		@ frame_needed = 0, uses_anonymous_args = 0
+  34              		@ link register save eliminated.
+ 252:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     ///< waiting for the dog if not impelment. you could implement it your self
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 6
+
+
+ 253:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return 0;
+  35              		.loc 1 253 5 view .LVU1
+ 254:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+  36              		.loc 1 254 1 is_stmt 0 view .LVU2
+  37 0000 0020     		movs	r0, #0
+  38 0002 7047     		bx	lr
+  39              		.cfi_endproc
+  40              	.LFE151:
+  42              		.section	.text.__int_connect,"ax",%progbits
+  43              		.align	1
+  44              		.p2align 2,,3
+  45              		.syntax unified
+  46              		.thumb
+  47              		.thumb_func
+  48              		.fpu fpv4-sp-d16
+  50              	__int_connect:
+  51              	.LVL0:
+  52              	.LFB152:
+ 255:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 256:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** //interrupt
+ 258:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** //#include <los_hwi.h>
+ 259:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static int __int_connect(int intnum, int prio, int mode, fn_interrupt_handle callback, void* arg)
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+  53              		.loc 1 260 1 is_stmt 1 view -0
+  54              		.cfi_startproc
+  55              		@ args = 4, pretend = 0, frame = 0
+  56              		@ frame_needed = 0, uses_anonymous_args = 0
+  57              		@ link register save eliminated.
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 	extern UINT32 LOS_HwiCreate(HWI_HANDLE_T  uwHwiNum, \
+  58              		.loc 1 261 2 view .LVU4
+ 262:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 	                            HWI_PRIOR_T   usHwiPrio, \
+ 263:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 	                            HWI_MODE_T    usMode, \
+ 264:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 	                            HWI_PROC_FUNC pfnHandler, \
+ 265:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 	                            HWI_ARG_T     uwArg \
+ 266:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 	                            );
+ 267:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 	return LOS_HwiCreate((HWI_HANDLE_T)intnum, (HWI_PRIOR_T)prio,(HWI_MODE_T) mode, (HWI_PROC_FUNC)cal
+  59              		.loc 1 267 2 view .LVU5
+  60              		.loc 1 267 9 is_stmt 0 view .LVU6
+  61 0000 89B2     		uxth	r1, r1
+  62              	.LVL1:
+  63              		.loc 1 267 9 view .LVU7
+  64 0002 92B2     		uxth	r2, r2
+  65              	.LVL2:
+  66              		.loc 1 267 9 view .LVU8
+  67 0004 FFF7FEBF 		b	LOS_HwiCreate
+  68              	.LVL3:
+  69              		.loc 1 267 9 view .LVU9
+  70              		.cfi_endproc
+  71              	.LFE152:
+  73              		.section	.text.__get_sys_time,"ax",%progbits
+  74              		.align	1
+  75              		.p2align 2,,3
+  76              		.syntax unified
+  77              		.thumb
+  78              		.thumb_func
+  79              		.fpu fpv4-sp-d16
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 7
+
+
+  81              	__get_sys_time:
+  82              	.LFB150:
+ 246:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return osKernelGetTickCount() * (OS_SYS_MS_PER_SECOND / LOSCFG_BASE_CORE_TICK_PER_SECOND);
+  83              		.loc 1 246 1 is_stmt 1 view -0
+  84              		.cfi_startproc
+  85              		@ args = 0, pretend = 0, frame = 0
+  86              		@ frame_needed = 0, uses_anonymous_args = 0
+  87              		@ link register save eliminated.
+ 247:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+  88              		.loc 1 247 5 view .LVU11
+ 247:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+  89              		.loc 1 247 35 is_stmt 0 view .LVU12
+  90 0000 FFF7FEBF 		b	osKernelGetTickCount
+  91              	.LVL4:
+  92              		.cfi_endproc
+  93              	.LFE150:
+  95              		.section	.text.__mem_free,"ax",%progbits
+  96              		.align	1
+  97              		.p2align 2,,3
+  98              		.syntax unified
+  99              		.thumb
+ 100              		.thumb_func
+ 101              		.fpu fpv4-sp-d16
+ 103              	__mem_free:
+ 104              	.LVL5:
+ 105              	.LFB146:
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     (void) LOS_MemFree(m_aucSysMem0,addr);
+ 106              		.loc 1 230 1 is_stmt 1 view -0
+ 107              		.cfi_startproc
+ 108              		@ args = 0, pretend = 0, frame = 0
+ 109              		@ frame_needed = 0, uses_anonymous_args = 0
+ 110              		@ link register save eliminated.
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 111              		.loc 1 231 5 view .LVU14
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 112              		.loc 1 231 12 is_stmt 0 view .LVU15
+ 113 0000 024B     		ldr	r3, .L6
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     (void) LOS_MemFree(m_aucSysMem0,addr);
+ 114              		.loc 1 230 1 view .LVU16
+ 115 0002 0146     		mov	r1, r0
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 116              		.loc 1 231 12 view .LVU17
+ 117 0004 1868     		ldr	r0, [r3]
+ 118              	.LVL6:
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 119              		.loc 1 231 12 view .LVU18
+ 120 0006 FFF7FEBF 		b	LOS_MemFree
+ 121              	.LVL7:
+ 122              	.L7:
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 123              		.loc 1 231 12 view .LVU19
+ 124 000a 00BF     		.align	2
+ 125              	.L6:
+ 126 000c 00000000 		.word	m_aucSysMem0
+ 127              		.cfi_endproc
+ 128              	.LFE146:
+ 130              		.section	.text.__semp_del,"ax",%progbits
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 8
+
+
+ 131              		.align	1
+ 132              		.p2align 2,,3
+ 133              		.syntax unified
+ 134              		.thumb
+ 135              		.thumb_func
+ 136              		.fpu fpv4-sp-d16
+ 138              	__semp_del:
+ 139              	.LVL8:
+ 140              	.LFB144:
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_SemDelete((UINT32)(uintptr_t)semp))
+ 141              		.loc 1 201 1 is_stmt 1 view -0
+ 142              		.cfi_startproc
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 145              		.loc 1 202 5 view .LVU21
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_SemDelete((UINT32)(uintptr_t)semp))
+ 146              		.loc 1 201 1 is_stmt 0 view .LVU22
+ 147 0000 08B5     		push	{r3, lr}
+ 148              	.LCFI0:
+ 149              		.cfi_def_cfa_offset 8
+ 150              		.cfi_offset 3, -8
+ 151              		.cfi_offset 14, -4
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 152              		.loc 1 202 18 view .LVU23
+ 153 0002 FFF7FEFF 		bl	LOS_SemDelete
+ 154              	.LVL9:
+ 210:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 155              		.loc 1 210 1 view .LVU24
+ 156 0006 B0FA80F0 		clz	r0, r0
+ 157 000a 4009     		lsrs	r0, r0, #5
+ 158 000c 08BD     		pop	{r3, pc}
+ 159              		.cfi_endproc
+ 160              	.LFE144:
+ 162 000e 00BF     		.section	.text.__semp_post,"ax",%progbits
+ 163              		.align	1
+ 164              		.p2align 2,,3
+ 165              		.syntax unified
+ 166              		.thumb
+ 167              		.thumb_func
+ 168              		.fpu fpv4-sp-d16
+ 170              	__semp_post:
+ 171              	.LVL10:
+ 172              	.LFB143:
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_SemPost((UINT32)(uintptr_t)semp))
+ 173              		.loc 1 189 1 is_stmt 1 view -0
+ 174              		.cfi_startproc
+ 175              		@ args = 0, pretend = 0, frame = 0
+ 176              		@ frame_needed = 0, uses_anonymous_args = 0
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 177              		.loc 1 190 5 view .LVU26
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_SemPost((UINT32)(uintptr_t)semp))
+ 178              		.loc 1 189 1 is_stmt 0 view .LVU27
+ 179 0000 08B5     		push	{r3, lr}
+ 180              	.LCFI1:
+ 181              		.cfi_def_cfa_offset 8
+ 182              		.cfi_offset 3, -8
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 9
+
+
+ 183              		.cfi_offset 14, -4
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 184              		.loc 1 190 18 view .LVU28
+ 185 0002 FFF7FEFF 		bl	LOS_SemPost
+ 186              	.LVL11:
+ 198:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 187              		.loc 1 198 1 view .LVU29
+ 188 0006 B0FA80F0 		clz	r0, r0
+ 189 000a 4009     		lsrs	r0, r0, #5
+ 190 000c 08BD     		pop	{r3, pc}
+ 191              		.cfi_endproc
+ 192              	.LFE143:
+ 194 000e 00BF     		.section	.text.__semp_pend,"ax",%progbits
+ 195              		.align	1
+ 196              		.p2align 2,,3
+ 197              		.syntax unified
+ 198              		.thumb
+ 199              		.thumb_func
+ 200              		.fpu fpv4-sp-d16
+ 202              	__semp_pend:
+ 203              	.LVL12:
+ 204              	.LFB142:
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(timeout == cn_osal_timeout_forever)
+ 205              		.loc 1 173 1 is_stmt 1 view -0
+ 206              		.cfi_startproc
+ 207              		@ args = 0, pretend = 0, frame = 0
+ 208              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 209              		.loc 1 174 5 view .LVU31
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 210              		.loc 1 179 5 view .LVU32
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(timeout == cn_osal_timeout_forever)
+ 211              		.loc 1 173 1 is_stmt 0 view .LVU33
+ 212 0000 08B5     		push	{r3, lr}
+ 213              	.LCFI2:
+ 214              		.cfi_def_cfa_offset 8
+ 215              		.cfi_offset 3, -8
+ 216              		.cfi_offset 14, -4
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 217              		.loc 1 179 18 view .LVU34
+ 218 0002 FFF7FEFF 		bl	LOS_SemPend
+ 219              	.LVL13:
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static bool_t  __semp_post(osal_semp_t semp)
+ 220              		.loc 1 187 1 view .LVU35
+ 221 0006 B0FA80F0 		clz	r0, r0
+ 222 000a 4009     		lsrs	r0, r0, #5
+ 223 000c 08BD     		pop	{r3, pc}
+ 224              		.cfi_endproc
+ 225              	.LFE142:
+ 227 000e 00BF     		.section	.text.__semp_create,"ax",%progbits
+ 228              		.align	1
+ 229              		.p2align 2,,3
+ 230              		.syntax unified
+ 231              		.thumb
+ 232              		.thumb_func
+ 233              		.fpu fpv4-sp-d16
+ 235              	__semp_create:
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 10
+
+
+ 236              	.LVL14:
+ 237              	.LFB141:
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     extern UINT32 osSemCreate (UINT16 usCount, UINT16 usMaxCount, UINT32 *puwSemHandle);
+ 238              		.loc 1 161 1 is_stmt 1 view -0
+ 239              		.cfi_startproc
+ 240              		@ args = 0, pretend = 0, frame = 0
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 162:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == osSemCreate(initvalue,limit,(UINT32 *)semp))
+ 242              		.loc 1 162 5 view .LVU37
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 243              		.loc 1 163 5 view .LVU38
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     extern UINT32 osSemCreate (UINT16 usCount, UINT16 usMaxCount, UINT32 *puwSemHandle);
+ 244              		.loc 1 161 1 is_stmt 0 view .LVU39
+ 245 0000 08B5     		push	{r3, lr}
+ 246              	.LCFI3:
+ 247              		.cfi_def_cfa_offset 8
+ 248              		.cfi_offset 3, -8
+ 249              		.cfi_offset 14, -4
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     extern UINT32 osSemCreate (UINT16 usCount, UINT16 usMaxCount, UINT32 *puwSemHandle);
+ 250              		.loc 1 161 1 view .LVU40
+ 251 0002 1346     		mov	r3, r2
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 252              		.loc 1 163 18 view .LVU41
+ 253 0004 89B2     		uxth	r1, r1
+ 254              	.LVL15:
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 255              		.loc 1 163 18 view .LVU42
+ 256 0006 0246     		mov	r2, r0
+ 257              	.LVL16:
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 258              		.loc 1 163 18 view .LVU43
+ 259 0008 98B2     		uxth	r0, r3
+ 260              	.LVL17:
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 261              		.loc 1 163 18 view .LVU44
+ 262 000a FFF7FEFF 		bl	osSemCreate
+ 263              	.LVL18:
+ 171:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static bool_t  __semp_pend(osal_semp_t semp,unsigned int timeout)
+ 264              		.loc 1 171 1 view .LVU45
+ 265 000e B0FA80F0 		clz	r0, r0
+ 266 0012 4009     		lsrs	r0, r0, #5
+ 267 0014 08BD     		pop	{r3, pc}
+ 268              		.cfi_endproc
+ 269              	.LFE141:
+ 271 0016 00BF     		.section	.text.__mutex_del,"ax",%progbits
+ 272              		.align	1
+ 273              		.p2align 2,,3
+ 274              		.syntax unified
+ 275              		.thumb
+ 276              		.thumb_func
+ 277              		.fpu fpv4-sp-d16
+ 279              	__mutex_del:
+ 280              	.LVL19:
+ 281              	.LFB140:
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxDelete((UINT32)(uintptr_t)mutex))
+ 282              		.loc 1 143 1 is_stmt 1 view -0
+ 283              		.cfi_startproc
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 11
+
+
+ 284              		@ args = 0, pretend = 0, frame = 0
+ 285              		@ frame_needed = 0, uses_anonymous_args = 0
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 286              		.loc 1 144 5 view .LVU47
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxDelete((UINT32)(uintptr_t)mutex))
+ 287              		.loc 1 143 1 is_stmt 0 view .LVU48
+ 288 0000 08B5     		push	{r3, lr}
+ 289              	.LCFI4:
+ 290              		.cfi_def_cfa_offset 8
+ 291              		.cfi_offset 3, -8
+ 292              		.cfi_offset 14, -4
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 293              		.loc 1 144 18 view .LVU49
+ 294 0002 FFF7FEFF 		bl	LOS_MuxDelete
+ 295              	.LVL20:
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 296              		.loc 1 152 1 view .LVU50
+ 297 0006 B0FA80F0 		clz	r0, r0
+ 298 000a 4009     		lsrs	r0, r0, #5
+ 299 000c 08BD     		pop	{r3, pc}
+ 300              		.cfi_endproc
+ 301              	.LFE140:
+ 303 000e 00BF     		.section	.text.__mutex_unlock,"ax",%progbits
+ 304              		.align	1
+ 305              		.p2align 2,,3
+ 306              		.syntax unified
+ 307              		.thumb
+ 308              		.thumb_func
+ 309              		.fpu fpv4-sp-d16
+ 311              	__mutex_unlock:
+ 312              	.LVL21:
+ 313              	.LFB139:
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxPost((UINT32)(uintptr_t)mutex))
+ 314              		.loc 1 131 1 is_stmt 1 view -0
+ 315              		.cfi_startproc
+ 316              		@ args = 0, pretend = 0, frame = 0
+ 317              		@ frame_needed = 0, uses_anonymous_args = 0
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 318              		.loc 1 132 5 view .LVU52
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxPost((UINT32)(uintptr_t)mutex))
+ 319              		.loc 1 131 1 is_stmt 0 view .LVU53
+ 320 0000 08B5     		push	{r3, lr}
+ 321              	.LCFI5:
+ 322              		.cfi_def_cfa_offset 8
+ 323              		.cfi_offset 3, -8
+ 324              		.cfi_offset 14, -4
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 325              		.loc 1 132 18 view .LVU54
+ 326 0002 FFF7FEFF 		bl	LOS_MuxPost
+ 327              	.LVL22:
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** //delete the mutex
+ 328              		.loc 1 140 1 view .LVU55
+ 329 0006 B0FA80F0 		clz	r0, r0
+ 330 000a 4009     		lsrs	r0, r0, #5
+ 331 000c 08BD     		pop	{r3, pc}
+ 332              		.cfi_endproc
+ 333              	.LFE139:
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 12
+
+
+ 335 000e 00BF     		.section	.text.__mutex_lock,"ax",%progbits
+ 336              		.align	1
+ 337              		.p2align 2,,3
+ 338              		.syntax unified
+ 339              		.thumb
+ 340              		.thumb_func
+ 341              		.fpu fpv4-sp-d16
+ 343              	__mutex_lock:
+ 344              	.LVL23:
+ 345              	.LFB138:
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxPend((UINT32)(uintptr_t)mutex,LOS_WAIT_FOREVER))
+ 346              		.loc 1 118 1 is_stmt 1 view -0
+ 347              		.cfi_startproc
+ 348              		@ args = 0, pretend = 0, frame = 0
+ 349              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 350              		.loc 1 119 5 view .LVU57
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxPend((UINT32)(uintptr_t)mutex,LOS_WAIT_FOREVER))
+ 351              		.loc 1 118 1 is_stmt 0 view .LVU58
+ 352 0000 08B5     		push	{r3, lr}
+ 353              	.LCFI6:
+ 354              		.cfi_def_cfa_offset 8
+ 355              		.cfi_offset 3, -8
+ 356              		.cfi_offset 14, -4
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 357              		.loc 1 119 18 view .LVU59
+ 358 0002 4FF0FF31 		mov	r1, #-1
+ 359 0006 FFF7FEFF 		bl	LOS_MuxPend
+ 360              	.LVL24:
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 361              		.loc 1 127 1 view .LVU60
+ 362 000a B0FA80F0 		clz	r0, r0
+ 363 000e 4009     		lsrs	r0, r0, #5
+ 364 0010 08BD     		pop	{r3, pc}
+ 365              		.cfi_endproc
+ 366              	.LFE138:
+ 368 0012 00BF     		.section	.text.__mutex_create,"ax",%progbits
+ 369              		.align	1
+ 370              		.p2align 2,,3
+ 371              		.syntax unified
+ 372              		.thumb
+ 373              		.thumb_func
+ 374              		.fpu fpv4-sp-d16
+ 376              	__mutex_create:
+ 377              	.LVL25:
+ 378              	.LFB137:
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxCreate((UINT32 *)mutex))
+ 379              		.loc 1 106 1 is_stmt 1 view -0
+ 380              		.cfi_startproc
+ 381              		@ args = 0, pretend = 0, frame = 0
+ 382              		@ frame_needed = 0, uses_anonymous_args = 0
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 383              		.loc 1 107 5 view .LVU62
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK == LOS_MuxCreate((UINT32 *)mutex))
+ 384              		.loc 1 106 1 is_stmt 0 view .LVU63
+ 385 0000 08B5     		push	{r3, lr}
+ 386              	.LCFI7:
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 13
+
+
+ 387              		.cfi_def_cfa_offset 8
+ 388              		.cfi_offset 3, -8
+ 389              		.cfi_offset 14, -4
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 390              		.loc 1 107 18 view .LVU64
+ 391 0002 FFF7FEFF 		bl	LOS_MuxCreate
+ 392              	.LVL26:
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** //lock the mutex
+ 393              		.loc 1 115 1 view .LVU65
+ 394 0006 B0FA80F0 		clz	r0, r0
+ 395 000a 4009     		lsrs	r0, r0, #5
+ 396 000c 08BD     		pop	{r3, pc}
+ 397              		.cfi_endproc
+ 398              	.LFE137:
+ 400 000e 00BF     		.section	.text.__task_sleep,"ax",%progbits
+ 401              		.align	1
+ 402              		.p2align 2,,3
+ 403              		.syntax unified
+ 404              		.thumb
+ 405              		.thumb_func
+ 406              		.fpu fpv4-sp-d16
+ 408              	__task_sleep:
+ 409              	.LVL27:
+ 410              	.LFB133:
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     (void)LOS_TaskDelay(ms);//which tick is ms
+ 411              		.loc 1 48 1 is_stmt 1 view -0
+ 412              		.cfi_startproc
+ 413              		@ args = 0, pretend = 0, frame = 0
+ 414              		@ frame_needed = 0, uses_anonymous_args = 0
+ 415              		@ link register save eliminated.
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return;
+ 416              		.loc 1 49 5 view .LVU67
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return;
+ 417              		.loc 1 49 11 is_stmt 0 view .LVU68
+ 418 0000 FFF7FEBF 		b	LOS_TaskDelay
+ 419              	.LVL28:
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return;
+ 420              		.loc 1 49 11 view .LVU69
+ 421              		.cfi_endproc
+ 422              	.LFE133:
+ 424              		.section	.text.__task_exit,"ax",%progbits
+ 425              		.align	1
+ 426              		.p2align 2,,3
+ 427              		.syntax unified
+ 428              		.thumb
+ 429              		.thumb_func
+ 430              		.fpu fpv4-sp-d16
+ 432              	__task_exit:
+ 433              	.LFB136:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     UINT32 handle;
+ 434              		.loc 1 93 1 is_stmt 1 view -0
+ 435              		.cfi_startproc
+ 436              		@ args = 0, pretend = 0, frame = 0
+ 437              		@ frame_needed = 0, uses_anonymous_args = 0
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     handle = LOS_CurTaskIDGet();
+ 438              		.loc 1 94 5 view .LVU71
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 14
+
+
+ 439              		.loc 1 95 5 view .LVU72
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     UINT32 handle;
+ 440              		.loc 1 93 1 is_stmt 0 view .LVU73
+ 441 0000 08B5     		push	{r3, lr}
+ 442              	.LCFI8:
+ 443              		.cfi_def_cfa_offset 8
+ 444              		.cfi_offset 3, -8
+ 445              		.cfi_offset 14, -4
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 446              		.loc 1 95 14 view .LVU74
+ 447 0002 FFF7FEFF 		bl	LOS_CurTaskIDGet
+ 448              	.LVL29:
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 449              		.loc 1 97 5 is_stmt 1 view .LVU75
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 450              		.loc 1 100 1 is_stmt 0 view .LVU76
+ 451 0006 BDE80840 		pop	{r3, lr}
+ 452              	.LCFI9:
+ 453              		.cfi_restore 14
+ 454              		.cfi_restore 3
+ 455              		.cfi_def_cfa_offset 0
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 456              		.loc 1 97 12 view .LVU77
+ 457 000a FFF7FEBF 		b	LOS_TaskDelete
+ 458              	.LVL30:
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 459              		.loc 1 97 12 view .LVU78
+ 460              		.cfi_endproc
+ 461              	.LFE136:
+ 463 000e 00BF     		.section	.text.__task_kill,"ax",%progbits
+ 464              		.align	1
+ 465              		.p2align 2,,3
+ 466              		.syntax unified
+ 467              		.thumb
+ 468              		.thumb_func
+ 469              		.fpu fpv4-sp-d16
+ 471              	__task_kill:
+ 472              	.LVL31:
+ 473              	.LFB135:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     int ret = -1;
+ 474              		.loc 1 77 1 is_stmt 1 view -0
+ 475              		.cfi_startproc
+ 476              		@ args = 0, pretend = 0, frame = 0
+ 477              		@ frame_needed = 0, uses_anonymous_args = 0
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     UINT32 handle;
+ 478              		.loc 1 78 5 view .LVU80
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(NULL != task)
+ 479              		.loc 1 79 5 view .LVU81
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 480              		.loc 1 80 5 view .LVU82
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 481              		.loc 1 80 7 is_stmt 0 view .LVU83
+ 482 0000 38B1     		cbz	r0, .L29
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         if(LOS_OK == LOS_TaskDelete(handle))
+ 483              		.loc 1 82 9 is_stmt 1 view .LVU84
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         {
+ 484              		.loc 1 83 9 view .LVU85
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 15
+
+
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     int ret = -1;
+ 485              		.loc 1 77 1 is_stmt 0 view .LVU86
+ 486 0002 08B5     		push	{r3, lr}
+ 487              	.LCFI10:
+ 488              		.cfi_def_cfa_offset 8
+ 489              		.cfi_offset 3, -8
+ 490              		.cfi_offset 14, -4
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         {
+ 491              		.loc 1 83 22 view .LVU87
+ 492 0004 FFF7FEFF 		bl	LOS_TaskDelete
+ 493              	.LVL32:
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         {
+ 494              		.loc 1 83 11 view .LVU88
+ 495 0008 0038     		subs	r0, r0, #0
+ 496 000a 18BF     		it	ne
+ 497 000c 0120     		movne	r0, #1
+ 498 000e 4042     		rsbs	r0, r0, #0
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 499              		.loc 1 90 1 view .LVU89
+ 500 0010 08BD     		pop	{r3, pc}
+ 501              	.LVL33:
+ 502              	.L29:
+ 503              	.LCFI11:
+ 504              		.cfi_def_cfa_offset 0
+ 505              		.cfi_restore 3
+ 506              		.cfi_restore 14
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     UINT32 handle;
+ 507              		.loc 1 78 9 view .LVU90
+ 508 0012 4FF0FF30 		mov	r0, #-1
+ 509              	.LVL34:
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 510              		.loc 1 89 5 is_stmt 1 view .LVU91
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 511              		.loc 1 90 1 is_stmt 0 view .LVU92
+ 512 0016 7047     		bx	lr
+ 513              		.cfi_endproc
+ 514              	.LFE135:
+ 516              		.section	.text.__task_create,"ax",%progbits
+ 517              		.align	1
+ 518              		.p2align 2,,3
+ 519              		.syntax unified
+ 520              		.thumb
+ 521              		.thumb_func
+ 522              		.fpu fpv4-sp-d16
+ 524              	__task_create:
+ 525              	.LVL35:
+ 526              	.LFB134:
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     void *ret = NULL;
+ 527              		.loc 1 55 1 is_stmt 1 view -0
+ 528              		.cfi_startproc
+ 529              		@ args = 8, pretend = 0, frame = 32
+ 530              		@ frame_needed = 0, uses_anonymous_args = 0
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     UINT32 uwRet = LOS_OK;
+ 531              		.loc 1 56 5 view .LVU94
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     UINT32  handle;
+ 532              		.loc 1 57 5 view .LVU95
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     TSK_INIT_PARAM_S task_init_param;
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 16
+
+
+ 533              		.loc 1 58 5 view .LVU96
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 534              		.loc 1 59 5 view .LVU97
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 535              		.loc 1 61 5 view .LVU98
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     void *ret = NULL;
+ 536              		.loc 1 55 1 is_stmt 0 view .LVU99
+ 537 0000 30B5     		push	{r4, r5, lr}
+ 538              	.LCFI12:
+ 539              		.cfi_def_cfa_offset 12
+ 540              		.cfi_offset 4, -12
+ 541              		.cfi_offset 5, -8
+ 542              		.cfi_offset 14, -4
+ 543 0002 89B0     		sub	sp, sp, #36
+ 544              	.LCFI13:
+ 545              		.cfi_def_cfa_offset 48
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 546              		.loc 1 61 5 view .LVU100
+ 547 0004 0024     		movs	r4, #0
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     void *ret = NULL;
+ 548              		.loc 1 55 1 view .LVU101
+ 549 0006 0D9D     		ldr	r5, [sp, #52]
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.pfnTaskEntry = (TSK_ENTRY_FUNC)task_entry;
+ 550              		.loc 1 65 28 view .LVU102
+ 551 0008 0690     		str	r0, [sp, #24]
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.uwStackSize = stack_size;
+ 552              		.loc 1 66 34 view .LVU103
+ 553 000a 0291     		str	r1, [sp, #8]
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK != uwRet){
+ 554              		.loc 1 68 13 view .LVU104
+ 555 000c 01A8     		add	r0, sp, #4
+ 556              	.LVL36:
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK != uwRet){
+ 557              		.loc 1 68 13 view .LVU105
+ 558 000e 02A9     		add	r1, sp, #8
+ 559              	.LVL37:
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 560              		.loc 1 61 5 view .LVU106
+ 561 0010 0394     		str	r4, [sp, #12]
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.usTaskPrio = (unsigned short)prior;
+ 562              		.loc 1 63 27 view .LVU107
+ 563 0012 0492     		str	r2, [sp, #16]
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     uwRet = LOS_TaskCreate(&handle, &task_init_param);
+ 564              		.loc 1 67 33 view .LVU108
+ 565 0014 0593     		str	r3, [sp, #20]
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 566              		.loc 1 61 5 view .LVU109
+ 567 0016 0794     		str	r4, [sp, #28]
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.usTaskPrio = (unsigned short)prior;
+ 568              		.loc 1 63 5 is_stmt 1 view .LVU110
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.pcName =(char *) name;
+ 569              		.loc 1 64 5 view .LVU111
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.pcName =(char *) name;
+ 570              		.loc 1 64 34 is_stmt 0 view .LVU112
+ 571 0018 ADF80C50 		strh	r5, [sp, #12]	@ movhi
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.pfnTaskEntry = (TSK_ENTRY_FUNC)task_entry;
+ 572              		.loc 1 65 5 is_stmt 1 view .LVU113
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 17
+
+
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     task_init_param.uwStackSize = stack_size;
+ 573              		.loc 1 66 5 view .LVU114
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     uwRet = LOS_TaskCreate(&handle, &task_init_param);
+ 574              		.loc 1 67 5 view .LVU115
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK != uwRet){
+ 575              		.loc 1 68 5 view .LVU116
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     if(LOS_OK != uwRet){
+ 576              		.loc 1 68 13 is_stmt 0 view .LVU117
+ 577 001c FFF7FEFF 		bl	LOS_TaskCreate
+ 578              	.LVL38:
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return ret;
+ 579              		.loc 1 69 5 is_stmt 1 view .LVU118
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****         return ret;
+ 580              		.loc 1 69 7 is_stmt 0 view .LVU119
+ 581 0020 10B9     		cbnz	r0, .L36
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return ret;
+ 582              		.loc 1 72 5 is_stmt 1 view .LVU120
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     return ret;
+ 583              		.loc 1 72 9 is_stmt 0 view .LVU121
+ 584 0022 0198     		ldr	r0, [sp, #4]
+ 585              	.LVL39:
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 586              		.loc 1 73 5 is_stmt 1 view .LVU122
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 587              		.loc 1 74 1 is_stmt 0 view .LVU123
+ 588 0024 09B0     		add	sp, sp, #36
+ 589              	.LCFI14:
+ 590              		.cfi_remember_state
+ 591              		.cfi_def_cfa_offset 12
+ 592              		@ sp needed
+ 593 0026 30BD     		pop	{r4, r5, pc}
+ 594              	.LVL40:
+ 595              	.L36:
+ 596              	.LCFI15:
+ 597              		.cfi_restore_state
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 598              		.loc 1 70 16 view .LVU124
+ 599 0028 2046     		mov	r0, r4
+ 600              	.LVL41:
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 601              		.loc 1 74 1 view .LVU125
+ 602 002a 09B0     		add	sp, sp, #36
+ 603              	.LCFI16:
+ 604              		.cfi_def_cfa_offset 12
+ 605              		@ sp needed
+ 606 002c 30BD     		pop	{r4, r5, pc}
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 607              		.loc 1 74 1 view .LVU126
+ 608              		.cfi_endproc
+ 609              	.LFE134:
+ 611 002e 00BF     		.section	.text.__mem_malloc,"ax",%progbits
+ 612              		.align	1
+ 613              		.p2align 2,,3
+ 614              		.syntax unified
+ 615              		.thumb
+ 616              		.thumb_func
+ 617              		.fpu fpv4-sp-d16
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 18
+
+
+ 619              	__mem_malloc:
+ 620              	.LVL42:
+ 621              	.LFB145:
+ 218:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     void *ret = NULL;
+ 622              		.loc 1 218 1 is_stmt 1 view -0
+ 623              		.cfi_startproc
+ 624              		@ args = 0, pretend = 0, frame = 0
+ 625              		@ frame_needed = 0, uses_anonymous_args = 0
+ 626              		@ link register save eliminated.
+ 219:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 627              		.loc 1 219 5 view .LVU128
+ 221:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 628              		.loc 1 221 5 view .LVU129
+ 221:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     {
+ 629              		.loc 1 221 7 is_stmt 0 view .LVU130
+ 630 0000 011E     		subs	r1, r0, #0
+ 631 0002 03DD     		ble	.L39
+ 632              	.LVL43:
+ 633              	.LBB4:
+ 634              	.LBI4:
+ 217:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 635              		.loc 1 217 14 is_stmt 1 view .LVU131
+ 636              	.LBB5:
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 637              		.loc 1 223 9 view .LVU132
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 638              		.loc 1 223 15 is_stmt 0 view .LVU133
+ 639 0004 024B     		ldr	r3, .L40
+ 640 0006 1868     		ldr	r0, [r3]
+ 641              	.LVL44:
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 642              		.loc 1 223 15 view .LVU134
+ 643 0008 FFF7FEBF 		b	LOS_MemAlloc
+ 644              	.LVL45:
+ 645              	.L39:
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     }
+ 646              		.loc 1 223 15 view .LVU135
+ 647              	.LBE5:
+ 648              	.LBE4:
+ 226:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 649              		.loc 1 226 5 is_stmt 1 view .LVU136
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 650              		.loc 1 227 1 is_stmt 0 view .LVU137
+ 651 000c 0020     		movs	r0, #0
+ 652              	.LVL46:
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 653              		.loc 1 227 1 view .LVU138
+ 654 000e 7047     		bx	lr
+ 655              	.L41:
+ 656              		.align	2
+ 657              	.L40:
+ 658 0010 00000000 		.word	m_aucSysMem0
+ 659              		.cfi_endproc
+ 660              	.LFE145:
+ 662              		.section	.text.los_mem_realloc,"ax",%progbits
+ 663              		.align	1
+ 664              		.p2align 2,,3
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 19
+
+
+ 665              		.global	los_mem_realloc
+ 666              		.syntax unified
+ 667              		.thumb
+ 668              		.thumb_func
+ 669              		.fpu fpv4-sp-d16
+ 671              	los_mem_realloc:
+ 672              	.LVL47:
+ 673              	.LFB147:
+ 235:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 674              		.loc 1 235 1 is_stmt 1 view -0
+ 675              		.cfi_startproc
+ 676              		@ args = 0, pretend = 0, frame = 0
+ 677              		@ frame_needed = 0, uses_anonymous_args = 0
+ 678              		@ link register save eliminated.
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 679              		.loc 1 237 5 view .LVU140
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 680              		.loc 1 237 12 is_stmt 0 view .LVU141
+ 681 0000 024B     		ldr	r3, .L43
+ 235:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 682              		.loc 1 235 1 view .LVU142
+ 683 0002 0A46     		mov	r2, r1
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 684              		.loc 1 237 12 view .LVU143
+ 685 0004 0146     		mov	r1, r0
+ 686              	.LVL48:
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 687              		.loc 1 237 12 view .LVU144
+ 688 0006 1868     		ldr	r0, [r3]
+ 689              	.LVL49:
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 690              		.loc 1 237 12 view .LVU145
+ 691 0008 FFF7FEBF 		b	LOS_MemRealloc
+ 692              	.LVL50:
+ 693              	.L44:
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 694              		.loc 1 237 12 view .LVU146
+ 695              		.align	2
+ 696              	.L43:
+ 697 000c 00000000 		.word	m_aucSysMem0
+ 698              		.cfi_endproc
+ 699              	.LFE147:
+ 701              		.section	.text.os_imp_init,"ax",%progbits
+ 702              		.align	1
+ 703              		.p2align 2,,3
+ 704              		.global	os_imp_init
+ 705              		.syntax unified
+ 706              		.thumb
+ 707              		.thumb_func
+ 708              		.fpu fpv4-sp-d16
+ 710              	os_imp_init:
+ 711              	.LFB153:
+ 268:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** }
+ 269:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 270:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static const tag_os_ops s_liteos_ops =
+ 271:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 272:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .task_sleep = __task_sleep,
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 20
+
+
+ 273:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .task_create = __task_create,
+ 274:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .task_kill = __task_kill,
+ 275:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .task_exit = __task_exit,
+ 276:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 277:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .mutex_create = __mutex_create,
+ 278:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .mutex_lock = __mutex_lock,
+ 279:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .mutex_unlock = __mutex_unlock,
+ 280:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .mutex_del = __mutex_del,
+ 281:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 282:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .semp_create = __semp_create,
+ 283:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .semp_pend = __semp_pend,
+ 284:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .semp_post = __semp_post,
+ 285:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .semp_del = __semp_del,
+ 286:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 287:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .malloc = __mem_malloc,
+ 288:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .free = __mem_free,
+ 289:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 290:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .get_sys_time = __get_sys_time,
+ 291:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .reboot = liteos_reboot,
+ 292:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 293:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 	.int_connect = __int_connect,
+ 294:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** };
+ 295:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 296:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 297:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 298:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** static const tag_os s_link_liteos =
+ 299:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 300:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .name = "LiteOS",
+ 301:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     .ops = &s_liteos_ops,
+ 302:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** };
+ 303:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 304:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** int os_imp_init(void)
+ 305:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** {
+ 712              		.loc 1 305 1 is_stmt 1 view -0
+ 713              		.cfi_startproc
+ 714              		@ args = 0, pretend = 0, frame = 0
+ 715              		@ frame_needed = 0, uses_anonymous_args = 0
+ 716              		@ link register save eliminated.
+ 306:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     int ret = -1;
+ 717              		.loc 1 306 5 view .LVU148
+ 718              	.LVL51:
+ 307:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c **** 
+ 308:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\liteos_imp.c ****     ret = osal_install(&s_link_liteos);
+ 719              		.loc 1 308 5 view .LVU149
+ 720              		.loc 1 308 11 is_stmt 0 view .LVU150
+ 721 0000 0148     		ldr	r0, .L46
+ 722 0002 FFF7FEBF 		b	osal_install
+ 723              	.LVL52:
+ 724              	.L47:
+ 725 0006 00BF     		.align	2
+ 726              	.L46:
+ 727 0008 00000000 		.word	.LANCHOR0
+ 728              		.cfi_endproc
+ 729              	.LFE153:
+ 731              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 732              		.align	2
+ 733              	.LC0:
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 21
+
+
+ 734 0000 4C697465 		.ascii	"LiteOS\000"
+ 734      4F5300
+ 735              		.section	.rodata.s_link_liteos,"a"
+ 736              		.align	2
+ 737              		.set	.LANCHOR0,. + 0
+ 740              	s_link_liteos:
+ 741 0000 00000000 		.word	.LC0
+ 742 0004 00000000 		.word	s_liteos_ops
+ 743              		.section	.rodata.s_liteos_ops,"a"
+ 744              		.align	2
+ 747              	s_liteos_ops:
+ 748 0000 00000000 		.word	__task_create
+ 749 0004 00000000 		.word	__task_kill
+ 750 0008 00000000 		.word	__task_exit
+ 751 000c 00000000 		.word	__task_sleep
+ 752 0010 00000000 		.word	__mutex_create
+ 753 0014 00000000 		.word	__mutex_lock
+ 754 0018 00000000 		.word	__mutex_unlock
+ 755 001c 00000000 		.word	__mutex_del
+ 756 0020 00000000 		.word	__semp_create
+ 757 0024 00000000 		.word	__semp_pend
+ 758 0028 00000000 		.word	__semp_post
+ 759 002c 00000000 		.word	__semp_del
+ 760 0030 00000000 		.space	16
+ 760      00000000 
+ 760      00000000 
+ 760      00000000 
+ 761 0040 00000000 		.word	__mem_malloc
+ 762 0044 00000000 		.word	__mem_free
+ 763 0048 00000000 		.space	4
+ 764 004c 00000000 		.word	__get_sys_time
+ 765 0050 00000000 		.word	liteos_reboot
+ 766 0054 00000000 		.word	__int_connect
+ 767              		.text
+ 768              	.Letext0:
+ 769              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 770              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 771              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 772              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 773              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 774              		.file 7 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 775              		.file 8 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/osal/osal_t
+ 776              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/osal/osal_i
+ 777              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 778              		.file 11 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arc
+ 779              		.file 12 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm3
+ 780              		.file 13 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 781              		.file 14 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.
+ 782              		.file 15 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ 783              		.file 16 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 784              		.file 17 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 785              		.file 18 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 786              		.file 19 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arc
+ 787              		.file 20 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 788              		.file 21 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 789              		.file 22 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 790              		.file 23 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/bas
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 22
+
+
+ 791              		.file 24 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 792              		.file 25 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 793              		.file 26 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 23
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 liteos_imp.c
+T:\msys\tmp\ccK9zGVh.s:18     .text.liteos_reboot:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:27     .text.liteos_reboot:00000000 liteos_reboot
+T:\msys\tmp\ccK9zGVh.s:43     .text.__int_connect:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:50     .text.__int_connect:00000000 __int_connect
+T:\msys\tmp\ccK9zGVh.s:74     .text.__get_sys_time:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:81     .text.__get_sys_time:00000000 __get_sys_time
+T:\msys\tmp\ccK9zGVh.s:96     .text.__mem_free:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:103    .text.__mem_free:00000000 __mem_free
+T:\msys\tmp\ccK9zGVh.s:126    .text.__mem_free:0000000c $d
+T:\msys\tmp\ccK9zGVh.s:131    .text.__semp_del:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:138    .text.__semp_del:00000000 __semp_del
+T:\msys\tmp\ccK9zGVh.s:163    .text.__semp_post:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:170    .text.__semp_post:00000000 __semp_post
+T:\msys\tmp\ccK9zGVh.s:195    .text.__semp_pend:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:202    .text.__semp_pend:00000000 __semp_pend
+T:\msys\tmp\ccK9zGVh.s:228    .text.__semp_create:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:235    .text.__semp_create:00000000 __semp_create
+T:\msys\tmp\ccK9zGVh.s:272    .text.__mutex_del:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:279    .text.__mutex_del:00000000 __mutex_del
+T:\msys\tmp\ccK9zGVh.s:304    .text.__mutex_unlock:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:311    .text.__mutex_unlock:00000000 __mutex_unlock
+T:\msys\tmp\ccK9zGVh.s:336    .text.__mutex_lock:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:343    .text.__mutex_lock:00000000 __mutex_lock
+T:\msys\tmp\ccK9zGVh.s:369    .text.__mutex_create:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:376    .text.__mutex_create:00000000 __mutex_create
+T:\msys\tmp\ccK9zGVh.s:401    .text.__task_sleep:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:408    .text.__task_sleep:00000000 __task_sleep
+T:\msys\tmp\ccK9zGVh.s:425    .text.__task_exit:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:432    .text.__task_exit:00000000 __task_exit
+T:\msys\tmp\ccK9zGVh.s:464    .text.__task_kill:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:471    .text.__task_kill:00000000 __task_kill
+T:\msys\tmp\ccK9zGVh.s:517    .text.__task_create:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:524    .text.__task_create:00000000 __task_create
+T:\msys\tmp\ccK9zGVh.s:612    .text.__mem_malloc:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:619    .text.__mem_malloc:00000000 __mem_malloc
+T:\msys\tmp\ccK9zGVh.s:658    .text.__mem_malloc:00000010 $d
+T:\msys\tmp\ccK9zGVh.s:663    .text.los_mem_realloc:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:671    .text.los_mem_realloc:00000000 los_mem_realloc
+T:\msys\tmp\ccK9zGVh.s:697    .text.los_mem_realloc:0000000c $d
+T:\msys\tmp\ccK9zGVh.s:702    .text.os_imp_init:00000000 $t
+T:\msys\tmp\ccK9zGVh.s:710    .text.os_imp_init:00000000 os_imp_init
+T:\msys\tmp\ccK9zGVh.s:727    .text.os_imp_init:00000008 $d
+T:\msys\tmp\ccK9zGVh.s:732    .rodata.str1.4:00000000 $d
+T:\msys\tmp\ccK9zGVh.s:736    .rodata.s_link_liteos:00000000 $d
+T:\msys\tmp\ccK9zGVh.s:740    .rodata.s_link_liteos:00000000 s_link_liteos
+T:\msys\tmp\ccK9zGVh.s:747    .rodata.s_liteos_ops:00000000 s_liteos_ops
+T:\msys\tmp\ccK9zGVh.s:744    .rodata.s_liteos_ops:00000000 $d
+
+UNDEFINED SYMBOLS
+LOS_HwiCreate
+osKernelGetTickCount
+LOS_MemFree
+m_aucSysMem0
+LOS_SemDelete
+LOS_SemPost
+ARM GAS  T:\msys\tmp\ccK9zGVh.s 			page 24
+
+
+LOS_SemPend
+osSemCreate
+LOS_MuxDelete
+LOS_MuxPost
+LOS_MuxPend
+LOS_MuxCreate
+LOS_TaskDelay
+LOS_CurTaskIDGet
+LOS_TaskDelete
+LOS_TaskCreate
+LOS_MemAlloc
+LOS_MemRealloc
+osal_install

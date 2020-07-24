@@ -1,0 +1,448 @@
+ARM GAS  T:\msys\tmp\ccy1o2dx.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"newlib_stub.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text._execve_r,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	_execve_r
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	_execve_r:
+  28              	.LVL0:
+  29              	.LFB3:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/newl
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * Copyright (c) <2013-2018>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * ===============================================
+ARM GAS  T:\msys\tmp\ccy1o2dx.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** #include <reent.h>
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** #include <stdlib.h>
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** #include <errno.h>
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** #include <stdio.h>
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** int _execve_r(struct _reent *ptr, const char *name, char *const *argv, char *const *env)
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** {
+  31              		.loc 1 41 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     /* not support */
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     ptr->_errno = ENOTSUP;
+  36              		.loc 1 43 5 view .LVU1
+  37              		.loc 1 43 17 is_stmt 0 view .LVU2
+  38 0000 8623     		movs	r3, #134
+  39              	.LVL1:
+  40              		.loc 1 43 17 view .LVU3
+  41 0002 0360     		str	r3, [r0]
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     return -1;
+  42              		.loc 1 44 5 is_stmt 1 view .LVU4
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** }
+  43              		.loc 1 45 1 is_stmt 0 view .LVU5
+  44 0004 4FF0FF30 		mov	r0, #-1
+  45              	.LVL2:
+  46              		.loc 1 45 1 view .LVU6
+  47 0008 7047     		bx	lr
+  48              		.cfi_endproc
+  49              	.LFE3:
+  51 000a 00BF     		.section	.text._times_r,"ax",%progbits
+  52              		.align	1
+  53              		.p2align 2,,3
+  54              		.global	_times_r
+  55              		.syntax unified
+  56              		.thumb
+  57              		.thumb_func
+  58              		.fpu fpv4-sp-d16
+  60              	_times_r:
+  61              	.LVL3:
+  62              	.LFB4:
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** _CLOCK_T_ _times_r(struct _reent *ptr, struct tms *ptms)
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** {
+  63              		.loc 1 48 1 is_stmt 1 view -0
+  64              		.cfi_startproc
+  65              		@ args = 0, pretend = 0, frame = 0
+  66              		@ frame_needed = 0, uses_anonymous_args = 0
+  67              		@ link register save eliminated.
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     /* not support */
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     ptr->_errno = ENOTSUP;
+ARM GAS  T:\msys\tmp\ccy1o2dx.s 			page 3
+
+
+  68              		.loc 1 50 5 view .LVU8
+  69              		.loc 1 50 17 is_stmt 0 view .LVU9
+  70 0000 8623     		movs	r3, #134
+  71 0002 0360     		str	r3, [r0]
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     return (_CLOCK_T_)-1;
+  72              		.loc 1 51 5 is_stmt 1 view .LVU10
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** }
+  73              		.loc 1 52 1 is_stmt 0 view .LVU11
+  74 0004 4FF0FF30 		mov	r0, #-1
+  75              	.LVL4:
+  76              		.loc 1 52 1 view .LVU12
+  77 0008 7047     		bx	lr
+  78              		.cfi_endproc
+  79              	.LFE4:
+  81 000a 00BF     		.section	.text._unlink_r,"ax",%progbits
+  82              		.align	1
+  83              		.p2align 2,,3
+  84              		.global	_unlink_r
+  85              		.syntax unified
+  86              		.thumb
+  87              		.thumb_func
+  88              		.fpu fpv4-sp-d16
+  90              	_unlink_r:
+  91              	.LVL5:
+  92              	.LFB5:
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** int _unlink_r(struct _reent *ptr, const char *file)
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** {
+  93              		.loc 1 55 1 is_stmt 1 view -0
+  94              		.cfi_startproc
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97              		@ link register save eliminated.
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** //    return los_unlink (file);
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     return -1;
+  98              		.loc 1 57 5 view .LVU14
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** }
+  99              		.loc 1 58 1 is_stmt 0 view .LVU15
+ 100 0000 4FF0FF30 		mov	r0, #-1
+ 101              	.LVL6:
+ 102              		.loc 1 58 1 view .LVU16
+ 103 0004 7047     		bx	lr
+ 104              		.cfi_endproc
+ 105              	.LFE5:
+ 107 0006 00BF     		.section	.text._wait_r,"ax",%progbits
+ 108              		.align	1
+ 109              		.p2align 2,,3
+ 110              		.global	_wait_r
+ 111              		.syntax unified
+ 112              		.thumb
+ 113              		.thumb_func
+ 114              		.fpu fpv4-sp-d16
+ 116              	_wait_r:
+ 117              	.LVL7:
+ 118              	.LFB6:
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** int _wait_r(struct _reent *ptr, int *status)
+ARM GAS  T:\msys\tmp\ccy1o2dx.s 			page 4
+
+
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** {
+ 119              		.loc 1 61 1 is_stmt 1 view -0
+ 120              		.cfi_startproc
+ 121              		@ args = 0, pretend = 0, frame = 0
+ 122              		@ frame_needed = 0, uses_anonymous_args = 0
+ 123              		@ link register save eliminated.
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     /* not support */
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     ptr->_errno = ENOTSUP;
+ 124              		.loc 1 63 5 view .LVU18
+ 125              		.loc 1 63 17 is_stmt 0 view .LVU19
+ 126 0000 8623     		movs	r3, #134
+ 127 0002 0360     		str	r3, [r0]
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     return -1;
+ 128              		.loc 1 64 5 is_stmt 1 view .LVU20
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** }
+ 129              		.loc 1 65 1 is_stmt 0 view .LVU21
+ 130 0004 4FF0FF30 		mov	r0, #-1
+ 131              	.LVL8:
+ 132              		.loc 1 65 1 view .LVU22
+ 133 0008 7047     		bx	lr
+ 134              		.cfi_endproc
+ 135              	.LFE6:
+ 137 000a 00BF     		.section	.text._gettimeofday_r,"ax",%progbits
+ 138              		.align	1
+ 139              		.p2align 2,,3
+ 140              		.global	_gettimeofday_r
+ 141              		.syntax unified
+ 142              		.thumb
+ 143              		.thumb_func
+ 144              		.fpu fpv4-sp-d16
+ 146              	_gettimeofday_r:
+ 147              	.LVL9:
+ 148              	.LFB7:
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** int _gettimeofday_r(struct _reent *ptr, struct timeval *tv, void *__tzp)
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** {
+ 149              		.loc 1 68 1 is_stmt 1 view -0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153              		@ link register save eliminated.
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     /* not support */
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     ptr->_errno = ENOTSUP;
+ 154              		.loc 1 70 5 view .LVU24
+ 155              		.loc 1 70 17 is_stmt 0 view .LVU25
+ 156 0000 8623     		movs	r3, #134
+ 157 0002 0360     		str	r3, [r0]
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     return -1;
+ 158              		.loc 1 71 5 is_stmt 1 view .LVU26
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** }
+ 159              		.loc 1 72 1 is_stmt 0 view .LVU27
+ 160 0004 4FF0FF30 		mov	r0, #-1
+ 161              	.LVL10:
+ 162              		.loc 1 72 1 view .LVU28
+ 163 0008 7047     		bx	lr
+ 164              		.cfi_endproc
+ 165              	.LFE7:
+ARM GAS  T:\msys\tmp\ccy1o2dx.s 			page 5
+
+
+ 167 000a 00BF     		.section	.text._malloc_r,"ax",%progbits
+ 168              		.align	1
+ 169              		.p2align 2,,3
+ 170              		.global	_malloc_r
+ 171              		.syntax unified
+ 172              		.thumb
+ 173              		.thumb_func
+ 174              		.fpu fpv4-sp-d16
+ 176              	_malloc_r:
+ 177              	.LVL11:
+ 178              	.LFB8:
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** void *_malloc_r(struct _reent *ptr, size_t size)
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** {
+ 179              		.loc 1 75 1 is_stmt 1 view -0
+ 180              		.cfi_startproc
+ 181              		@ args = 0, pretend = 0, frame = 0
+ 182              		@ frame_needed = 0, uses_anonymous_args = 0
+ 183              		@ link register save eliminated.
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     return malloc(size);
+ 184              		.loc 1 76 5 view .LVU30
+ 185              		.loc 1 76 12 is_stmt 0 view .LVU31
+ 186 0000 0846     		mov	r0, r1
+ 187              	.LVL12:
+ 188              		.loc 1 76 12 view .LVU32
+ 189 0002 FFF7FEBF 		b	malloc
+ 190              	.LVL13:
+ 191              		.loc 1 76 12 view .LVU33
+ 192              		.cfi_endproc
+ 193              	.LFE8:
+ 195 0006 00BF     		.section	.text._realloc_r,"ax",%progbits
+ 196              		.align	1
+ 197              		.p2align 2,,3
+ 198              		.global	_realloc_r
+ 199              		.syntax unified
+ 200              		.thumb
+ 201              		.thumb_func
+ 202              		.fpu fpv4-sp-d16
+ 204              	_realloc_r:
+ 205              	.LVL14:
+ 206              	.LFB9:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** }
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** extern void *los_mem_realloc(void *old, int newlen);
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** void *_realloc_r(struct _reent *ptr, void *old, size_t newlen)
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** {
+ 207              		.loc 1 82 1 is_stmt 1 view -0
+ 208              		.cfi_startproc
+ 209              		@ args = 0, pretend = 0, frame = 0
+ 210              		@ frame_needed = 0, uses_anonymous_args = 0
+ 211              		@ link register save eliminated.
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     return los_mem_realloc (old, newlen);
+ 212              		.loc 1 83 5 view .LVU35
+ 213              		.loc 1 83 12 is_stmt 0 view .LVU36
+ 214 0000 0846     		mov	r0, r1
+ 215              	.LVL15:
+ARM GAS  T:\msys\tmp\ccy1o2dx.s 			page 6
+
+
+ 216              		.loc 1 83 12 view .LVU37
+ 217 0002 1146     		mov	r1, r2
+ 218              	.LVL16:
+ 219              		.loc 1 83 12 view .LVU38
+ 220 0004 FFF7FEBF 		b	los_mem_realloc
+ 221              	.LVL17:
+ 222              		.loc 1 83 12 view .LVU39
+ 223              		.cfi_endproc
+ 224              	.LFE9:
+ 226              		.section	.text._calloc_r,"ax",%progbits
+ 227              		.align	1
+ 228              		.p2align 2,,3
+ 229              		.global	_calloc_r
+ 230              		.syntax unified
+ 231              		.thumb
+ 232              		.thumb_func
+ 233              		.fpu fpv4-sp-d16
+ 235              	_calloc_r:
+ 236              	.LVL18:
+ 237              	.LFB10:
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** }
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** void *_calloc_r(struct _reent *ptr, size_t size, size_t len)
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** {
+ 238              		.loc 1 87 1 is_stmt 1 view -0
+ 239              		.cfi_startproc
+ 240              		@ args = 0, pretend = 0, frame = 0
+ 241              		@ frame_needed = 0, uses_anonymous_args = 0
+ 242              		@ link register save eliminated.
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     return calloc(size, len);
+ 243              		.loc 1 88 5 view .LVU41
+ 244              		.loc 1 88 12 is_stmt 0 view .LVU42
+ 245 0000 0846     		mov	r0, r1
+ 246              	.LVL19:
+ 247              		.loc 1 88 12 view .LVU43
+ 248 0002 1146     		mov	r1, r2
+ 249              	.LVL20:
+ 250              		.loc 1 88 12 view .LVU44
+ 251 0004 FFF7FEBF 		b	calloc
+ 252              	.LVL21:
+ 253              		.loc 1 88 12 view .LVU45
+ 254              		.cfi_endproc
+ 255              	.LFE10:
+ 257              		.section	.text._free_r,"ax",%progbits
+ 258              		.align	1
+ 259              		.p2align 2,,3
+ 260              		.global	_free_r
+ 261              		.syntax unified
+ 262              		.thumb
+ 263              		.thumb_func
+ 264              		.fpu fpv4-sp-d16
+ 266              	_free_r:
+ 267              	.LVL22:
+ 268              	.LFB11:
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** }
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** void _free_r(struct _reent *ptr, void *addr)
+ARM GAS  T:\msys\tmp\ccy1o2dx.s 			page 7
+
+
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** {
+ 269              		.loc 1 92 1 is_stmt 1 view -0
+ 270              		.cfi_startproc
+ 271              		@ args = 0, pretend = 0, frame = 0
+ 272              		@ frame_needed = 0, uses_anonymous_args = 0
+ 273              		@ link register save eliminated.
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c ****     free(addr);
+ 274              		.loc 1 93 5 view .LVU47
+ 275 0000 0846     		mov	r0, r1
+ 276              	.LVL23:
+ 277              		.loc 1 93 5 is_stmt 0 view .LVU48
+ 278 0002 FFF7FEBF 		b	free
+ 279              	.LVL24:
+ 280              		.loc 1 93 5 view .LVU49
+ 281              		.cfi_endproc
+ 282              	.LFE11:
+ 284 0006 00BF     		.section	.text._system,"ax",%progbits
+ 285              		.align	1
+ 286              		.p2align 2,,3
+ 287              		.global	_system
+ 288              		.syntax unified
+ 289              		.thumb
+ 290              		.thumb_func
+ 291              		.fpu fpv4-sp-d16
+ 293              	_system:
+ 294              	.LVL25:
+ 295              	.LFB12:
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** }
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** 
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** void _system(const char *s)
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** {
+ 296              		.loc 1 99 1 is_stmt 1 view -0
+ 297              		.cfi_startproc
+ 298              		@ args = 0, pretend = 0, frame = 0
+ 299              		@ frame_needed = 0, uses_anonymous_args = 0
+ 300              		@ link register save eliminated.
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos\newlib_stub.c **** }
+ 301              		.loc 1 100 1 view .LVU51
+ 302 0000 7047     		bx	lr
+ 303              		.cfi_endproc
+ 304              	.LFE12:
+ 306 0002 00BF     		.text
+ 307              	.Letext0:
+ 308              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 309              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 310              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 311              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 312              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 313              		.file 7 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\stdlib.h
+ 314              		.file 8 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\err
+ 315              		.file 9 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ti
+ 316              		.file 10 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\reent.h
+ARM GAS  T:\msys\tmp\ccy1o2dx.s 			page 8
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 newlib_stub.c
+T:\msys\tmp\ccy1o2dx.s:18     .text._execve_r:00000000 $t
+T:\msys\tmp\ccy1o2dx.s:27     .text._execve_r:00000000 _execve_r
+T:\msys\tmp\ccy1o2dx.s:52     .text._times_r:00000000 $t
+T:\msys\tmp\ccy1o2dx.s:60     .text._times_r:00000000 _times_r
+T:\msys\tmp\ccy1o2dx.s:82     .text._unlink_r:00000000 $t
+T:\msys\tmp\ccy1o2dx.s:90     .text._unlink_r:00000000 _unlink_r
+T:\msys\tmp\ccy1o2dx.s:108    .text._wait_r:00000000 $t
+T:\msys\tmp\ccy1o2dx.s:116    .text._wait_r:00000000 _wait_r
+T:\msys\tmp\ccy1o2dx.s:138    .text._gettimeofday_r:00000000 $t
+T:\msys\tmp\ccy1o2dx.s:146    .text._gettimeofday_r:00000000 _gettimeofday_r
+T:\msys\tmp\ccy1o2dx.s:168    .text._malloc_r:00000000 $t
+T:\msys\tmp\ccy1o2dx.s:176    .text._malloc_r:00000000 _malloc_r
+T:\msys\tmp\ccy1o2dx.s:196    .text._realloc_r:00000000 $t
+T:\msys\tmp\ccy1o2dx.s:204    .text._realloc_r:00000000 _realloc_r
+T:\msys\tmp\ccy1o2dx.s:227    .text._calloc_r:00000000 $t
+T:\msys\tmp\ccy1o2dx.s:235    .text._calloc_r:00000000 _calloc_r
+T:\msys\tmp\ccy1o2dx.s:258    .text._free_r:00000000 $t
+T:\msys\tmp\ccy1o2dx.s:266    .text._free_r:00000000 _free_r
+T:\msys\tmp\ccy1o2dx.s:285    .text._system:00000000 $t
+T:\msys\tmp\ccy1o2dx.s:293    .text._system:00000000 _system
+
+UNDEFINED SYMBOLS
+malloc
+los_mem_realloc
+calloc
+free

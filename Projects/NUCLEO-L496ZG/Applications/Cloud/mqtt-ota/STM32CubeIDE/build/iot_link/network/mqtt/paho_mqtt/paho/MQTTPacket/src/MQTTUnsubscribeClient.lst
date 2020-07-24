@@ -1,0 +1,489 @@
+ARM GAS  T:\msys\tmp\cc61OZEf.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"MQTTUnsubscribeClient.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.MQTTSerialize_unsubscribeLength,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	MQTTSerialize_unsubscribeLength
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	MQTTSerialize_unsubscribeLength:
+  28              	.LVL0:
+  29              	.LFB3:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/p
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** /*******************************************************************************
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  * Copyright (c) 2014 IBM Corp.
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  *
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  * All rights reserved. This program and the accompanying materials
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  * are made available under the terms of the Eclipse Public License v1.0
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  * and Eclipse Distribution License v1.0 which accompany this distribution.
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  *
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  * The Eclipse Public License is available at
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  *    http://www.eclipse.org/legal/epl-v10.html
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  * and the Eclipse Distribution License is available at
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  *   http://www.eclipse.org/org/documents/edl-v10.php.
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  *
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  * Contributors:
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  *    Ian Craggs - initial API and implementation and/or initial documentation
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****  *******************************************************************************/
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** #include "MQTTPacket.h"
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** #include "StackTrace.h"
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** #include <string.h>
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** /**
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * Determines the length of the MQTT unsubscribe packet that would be produced using the supplied 
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @param count the number of topic filter strings in topicFilters
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @param topicFilters the array of topic filter strings to be used in the publish
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @return the length of buffer needed to contain the serialized version of the packet
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   */
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** int MQTTSerialize_unsubscribeLength(int count, MQTTString topicFilters[])
+ARM GAS  T:\msys\tmp\cc61OZEf.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** {
+  31              		.loc 1 29 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	int i;
+  35              		.loc 1 30 2 view .LVU1
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	int len = 2; /* packetid */
+  36              		.loc 1 31 2 view .LVU2
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	for (i = 0; i < count; ++i)
+  37              		.loc 1 33 2 view .LVU3
+  38              		.loc 1 33 14 view .LVU4
+  39              		.loc 1 33 2 is_stmt 0 view .LVU5
+  40 0000 0028     		cmp	r0, #0
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	int i;
+  41              		.loc 1 29 1 view .LVU6
+  42 0002 70B5     		push	{r4, r5, r6, lr}
+  43              	.LCFI0:
+  44              		.cfi_def_cfa_offset 16
+  45              		.cfi_offset 4, -16
+  46              		.cfi_offset 5, -12
+  47              		.cfi_offset 6, -8
+  48              		.cfi_offset 14, -4
+  49              		.loc 1 33 2 view .LVU7
+  50 0004 10DD     		ble	.L4
+  51 0006 00EB4000 		add	r0, r0, r0, lsl #1
+  52              	.LVL1:
+  53              		.loc 1 33 2 view .LVU8
+  54 000a 0C46     		mov	r4, r1
+  55 000c 01EB8006 		add	r6, r1, r0, lsl #2
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	int len = 2; /* packetid */
+  56              		.loc 1 31 6 view .LVU9
+  57 0010 0225     		movs	r5, #2
+  58              	.LVL2:
+  59              	.L3:
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		len += 2 + MQTTstrlen(topicFilters[i]); /* length + topic*/
+  60              		.loc 1 34 3 is_stmt 1 discriminator 3 view .LVU10
+  61              		.loc 1 34 14 is_stmt 0 discriminator 3 view .LVU11
+  62 0012 94E80700 		ldm	r4, {r0, r1, r2}
+  63 0016 FFF7FEFF 		bl	MQTTstrlen
+  64              	.LVL3:
+  65 001a 0C34     		adds	r4, r4, #12
+  66              		.loc 1 34 12 discriminator 3 view .LVU12
+  67 001c 0230     		adds	r0, r0, #2
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		len += 2 + MQTTstrlen(topicFilters[i]); /* length + topic*/
+  68              		.loc 1 33 2 discriminator 3 view .LVU13
+  69 001e B442     		cmp	r4, r6
+  70              		.loc 1 34 7 discriminator 3 view .LVU14
+  71 0020 0544     		add	r5, r5, r0
+  72              	.LVL4:
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		len += 2 + MQTTstrlen(topicFilters[i]); /* length + topic*/
+  73              		.loc 1 33 25 is_stmt 1 discriminator 3 view .LVU15
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		len += 2 + MQTTstrlen(topicFilters[i]); /* length + topic*/
+  74              		.loc 1 33 14 discriminator 3 view .LVU16
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		len += 2 + MQTTstrlen(topicFilters[i]); /* length + topic*/
+  75              		.loc 1 33 2 is_stmt 0 discriminator 3 view .LVU17
+ARM GAS  T:\msys\tmp\cc61OZEf.s 			page 3
+
+
+  76 0022 F6D1     		bne	.L3
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	return len;
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** }
+  77              		.loc 1 36 1 view .LVU18
+  78 0024 2846     		mov	r0, r5
+  79 0026 70BD     		pop	{r4, r5, r6, pc}
+  80              	.LVL5:
+  81              	.L4:
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  82              		.loc 1 31 6 view .LVU19
+  83 0028 0225     		movs	r5, #2
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	return len;
+  84              		.loc 1 35 2 is_stmt 1 view .LVU20
+  85              		.loc 1 36 1 is_stmt 0 view .LVU21
+  86 002a 2846     		mov	r0, r5
+  87              	.LVL6:
+  88              		.loc 1 36 1 view .LVU22
+  89 002c 70BD     		pop	{r4, r5, r6, pc}
+  90              		.cfi_endproc
+  91              	.LFE3:
+  93 002e 00BF     		.section	.text.MQTTSerialize_unsubscribe,"ax",%progbits
+  94              		.align	1
+  95              		.p2align 2,,3
+  96              		.global	MQTTSerialize_unsubscribe
+  97              		.syntax unified
+  98              		.thumb
+  99              		.thumb_func
+ 100              		.fpu fpv4-sp-d16
+ 102              	MQTTSerialize_unsubscribe:
+ 103              	.LVL7:
+ 104              	.LFB4:
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** /**
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * Serializes the supplied unsubscribe data into the supplied buffer, ready for sending
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @param buf the raw buffer data, of the correct length determined by the remaining length field
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @param buflen the length in bytes of the data in the supplied buffer
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @param dup integer - the MQTT dup flag
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @param packetid integer - the MQTT packet identifier
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @param count - number of members in the topicFilters array
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @param topicFilters - array of topic filter names
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @return the length of the serialized data.  <= 0 indicates error
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   */
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** int MQTTSerialize_unsubscribe(unsigned char* buf, int buflen, unsigned char dup, unsigned short pac
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		int count, MQTTString topicFilters[])
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** {
+ 105              		.loc 1 51 1 is_stmt 1 view -0
+ 106              		.cfi_startproc
+ 107              		@ args = 8, pretend = 0, frame = 8
+ 108              		@ frame_needed = 0, uses_anonymous_args = 0
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char *ptr = buf;
+ 109              		.loc 1 52 2 view .LVU24
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char *ptr = buf;
+ 110              		.loc 1 51 1 is_stmt 0 view .LVU25
+ 111 0000 2DE9F043 		push	{r4, r5, r6, r7, r8, r9, lr}
+ 112              	.LCFI1:
+ 113              		.cfi_def_cfa_offset 28
+ARM GAS  T:\msys\tmp\cc61OZEf.s 			page 4
+
+
+ 114              		.cfi_offset 4, -28
+ 115              		.cfi_offset 5, -24
+ 116              		.cfi_offset 6, -20
+ 117              		.cfi_offset 7, -16
+ 118              		.cfi_offset 8, -12
+ 119              		.cfi_offset 9, -8
+ 120              		.cfi_offset 14, -4
+ 121 0004 83B0     		sub	sp, sp, #12
+ 122              	.LCFI2:
+ 123              		.cfi_def_cfa_offset 40
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char *ptr = buf;
+ 124              		.loc 1 51 1 view .LVU26
+ 125 0006 0646     		mov	r6, r0
+ 126 0008 0A9D     		ldr	r5, [sp, #40]
+ 127              		.loc 1 52 17 view .LVU27
+ 128 000a 0196     		str	r6, [sp, #4]
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	MQTTHeader header = {0};
+ 129              		.loc 1 53 2 is_stmt 1 view .LVU28
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	int rem_len = 0;
+ 130              		.loc 1 54 2 view .LVU29
+ 131              	.LVL8:
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	int rc = -1;
+ 132              		.loc 1 55 2 view .LVU30
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	int i = 0;
+ 133              		.loc 1 56 2 view .LVU31
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	FUNC_ENTRY;
+ 134              		.loc 1 58 12 view .LVU32
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	if (MQTTPacket_len(rem_len = MQTTSerialize_unsubscribeLength(count, topicFilters)) > buflen)
+ 135              		.loc 1 59 2 view .LVU33
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char *ptr = buf;
+ 136              		.loc 1 51 1 is_stmt 0 view .LVU34
+ 137 000c 0F46     		mov	r7, r1
+ 138              		.loc 1 59 31 view .LVU35
+ 139 000e 2846     		mov	r0, r5
+ 140              	.LVL9:
+ 141              		.loc 1 59 31 view .LVU36
+ 142 0010 0B99     		ldr	r1, [sp, #44]
+ 143              	.LVL10:
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char *ptr = buf;
+ 144              		.loc 1 51 1 view .LVU37
+ 145 0012 1446     		mov	r4, r2
+ 146 0014 9846     		mov	r8, r3
+ 147              		.loc 1 59 31 view .LVU38
+ 148 0016 FFF7FEFF 		bl	MQTTSerialize_unsubscribeLength
+ 149              	.LVL11:
+ 150              		.loc 1 59 31 view .LVU39
+ 151 001a 8146     		mov	r9, r0
+ 152              	.LVL12:
+ 153              		.loc 1 59 6 view .LVU40
+ 154 001c FFF7FEFF 		bl	MQTTPacket_len
+ 155              	.LVL13:
+ 156              		.loc 1 59 5 view .LVU41
+ 157 0020 B842     		cmp	r0, r7
+ 158 0022 26DC     		bgt	.L12
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	{
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		rc = MQTTPACKET_BUFFER_TOO_SHORT;
+ARM GAS  T:\msys\tmp\cc61OZEf.s 			page 5
+
+
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		goto exit;
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	}
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	header.byte = 0;
+ 159              		.loc 1 65 2 is_stmt 1 view .LVU42
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	header.bits.type = UNSUBSCRIBE;
+ 160              		.loc 1 66 2 view .LVU43
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	header.bits.dup = dup;
+ 161              		.loc 1 67 2 view .LVU44
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	header.bits.qos = 1;
+ 162              		.loc 1 68 2 view .LVU45
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	writeChar(&ptr, header.byte); /* write header */
+ 163              		.loc 1 69 2 view .LVU46
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	header.bits.qos = 1;
+ 164              		.loc 1 68 18 is_stmt 0 view .LVU47
+ 165 0024 E100     		lsls	r1, r4, #3
+ 166 0026 01F00801 		and	r1, r1, #8
+ 167              		.loc 1 69 2 view .LVU48
+ 168 002a 41F0A201 		orr	r1, r1, #162
+ 169 002e 01A8     		add	r0, sp, #4
+ 170 0030 FFF7FEFF 		bl	writeChar
+ 171              	.LVL14:
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	ptr += MQTTPacket_encode(ptr, rem_len); /* write remaining length */;
+ 172              		.loc 1 71 2 is_stmt 1 view .LVU49
+ 173              		.loc 1 71 9 is_stmt 0 view .LVU50
+ 174 0034 4946     		mov	r1, r9
+ 175 0036 0198     		ldr	r0, [sp, #4]
+ 176 0038 FFF7FEFF 		bl	MQTTPacket_encode
+ 177              	.LVL15:
+ 178              		.loc 1 71 6 view .LVU51
+ 179 003c 019B     		ldr	r3, [sp, #4]
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	writeInt(&ptr, packetid);
+ 180              		.loc 1 73 2 view .LVU52
+ 181 003e 4146     		mov	r1, r8
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+ 182              		.loc 1 71 6 view .LVU53
+ 183 0040 0344     		add	r3, r3, r0
+ 184              		.loc 1 73 2 view .LVU54
+ 185 0042 01A8     		add	r0, sp, #4
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+ 186              		.loc 1 71 6 view .LVU55
+ 187 0044 0193     		str	r3, [sp, #4]
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+ 188              		.loc 1 71 70 is_stmt 1 view .LVU56
+ 189              		.loc 1 73 2 view .LVU57
+ 190 0046 FFF7FEFF 		bl	writeInt
+ 191              	.LVL16:
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	for (i = 0; i < count; ++i)
+ 192              		.loc 1 75 2 view .LVU58
+ 193              		.loc 1 75 14 view .LVU59
+ 194              		.loc 1 75 2 is_stmt 0 view .LVU60
+ 195 004a 002D     		cmp	r5, #0
+ 196 004c 0CDD     		ble	.L10
+ 197 004e 0B9C     		ldr	r4, [sp, #44]
+ARM GAS  T:\msys\tmp\cc61OZEf.s 			page 6
+
+
+ 198 0050 05EB4505 		add	r5, r5, r5, lsl #1
+ 199 0054 04EB8505 		add	r5, r4, r5, lsl #2
+ 200              	.LVL17:
+ 201              	.L11:
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		writeMQTTString(&ptr, topicFilters[i]);
+ 202              		.loc 1 76 3 is_stmt 1 discriminator 3 view .LVU61
+ 203 0058 94E80E00 		ldm	r4, {r1, r2, r3}
+ 204 005c 01A8     		add	r0, sp, #4
+ 205 005e 0C34     		adds	r4, r4, #12
+ 206 0060 FFF7FEFF 		bl	writeMQTTString
+ 207              	.LVL18:
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		writeMQTTString(&ptr, topicFilters[i]);
+ 208              		.loc 1 75 25 discriminator 3 view .LVU62
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		writeMQTTString(&ptr, topicFilters[i]);
+ 209              		.loc 1 75 14 discriminator 3 view .LVU63
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		writeMQTTString(&ptr, topicFilters[i]);
+ 210              		.loc 1 75 2 is_stmt 0 discriminator 3 view .LVU64
+ 211 0064 AC42     		cmp	r4, r5
+ 212 0066 F7D1     		bne	.L11
+ 213              	.L10:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	rc = ptr - buf;
+ 214              		.loc 1 78 2 is_stmt 1 view .LVU65
+ 215              		.loc 1 78 5 is_stmt 0 view .LVU66
+ 216 0068 0198     		ldr	r0, [sp, #4]
+ 217 006a 801B     		subs	r0, r0, r6
+ 218              	.LVL19:
+ 219              	.L8:
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** exit:
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	FUNC_EXIT_RC(rc);
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	return rc;
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** }
+ 220              		.loc 1 82 1 view .LVU67
+ 221 006c 03B0     		add	sp, sp, #12
+ 222              	.LCFI3:
+ 223              		.cfi_remember_state
+ 224              		.cfi_def_cfa_offset 28
+ 225              		@ sp needed
+ 226 006e BDE8F083 		pop	{r4, r5, r6, r7, r8, r9, pc}
+ 227              	.LVL20:
+ 228              	.L12:
+ 229              	.LCFI4:
+ 230              		.cfi_restore_state
+ 231              	.L9:
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		goto exit;
+ 232              		.loc 1 61 6 view .LVU68
+ 233 0072 6FF00100 		mvn	r0, #1
+ 234              	.LVL21:
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	return rc;
+ 235              		.loc 1 80 18 is_stmt 1 view .LVU69
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** }
+ 236              		.loc 1 81 2 view .LVU70
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** }
+ 237              		.loc 1 81 9 is_stmt 0 view .LVU71
+ 238 0076 F9E7     		b	.L8
+ 239              		.cfi_endproc
+ 240              	.LFE4:
+ARM GAS  T:\msys\tmp\cc61OZEf.s 			page 7
+
+
+ 242              		.section	.text.MQTTDeserialize_unsuback,"ax",%progbits
+ 243              		.align	1
+ 244              		.p2align 2,,3
+ 245              		.global	MQTTDeserialize_unsuback
+ 246              		.syntax unified
+ 247              		.thumb
+ 248              		.thumb_func
+ 249              		.fpu fpv4-sp-d16
+ 251              	MQTTDeserialize_unsuback:
+ 252              	.LVL22:
+ 253              	.LFB5:
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** /**
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * Deserializes the supplied (wire) buffer into unsuback data
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @param packetid returned integer - the MQTT packet identifier
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @param buf the raw buffer data, of the correct length determined by the remaining length field
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @param buflen the length in bytes of the data in the supplied buffer
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   * @return error code.  1 is success, 0 is failure
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c ****   */
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** int MQTTDeserialize_unsuback(unsigned short* packetid, unsigned char* buf, int buflen)
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** {
+ 254              		.loc 1 93 1 is_stmt 1 view -0
+ 255              		.cfi_startproc
+ 256              		@ args = 0, pretend = 0, frame = 8
+ 257              		@ frame_needed = 0, uses_anonymous_args = 0
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char type = 0;
+ 258              		.loc 1 94 2 view .LVU73
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char type = 0;
+ 259              		.loc 1 93 1 is_stmt 0 view .LVU74
+ 260 0000 10B5     		push	{r4, lr}
+ 261              	.LCFI5:
+ 262              		.cfi_def_cfa_offset 8
+ 263              		.cfi_offset 4, -8
+ 264              		.cfi_offset 14, -4
+ 265 0002 84B0     		sub	sp, sp, #16
+ 266              	.LCFI6:
+ 267              		.cfi_def_cfa_offset 24
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char type = 0;
+ 268              		.loc 1 93 1 view .LVU75
+ 269 0004 0B46     		mov	r3, r1
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char dup = 0;
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	int rc = 0;
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	FUNC_ENTRY;
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	rc = MQTTDeserialize_ack(&type, &dup, packetid, buf, buflen);
+ 270              		.loc 1 99 7 view .LVU76
+ 271 0006 0092     		str	r2, [sp]
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char dup = 0;
+ 272              		.loc 1 94 16 view .LVU77
+ 273 0008 0024     		movs	r4, #0
+ 274              		.loc 1 99 7 view .LVU78
+ 275 000a 0246     		mov	r2, r0
+ 276              	.LVL23:
+ 277              		.loc 1 99 7 view .LVU79
+ 278 000c 0DF10F01 		add	r1, sp, #15
+ 279              	.LVL24:
+ARM GAS  T:\msys\tmp\cc61OZEf.s 			page 8
+
+
+ 280              		.loc 1 99 7 view .LVU80
+ 281 0010 0DF10E00 		add	r0, sp, #14
+ 282              	.LVL25:
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char dup = 0;
+ 283              		.loc 1 94 16 view .LVU81
+ 284 0014 8DF80E40 		strb	r4, [sp, #14]
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char dup = 0;
+ 285              		.loc 1 95 2 is_stmt 1 view .LVU82
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	unsigned char dup = 0;
+ 286              		.loc 1 95 16 is_stmt 0 view .LVU83
+ 287 0018 8DF80F40 		strb	r4, [sp, #15]
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 
+ 288              		.loc 1 96 2 is_stmt 1 view .LVU84
+ 289              	.LVL26:
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	rc = MQTTDeserialize_ack(&type, &dup, packetid, buf, buflen);
+ 290              		.loc 1 98 12 view .LVU85
+ 291              		.loc 1 99 2 view .LVU86
+ 292              		.loc 1 99 7 is_stmt 0 view .LVU87
+ 293 001c FFF7FEFF 		bl	MQTTDeserialize_ack
+ 294              	.LVL27:
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	if (type == UNSUBACK)
+ 295              		.loc 1 100 2 is_stmt 1 view .LVU88
+ 296              		.loc 1 100 5 is_stmt 0 view .LVU89
+ 297 0020 9DF80E30 		ldrb	r3, [sp, #14]	@ zero_extendqisi2
+ 298 0024 0B2B     		cmp	r3, #11
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 		rc = 1;
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	FUNC_EXIT_RC(rc);
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** 	return rc;
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/paho_mqtt/paho/MQTTPacket/src\MQTTUnsubscribeClient.c **** }
+ 299              		.loc 1 104 1 view .LVU90
+ 300 0026 08BF     		it	eq
+ 301 0028 0120     		moveq	r0, #1
+ 302 002a 04B0     		add	sp, sp, #16
+ 303              	.LCFI7:
+ 304              		.cfi_def_cfa_offset 8
+ 305              		@ sp needed
+ 306 002c 10BD     		pop	{r4, pc}
+ 307              		.cfi_endproc
+ 308              	.LFE5:
+ 310 002e 00BF     		.text
+ 311              	.Letext0:
+ 312              		.file 2 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/mqtt/p
+ 313              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 314              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 315              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 316              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ARM GAS  T:\msys\tmp\cc61OZEf.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 MQTTUnsubscribeClient.c
+T:\msys\tmp\cc61OZEf.s:18     .text.MQTTSerialize_unsubscribeLength:00000000 $t
+T:\msys\tmp\cc61OZEf.s:27     .text.MQTTSerialize_unsubscribeLength:00000000 MQTTSerialize_unsubscribeLength
+T:\msys\tmp\cc61OZEf.s:94     .text.MQTTSerialize_unsubscribe:00000000 $t
+T:\msys\tmp\cc61OZEf.s:102    .text.MQTTSerialize_unsubscribe:00000000 MQTTSerialize_unsubscribe
+T:\msys\tmp\cc61OZEf.s:243    .text.MQTTDeserialize_unsuback:00000000 $t
+T:\msys\tmp\cc61OZEf.s:251    .text.MQTTDeserialize_unsuback:00000000 MQTTDeserialize_unsuback
+
+UNDEFINED SYMBOLS
+MQTTstrlen
+MQTTPacket_len
+writeChar
+MQTTPacket_encode
+writeInt
+writeMQTTString
+MQTTDeserialize_ack

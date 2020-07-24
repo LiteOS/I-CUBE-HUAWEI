@@ -1,0 +1,300 @@
+ARM GAS  T:\msys\tmp\ccLwyYoI.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"link_log.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.link_log_level_set,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	link_log_level_set
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	link_log_level_set:
+  28              	.LVL0:
+  29              	.LFB3:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log/link_
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * ===============================================
+ARM GAS  T:\msys\tmp\ccLwyYoI.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** /**
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  *  DATE                AUTHOR      INSTRUCTION
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  *  2019-12-19 14:34  zhangqianfu  The first version
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  *
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****  */
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** 
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** #include <string.h>
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** #include <stdio.h>
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** #include <link_log.h>
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** 
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** static en_link_log_level_t s_link_log_level = EN_LINK_LOG_LEVEL_TRACE;
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** static const char *s_link_log_names[] =
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** {
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     "TRACE",
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     "DEBUG",
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     "INFO ",
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     "WARN ",
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     "ERROR",
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     "FATAL"
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** };
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** 
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** int link_log_level_set(en_link_log_level_t level)
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** {
+  31              		.loc 1 56 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     int ret = -1;
+  36              		.loc 1 57 5 view .LVU1
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     if(level < EN_LINK_LOG_LEVEL_MAX )
+  37              		.loc 1 58 5 view .LVU2
+  38              		.loc 1 58 7 is_stmt 0 view .LVU3
+  39 0000 0528     		cmp	r0, #5
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     {
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****         s_link_log_level = level;
+  40              		.loc 1 60 9 is_stmt 1 view .LVU4
+  41              		.loc 1 60 26 is_stmt 0 view .LVU5
+  42 0002 98BF     		it	ls
+  43 0004 034A     		ldrls	r2, .L5
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     int ret = -1;
+  44              		.loc 1 56 1 view .LVU6
+  45 0006 0346     		mov	r3, r0
+  46              		.loc 1 60 26 view .LVU7
+  47 0008 9ABF     		itte	ls
+  48 000a 1370     		strbls	r3, [r2]
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****         ret = 0;
+  49              		.loc 1 61 9 is_stmt 1 view .LVU8
+  50              	.LVL1:
+  51              		.loc 1 61 13 is_stmt 0 view .LVU9
+  52 000c 0020     		movls	r0, #0
+  53              	.LVL2:
+ARM GAS  T:\msys\tmp\ccLwyYoI.s 			page 3
+
+
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     if(level < EN_LINK_LOG_LEVEL_MAX )
+  54              		.loc 1 57 9 view .LVU10
+  55 000e 4FF0FF30 		movhi	r0, #-1
+  56              	.LVL3:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     }
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     return ret;
+  57              		.loc 1 63 5 is_stmt 1 view .LVU11
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** }
+  58              		.loc 1 64 1 is_stmt 0 view .LVU12
+  59 0012 7047     		bx	lr
+  60              	.L6:
+  61              		.align	2
+  62              	.L5:
+  63 0014 00000000 		.word	.LANCHOR0
+  64              		.cfi_endproc
+  65              	.LFE3:
+  67              		.section	.text.link_log_level_get,"ax",%progbits
+  68              		.align	1
+  69              		.p2align 2,,3
+  70              		.global	link_log_level_get
+  71              		.syntax unified
+  72              		.thumb
+  73              		.thumb_func
+  74              		.fpu fpv4-sp-d16
+  76              	link_log_level_get:
+  77              	.LFB4:
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** 
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** en_link_log_level_t link_log_level_get(void)
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** {
+  78              		.loc 1 67 1 is_stmt 1 view -0
+  79              		.cfi_startproc
+  80              		@ args = 0, pretend = 0, frame = 0
+  81              		@ frame_needed = 0, uses_anonymous_args = 0
+  82              		@ link register save eliminated.
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     return s_link_log_level;
+  83              		.loc 1 68 5 view .LVU14
+  84              		.loc 1 68 12 is_stmt 0 view .LVU15
+  85 0000 014B     		ldr	r3, .L8
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** }
+  86              		.loc 1 69 1 view .LVU16
+  87 0002 1878     		ldrb	r0, [r3]	@ zero_extendqisi2
+  88 0004 7047     		bx	lr
+  89              	.L9:
+  90 0006 00BF     		.align	2
+  91              	.L8:
+  92 0008 00000000 		.word	.LANCHOR0
+  93              		.cfi_endproc
+  94              	.LFE4:
+  96              		.section	.rodata.link_log_level_name.str1.4,"aMS",%progbits,1
+  97              		.align	2
+  98              	.LC0:
+  99 0000 4E554C4C 		.ascii	"NULL \000"
+  99      2000
+ 100              		.section	.text.link_log_level_name,"ax",%progbits
+ 101              		.align	1
+ 102              		.p2align 2,,3
+ 103              		.global	link_log_level_name
+ARM GAS  T:\msys\tmp\ccLwyYoI.s 			page 4
+
+
+ 104              		.syntax unified
+ 105              		.thumb
+ 106              		.thumb_func
+ 107              		.fpu fpv4-sp-d16
+ 109              	link_log_level_name:
+ 110              	.LVL4:
+ 111              	.LFB5:
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** 
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** const char *link_log_level_name(en_link_log_level_t log_level)
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** {
+ 112              		.loc 1 72 1 is_stmt 1 view -0
+ 113              		.cfi_startproc
+ 114              		@ args = 0, pretend = 0, frame = 0
+ 115              		@ frame_needed = 0, uses_anonymous_args = 0
+ 116              		@ link register save eliminated.
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     if (log_level >= EN_LINK_LOG_LEVEL_MAX)
+ 117              		.loc 1 73 5 view .LVU18
+ 118              		.loc 1 73 8 is_stmt 0 view .LVU19
+ 119 0000 0528     		cmp	r0, #5
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     {
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****         return "NULL ";
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     }
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     else
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     {
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****         return s_link_log_names[log_level];
+ 120              		.loc 1 79 9 is_stmt 1 view .LVU20
+ 121              		.loc 1 79 32 is_stmt 0 view .LVU21
+ 122 0002 9ABF     		itte	ls
+ 123 0004 024B     		ldrls	r3, .L13
+ 124 0006 53F82000 		ldrls	r0, [r3, r0, lsl #2]
+ 125              	.LVL5:
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     }
+ 126              		.loc 1 75 16 view .LVU22
+ 127 000a 0248     		ldrhi	r0, .L13+4
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c ****     }
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** 
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/link_log\link_log.c **** }
+ 128              		.loc 1 82 1 view .LVU23
+ 129 000c 7047     		bx	lr
+ 130              	.L14:
+ 131 000e 00BF     		.align	2
+ 132              	.L13:
+ 133 0010 00000000 		.word	.LANCHOR1
+ 134 0014 00000000 		.word	.LC0
+ 135              		.cfi_endproc
+ 136              	.LFE5:
+ 138              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 139              		.align	2
+ 140              	.LC1:
+ 141 0000 54524143 		.ascii	"TRACE\000"
+ 141      4500
+ 142 0006 0000     		.align	2
+ 143              	.LC2:
+ 144 0008 44454255 		.ascii	"DEBUG\000"
+ 144      4700
+ 145 000e 0000     		.align	2
+ 146              	.LC3:
+ARM GAS  T:\msys\tmp\ccLwyYoI.s 			page 5
+
+
+ 147 0010 494E464F 		.ascii	"INFO \000"
+ 147      2000
+ 148 0016 0000     		.align	2
+ 149              	.LC4:
+ 150 0018 5741524E 		.ascii	"WARN \000"
+ 150      2000
+ 151 001e 0000     		.align	2
+ 152              	.LC5:
+ 153 0020 4552524F 		.ascii	"ERROR\000"
+ 153      5200
+ 154 0026 0000     		.align	2
+ 155              	.LC6:
+ 156 0028 46415441 		.ascii	"FATAL\000"
+ 156      4C00
+ 157              		.section	.bss.s_link_log_level,"aw",%nobits
+ 158              		.set	.LANCHOR0,. + 0
+ 161              	s_link_log_level:
+ 162 0000 00       		.space	1
+ 163              		.section	.rodata.s_link_log_names,"a"
+ 164              		.align	2
+ 165              		.set	.LANCHOR1,. + 0
+ 168              	s_link_log_names:
+ 169 0000 00000000 		.word	.LC1
+ 170 0004 08000000 		.word	.LC2
+ 171 0008 10000000 		.word	.LC3
+ 172 000c 18000000 		.word	.LC4
+ 173 0010 20000000 		.word	.LC5
+ 174 0014 28000000 		.word	.LC6
+ 175              		.text
+ 176              	.Letext0:
+ 177              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 178              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 179              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 180              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 181              		.file 6 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/inc/link_log.h
+ARM GAS  T:\msys\tmp\ccLwyYoI.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 link_log.c
+T:\msys\tmp\ccLwyYoI.s:18     .text.link_log_level_set:00000000 $t
+T:\msys\tmp\ccLwyYoI.s:27     .text.link_log_level_set:00000000 link_log_level_set
+T:\msys\tmp\ccLwyYoI.s:63     .text.link_log_level_set:00000014 $d
+T:\msys\tmp\ccLwyYoI.s:68     .text.link_log_level_get:00000000 $t
+T:\msys\tmp\ccLwyYoI.s:76     .text.link_log_level_get:00000000 link_log_level_get
+T:\msys\tmp\ccLwyYoI.s:92     .text.link_log_level_get:00000008 $d
+T:\msys\tmp\ccLwyYoI.s:97     .rodata.link_log_level_name.str1.4:00000000 $d
+T:\msys\tmp\ccLwyYoI.s:101    .text.link_log_level_name:00000000 $t
+T:\msys\tmp\ccLwyYoI.s:109    .text.link_log_level_name:00000000 link_log_level_name
+T:\msys\tmp\ccLwyYoI.s:133    .text.link_log_level_name:00000010 $d
+T:\msys\tmp\ccLwyYoI.s:139    .rodata.str1.4:00000000 $d
+T:\msys\tmp\ccLwyYoI.s:161    .bss.s_link_log_level:00000000 s_link_log_level
+T:\msys\tmp\ccLwyYoI.s:162    .bss.s_link_log_level:00000000 $d
+T:\msys\tmp\ccLwyYoI.s:164    .rodata.s_link_log_names:00000000 $d
+T:\msys\tmp\ccLwyYoI.s:168    .rodata.s_link_log_names:00000000 s_link_log_names
+
+NO UNDEFINED SYMBOLS

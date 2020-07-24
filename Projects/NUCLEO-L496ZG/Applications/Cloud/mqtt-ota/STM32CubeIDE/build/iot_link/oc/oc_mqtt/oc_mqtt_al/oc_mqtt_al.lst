@@ -1,0 +1,1216 @@
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"oc_mqtt_al.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.oc_mqtt_register,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	oc_mqtt_register
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	oc_mqtt_register:
+  28              	.LVL0:
+  29              	.LFB3:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * ===============================================
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** #include <link_log.h>
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** #include <oc_mqtt_al.h>
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** static oc_mqtt_t *s_oc_mqtt = NULL;
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** ///////////////////////OC AGENT INSTALL INTERFACE///////////////////////////////
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** int oc_mqtt_register(const oc_mqtt_t *opt)
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+  31              		.loc 1 41 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     int ret =(int)en_oc_mqtt_err_system;
+  36              		.loc 1 42 5 view .LVU1
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     if(NULL != opt)
+  37              		.loc 1 44 5 view .LVU2
+  38              		.loc 1 44 7 is_stmt 0 view .LVU3
+  39 0000 0346     		mov	r3, r0
+  40 0002 18B1     		cbz	r0, .L3
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****         s_oc_mqtt = (oc_mqtt_t *) opt;
+  41              		.loc 1 46 9 is_stmt 1 view .LVU4
+  42              		.loc 1 46 19 is_stmt 0 view .LVU5
+  43 0004 024A     		ldr	r2, .L5
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****         ret =(int)en_oc_mqtt_err_ok;
+  44              		.loc 1 47 13 view .LVU6
+  45 0006 0020     		movs	r0, #0
+  46              	.LVL1:
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****         ret =(int)en_oc_mqtt_err_ok;
+  47              		.loc 1 46 19 view .LVU7
+  48 0008 1360     		str	r3, [r2]
+  49              		.loc 1 47 9 is_stmt 1 view .LVU8
+  50              	.LVL2:
+  51              		.loc 1 47 9 is_stmt 0 view .LVU9
+  52 000a 7047     		bx	lr
+  53              	.LVL3:
+  54              	.L3:
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  55              		.loc 1 42 9 view .LVU10
+  56 000c 1020     		movs	r0, #16
+  57              	.LVL4:
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return ret;
+  58              		.loc 1 50 5 is_stmt 1 view .LVU11
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+  59              		.loc 1 51 1 is_stmt 0 view .LVU12
+  60 000e 7047     		bx	lr
+  61              	.L6:
+  62              		.align	2
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 3
+
+
+  63              	.L5:
+  64 0010 00000000 		.word	.LANCHOR0
+  65              		.cfi_endproc
+  66              	.LFE3:
+  68              		.section	.text.oc_mqtt_config,"ax",%progbits
+  69              		.align	1
+  70              		.p2align 2,,3
+  71              		.global	oc_mqtt_config
+  72              		.syntax unified
+  73              		.thumb
+  74              		.thumb_func
+  75              		.fpu fpv4-sp-d16
+  77              	oc_mqtt_config:
+  78              	.LVL5:
+  79              	.LFB4:
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** //////////////////////////APPLICATION INTERFACE/////////////////////////////////
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** int oc_mqtt_config(oc_mqtt_config_t *param)
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+  80              		.loc 1 55 1 is_stmt 1 view -0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		@ link register save eliminated.
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     int ret =(int)en_oc_mqtt_err_system ;
+  85              		.loc 1 56 5 view .LVU14
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     if((NULL != s_oc_mqtt) &&(NULL != s_oc_mqtt->op.config))
+  86              		.loc 1 57 5 view .LVU15
+  87              		.loc 1 57 14 is_stmt 0 view .LVU16
+  88 0000 034B     		ldr	r3, .L13
+  89 0002 1B68     		ldr	r3, [r3]
+  90              		.loc 1 57 7 view .LVU17
+  91 0004 13B1     		cbz	r3, .L7
+  92              		.loc 1 57 52 discriminator 1 view .LVU18
+  93 0006 5B68     		ldr	r3, [r3, #4]
+  94              		.loc 1 57 28 discriminator 1 view .LVU19
+  95 0008 03B1     		cbz	r3, .L7
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****        ret = s_oc_mqtt->op.config(param);
+  96              		.loc 1 59 8 is_stmt 1 view .LVU20
+  97              		.loc 1 59 14 is_stmt 0 view .LVU21
+  98 000a 1847     		bx	r3
+  99              	.LVL6:
+ 100              	.L7:
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return ret;
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 101              		.loc 1 63 1 view .LVU22
+ 102 000c 1020     		movs	r0, #16
+ 103              	.LVL7:
+ 104              		.loc 1 63 1 view .LVU23
+ 105 000e 7047     		bx	lr
+ 106              	.L14:
+ 107              		.align	2
+ 108              	.L13:
+ 109 0010 00000000 		.word	.LANCHOR0
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 4
+
+
+ 110              		.cfi_endproc
+ 111              	.LFE4:
+ 113              		.section	.text.oc_mqtt_deconfig,"ax",%progbits
+ 114              		.align	1
+ 115              		.p2align 2,,3
+ 116              		.global	oc_mqtt_deconfig
+ 117              		.syntax unified
+ 118              		.thumb
+ 119              		.thumb_func
+ 120              		.fpu fpv4-sp-d16
+ 122              	oc_mqtt_deconfig:
+ 123              	.LFB5:
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** int oc_mqtt_deconfig()
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 124              		.loc 1 66 1 is_stmt 1 view -0
+ 125              		.cfi_startproc
+ 126              		@ args = 0, pretend = 0, frame = 0
+ 127              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128              		@ link register save eliminated.
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     int ret =(int)en_oc_mqtt_err_system;
+ 129              		.loc 1 67 5 view .LVU25
+ 130              	.LVL8:
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     if((NULL != s_oc_mqtt) \
+ 131              		.loc 1 69 5 view .LVU26
+ 132              		.loc 1 69 14 is_stmt 0 view .LVU27
+ 133 0000 044B     		ldr	r3, .L21
+ 134 0002 1B68     		ldr	r3, [r3]
+ 135              		.loc 1 69 7 view .LVU28
+ 136 0004 1BB1     		cbz	r3, .L15
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****        &&(NULL != s_oc_mqtt->op.config))
+ 137              		.loc 1 70 8 view .LVU29
+ 138 0006 5A68     		ldr	r2, [r3, #4]
+ 139 0008 0AB1     		cbz	r2, .L15
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****        ret = s_oc_mqtt->op.deconfig();
+ 140              		.loc 1 72 8 is_stmt 1 view .LVU30
+ 141              		.loc 1 72 14 is_stmt 0 view .LVU31
+ 142 000a 9B68     		ldr	r3, [r3, #8]
+ 143 000c 1847     		bx	r3
+ 144              	.LVL9:
+ 145              	.L15:
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return ret;
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 146              		.loc 1 76 1 view .LVU32
+ 147 000e 1020     		movs	r0, #16
+ 148 0010 7047     		bx	lr
+ 149              	.L22:
+ 150 0012 00BF     		.align	2
+ 151              	.L21:
+ 152 0014 00000000 		.word	.LANCHOR0
+ 153              		.cfi_endproc
+ 154              	.LFE5:
+ 156              		.section	.text.oc_mqtt_publish,"ax",%progbits
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 5
+
+
+ 157              		.align	1
+ 158              		.p2align 2,,3
+ 159              		.global	oc_mqtt_publish
+ 160              		.syntax unified
+ 161              		.thumb
+ 162              		.thumb_func
+ 163              		.fpu fpv4-sp-d16
+ 165              	oc_mqtt_publish:
+ 166              	.LVL10:
+ 167              	.LFB6:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** int oc_mqtt_publish(char  *topic,uint8_t *msg,int msg_len,int qos)
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 168              		.loc 1 79 1 is_stmt 1 view -0
+ 169              		.cfi_startproc
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 0, uses_anonymous_args = 0
+ 172              		@ link register save eliminated.
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     int ret =(int)en_oc_mqtt_err_system;
+ 173              		.loc 1 80 5 view .LVU34
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     if((NULL != s_oc_mqtt) &&(NULL != s_oc_mqtt->op.publish))
+ 174              		.loc 1 82 5 view .LVU35
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     int ret =(int)en_oc_mqtt_err_system;
+ 175              		.loc 1 79 1 is_stmt 0 view .LVU36
+ 176 0000 10B4     		push	{r4}
+ 177              	.LCFI0:
+ 178              		.cfi_def_cfa_offset 4
+ 179              		.cfi_offset 4, -4
+ 180              		.loc 1 82 14 view .LVU37
+ 181 0002 064C     		ldr	r4, .L30
+ 182 0004 2468     		ldr	r4, [r4]
+ 183              		.loc 1 82 7 view .LVU38
+ 184 0006 2CB1     		cbz	r4, .L23
+ 185              		.loc 1 82 52 discriminator 1 view .LVU39
+ 186 0008 E468     		ldr	r4, [r4, #12]
+ 187              		.loc 1 82 28 discriminator 1 view .LVU40
+ 188 000a 1CB1     		cbz	r4, .L23
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****        ret = s_oc_mqtt->op.publish(topic,msg,msg_len,qos);
+ 189              		.loc 1 84 8 is_stmt 1 view .LVU41
+ 190              		.loc 1 84 14 is_stmt 0 view .LVU42
+ 191 000c A446     		mov	ip, r4
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return ret;
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 192              		.loc 1 88 1 view .LVU43
+ 193 000e 5DF8044B 		ldr	r4, [sp], #4
+ 194              	.LCFI1:
+ 195              		.cfi_remember_state
+ 196              		.cfi_restore 4
+ 197              		.cfi_def_cfa_offset 0
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 198              		.loc 1 84 14 view .LVU44
+ 199 0012 6047     		bx	ip
+ 200              	.LVL11:
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 6
+
+
+ 201              	.L23:
+ 202              	.LCFI2:
+ 203              		.cfi_restore_state
+ 204              		.loc 1 88 1 view .LVU45
+ 205 0014 1020     		movs	r0, #16
+ 206              	.LVL12:
+ 207              		.loc 1 88 1 view .LVU46
+ 208 0016 5DF8044B 		ldr	r4, [sp], #4
+ 209              	.LCFI3:
+ 210              		.cfi_restore 4
+ 211              		.cfi_def_cfa_offset 0
+ 212 001a 7047     		bx	lr
+ 213              	.L31:
+ 214              		.align	2
+ 215              	.L30:
+ 216 001c 00000000 		.word	.LANCHOR0
+ 217              		.cfi_endproc
+ 218              	.LFE6:
+ 220              		.section	.text.oc_mqtt_report,"ax",%progbits
+ 221              		.align	1
+ 222              		.p2align 2,,3
+ 223              		.global	oc_mqtt_report
+ 224              		.syntax unified
+ 225              		.thumb
+ 226              		.thumb_func
+ 227              		.fpu fpv4-sp-d16
+ 229              	oc_mqtt_report:
+ 230              	.LVL13:
+ 231              	.LFB7:
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** int oc_mqtt_report(uint8_t *msg, int len, int qos)
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 232              		.loc 1 91 1 is_stmt 1 view -0
+ 233              		.cfi_startproc
+ 234              		@ args = 0, pretend = 0, frame = 0
+ 235              		@ frame_needed = 0, uses_anonymous_args = 0
+ 236              		@ link register save eliminated.
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     int ret =(int)en_oc_mqtt_err_system;
+ 237              		.loc 1 92 5 view .LVU48
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     ret = oc_mqtt_publish(NULL,msg,len,qos);
+ 238              		.loc 1 94 5 view .LVU49
+ 239              	.LBB4:
+ 240              	.LBB5:
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+ 241              		.loc 1 82 14 is_stmt 0 view .LVU50
+ 242 0000 084B     		ldr	r3, .L39
+ 243              	.LBE5:
+ 244              	.LBE4:
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     int ret =(int)en_oc_mqtt_err_system;
+ 245              		.loc 1 91 1 view .LVU51
+ 246 0002 10B4     		push	{r4}
+ 247              	.LCFI4:
+ 248              		.cfi_def_cfa_offset 4
+ 249              		.cfi_offset 4, -4
+ 250              	.LBB9:
+ 251              	.LBB6:
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 7
+
+
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+ 252              		.loc 1 82 14 view .LVU52
+ 253 0004 1C68     		ldr	r4, [r3]
+ 254              	.LVL14:
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+ 255              		.loc 1 82 14 view .LVU53
+ 256              	.LBE6:
+ 257              	.LBI4:
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 258              		.loc 1 78 5 is_stmt 1 view .LVU54
+ 259              	.LBB7:
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 260              		.loc 1 80 5 view .LVU55
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+ 261              		.loc 1 82 5 view .LVU56
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+ 262              		.loc 1 82 7 is_stmt 0 view .LVU57
+ 263 0006 4CB1     		cbz	r4, .L32
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+ 264              		.loc 1 82 52 view .LVU58
+ 265 0008 E468     		ldr	r4, [r4, #12]
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+ 266              		.loc 1 82 28 view .LVU59
+ 267 000a 3CB1     		cbz	r4, .L32
+ 268 000c 1346     		mov	r3, r2
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 269              		.loc 1 84 8 is_stmt 1 view .LVU60
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 270              		.loc 1 84 14 is_stmt 0 view .LVU61
+ 271 000e A446     		mov	ip, r4
+ 272 0010 0A46     		mov	r2, r1
+ 273              	.LVL15:
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 274              		.loc 1 84 14 view .LVU62
+ 275              	.LBE7:
+ 276              	.LBE9:
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return ret;
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 277              		.loc 1 97 1 view .LVU63
+ 278 0012 5DF8044B 		ldr	r4, [sp], #4
+ 279              	.LCFI5:
+ 280              		.cfi_remember_state
+ 281              		.cfi_restore 4
+ 282              		.cfi_def_cfa_offset 0
+ 283              	.LBB10:
+ 284              	.LBB8:
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 285              		.loc 1 84 14 view .LVU64
+ 286 0016 0146     		mov	r1, r0
+ 287              	.LVL16:
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 288              		.loc 1 84 14 view .LVU65
+ 289 0018 0020     		movs	r0, #0
+ 290              	.LVL17:
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 291              		.loc 1 84 14 view .LVU66
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 8
+
+
+ 292 001a 6047     		bx	ip
+ 293              	.LVL18:
+ 294              	.L32:
+ 295              	.LCFI6:
+ 296              		.cfi_restore_state
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 297              		.loc 1 84 14 view .LVU67
+ 298              	.LBE8:
+ 299              	.LBE10:
+ 300              		.loc 1 97 1 view .LVU68
+ 301 001c 1020     		movs	r0, #16
+ 302              	.LVL19:
+ 303              		.loc 1 97 1 view .LVU69
+ 304 001e 5DF8044B 		ldr	r4, [sp], #4
+ 305              	.LCFI7:
+ 306              		.cfi_restore 4
+ 307              		.cfi_def_cfa_offset 0
+ 308 0022 7047     		bx	lr
+ 309              	.L40:
+ 310              		.align	2
+ 311              	.L39:
+ 312 0024 00000000 		.word	.LANCHOR0
+ 313              		.cfi_endproc
+ 314              	.LFE7:
+ 316              		.section	.text.oc_mqtt_subscribe,"ax",%progbits
+ 317              		.align	1
+ 318              		.p2align 2,,3
+ 319              		.global	oc_mqtt_subscribe
+ 320              		.syntax unified
+ 321              		.thumb
+ 322              		.thumb_func
+ 323              		.fpu fpv4-sp-d16
+ 325              	oc_mqtt_subscribe:
+ 326              	.LVL20:
+ 327              	.LFB8:
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** int oc_mqtt_subscribe(char *topic,int qos)
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 328              		.loc 1 100 1 is_stmt 1 view -0
+ 329              		.cfi_startproc
+ 330              		@ args = 0, pretend = 0, frame = 0
+ 331              		@ frame_needed = 0, uses_anonymous_args = 0
+ 332              		@ link register save eliminated.
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     int ret =(int)en_oc_mqtt_err_system;
+ 333              		.loc 1 101 5 view .LVU71
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     if((NULL != s_oc_mqtt) &&(NULL != s_oc_mqtt->op.subscribe))
+ 334              		.loc 1 103 5 view .LVU72
+ 335              		.loc 1 103 14 is_stmt 0 view .LVU73
+ 336 0000 034B     		ldr	r3, .L47
+ 337 0002 1B68     		ldr	r3, [r3]
+ 338              		.loc 1 103 7 view .LVU74
+ 339 0004 13B1     		cbz	r3, .L41
+ 340              		.loc 1 103 52 discriminator 1 view .LVU75
+ 341 0006 1B69     		ldr	r3, [r3, #16]
+ 342              		.loc 1 103 28 discriminator 1 view .LVU76
+ 343 0008 03B1     		cbz	r3, .L41
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 9
+
+
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****        ret = s_oc_mqtt->op.subscribe(topic,qos);
+ 344              		.loc 1 105 8 is_stmt 1 view .LVU77
+ 345              		.loc 1 105 14 is_stmt 0 view .LVU78
+ 346 000a 1847     		bx	r3
+ 347              	.LVL21:
+ 348              	.L41:
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return ret;
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 349              		.loc 1 109 1 view .LVU79
+ 350 000c 1020     		movs	r0, #16
+ 351              	.LVL22:
+ 352              		.loc 1 109 1 view .LVU80
+ 353 000e 7047     		bx	lr
+ 354              	.L48:
+ 355              		.align	2
+ 356              	.L47:
+ 357 0010 00000000 		.word	.LANCHOR0
+ 358              		.cfi_endproc
+ 359              	.LFE8:
+ 361              		.section	.text.oc_mqtt_unsubscribe,"ax",%progbits
+ 362              		.align	1
+ 363              		.p2align 2,,3
+ 364              		.global	oc_mqtt_unsubscribe
+ 365              		.syntax unified
+ 366              		.thumb
+ 367              		.thumb_func
+ 368              		.fpu fpv4-sp-d16
+ 370              	oc_mqtt_unsubscribe:
+ 371              	.LVL23:
+ 372              	.LFB9:
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** int oc_mqtt_unsubscribe(char *topic)
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 373              		.loc 1 113 1 is_stmt 1 view -0
+ 374              		.cfi_startproc
+ 375              		@ args = 0, pretend = 0, frame = 0
+ 376              		@ frame_needed = 0, uses_anonymous_args = 0
+ 377              		@ link register save eliminated.
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     int ret =(int)en_oc_mqtt_err_system;
+ 378              		.loc 1 114 5 view .LVU82
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     if((NULL != s_oc_mqtt) &&(NULL != s_oc_mqtt->op.unsubscribe))
+ 379              		.loc 1 116 5 view .LVU83
+ 380              		.loc 1 116 14 is_stmt 0 view .LVU84
+ 381 0000 034B     		ldr	r3, .L55
+ 382 0002 1B68     		ldr	r3, [r3]
+ 383              		.loc 1 116 7 view .LVU85
+ 384 0004 13B1     		cbz	r3, .L49
+ 385              		.loc 1 116 52 discriminator 1 view .LVU86
+ 386 0006 5B69     		ldr	r3, [r3, #20]
+ 387              		.loc 1 116 28 discriminator 1 view .LVU87
+ 388 0008 03B1     		cbz	r3, .L49
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 10
+
+
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****        ret = s_oc_mqtt->op.unsubscribe(topic);
+ 389              		.loc 1 118 8 is_stmt 1 view .LVU88
+ 390              		.loc 1 118 14 is_stmt 0 view .LVU89
+ 391 000a 1847     		bx	r3
+ 392              	.LVL24:
+ 393              	.L49:
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return ret;
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 394              		.loc 1 122 1 view .LVU90
+ 395 000c 1020     		movs	r0, #16
+ 396              	.LVL25:
+ 397              		.loc 1 122 1 view .LVU91
+ 398 000e 7047     		bx	lr
+ 399              	.L56:
+ 400              		.align	2
+ 401              	.L55:
+ 402 0010 00000000 		.word	.LANCHOR0
+ 403              		.cfi_endproc
+ 404              	.LFE9:
+ 406              		.section	.rodata.oc_mqtt_imp_init.str1.4,"aMS",%progbits,1
+ 407              		.align	2
+ 408              	.LC0:
+ 409 0000 5B25735D 		.ascii	"[%s][%u][%s] %s:###please implement oc mqtt by your"
+ 409      5B25755D 
+ 409      5B25735D 
+ 409      2025733A 
+ 409      23232370 
+ 410 0033 73656C66 		.ascii	"self####\015\012\000"
+ 410      23232323 
+ 410      0D0A00
+ 411              		.section	.text.oc_mqtt_imp_init,"ax",%progbits
+ 412              		.align	1
+ 413              		.p2align 2,,3
+ 414              		.weak	oc_mqtt_imp_init
+ 415              		.syntax unified
+ 416              		.thumb
+ 417              		.thumb_func
+ 418              		.fpu fpv4-sp-d16
+ 420              	oc_mqtt_imp_init:
+ 421              	.LFB10:
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** ///////////////////////OC MQTT TINY AGENT INITIALIZE////////////////////////////
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** __attribute__ ((weak)) int oc_mqtt_imp_init(void)
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 422              		.loc 1 127 1 is_stmt 1 view -0
+ 423              		.cfi_startproc
+ 424              		@ args = 0, pretend = 0, frame = 0
+ 425              		@ frame_needed = 0, uses_anonymous_args = 0
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_DEBUG("%s:###please implement oc mqtt by yourself####",__FUNCTION__);
+ 426              		.loc 1 128 5 view .LVU93
+ 427              		.loc 1 128 5 view .LVU94
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_DEBUG("%s:###please implement oc mqtt by yourself####",__FUNCTION__);
+ 428              		.loc 1 127 1 is_stmt 0 view .LVU95
+ 429 0000 10B5     		push	{r4, lr}
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 11
+
+
+ 430              	.LCFI8:
+ 431              		.cfi_def_cfa_offset 8
+ 432              		.cfi_offset 4, -8
+ 433              		.cfi_offset 14, -4
+ 434 0002 82B0     		sub	sp, sp, #8
+ 435              	.LCFI9:
+ 436              		.cfi_def_cfa_offset 16
+ 437              		.loc 1 128 5 view .LVU96
+ 438 0004 FFF7FEFF 		bl	link_log_level_get
+ 439              	.LVL26:
+ 440 0008 0128     		cmp	r0, #1
+ 441 000a 02D9     		bls	.L60
+ 442              		.loc 1 128 5 is_stmt 1 discriminator 3 view .LVU97
+ 443              		.loc 1 128 5 discriminator 3 view .LVU98
+ 444              		.loc 1 128 5 discriminator 3 view .LVU99
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return 0;
+ 445              		.loc 1 129 5 discriminator 3 view .LVU100
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 446              		.loc 1 130 1 is_stmt 0 discriminator 3 view .LVU101
+ 447 000c 0020     		movs	r0, #0
+ 448 000e 02B0     		add	sp, sp, #8
+ 449              	.LCFI10:
+ 450              		.cfi_remember_state
+ 451              		.cfi_def_cfa_offset 8
+ 452              		@ sp needed
+ 453 0010 10BD     		pop	{r4, pc}
+ 454              	.L60:
+ 455              	.LCFI11:
+ 456              		.cfi_restore_state
+ 457              	.LBB13:
+ 458              	.LBI13:
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 459              		.loc 1 126 28 is_stmt 1 view .LVU102
+ 460              	.LBB14:
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return 0;
+ 461              		.loc 1 128 5 view .LVU103
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return 0;
+ 462              		.loc 1 128 5 view .LVU104
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return 0;
+ 463              		.loc 1 128 5 view .LVU105
+ 464 0012 0120     		movs	r0, #1
+ 465 0014 FFF7FEFF 		bl	link_log_level_name
+ 466              	.LVL27:
+ 467 0018 0446     		mov	r4, r0
+ 468 001a FFF7FEFF 		bl	osal_sys_time
+ 469              	.LVL28:
+ 470 001e 074B     		ldr	r3, .L61
+ 471 0020 0093     		str	r3, [sp]
+ 472 0022 0246     		mov	r2, r0
+ 473 0024 2146     		mov	r1, r4
+ 474 0026 0648     		ldr	r0, .L61+4
+ 475 0028 FFF7FEFF 		bl	printf
+ 476              	.LVL29:
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return 0;
+ 477              		.loc 1 128 5 view .LVU106
+ 478 002c 054B     		ldr	r3, .L61+8
+ 479 002e 1B68     		ldr	r3, [r3]
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 12
+
+
+ 480 0030 9868     		ldr	r0, [r3, #8]
+ 481 0032 FFF7FEFF 		bl	fflush
+ 482              	.LVL30:
+ 483              	.LBE14:
+ 484              	.LBE13:
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return 0;
+ 485              		.loc 1 128 5 view .LVU107
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return 0;
+ 486              		.loc 1 128 5 view .LVU108
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return 0;
+ 487              		.loc 1 128 5 view .LVU109
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 488              		.loc 1 129 5 view .LVU110
+ 489              		.loc 1 130 1 is_stmt 0 view .LVU111
+ 490 0036 0020     		movs	r0, #0
+ 491 0038 02B0     		add	sp, sp, #8
+ 492              	.LCFI12:
+ 493              		.cfi_def_cfa_offset 8
+ 494              		@ sp needed
+ 495 003a 10BD     		pop	{r4, pc}
+ 496              	.L62:
+ 497              		.align	2
+ 498              	.L61:
+ 499 003c 00000000 		.word	.LANCHOR1
+ 500 0040 00000000 		.word	.LC0
+ 501 0044 00000000 		.word	_impure_ptr
+ 502              		.cfi_endproc
+ 503              	.LFE10:
+ 505              		.section	.rodata.oc_mqtt_demo_main.str1.4,"aMS",%progbits,1
+ 506              		.align	2
+ 507              	.LC1:
+ 508 0000 5B25735D 		.ascii	"[%s][%u][%s] Please implement the oc mqtt v5 demo y"
+ 508      5B25755D 
+ 508      5B25735D 
+ 508      20506C65 
+ 508      61736520 
+ 509 0033 6F757273 		.ascii	"ourself\015\012\000"
+ 509      656C660D 
+ 509      0A00
+ 510              		.section	.text.oc_mqtt_demo_main,"ax",%progbits
+ 511              		.align	1
+ 512              		.p2align 2,,3
+ 513              		.weak	oc_mqtt_demo_main
+ 514              		.syntax unified
+ 515              		.thumb
+ 516              		.thumb_func
+ 517              		.fpu fpv4-sp-d16
+ 519              	oc_mqtt_demo_main:
+ 520              	.LFB11:
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** __attribute__ ((weak)) int oc_mqtt_demo_main(void)
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 521              		.loc 1 133 1 is_stmt 1 view -0
+ 522              		.cfi_startproc
+ 523              		@ args = 0, pretend = 0, frame = 0
+ 524              		@ frame_needed = 0, uses_anonymous_args = 0
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_WARN("Please implement the oc mqtt v5 demo yourself");
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 13
+
+
+ 525              		.loc 1 134 5 view .LVU113
+ 526              		.loc 1 134 5 view .LVU114
+ 527              		.loc 1 134 5 view .LVU115
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_WARN("Please implement the oc mqtt v5 demo yourself");
+ 528              		.loc 1 133 1 is_stmt 0 view .LVU116
+ 529 0000 10B5     		push	{r4, lr}
+ 530              	.LCFI13:
+ 531              		.cfi_def_cfa_offset 8
+ 532              		.cfi_offset 4, -8
+ 533              		.cfi_offset 14, -4
+ 534              		.loc 1 134 5 view .LVU117
+ 535 0002 0320     		movs	r0, #3
+ 536 0004 FFF7FEFF 		bl	link_log_level_name
+ 537              	.LVL31:
+ 538 0008 0446     		mov	r4, r0
+ 539 000a FFF7FEFF 		bl	osal_sys_time
+ 540              	.LVL32:
+ 541 000e 2146     		mov	r1, r4
+ 542 0010 0246     		mov	r2, r0
+ 543 0012 064B     		ldr	r3, .L65
+ 544 0014 0648     		ldr	r0, .L65+4
+ 545 0016 FFF7FEFF 		bl	printf
+ 546              	.LVL33:
+ 547              		.loc 1 134 5 is_stmt 1 view .LVU118
+ 548 001a 064B     		ldr	r3, .L65+8
+ 549 001c 1B68     		ldr	r3, [r3]
+ 550 001e 9868     		ldr	r0, [r3, #8]
+ 551 0020 FFF7FEFF 		bl	fflush
+ 552              	.LVL34:
+ 553              		.loc 1 134 5 view .LVU119
+ 554              		.loc 1 134 5 view .LVU120
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return -1;
+ 555              		.loc 1 135 5 view .LVU121
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 556              		.loc 1 136 1 is_stmt 0 view .LVU122
+ 557 0024 4FF0FF30 		mov	r0, #-1
+ 558 0028 10BD     		pop	{r4, pc}
+ 559              	.L66:
+ 560 002a 00BF     		.align	2
+ 561              	.L65:
+ 562 002c 00000000 		.word	.LANCHOR2
+ 563 0030 00000000 		.word	.LC1
+ 564 0034 00000000 		.word	_impure_ptr
+ 565              		.cfi_endproc
+ 566              	.LFE11:
+ 568              		.section	.rodata.oc_mqtt_init.str1.4,"aMS",%progbits,1
+ 569              		.align	2
+ 570              	.LC2:
+ 571 0000 5B25735D 		.ascii	"[%s][%u][%s] IOT_LINK:DO OC MQTT LOAD-IMPLEMENT RET"
+ 571      5B25755D 
+ 571      5B25735D 
+ 571      20494F54 
+ 571      5F4C494E 
+ 572 0033 3A25640D 		.ascii	":%d\015\012\000"
+ 572      0A00
+ 573              		.section	.text.oc_mqtt_init,"ax",%progbits
+ 574              		.align	1
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 14
+
+
+ 575              		.p2align 2,,3
+ 576              		.global	oc_mqtt_init
+ 577              		.syntax unified
+ 578              		.thumb
+ 579              		.thumb_func
+ 580              		.fpu fpv4-sp-d16
+ 582              	oc_mqtt_init:
+ 583              	.LFB12:
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** int oc_mqtt_init()
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 584              		.loc 1 140 1 is_stmt 1 view -0
+ 585              		.cfi_startproc
+ 586              		@ args = 0, pretend = 0, frame = 0
+ 587              		@ frame_needed = 0, uses_anonymous_args = 0
+ 141:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     int ret;
+ 588              		.loc 1 141 5 view .LVU124
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     ret = oc_mqtt_imp_init();
+ 589              		.loc 1 143 5 view .LVU125
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     int ret;
+ 590              		.loc 1 140 1 is_stmt 0 view .LVU126
+ 591 0000 30B5     		push	{r4, r5, lr}
+ 592              	.LCFI14:
+ 593              		.cfi_def_cfa_offset 12
+ 594              		.cfi_offset 4, -12
+ 595              		.cfi_offset 5, -8
+ 596              		.cfi_offset 14, -4
+ 597 0002 83B0     		sub	sp, sp, #12
+ 598              	.LCFI15:
+ 599              		.cfi_def_cfa_offset 24
+ 600              		.loc 1 143 11 view .LVU127
+ 601 0004 FFF7FEFF 		bl	oc_mqtt_imp_init
+ 602              	.LVL35:
+ 603 0008 0446     		mov	r4, r0
+ 604              	.LVL36:
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_DEBUG("IOT_LINK:DO OC MQTT LOAD-IMPLEMENT RET:%d",ret);
+ 605              		.loc 1 144 5 is_stmt 1 view .LVU128
+ 606              		.loc 1 144 5 view .LVU129
+ 607 000a FFF7FEFF 		bl	link_log_level_get
+ 608              	.LVL37:
+ 609              		.loc 1 144 5 is_stmt 0 view .LVU130
+ 610 000e 0128     		cmp	r0, #1
+ 611 0010 02D9     		bls	.L70
+ 145:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** #ifdef CONFIG_OCMQTT_DEMOENABLE
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     (void) oc_mqtt_demo_main();
+ 147:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** #endif
+ 148:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return ret;
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 612              		.loc 1 150 1 view .LVU131
+ 613 0012 2046     		mov	r0, r4
+ 614 0014 03B0     		add	sp, sp, #12
+ 615              	.LCFI16:
+ 616              		.cfi_remember_state
+ 617              		.cfi_def_cfa_offset 12
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 15
+
+
+ 618              		@ sp needed
+ 619 0016 30BD     		pop	{r4, r5, pc}
+ 620              	.LVL38:
+ 621              	.L70:
+ 622              	.LCFI17:
+ 623              		.cfi_restore_state
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_DEBUG("IOT_LINK:DO OC MQTT LOAD-IMPLEMENT RET:%d",ret);
+ 624              		.loc 1 144 5 is_stmt 1 discriminator 1 view .LVU132
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_DEBUG("IOT_LINK:DO OC MQTT LOAD-IMPLEMENT RET:%d",ret);
+ 625              		.loc 1 144 5 discriminator 1 view .LVU133
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_DEBUG("IOT_LINK:DO OC MQTT LOAD-IMPLEMENT RET:%d",ret);
+ 626              		.loc 1 144 5 discriminator 1 view .LVU134
+ 627 0018 0120     		movs	r0, #1
+ 628 001a FFF7FEFF 		bl	link_log_level_name
+ 629              	.LVL39:
+ 630 001e 0546     		mov	r5, r0
+ 631 0020 FFF7FEFF 		bl	osal_sys_time
+ 632              	.LVL40:
+ 633 0024 2946     		mov	r1, r5
+ 634 0026 0246     		mov	r2, r0
+ 635 0028 064B     		ldr	r3, .L71
+ 636 002a 0094     		str	r4, [sp]
+ 637 002c 0648     		ldr	r0, .L71+4
+ 638 002e FFF7FEFF 		bl	printf
+ 639              	.LVL41:
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_DEBUG("IOT_LINK:DO OC MQTT LOAD-IMPLEMENT RET:%d",ret);
+ 640              		.loc 1 144 5 discriminator 1 view .LVU135
+ 641 0032 064B     		ldr	r3, .L71+8
+ 642 0034 1B68     		ldr	r3, [r3]
+ 643 0036 9868     		ldr	r0, [r3, #8]
+ 644 0038 FFF7FEFF 		bl	fflush
+ 645              	.LVL42:
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_DEBUG("IOT_LINK:DO OC MQTT LOAD-IMPLEMENT RET:%d",ret);
+ 646              		.loc 1 144 5 discriminator 1 view .LVU136
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_DEBUG("IOT_LINK:DO OC MQTT LOAD-IMPLEMENT RET:%d",ret);
+ 647              		.loc 1 144 5 discriminator 1 view .LVU137
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     LINK_LOG_DEBUG("IOT_LINK:DO OC MQTT LOAD-IMPLEMENT RET:%d",ret);
+ 648              		.loc 1 144 5 discriminator 1 view .LVU138
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 649              		.loc 1 149 5 discriminator 1 view .LVU139
+ 650              		.loc 1 150 1 is_stmt 0 discriminator 1 view .LVU140
+ 651 003c 2046     		mov	r0, r4
+ 652 003e 03B0     		add	sp, sp, #12
+ 653              	.LCFI18:
+ 654              		.cfi_def_cfa_offset 12
+ 655              		@ sp needed
+ 656 0040 30BD     		pop	{r4, r5, pc}
+ 657              	.LVL43:
+ 658              	.L72:
+ 659              		.loc 1 150 1 discriminator 1 view .LVU141
+ 660 0042 00BF     		.align	2
+ 661              	.L71:
+ 662 0044 00000000 		.word	.LANCHOR3
+ 663 0048 00000000 		.word	.LC2
+ 664 004c 00000000 		.word	_impure_ptr
+ 665              		.cfi_endproc
+ 666              	.LFE12:
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 16
+
+
+ 668              		.section	.rodata.oc_mqtt_err.str1.4,"aMS",%progbits,1
+ 669              		.align	2
+ 670              	.LC3:
+ 671 0000 554E4B4E 		.ascii	"UNKNOWN\000"
+ 671      4F574E00 
+ 672              		.section	.text.oc_mqtt_err,"ax",%progbits
+ 673              		.align	1
+ 674              		.p2align 2,,3
+ 675              		.global	oc_mqtt_err
+ 676              		.syntax unified
+ 677              		.thumb
+ 678              		.thumb_func
+ 679              		.fpu fpv4-sp-d16
+ 681              	oc_mqtt_err:
+ 682              	.LVL44:
+ 683              	.LFB13:
+ 151:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** static const char *s_oc_mqtt_err_tab[] =
+ 154:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "success",
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "parameter_err",
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "network_err",
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "version_err",
+ 159:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "clientid_err",
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "server_err",
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "userpwd_err",
+ 162:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "clientauth_err",
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "subscribe_err",
+ 164:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "publish_err",
+ 165:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "reconfigure_err",
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "nonconfigure_err",
+ 167:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "mqttconnect_err",
+ 168:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "bsaddrtimeout_err",
+ 169:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "sysmemory_err",
+ 170:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     "system_err",
+ 171:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** };
+ 172:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** #define CN_ERR_TABITEM     (sizeof(s_oc_mqtt_err_tab)/sizeof(const char *))
+ 175:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** 
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** const char *oc_mqtt_err(en_oc_mqtt_err_code_t code)
+ 177:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** {
+ 684              		.loc 1 177 1 is_stmt 1 view -0
+ 685              		.cfi_startproc
+ 686              		@ args = 0, pretend = 0, frame = 0
+ 687              		@ frame_needed = 0, uses_anonymous_args = 0
+ 688              		@ link register save eliminated.
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     const char *ret = NULL;
+ 689              		.loc 1 178 5 view .LVU143
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     if((unsigned int)code < CN_ERR_TABITEM)
+ 690              		.loc 1 179 5 view .LVU144
+ 691              		.loc 1 179 7 is_stmt 0 view .LVU145
+ 692 0000 0F28     		cmp	r0, #15
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****         ret = s_oc_mqtt_err_tab[(int)code];
+ 693              		.loc 1 181 9 is_stmt 1 view .LVU146
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 17
+
+
+ 694              		.loc 1 181 13 is_stmt 0 view .LVU147
+ 695 0002 9ABF     		itte	ls
+ 696 0004 024B     		ldrls	r3, .L76
+ 697 0006 53F82000 		ldrls	r0, [r3, r0, lsl #2]
+ 698              	.LVL45:
+ 182:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     else
+ 184:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     {
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****         ret = "UNKNOWN";
+ 699              		.loc 1 185 13 view .LVU148
+ 700 000a 0248     		ldrhi	r0, .L76+4
+ 701              	.LVL46:
+ 186:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     }
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c ****     return ret;
+ 702              		.loc 1 187 5 is_stmt 1 view .LVU149
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc_mqtt_al\oc_mqtt_al.c **** }
+ 703              		.loc 1 188 1 is_stmt 0 view .LVU150
+ 704 000c 7047     		bx	lr
+ 705              	.L77:
+ 706 000e 00BF     		.align	2
+ 707              	.L76:
+ 708 0010 00000000 		.word	.LANCHOR4
+ 709 0014 00000000 		.word	.LC3
+ 710              		.cfi_endproc
+ 711              	.LFE13:
+ 713              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 714              		.align	2
+ 715              	.LC4:
+ 716 0000 73756363 		.ascii	"success\000"
+ 716      65737300 
+ 717              		.align	2
+ 718              	.LC5:
+ 719 0008 70617261 		.ascii	"parameter_err\000"
+ 719      6D657465 
+ 719      725F6572 
+ 719      7200
+ 720 0016 0000     		.align	2
+ 721              	.LC6:
+ 722 0018 6E657477 		.ascii	"network_err\000"
+ 722      6F726B5F 
+ 722      65727200 
+ 723              		.align	2
+ 724              	.LC7:
+ 725 0024 76657273 		.ascii	"version_err\000"
+ 725      696F6E5F 
+ 725      65727200 
+ 726              		.align	2
+ 727              	.LC8:
+ 728 0030 636C6965 		.ascii	"clientid_err\000"
+ 728      6E746964 
+ 728      5F657272 
+ 728      00
+ 729 003d 000000   		.align	2
+ 730              	.LC9:
+ 731 0040 73657276 		.ascii	"server_err\000"
+ 731      65725F65 
+ 731      727200
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 18
+
+
+ 732 004b 00       		.align	2
+ 733              	.LC10:
+ 734 004c 75736572 		.ascii	"userpwd_err\000"
+ 734      7077645F 
+ 734      65727200 
+ 735              		.align	2
+ 736              	.LC11:
+ 737 0058 636C6965 		.ascii	"clientauth_err\000"
+ 737      6E746175 
+ 737      74685F65 
+ 737      727200
+ 738 0067 00       		.align	2
+ 739              	.LC12:
+ 740 0068 73756273 		.ascii	"subscribe_err\000"
+ 740      63726962 
+ 740      655F6572 
+ 740      7200
+ 741 0076 0000     		.align	2
+ 742              	.LC13:
+ 743 0078 7075626C 		.ascii	"publish_err\000"
+ 743      6973685F 
+ 743      65727200 
+ 744              		.align	2
+ 745              	.LC14:
+ 746 0084 7265636F 		.ascii	"reconfigure_err\000"
+ 746      6E666967 
+ 746      7572655F 
+ 746      65727200 
+ 747              		.align	2
+ 748              	.LC15:
+ 749 0094 6E6F6E63 		.ascii	"nonconfigure_err\000"
+ 749      6F6E6669 
+ 749      67757265 
+ 749      5F657272 
+ 749      00
+ 750 00a5 000000   		.align	2
+ 751              	.LC16:
+ 752 00a8 6D717474 		.ascii	"mqttconnect_err\000"
+ 752      636F6E6E 
+ 752      6563745F 
+ 752      65727200 
+ 753              		.align	2
+ 754              	.LC17:
+ 755 00b8 62736164 		.ascii	"bsaddrtimeout_err\000"
+ 755      64727469 
+ 755      6D656F75 
+ 755      745F6572 
+ 755      7200
+ 756 00ca 0000     		.align	2
+ 757              	.LC18:
+ 758 00cc 7379736D 		.ascii	"sysmemory_err\000"
+ 758      656D6F72 
+ 758      795F6572 
+ 758      7200
+ 759 00da 0000     		.align	2
+ 760              	.LC19:
+ 761 00dc 73797374 		.ascii	"system_err\000"
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 19
+
+
+ 761      656D5F65 
+ 761      727200
+ 762              		.section	.bss.s_oc_mqtt,"aw",%nobits
+ 763              		.align	2
+ 764              		.set	.LANCHOR0,. + 0
+ 767              	s_oc_mqtt:
+ 768 0000 00000000 		.space	4
+ 769              		.section	.rodata.__FUNCTION__.6937,"a"
+ 770              		.align	2
+ 771              		.set	.LANCHOR1,. + 0
+ 774              	__FUNCTION__.6937:
+ 775 0000 6F635F6D 		.ascii	"oc_mqtt_imp_init\000"
+ 775      7174745F 
+ 775      696D705F 
+ 775      696E6974 
+ 775      00
+ 776              		.section	.rodata.__FUNCTION__.6941,"a"
+ 777              		.align	2
+ 778              		.set	.LANCHOR2,. + 0
+ 781              	__FUNCTION__.6941:
+ 782 0000 6F635F6D 		.ascii	"oc_mqtt_demo_main\000"
+ 782      7174745F 
+ 782      64656D6F 
+ 782      5F6D6169 
+ 782      6E00
+ 783              		.section	.rodata.__FUNCTION__.6945,"a"
+ 784              		.align	2
+ 785              		.set	.LANCHOR3,. + 0
+ 788              	__FUNCTION__.6945:
+ 789 0000 6F635F6D 		.ascii	"oc_mqtt_init\000"
+ 789      7174745F 
+ 789      696E6974 
+ 789      00
+ 790              		.section	.rodata.s_oc_mqtt_err_tab,"a"
+ 791              		.align	2
+ 792              		.set	.LANCHOR4,. + 0
+ 795              	s_oc_mqtt_err_tab:
+ 796 0000 00000000 		.word	.LC4
+ 797 0004 08000000 		.word	.LC5
+ 798 0008 18000000 		.word	.LC6
+ 799 000c 24000000 		.word	.LC7
+ 800 0010 30000000 		.word	.LC8
+ 801 0014 40000000 		.word	.LC9
+ 802 0018 4C000000 		.word	.LC10
+ 803 001c 58000000 		.word	.LC11
+ 804 0020 68000000 		.word	.LC12
+ 805 0024 78000000 		.word	.LC13
+ 806 0028 84000000 		.word	.LC14
+ 807 002c 94000000 		.word	.LC15
+ 808 0030 A8000000 		.word	.LC16
+ 809 0034 B8000000 		.word	.LC17
+ 810 0038 CC000000 		.word	.LC18
+ 811 003c DC000000 		.word	.LC19
+ 812              		.text
+ 813              	.Letext0:
+ 814              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 815              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 20
+
+
+ 816              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 817              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 818              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 819              		.file 7 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 820              		.file 8 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/inc/link_log.h
+ 821              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/inc/dtls_al.h"
+ 822              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/inc/mqtt_al.h
+ 823              		.file 11 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/oc/oc_mqtt/oc
+ 824              		.file 12 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\stdio.h
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 21
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 oc_mqtt_al.c
+T:\msys\tmp\ccu8lVXx.s:18     .text.oc_mqtt_register:00000000 $t
+T:\msys\tmp\ccu8lVXx.s:27     .text.oc_mqtt_register:00000000 oc_mqtt_register
+T:\msys\tmp\ccu8lVXx.s:64     .text.oc_mqtt_register:00000010 $d
+T:\msys\tmp\ccu8lVXx.s:69     .text.oc_mqtt_config:00000000 $t
+T:\msys\tmp\ccu8lVXx.s:77     .text.oc_mqtt_config:00000000 oc_mqtt_config
+T:\msys\tmp\ccu8lVXx.s:109    .text.oc_mqtt_config:00000010 $d
+T:\msys\tmp\ccu8lVXx.s:114    .text.oc_mqtt_deconfig:00000000 $t
+T:\msys\tmp\ccu8lVXx.s:122    .text.oc_mqtt_deconfig:00000000 oc_mqtt_deconfig
+T:\msys\tmp\ccu8lVXx.s:152    .text.oc_mqtt_deconfig:00000014 $d
+T:\msys\tmp\ccu8lVXx.s:157    .text.oc_mqtt_publish:00000000 $t
+T:\msys\tmp\ccu8lVXx.s:165    .text.oc_mqtt_publish:00000000 oc_mqtt_publish
+T:\msys\tmp\ccu8lVXx.s:216    .text.oc_mqtt_publish:0000001c $d
+T:\msys\tmp\ccu8lVXx.s:221    .text.oc_mqtt_report:00000000 $t
+T:\msys\tmp\ccu8lVXx.s:229    .text.oc_mqtt_report:00000000 oc_mqtt_report
+T:\msys\tmp\ccu8lVXx.s:312    .text.oc_mqtt_report:00000024 $d
+T:\msys\tmp\ccu8lVXx.s:317    .text.oc_mqtt_subscribe:00000000 $t
+T:\msys\tmp\ccu8lVXx.s:325    .text.oc_mqtt_subscribe:00000000 oc_mqtt_subscribe
+T:\msys\tmp\ccu8lVXx.s:357    .text.oc_mqtt_subscribe:00000010 $d
+T:\msys\tmp\ccu8lVXx.s:362    .text.oc_mqtt_unsubscribe:00000000 $t
+T:\msys\tmp\ccu8lVXx.s:370    .text.oc_mqtt_unsubscribe:00000000 oc_mqtt_unsubscribe
+T:\msys\tmp\ccu8lVXx.s:402    .text.oc_mqtt_unsubscribe:00000010 $d
+T:\msys\tmp\ccu8lVXx.s:407    .rodata.oc_mqtt_imp_init.str1.4:00000000 $d
+T:\msys\tmp\ccu8lVXx.s:412    .text.oc_mqtt_imp_init:00000000 $t
+T:\msys\tmp\ccu8lVXx.s:420    .text.oc_mqtt_imp_init:00000000 oc_mqtt_imp_init
+T:\msys\tmp\ccu8lVXx.s:499    .text.oc_mqtt_imp_init:0000003c $d
+T:\msys\tmp\ccu8lVXx.s:506    .rodata.oc_mqtt_demo_main.str1.4:00000000 $d
+T:\msys\tmp\ccu8lVXx.s:511    .text.oc_mqtt_demo_main:00000000 $t
+T:\msys\tmp\ccu8lVXx.s:519    .text.oc_mqtt_demo_main:00000000 oc_mqtt_demo_main
+T:\msys\tmp\ccu8lVXx.s:562    .text.oc_mqtt_demo_main:0000002c $d
+T:\msys\tmp\ccu8lVXx.s:569    .rodata.oc_mqtt_init.str1.4:00000000 $d
+T:\msys\tmp\ccu8lVXx.s:574    .text.oc_mqtt_init:00000000 $t
+T:\msys\tmp\ccu8lVXx.s:582    .text.oc_mqtt_init:00000000 oc_mqtt_init
+T:\msys\tmp\ccu8lVXx.s:662    .text.oc_mqtt_init:00000044 $d
+T:\msys\tmp\ccu8lVXx.s:669    .rodata.oc_mqtt_err.str1.4:00000000 $d
+T:\msys\tmp\ccu8lVXx.s:673    .text.oc_mqtt_err:00000000 $t
+T:\msys\tmp\ccu8lVXx.s:681    .text.oc_mqtt_err:00000000 oc_mqtt_err
+T:\msys\tmp\ccu8lVXx.s:708    .text.oc_mqtt_err:00000010 $d
+T:\msys\tmp\ccu8lVXx.s:714    .rodata.str1.4:00000000 $d
+T:\msys\tmp\ccu8lVXx.s:763    .bss.s_oc_mqtt:00000000 $d
+T:\msys\tmp\ccu8lVXx.s:767    .bss.s_oc_mqtt:00000000 s_oc_mqtt
+T:\msys\tmp\ccu8lVXx.s:770    .rodata.__FUNCTION__.6937:00000000 $d
+T:\msys\tmp\ccu8lVXx.s:774    .rodata.__FUNCTION__.6937:00000000 __FUNCTION__.6937
+T:\msys\tmp\ccu8lVXx.s:777    .rodata.__FUNCTION__.6941:00000000 $d
+T:\msys\tmp\ccu8lVXx.s:781    .rodata.__FUNCTION__.6941:00000000 __FUNCTION__.6941
+T:\msys\tmp\ccu8lVXx.s:784    .rodata.__FUNCTION__.6945:00000000 $d
+T:\msys\tmp\ccu8lVXx.s:788    .rodata.__FUNCTION__.6945:00000000 __FUNCTION__.6945
+T:\msys\tmp\ccu8lVXx.s:791    .rodata.s_oc_mqtt_err_tab:00000000 $d
+T:\msys\tmp\ccu8lVXx.s:795    .rodata.s_oc_mqtt_err_tab:00000000 s_oc_mqtt_err_tab
+
+UNDEFINED SYMBOLS
+link_log_level_get
+link_log_level_name
+osal_sys_time
+printf
+fflush
+ARM GAS  T:\msys\tmp\ccu8lVXx.s 			page 22
+
+
+_impure_ptr

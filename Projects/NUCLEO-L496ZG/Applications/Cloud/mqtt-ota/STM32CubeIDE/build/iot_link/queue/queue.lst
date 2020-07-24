@@ -1,0 +1,1090 @@
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"queue.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.queue_create,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	queue_create
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	queue_create:
+  28              	.LVL0:
+  29              	.LFB3:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue/queue.c"
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * Copyright (c) <2018>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * ===============================================
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** /**
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  *  DATE                AUTHOR      INSTRUCTION
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  *  2019-09-16 18:27  zhangqianfu  The first version
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  *
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****  */
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** #include <stdlib.h>
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** #include <stdio.h>
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** #include <string.h>
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** #include <osal.h>
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** #include "queue.h"
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** queue_t* queue_create(const char *name,int len,int syncmode)
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** {
+  31              		.loc 1 48 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     queue_t *ret;
+  35              		.loc 1 49 5 view .LVU1
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret = osal_malloc(sizeof(queue_t) + len*sizeof(void *));
+  36              		.loc 1 51 5 view .LVU2
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     queue_t *ret;
+  37              		.loc 1 48 1 is_stmt 0 view .LVU3
+  38 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 24
+  41              		.cfi_offset 3, -24
+  42              		.cfi_offset 4, -20
+  43              		.cfi_offset 5, -16
+  44              		.cfi_offset 6, -12
+  45              		.cfi_offset 7, -8
+  46              		.cfi_offset 14, -4
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     queue_t *ret;
+  47              		.loc 1 48 1 view .LVU4
+  48 0002 0D46     		mov	r5, r1
+  49              		.loc 1 51 39 view .LVU5
+  50 0004 0A31     		adds	r1, r1, #10
+  51              	.LVL1:
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     queue_t *ret;
+  52              		.loc 1 48 1 view .LVU6
+  53 0006 0746     		mov	r7, r0
+  54              		.loc 1 51 11 view .LVU7
+  55 0008 8800     		lsls	r0, r1, #2
+  56              	.LVL2:
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     queue_t *ret;
+  57              		.loc 1 48 1 view .LVU8
+  58 000a 1646     		mov	r6, r2
+  59              		.loc 1 51 11 view .LVU9
+  60 000c FFF7FEFF 		bl	osal_malloc
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 3
+
+
+  61              	.LVL3:
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(NULL == ret)
+  62              		.loc 1 53 5 is_stmt 1 view .LVU10
+  63              		.loc 1 53 7 is_stmt 0 view .LVU11
+  64 0010 0446     		mov	r4, r0
+  65 0012 68B1     		cbz	r0, .L1
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         goto EXIT_MEM;
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     (void) memset(ret,0,sizeof(queue_t));
+  66              		.loc 1 58 5 is_stmt 1 view .LVU12
+  67              		.loc 1 58 12 is_stmt 0 view .LVU13
+  68 0014 0023     		movs	r3, #0
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret->name = name;
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret->msg_buflen = len;
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret->msg_buf = (void **)(uintptr_t)((uint8_t *)ret + sizeof(queue_t));
+  69              		.loc 1 61 20 view .LVU14
+  70 0016 00F12802 		add	r2, r0, #40
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret->msg_buf = (void **)(uintptr_t)((uint8_t *)ret + sizeof(queue_t));
+  71              		.loc 1 60 21 view .LVU15
+  72 001a C0E90075 		strd	r7, r5, [r0]
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret->sync_mode = syncmode;
+  73              		.loc 1 62 20 view .LVU16
+  74 001e 8661     		str	r6, [r0, #24]
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret->name = name;
+  75              		.loc 1 58 12 view .LVU17
+  76 0020 C360     		str	r3, [r0, #12]	@ unaligned
+  77 0022 0361     		str	r3, [r0, #16]	@ unaligned
+  78 0024 4361     		str	r3, [r0, #20]	@ unaligned
+  79 0026 C361     		str	r3, [r0, #28]	@ unaligned
+  80 0028 0362     		str	r3, [r0, #32]	@ unaligned
+  81 002a 4362     		str	r3, [r0, #36]	@ unaligned
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret->msg_buflen = len;
+  82              		.loc 1 59 5 is_stmt 1 view .LVU18
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret->msg_buf = (void **)(uintptr_t)((uint8_t *)ret + sizeof(queue_t));
+  83              		.loc 1 60 5 view .LVU19
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret->sync_mode = syncmode;
+  84              		.loc 1 61 5 view .LVU20
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret->sync_mode = syncmode;
+  85              		.loc 1 61 18 is_stmt 0 view .LVU21
+  86 002c 8260     		str	r2, [r0, #8]
+  87              		.loc 1 62 5 is_stmt 1 view .LVU22
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(0 == syncmode)
+  88              		.loc 1 64 5 view .LVU23
+  89              		.loc 1 64 7 is_stmt 0 view .LVU24
+  90 002e 0EB9     		cbnz	r6, .L19
+  91              	.LVL4:
+  92              	.L1:
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         goto EXIT_OK;
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(false == osal_semp_create(&ret->sync_read,len,0))
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 4
+
+
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         goto EXIT_SYNCREAD;
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(false == osal_semp_create(&ret->sync_write,len,len))
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         goto EXIT_SYNCWRITE;
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(false == osal_mutex_create(&ret->lock))
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         goto EXIT_LOCK;
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** EXIT_OK:
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     return ret;
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** EXIT_LOCK:
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     (void) osal_semp_del(ret->sync_write);
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** EXIT_SYNCWRITE:
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     (void) osal_semp_del(ret->sync_read);
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** EXIT_SYNCREAD:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     osal_free(ret);
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret = NULL;
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** EXIT_MEM:
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret = NULL;
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     return ret;
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+  93              		.loc 1 99 1 view .LVU25
+  94 0030 2046     		mov	r0, r4
+  95 0032 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  96              	.LVL5:
+  97              	.L19:
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+  98              		.loc 1 69 5 is_stmt 1 view .LVU26
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+  99              		.loc 1 69 17 is_stmt 0 view .LVU27
+ 100 0034 1A46     		mov	r2, r3
+ 101 0036 2946     		mov	r1, r5
+ 102 0038 1C30     		adds	r0, r0, #28
+ 103              	.LVL6:
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 104              		.loc 1 69 17 view .LVU28
+ 105 003a FFF7FEFF 		bl	osal_semp_create
+ 106              	.LVL7:
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 107              		.loc 1 69 7 view .LVU29
+ 108 003e 90B1     		cbz	r0, .L3
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 109              		.loc 1 74 5 is_stmt 1 view .LVU30
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 110              		.loc 1 74 17 is_stmt 0 view .LVU31
+ 111 0040 2A46     		mov	r2, r5
+ 112 0042 2946     		mov	r1, r5
+ 113 0044 04F12000 		add	r0, r4, #32
+ 114 0048 FFF7FEFF 		bl	osal_semp_create
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 5
+
+
+ 115              	.LVL8:
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 116              		.loc 1 74 7 view .LVU32
+ 117 004c 40B1     		cbz	r0, .L4
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 118              		.loc 1 79 5 is_stmt 1 view .LVU33
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 119              		.loc 1 79 17 is_stmt 0 view .LVU34
+ 120 004e 04F12400 		add	r0, r4, #36
+ 121 0052 FFF7FEFF 		bl	osal_mutex_create
+ 122              	.LVL9:
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 123              		.loc 1 79 7 view .LVU35
+ 124 0056 0028     		cmp	r0, #0
+ 125 0058 EAD1     		bne	.L1
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 126              		.loc 1 81 9 is_stmt 1 view .LVU36
+ 127              	.LDL1:
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** EXIT_SYNCWRITE:
+ 128              		.loc 1 89 5 view .LVU37
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** EXIT_SYNCWRITE:
+ 129              		.loc 1 89 12 is_stmt 0 view .LVU38
+ 130 005a 206A     		ldr	r0, [r4, #32]
+ 131 005c FFF7FEFF 		bl	osal_semp_del
+ 132              	.LVL10:
+ 133              	.L4:
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** EXIT_SYNCREAD:
+ 134              		.loc 1 91 5 is_stmt 1 view .LVU39
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** EXIT_SYNCREAD:
+ 135              		.loc 1 91 12 is_stmt 0 view .LVU40
+ 136 0060 E069     		ldr	r0, [r4, #28]
+ 137 0062 FFF7FEFF 		bl	osal_semp_del
+ 138              	.LVL11:
+ 139              	.L3:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret = NULL;
+ 140              		.loc 1 93 5 is_stmt 1 view .LVU41
+ 141 0066 2046     		mov	r0, r4
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 142              		.loc 1 97 12 is_stmt 0 view .LVU42
+ 143 0068 0024     		movs	r4, #0
+ 144              	.LVL12:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret = NULL;
+ 145              		.loc 1 93 5 view .LVU43
+ 146 006a FFF7FEFF 		bl	osal_free
+ 147              	.LVL13:
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** EXIT_MEM:
+ 148              		.loc 1 94 5 is_stmt 1 view .LVU44
+ 149              		.loc 1 99 1 is_stmt 0 view .LVU45
+ 150 006e 2046     		mov	r0, r4
+ 151 0070 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 152              		.loc 1 99 1 view .LVU46
+ 153              		.cfi_endproc
+ 154              	.LFE3:
+ 156 0072 00BF     		.section	.text.queue_push,"ax",%progbits
+ 157              		.align	1
+ 158              		.p2align 2,,3
+ 159              		.global	queue_push
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 6
+
+
+ 160              		.syntax unified
+ 161              		.thumb
+ 162              		.thumb_func
+ 163              		.fpu fpv4-sp-d16
+ 165              	queue_push:
+ 166              	.LVL14:
+ 167              	.LFB5:
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** static int raw_queue_pushdata(queue_t *queue,void *data)
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** {
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     int ret = -1;
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(queue->msg_num < queue->msg_buflen)
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_buf[queue->cur_write] = data;
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_write = (queue->cur_write + 1)%queue->msg_buflen;
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num ++;
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     return ret;
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** ///< push a data to the queue, 0 success while -1 failed
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** int queue_push(queue_t *queue,void *data,int timeout)
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** {
+ 168              		.loc 1 118 1 is_stmt 1 view -0
+ 169              		.cfi_startproc
+ 170              		@ args = 0, pretend = 0, frame = 0
+ 171              		@ frame_needed = 0, uses_anonymous_args = 0
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     int ret = -1;
+ 172              		.loc 1 119 5 view .LVU48
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if((NULL == queue) || (NULL == data))
+ 173              		.loc 1 121 5 view .LVU49
+ 174              		.loc 1 121 7 is_stmt 0 view .LVU50
+ 175 0000 0028     		cmp	r0, #0
+ 176 0002 3ED0     		beq	.L39
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     int ret = -1;
+ 177              		.loc 1 118 1 discriminator 1 view .LVU51
+ 178 0004 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 179              	.LCFI1:
+ 180              		.cfi_def_cfa_offset 24
+ 181              		.cfi_offset 3, -24
+ 182              		.cfi_offset 4, -20
+ 183              		.cfi_offset 5, -16
+ 184              		.cfi_offset 6, -12
+ 185              		.cfi_offset 7, -8
+ 186              		.cfi_offset 14, -4
+ 187 0006 0D46     		mov	r5, r1
+ 188              		.loc 1 121 24 discriminator 1 view .LVU52
+ 189 0008 0029     		cmp	r1, #0
+ 190 000a 37D0     		beq	.L38
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         return ret;
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(queue->sync_mode)
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 7
+
+
+ 191              		.loc 1 125 5 is_stmt 1 view .LVU53
+ 192 000c 0446     		mov	r4, r0
+ 193              		.loc 1 125 13 is_stmt 0 view .LVU54
+ 194 000e 8069     		ldr	r0, [r0, #24]
+ 195              	.LVL15:
+ 196              		.loc 1 125 7 view .LVU55
+ 197 0010 80B9     		cbnz	r0, .L40
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         if(osal_semp_pend(queue->sync_write,timeout))
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         {
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             if(osal_mutex_lock(queue->lock))
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****                 ret = raw_queue_pushdata(queue,data);
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****                 (void) osal_mutex_unlock(queue->lock);
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             if(0 == ret)
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****                 (void) osal_semp_post(queue->sync_read);
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         }
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 141:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     else
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = raw_queue_pushdata(queue,data);
+ 198              		.loc 1 143 9 is_stmt 1 view .LVU56
+ 199              	.LVL16:
+ 200              	.LBB10:
+ 201              	.LBI10:
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** {
+ 202              		.loc 1 102 12 view .LVU57
+ 203              	.LBB11:
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(queue->msg_num < queue->msg_buflen)
+ 204              		.loc 1 104 5 view .LVU58
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 205              		.loc 1 105 5 view .LVU59
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 206              		.loc 1 105 13 is_stmt 0 view .LVU60
+ 207 0012 6369     		ldr	r3, [r4, #20]
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 208              		.loc 1 105 30 view .LVU61
+ 209 0014 6268     		ldr	r2, [r4, #4]
+ 210              	.LVL17:
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 211              		.loc 1 105 7 view .LVU62
+ 212 0016 9342     		cmp	r3, r2
+ 213 0018 30DA     		bge	.L38
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_write = (queue->cur_write + 1)%queue->msg_buflen;
+ 214              		.loc 1 107 9 is_stmt 1 view .LVU63
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_write = (queue->cur_write + 1)%queue->msg_buflen;
+ 215              		.loc 1 107 42 is_stmt 0 view .LVU64
+ 216 001a D4E90217 		ldrd	r1, r7, [r4, #8]
+ 217              	.LVL18:
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num ++;
+ 218              		.loc 1 108 46 view .LVU65
+ 219 001e 7E1C     		adds	r6, r7, #1
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_write = (queue->cur_write + 1)%queue->msg_buflen;
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 8
+
+
+ 220              		.loc 1 107 42 view .LVU66
+ 221 0020 41F82750 		str	r5, [r1, r7, lsl #2]
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num ++;
+ 222              		.loc 1 108 9 is_stmt 1 view .LVU67
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num ++;
+ 223              		.loc 1 108 50 is_stmt 0 view .LVU68
+ 224 0024 96FBF2F1 		sdiv	r1, r6, r2
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 225              		.loc 1 109 24 view .LVU69
+ 226 0028 0133     		adds	r3, r3, #1
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num ++;
+ 227              		.loc 1 108 50 view .LVU70
+ 228 002a 02FB1162 		mls	r2, r2, r1, r6
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 229              		.loc 1 109 24 view .LVU71
+ 230 002e 6361     		str	r3, [r4, #20]
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num ++;
+ 231              		.loc 1 108 26 view .LVU72
+ 232 0030 E260     		str	r2, [r4, #12]
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 233              		.loc 1 109 9 is_stmt 1 view .LVU73
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 234              		.loc 1 110 9 view .LVU74
+ 235              	.LVL19:
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 236              		.loc 1 110 9 is_stmt 0 view .LVU75
+ 237              	.LBE11:
+ 238              	.LBE10:
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 145:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     return ret;
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 147:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 239              		.loc 1 147 1 view .LVU76
+ 240 0032 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 241              	.LVL20:
+ 242              	.L40:
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         {
+ 243              		.loc 1 127 9 is_stmt 1 view .LVU77
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         {
+ 244              		.loc 1 127 12 is_stmt 0 view .LVU78
+ 245 0034 206A     		ldr	r0, [r4, #32]
+ 246 0036 1146     		mov	r1, r2
+ 247              	.LVL21:
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         {
+ 248              		.loc 1 127 12 view .LVU79
+ 249 0038 FFF7FEFF 		bl	osal_semp_pend
+ 250              	.LVL22:
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         {
+ 251              		.loc 1 127 11 view .LVU80
+ 252 003c F0B1     		cbz	r0, .L38
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 253              		.loc 1 129 13 is_stmt 1 view .LVU81
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 254              		.loc 1 129 16 is_stmt 0 view .LVU82
+ 255 003e 606A     		ldr	r0, [r4, #36]
+ 256 0040 FFF7FEFF 		bl	osal_mutex_lock
+ 257              	.LVL23:
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 9
+
+
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 258              		.loc 1 129 15 view .LVU83
+ 259 0044 D0B1     		cbz	r0, .L38
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****                 (void) osal_mutex_unlock(queue->lock);
+ 260              		.loc 1 131 17 is_stmt 1 view .LVU84
+ 261              	.LVL24:
+ 262              	.LBB12:
+ 263              	.LBI12:
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** {
+ 264              		.loc 1 102 12 view .LVU85
+ 265              	.LBB13:
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(queue->msg_num < queue->msg_buflen)
+ 266              		.loc 1 104 5 view .LVU86
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 267              		.loc 1 105 5 view .LVU87
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 268              		.loc 1 105 13 is_stmt 0 view .LVU88
+ 269 0046 6269     		ldr	r2, [r4, #20]
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 270              		.loc 1 105 30 view .LVU89
+ 271 0048 6168     		ldr	r1, [r4, #4]
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 272              		.loc 1 105 7 view .LVU90
+ 273 004a 8A42     		cmp	r2, r1
+ 274 004c 13DA     		bge	.L41
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_write = (queue->cur_write + 1)%queue->msg_buflen;
+ 275              		.loc 1 107 9 is_stmt 1 view .LVU91
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_write = (queue->cur_write + 1)%queue->msg_buflen;
+ 276              		.loc 1 107 42 is_stmt 0 view .LVU92
+ 277 004e D4E90203 		ldrd	r0, r3, [r4, #8]
+ 278 0052 40F82350 		str	r5, [r0, r3, lsl #2]
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num ++;
+ 279              		.loc 1 108 9 is_stmt 1 view .LVU93
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num ++;
+ 280              		.loc 1 108 46 is_stmt 0 view .LVU94
+ 281 0056 0133     		adds	r3, r3, #1
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 282              		.loc 1 109 24 view .LVU95
+ 283 0058 0132     		adds	r2, r2, #1
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num ++;
+ 284              		.loc 1 108 50 view .LVU96
+ 285 005a 93FBF1F0 		sdiv	r0, r3, r1
+ 286 005e 01FB1033 		mls	r3, r1, r0, r3
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 287              		.loc 1 109 24 view .LVU97
+ 288 0062 6261     		str	r2, [r4, #20]
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num ++;
+ 289              		.loc 1 108 26 view .LVU98
+ 290 0064 E360     		str	r3, [r4, #12]
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 291              		.loc 1 109 9 is_stmt 1 view .LVU99
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 292              		.loc 1 110 9 view .LVU100
+ 293              	.LVL25:
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 294              		.loc 1 113 5 view .LVU101
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 10
+
+
+ 295              		.loc 1 113 5 is_stmt 0 view .LVU102
+ 296              	.LBE13:
+ 297              	.LBE12:
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 298              		.loc 1 132 17 is_stmt 1 view .LVU103
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 299              		.loc 1 132 24 is_stmt 0 view .LVU104
+ 300 0066 606A     		ldr	r0, [r4, #36]
+ 301 0068 FFF7FEFF 		bl	osal_mutex_unlock
+ 302              	.LVL26:
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 303              		.loc 1 135 13 is_stmt 1 view .LVU105
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 304              		.loc 1 137 17 view .LVU106
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 305              		.loc 1 137 24 is_stmt 0 view .LVU107
+ 306 006c E069     		ldr	r0, [r4, #28]
+ 307 006e FFF7FEFF 		bl	osal_semp_post
+ 308              	.LVL27:
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****                 (void) osal_mutex_unlock(queue->lock);
+ 309              		.loc 1 131 23 view .LVU108
+ 310 0072 0020     		movs	r0, #0
+ 311              		.loc 1 147 1 view .LVU109
+ 312 0074 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 313              	.LVL28:
+ 314              	.L41:
+ 315              	.LBB16:
+ 316              	.LBB14:
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 317              		.loc 1 113 5 is_stmt 1 view .LVU110
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 318              		.loc 1 113 5 is_stmt 0 view .LVU111
+ 319              	.LBE14:
+ 320              	.LBE16:
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 321              		.loc 1 132 17 is_stmt 1 view .LVU112
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 322              		.loc 1 132 24 is_stmt 0 view .LVU113
+ 323 0076 606A     		ldr	r0, [r4, #36]
+ 324 0078 FFF7FEFF 		bl	osal_mutex_unlock
+ 325              	.LVL29:
+ 326              	.L38:
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 327              		.loc 1 135 13 is_stmt 1 view .LVU114
+ 328              	.LBB17:
+ 329              	.LBB15:
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(queue->msg_num < queue->msg_buflen)
+ 330              		.loc 1 104 9 is_stmt 0 view .LVU115
+ 331 007c 4FF0FF30 		mov	r0, #-1
+ 332              	.LBE15:
+ 333              	.LBE17:
+ 334              		.loc 1 147 1 view .LVU116
+ 335 0080 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 336              	.LVL30:
+ 337              	.L39:
+ 338              	.LCFI2:
+ 339              		.cfi_def_cfa_offset 0
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 11
+
+
+ 340              		.cfi_restore 3
+ 341              		.cfi_restore 4
+ 342              		.cfi_restore 5
+ 343              		.cfi_restore 6
+ 344              		.cfi_restore 7
+ 345              		.cfi_restore 14
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 346              		.loc 1 123 16 view .LVU117
+ 347 0082 4FF0FF30 		mov	r0, #-1
+ 348              	.LVL31:
+ 349              		.loc 1 147 1 view .LVU118
+ 350 0086 7047     		bx	lr
+ 351              		.cfi_endproc
+ 352              	.LFE5:
+ 354              		.section	.text.queue_pop,"ax",%progbits
+ 355              		.align	1
+ 356              		.p2align 2,,3
+ 357              		.global	queue_pop
+ 358              		.syntax unified
+ 359              		.thumb
+ 360              		.thumb_func
+ 361              		.fpu fpv4-sp-d16
+ 363              	queue_pop:
+ 364              	.LVL32:
+ 365              	.LFB7:
+ 148:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** ///< pop a data from the queue
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** static int raw_queue_pop(queue_t *queue,void **buf)
+ 151:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** {
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     int ret = -1;
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(queue->msg_num > 0)
+ 154:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         *buf = queue->msg_buf[queue->cur_read];
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_read = (queue->cur_read +1)%queue->msg_buflen;
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num--;
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 159:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     return ret;
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 162:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 164:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** int queue_pop(queue_t *queue,void **buf, int timeout)
+ 165:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** {
+ 366              		.loc 1 165 1 is_stmt 1 view -0
+ 367              		.cfi_startproc
+ 368              		@ args = 0, pretend = 0, frame = 0
+ 369              		@ frame_needed = 0, uses_anonymous_args = 0
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     int ret = -1;
+ 370              		.loc 1 166 5 view .LVU120
+ 167:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if((NULL == queue) || (NULL == buf))
+ 371              		.loc 1 167 5 view .LVU121
+ 372              		.loc 1 167 7 is_stmt 0 view .LVU122
+ 373 0000 0028     		cmp	r0, #0
+ 374 0002 40D0     		beq	.L61
+ 165:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     int ret = -1;
+ 375              		.loc 1 165 1 discriminator 1 view .LVU123
+ 376 0004 70B5     		push	{r4, r5, r6, lr}
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 12
+
+
+ 377              	.LCFI3:
+ 378              		.cfi_def_cfa_offset 16
+ 379              		.cfi_offset 4, -16
+ 380              		.cfi_offset 5, -12
+ 381              		.cfi_offset 6, -8
+ 382              		.cfi_offset 14, -4
+ 383 0006 0D46     		mov	r5, r1
+ 384              		.loc 1 167 24 discriminator 1 view .LVU124
+ 385 0008 0029     		cmp	r1, #0
+ 386 000a 39D0     		beq	.L60
+ 168:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 169:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         return ret;
+ 170:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 171:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 172:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(queue->sync_mode)
+ 387              		.loc 1 172 5 is_stmt 1 view .LVU125
+ 388 000c 0446     		mov	r4, r0
+ 389              		.loc 1 172 13 is_stmt 0 view .LVU126
+ 390 000e 8069     		ldr	r0, [r0, #24]
+ 391              	.LVL33:
+ 392              		.loc 1 172 7 view .LVU127
+ 393 0010 88B9     		cbnz	r0, .L62
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         if(osal_semp_pend(queue->sync_read,timeout))
+ 175:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         {
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             if(osal_mutex_lock(queue->lock))
+ 177:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****                 ret = raw_queue_pop(queue,buf);
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****                 (void) osal_mutex_unlock(queue->lock);
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             if(0 == ret)
+ 182:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****                 (void) osal_semp_post(queue->sync_write);
+ 184:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         }
+ 186:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     else
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = raw_queue_pop(queue,buf);
+ 394              		.loc 1 189 9 is_stmt 1 view .LVU128
+ 395              	.LVL34:
+ 396              	.LBB18:
+ 397              	.LBI18:
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** {
+ 398              		.loc 1 150 12 view .LVU129
+ 399              	.LBB19:
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(queue->msg_num > 0)
+ 400              		.loc 1 152 5 view .LVU130
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 401              		.loc 1 153 5 view .LVU131
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 402              		.loc 1 153 13 is_stmt 0 view .LVU132
+ 403 0012 6269     		ldr	r2, [r4, #20]
+ 404              	.LVL35:
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 405              		.loc 1 153 7 view .LVU133
+ 406 0014 002A     		cmp	r2, #0
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 13
+
+
+ 407 0016 33DD     		ble	.L60
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_read = (queue->cur_read +1)%queue->msg_buflen;
+ 408              		.loc 1 155 9 is_stmt 1 view .LVU134
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num--;
+ 409              		.loc 1 156 47 is_stmt 0 view .LVU135
+ 410 0018 D4E90161 		ldrd	r6, r1, [r4, #4]
+ 411              	.LVL36:
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_read = (queue->cur_read +1)%queue->msg_buflen;
+ 412              		.loc 1 155 36 view .LVU136
+ 413 001c 2369     		ldr	r3, [r4, #16]
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_read = (queue->cur_read +1)%queue->msg_buflen;
+ 414              		.loc 1 155 30 view .LVU137
+ 415 001e 51F82310 		ldr	r1, [r1, r3, lsl #2]
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_read = (queue->cur_read +1)%queue->msg_buflen;
+ 416              		.loc 1 155 14 view .LVU138
+ 417 0022 2960     		str	r1, [r5]
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num--;
+ 418              		.loc 1 156 9 is_stmt 1 view .LVU139
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num--;
+ 419              		.loc 1 156 44 is_stmt 0 view .LVU140
+ 420 0024 0133     		adds	r3, r3, #1
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 421              		.loc 1 157 23 view .LVU141
+ 422 0026 013A     		subs	r2, r2, #1
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num--;
+ 423              		.loc 1 156 47 view .LVU142
+ 424 0028 93FBF6F1 		sdiv	r1, r3, r6
+ 425 002c 06FB1133 		mls	r3, r6, r1, r3
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num--;
+ 426              		.loc 1 156 25 view .LVU143
+ 427 0030 C4E90432 		strd	r3, r2, [r4, #16]
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 428              		.loc 1 157 9 is_stmt 1 view .LVU144
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 429              		.loc 1 158 9 view .LVU145
+ 430              	.LVL37:
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 431              		.loc 1 158 9 is_stmt 0 view .LVU146
+ 432              	.LBE19:
+ 433              	.LBE18:
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     return ret;
+ 192:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 434              		.loc 1 192 1 view .LVU147
+ 435 0034 70BD     		pop	{r4, r5, r6, pc}
+ 436              	.LVL38:
+ 437              	.L62:
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         {
+ 438              		.loc 1 174 9 is_stmt 1 view .LVU148
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         {
+ 439              		.loc 1 174 12 is_stmt 0 view .LVU149
+ 440 0036 E069     		ldr	r0, [r4, #28]
+ 441 0038 1146     		mov	r1, r2
+ 442              	.LVL39:
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         {
+ 443              		.loc 1 174 12 view .LVU150
+ 444 003a FFF7FEFF 		bl	osal_semp_pend
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 14
+
+
+ 445              	.LVL40:
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         {
+ 446              		.loc 1 174 11 view .LVU151
+ 447 003e F8B1     		cbz	r0, .L60
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 448              		.loc 1 176 13 is_stmt 1 view .LVU152
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 449              		.loc 1 176 16 is_stmt 0 view .LVU153
+ 450 0040 606A     		ldr	r0, [r4, #36]
+ 451 0042 FFF7FEFF 		bl	osal_mutex_lock
+ 452              	.LVL41:
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 453              		.loc 1 176 15 view .LVU154
+ 454 0046 D8B1     		cbz	r0, .L60
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****                 (void) osal_mutex_unlock(queue->lock);
+ 455              		.loc 1 178 17 is_stmt 1 view .LVU155
+ 456              	.LVL42:
+ 457              	.LBB20:
+ 458              	.LBI20:
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** {
+ 459              		.loc 1 150 12 view .LVU156
+ 460              	.LBB21:
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(queue->msg_num > 0)
+ 461              		.loc 1 152 5 view .LVU157
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 462              		.loc 1 153 5 view .LVU158
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 463              		.loc 1 153 13 is_stmt 0 view .LVU159
+ 464 0048 6269     		ldr	r2, [r4, #20]
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 465              		.loc 1 153 7 view .LVU160
+ 466 004a 002A     		cmp	r2, #0
+ 467 004c 15DD     		ble	.L63
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_read = (queue->cur_read +1)%queue->msg_buflen;
+ 468              		.loc 1 155 9 is_stmt 1 view .LVU161
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num--;
+ 469              		.loc 1 156 47 is_stmt 0 view .LVU162
+ 470 004e D4E90101 		ldrd	r0, r1, [r4, #4]
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_read = (queue->cur_read +1)%queue->msg_buflen;
+ 471              		.loc 1 155 36 view .LVU163
+ 472 0052 2369     		ldr	r3, [r4, #16]
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_read = (queue->cur_read +1)%queue->msg_buflen;
+ 473              		.loc 1 155 30 view .LVU164
+ 474 0054 51F82310 		ldr	r1, [r1, r3, lsl #2]
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->cur_read = (queue->cur_read +1)%queue->msg_buflen;
+ 475              		.loc 1 155 14 view .LVU165
+ 476 0058 2960     		str	r1, [r5]
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num--;
+ 477              		.loc 1 156 9 is_stmt 1 view .LVU166
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num--;
+ 478              		.loc 1 156 44 is_stmt 0 view .LVU167
+ 479 005a 0133     		adds	r3, r3, #1
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 480              		.loc 1 157 23 view .LVU168
+ 481 005c 013A     		subs	r2, r2, #1
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num--;
+ 482              		.loc 1 156 47 view .LVU169
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 15
+
+
+ 483 005e 93FBF0F1 		sdiv	r1, r3, r0
+ 484 0062 00FB1133 		mls	r3, r0, r1, r3
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         queue->msg_num--;
+ 485              		.loc 1 156 25 view .LVU170
+ 486 0066 C4E90432 		strd	r3, r2, [r4, #16]
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         ret = 0;
+ 487              		.loc 1 157 9 is_stmt 1 view .LVU171
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 488              		.loc 1 158 9 view .LVU172
+ 489              	.LVL43:
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 490              		.loc 1 160 5 view .LVU173
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 491              		.loc 1 160 5 is_stmt 0 view .LVU174
+ 492              	.LBE21:
+ 493              	.LBE20:
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 494              		.loc 1 179 17 is_stmt 1 view .LVU175
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 495              		.loc 1 179 24 is_stmt 0 view .LVU176
+ 496 006a 606A     		ldr	r0, [r4, #36]
+ 497 006c FFF7FEFF 		bl	osal_mutex_unlock
+ 498              	.LVL44:
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 499              		.loc 1 181 13 is_stmt 1 view .LVU177
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 500              		.loc 1 183 17 view .LVU178
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 501              		.loc 1 183 24 is_stmt 0 view .LVU179
+ 502 0070 206A     		ldr	r0, [r4, #32]
+ 503 0072 FFF7FEFF 		bl	osal_semp_post
+ 504              	.LVL45:
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****                 (void) osal_mutex_unlock(queue->lock);
+ 505              		.loc 1 178 23 view .LVU180
+ 506 0076 0020     		movs	r0, #0
+ 507              		.loc 1 192 1 view .LVU181
+ 508 0078 70BD     		pop	{r4, r5, r6, pc}
+ 509              	.LVL46:
+ 510              	.L63:
+ 511              	.LBB24:
+ 512              	.LBB22:
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 513              		.loc 1 160 5 is_stmt 1 view .LVU182
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 514              		.loc 1 160 5 is_stmt 0 view .LVU183
+ 515              	.LBE22:
+ 516              	.LBE24:
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 517              		.loc 1 179 17 is_stmt 1 view .LVU184
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             }
+ 518              		.loc 1 179 24 is_stmt 0 view .LVU185
+ 519 007a 606A     		ldr	r0, [r4, #36]
+ 520 007c FFF7FEFF 		bl	osal_mutex_unlock
+ 521              	.LVL47:
+ 522              	.L60:
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****             {
+ 523              		.loc 1 181 13 is_stmt 1 view .LVU186
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 16
+
+
+ 524              	.LBB25:
+ 525              	.LBB23:
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(queue->msg_num > 0)
+ 526              		.loc 1 152 9 is_stmt 0 view .LVU187
+ 527 0080 4FF0FF30 		mov	r0, #-1
+ 528              	.LBE23:
+ 529              	.LBE25:
+ 530              		.loc 1 192 1 view .LVU188
+ 531 0084 70BD     		pop	{r4, r5, r6, pc}
+ 532              	.LVL48:
+ 533              	.L61:
+ 534              	.LCFI4:
+ 535              		.cfi_def_cfa_offset 0
+ 536              		.cfi_restore 4
+ 537              		.cfi_restore 5
+ 538              		.cfi_restore 6
+ 539              		.cfi_restore 14
+ 169:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 540              		.loc 1 169 16 view .LVU189
+ 541 0086 4FF0FF30 		mov	r0, #-1
+ 542              	.LVL49:
+ 543              		.loc 1 192 1 view .LVU190
+ 544 008a 7047     		bx	lr
+ 545              		.cfi_endproc
+ 546              	.LFE7:
+ 548              		.section	.text.queue_delete,"ax",%progbits
+ 549              		.align	1
+ 550              		.p2align 2,,3
+ 551              		.global	queue_delete
+ 552              		.syntax unified
+ 553              		.thumb
+ 554              		.thumb_func
+ 555              		.fpu fpv4-sp-d16
+ 557              	queue_delete:
+ 558              	.LVL50:
+ 559              	.LFB8:
+ 193:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** ///< delete the queue,if any data in the queue, which means could not kill it
+ 195:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** int queue_delete(queue_t *queue)
+ 196:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** {
+ 560              		.loc 1 196 1 is_stmt 1 view -0
+ 561              		.cfi_startproc
+ 562              		@ args = 0, pretend = 0, frame = 0
+ 563              		@ frame_needed = 0, uses_anonymous_args = 0
+ 197:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     int ret = -1;
+ 564              		.loc 1 197 5 view .LVU192
+ 198:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 199:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if((NULL == queue))
+ 565              		.loc 1 199 5 view .LVU193
+ 566              		.loc 1 199 7 is_stmt 0 view .LVU194
+ 567 0000 B0B1     		cbz	r0, .L67
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         return ret;
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     if(queue->sync_mode)
+ 568              		.loc 1 203 5 is_stmt 1 view .LVU195
+ 569              		.loc 1 203 7 is_stmt 0 view .LVU196
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 17
+
+
+ 570 0002 8369     		ldr	r3, [r0, #24]
+ 196:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     int ret = -1;
+ 571              		.loc 1 196 1 view .LVU197
+ 572 0004 10B5     		push	{r4, lr}
+ 573              	.LCFI5:
+ 574              		.cfi_def_cfa_offset 8
+ 575              		.cfi_offset 4, -8
+ 576              		.cfi_offset 14, -4
+ 577 0006 0446     		mov	r4, r0
+ 578              		.loc 1 203 7 view .LVU198
+ 579 0008 23B9     		cbnz	r3, .L75
+ 204:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     {
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         (void) osal_semp_del(queue->sync_read);
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         (void) osal_semp_del(queue->sync_write);
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         (void) osal_mutex_del(queue->lock);
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     osal_free(queue);
+ 580              		.loc 1 209 5 is_stmt 1 view .LVU199
+ 581 000a 2046     		mov	r0, r4
+ 582              		.loc 1 209 5 is_stmt 0 view .LVU200
+ 583 000c FFF7FEFF 		bl	osal_free
+ 584              	.LVL51:
+ 210:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret = 0;
+ 585              		.loc 1 210 5 is_stmt 1 view .LVU201
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 212:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     return ret;
+ 586              		.loc 1 212 5 view .LVU202
+ 587              		.loc 1 212 12 is_stmt 0 view .LVU203
+ 588 0010 0020     		movs	r0, #0
+ 213:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** }
+ 589              		.loc 1 214 1 view .LVU204
+ 590 0012 10BD     		pop	{r4, pc}
+ 591              	.LVL52:
+ 592              	.L75:
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         (void) osal_semp_del(queue->sync_write);
+ 593              		.loc 1 205 9 is_stmt 1 view .LVU205
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         (void) osal_semp_del(queue->sync_write);
+ 594              		.loc 1 205 16 is_stmt 0 view .LVU206
+ 595 0014 C069     		ldr	r0, [r0, #28]
+ 596              	.LVL53:
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         (void) osal_semp_del(queue->sync_write);
+ 597              		.loc 1 205 16 view .LVU207
+ 598 0016 FFF7FEFF 		bl	osal_semp_del
+ 599              	.LVL54:
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         (void) osal_mutex_del(queue->lock);
+ 600              		.loc 1 206 9 is_stmt 1 view .LVU208
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****         (void) osal_mutex_del(queue->lock);
+ 601              		.loc 1 206 16 is_stmt 0 view .LVU209
+ 602 001a 206A     		ldr	r0, [r4, #32]
+ 603 001c FFF7FEFF 		bl	osal_semp_del
+ 604              	.LVL55:
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 605              		.loc 1 207 9 is_stmt 1 view .LVU210
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 606              		.loc 1 207 16 is_stmt 0 view .LVU211
+ 607 0020 606A     		ldr	r0, [r4, #36]
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 18
+
+
+ 608 0022 FFF7FEFF 		bl	osal_mutex_del
+ 609              	.LVL56:
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     ret = 0;
+ 610              		.loc 1 209 5 is_stmt 1 view .LVU212
+ 611 0026 2046     		mov	r0, r4
+ 612 0028 FFF7FEFF 		bl	osal_free
+ 613              	.LVL57:
+ 210:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 614              		.loc 1 210 5 view .LVU213
+ 212:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 615              		.loc 1 212 5 view .LVU214
+ 212:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c **** 
+ 616              		.loc 1 212 12 is_stmt 0 view .LVU215
+ 617 002c 0020     		movs	r0, #0
+ 618              		.loc 1 214 1 view .LVU216
+ 619 002e 10BD     		pop	{r4, pc}
+ 620              	.LVL58:
+ 621              	.L67:
+ 622              	.LCFI6:
+ 623              		.cfi_def_cfa_offset 0
+ 624              		.cfi_restore 4
+ 625              		.cfi_restore 14
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue\queue.c ****     }
+ 626              		.loc 1 201 16 view .LVU217
+ 627 0030 4FF0FF30 		mov	r0, #-1
+ 628              	.LVL59:
+ 629              		.loc 1 214 1 view .LVU218
+ 630 0034 7047     		bx	lr
+ 631              		.cfi_endproc
+ 632              	.LFE8:
+ 634 0036 00BF     		.text
+ 635              	.Letext0:
+ 636              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 637              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 638              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 639              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 640              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 641              		.file 7 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\stdlib.h
+ 642              		.file 8 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 643              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/osal/osal_t
+ 644              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/queue/queue.h
+ 645              		.file 11 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/osal/osal.
+ARM GAS  T:\msys\tmp\ccXOUsiF.s 			page 19
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 queue.c
+T:\msys\tmp\ccXOUsiF.s:18     .text.queue_create:00000000 $t
+T:\msys\tmp\ccXOUsiF.s:27     .text.queue_create:00000000 queue_create
+T:\msys\tmp\ccXOUsiF.s:157    .text.queue_push:00000000 $t
+T:\msys\tmp\ccXOUsiF.s:165    .text.queue_push:00000000 queue_push
+T:\msys\tmp\ccXOUsiF.s:355    .text.queue_pop:00000000 $t
+T:\msys\tmp\ccXOUsiF.s:363    .text.queue_pop:00000000 queue_pop
+T:\msys\tmp\ccXOUsiF.s:549    .text.queue_delete:00000000 $t
+T:\msys\tmp\ccXOUsiF.s:557    .text.queue_delete:00000000 queue_delete
+
+UNDEFINED SYMBOLS
+osal_malloc
+osal_semp_create
+osal_mutex_create
+osal_semp_del
+osal_free
+osal_semp_pend
+osal_mutex_lock
+osal_mutex_unlock
+osal_semp_post
+osal_mutex_del

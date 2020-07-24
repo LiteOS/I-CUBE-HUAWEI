@@ -1,0 +1,953 @@
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"los_membox.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.LOS_MemboxInit,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	LOS_MemboxInit
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	LOS_MemboxInit:
+  28              	.LVL0:
+  29              	.LFB134:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * Copyright (c) <2013-2015>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * ===============================================
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #include "los_typedef.h"
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #include "los_hwi.h"
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #include "los_membox.ph"
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #if (LOSCFG_PLATFORM_EXC == YES)
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #include "los_memcheck.ph"
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #endif
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #ifdef __cplusplus
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #if __cplusplus
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** extern "C" {
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #endif /* __cplusplus */
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #endif /* __cplusplus */
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /**
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * The address of the static memory pool must be aligned to the boundary of 4.
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  */
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #define OS_BOXMEM_BASE_ALIGN  4
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #define IS_BOXMEM_ALIGNED(value, alignSize)  (0 == (((UINT32)(value)) & ((UINT32)(alignSize - 1))))
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /**
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * Get the address of the next memory node in the static memory pool.
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  */
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #define OS_MEMBOX_NODE_NEXT(addr, uwBlkSize)  (LOS_MEMBOX_NODE *)((UINT8 *)(addr) + (uwBlkSize))
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /**
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * The magic word of the memory box.
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  */
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #ifdef LOS_MEMBOX_MAGIC_CHECK
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #define OS_MEMBOX_MAGIC              0xa55a5aa5
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #define OS_MEMBOX_SET_MAGIC(addr)    *((UINT32 *)(addr)) = OS_MEMBOX_MAGIC
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #define OS_MEMBOX_CHECK_MAGIC(addr)  ((*((UINT32 *)(addr)) == OS_MEMBOX_MAGIC) ? LOS_OK: LOS_NOK)
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #else
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #define OS_MEMBOX_SET_MAGIC(addr)
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #define OS_MEMBOX_CHECK_MAGIC(addr)  LOS_OK
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #endif
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /**
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  * Get the address of memory block according to the magic word information.
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  */
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #define OS_MEMBOX_USER_ADDR(addr)  ((VOID *)((UINT8 *)(addr) + LOS_MEMBOX_MAGIC_SIZE))
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #define OS_MEMBOX_NODE_ADDR(addr)  ((LOS_MEMBOX_NODE *)((UINT8 *)(addr) - LOS_MEMBOX_MAGIC_SIZE))
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /*****************************************************************************
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Function : osCheckBoxMem
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Description : Check whether the memory block is valid
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Input       : pstBoxInfo  --- Pointer to the memory pool
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****                pstNode     --- Pointer to the memory block that will be checked
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Output      : None
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Return      : LOS_OK - OK, LOS_NOK - Error
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 3
+
+
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** *****************************************************************************/
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT static INLINE UINT32 osCheckBoxMem(const LOS_MEMBOX_INFO *pstBoxInfo, const VOID *
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** {
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     UINT32 uwOffSet;
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if (pstBoxInfo->uwBlkSize == 0)
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         return LOS_NOK;
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     uwOffSet = (UINT32)pstNode - (UINT32)(pstBoxInfo + 1);
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if ((uwOffSet % pstBoxInfo->uwBlkSize) != 0)
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if ((uwOffSet / pstBoxInfo->uwBlkSize) >= pstBoxInfo->uwBlkNum)
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     return OS_MEMBOX_CHECK_MAGIC(pstNode);
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** }
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /*****************************************************************************
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Function : LOS_MemboxInit
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Description : Initialize Static Memory pool
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Input       : pBoxMem    --- Pointer to the memory pool
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****                uwBoxSize  --- Size of the memory pool
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****                uwBlkSize  --- Size of the memory block
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Output      : None
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Return      : LOS_OK - OK, LOS_NOK - Error
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** *****************************************************************************/
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT_INIT UINT32 LOS_MemboxInit(VOID *pBoxMem, UINT32 uwBoxSize, UINT32 uwBlkSize)
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** {
+  31              		.loc 1 120 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     LOS_MEMBOX_INFO *pstBoxInfo = (LOS_MEMBOX_INFO *)pBoxMem;
+  35              		.loc 1 121 5 view .LVU1
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     LOS_MEMBOX_NODE *pstNode = NULL;
+  36              		.loc 1 122 5 view .LVU2
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     UINT32 i;
+  37              		.loc 1 123 5 view .LVU3
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     UINTPTR uvIntSave;
+  38              		.loc 1 124 5 view .LVU4
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if (pBoxMem == NULL || uwBlkSize == 0 || uwBoxSize < sizeof(LOS_MEMBOX_INFO))
+  39              		.loc 1 126 5 view .LVU5
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     LOS_MEMBOX_INFO *pstBoxInfo = (LOS_MEMBOX_INFO *)pBoxMem;
+  40              		.loc 1 120 1 is_stmt 0 view .LVU6
+  41 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+  42              	.LCFI0:
+  43              		.cfi_def_cfa_offset 24
+  44              		.cfi_offset 3, -24
+  45              		.cfi_offset 4, -20
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 4
+
+
+  46              		.cfi_offset 5, -16
+  47              		.cfi_offset 6, -12
+  48              		.cfi_offset 7, -8
+  49              		.cfi_offset 14, -4
+  50              		.loc 1 126 8 view .LVU7
+  51 0002 40B1     		cbz	r0, .L9
+  52 0004 1446     		mov	r4, r2
+  53              		.loc 1 126 25 discriminator 1 view .LVU8
+  54 0006 32B1     		cbz	r2, .L9
+  55              		.loc 1 126 43 discriminator 2 view .LVU9
+  56 0008 0F29     		cmp	r1, #15
+  57 000a 0E46     		mov	r6, r1
+  58 000c 03D9     		bls	.L9
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if (!IS_BOXMEM_ALIGNED(pBoxMem, OS_BOXMEM_BASE_ALIGN))
+  59              		.loc 1 131 5 is_stmt 1 view .LVU10
+  60              		.loc 1 131 8 is_stmt 0 view .LVU11
+  61 000e 10F00307 		ands	r7, r0, #3
+  62 0012 0546     		mov	r5, r0
+  63 0014 02D0     		beq	.L16
+  64              	.L9:
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+  65              		.loc 1 128 16 view .LVU12
+  66 0016 0127     		movs	r7, #1
+  67              	.LVL1:
+  68              	.L1:
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     uvIntSave = LOS_IntLock();
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     /*
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****      * The node size is aligned to the next 4 boundary.
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****      * Memory that is not enough for one node size in the memory pool will be ignored.
+ 141:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****      */
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkSize = LOS_MEMBOX_ALIGNED(uwBlkSize + LOS_MEMBOX_MAGIC_SIZE);
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkNum = (uwBoxSize - sizeof(LOS_MEMBOX_INFO)) / pstBoxInfo->uwBlkSize;
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkCnt = 0;
+ 145:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if (pstBoxInfo->uwBlkNum == 0)
+ 147:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 148:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         LOS_IntRestore(uvIntSave);
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 151:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstNode = (LOS_MEMBOX_NODE *)(pstBoxInfo + 1);
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->stFreeList.pstNext = pstNode;
+ 154:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     for (i = 0; i < pstBoxInfo->uwBlkNum - 1; ++i)
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstNode->pstNext = OS_MEMBOX_NODE_NEXT(pstNode, pstBoxInfo->uwBlkSize);
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstNode = pstNode->pstNext;
+ 159:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 5
+
+
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstNode->pstNext = (LOS_MEMBOX_NODE *)NULL;  /* The last node */
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 162:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #if ((LOSCFG_PLATFORM_EXC == YES) && (LOSCFG_SAVE_EXC_INFO == YES))
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     osMemInfoUpdate(pBoxMem, uwBoxSize, MEM_MANG_MEMBOX);
+ 164:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** #endif
+ 165:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     (VOID)LOS_IntRestore(uvIntSave);
+ 167:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 168:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     return LOS_OK;
+ 169:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** }
+  69              		.loc 1 169 1 view .LVU13
+  70 0018 3846     		mov	r0, r7
+  71 001a F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+  72              	.LVL2:
+  73              	.L16:
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  74              		.loc 1 136 5 is_stmt 1 view .LVU14
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  75              		.loc 1 136 17 is_stmt 0 view .LVU15
+  76 001c FFF7FEFF 		bl	LOS_IntLock
+  77              	.LVL3:
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkNum = (uwBoxSize - sizeof(LOS_MEMBOX_INFO)) / pstBoxInfo->uwBlkSize;
+  78              		.loc 1 142 29 view .LVU16
+  79 0020 E21D     		adds	r2, r4, #7
+  80 0022 22F00303 		bic	r3, r2, #3
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkCnt = 0;
+  81              		.loc 1 143 39 view .LVU17
+  82 0026 A6F11001 		sub	r1, r6, #16
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+  83              		.loc 1 146 8 view .LVU18
+  84 002a 8B42     		cmp	r3, r1
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkCnt = 0;
+  85              		.loc 1 143 66 view .LVU19
+  86 002c B1FBF3F4 		udiv	r4, r1, r3
+  87              	.LVL4:
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkNum = (uwBoxSize - sizeof(LOS_MEMBOX_INFO)) / pstBoxInfo->uwBlkSize;
+  88              		.loc 1 142 27 view .LVU20
+  89 0030 2B60     		str	r3, [r5]
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  90              		.loc 1 144 26 view .LVU21
+  91 0032 AF60     		str	r7, [r5, #8]
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  92              		.loc 1 136 17 view .LVU22
+  93 0034 8446     		mov	ip, r0
+  94              	.LVL5:
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkNum = (uwBoxSize - sizeof(LOS_MEMBOX_INFO)) / pstBoxInfo->uwBlkSize;
+  95              		.loc 1 142 5 is_stmt 1 view .LVU23
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkCnt = 0;
+  96              		.loc 1 143 5 view .LVU24
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->uwBlkCnt = 0;
+  97              		.loc 1 143 26 is_stmt 0 view .LVU25
+  98 0036 6C60     		str	r4, [r5, #4]
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+  99              		.loc 1 144 5 is_stmt 1 view .LVU26
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 100              		.loc 1 146 5 view .LVU27
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 6
+
+
+ 101              		.loc 1 146 8 is_stmt 0 view .LVU28
+ 102 0038 15D8     		bhi	.L17
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->stFreeList.pstNext = pstNode;
+ 103              		.loc 1 152 5 is_stmt 1 view .LVU29
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->stFreeList.pstNext = pstNode;
+ 104              		.loc 1 152 13 is_stmt 0 view .LVU30
+ 105 003a 05F11006 		add	r6, r5, #16
+ 106              	.LVL6:
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 107              		.loc 1 153 5 is_stmt 1 view .LVU31
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 108              		.loc 1 155 5 is_stmt 0 view .LVU32
+ 109 003e 013C     		subs	r4, r4, #1
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 110              		.loc 1 153 36 view .LVU33
+ 111 0040 EE60     		str	r6, [r5, #12]
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 112              		.loc 1 155 5 is_stmt 1 view .LVU34
+ 113              	.LVL7:
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 114              		.loc 1 155 17 view .LVU35
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 115              		.loc 1 155 5 is_stmt 0 view .LVU36
+ 116 0042 09D0     		beq	.L4
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 117              		.loc 1 155 12 view .LVU37
+ 118 0044 3946     		mov	r1, r7
+ 119              	.LVL8:
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->stFreeList.pstNext = pstNode;
+ 120              		.loc 1 152 13 view .LVU38
+ 121 0046 3246     		mov	r2, r6
+ 122              	.LVL9:
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstBoxInfo->stFreeList.pstNext = pstNode;
+ 123              		.loc 1 152 13 view .LVU39
+ 124 0048 5D42     		rsbs	r5, r3, #0
+ 125              	.LVL10:
+ 126              	.L5:
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstNode = pstNode->pstNext;
+ 127              		.loc 1 157 9 is_stmt 1 discriminator 3 view .LVU40
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstNode = pstNode->pstNext;
+ 128              		.loc 1 157 28 is_stmt 0 discriminator 3 view .LVU41
+ 129 004a 1A44     		add	r2, r2, r3
+ 130              	.LVL11:
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 131              		.loc 1 155 47 discriminator 3 view .LVU42
+ 132 004c 0131     		adds	r1, r1, #1
+ 133              	.LVL12:
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 134              		.loc 1 155 5 discriminator 3 view .LVU43
+ 135 004e A142     		cmp	r1, r4
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstNode = pstNode->pstNext;
+ 136              		.loc 1 157 26 discriminator 3 view .LVU44
+ 137 0050 5251     		str	r2, [r2, r5]
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 138              		.loc 1 158 9 is_stmt 1 discriminator 3 view .LVU45
+ 139              	.LVL13:
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 7
+
+
+ 140              		.loc 1 155 47 discriminator 3 view .LVU46
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 141              		.loc 1 155 17 discriminator 3 view .LVU47
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 142              		.loc 1 155 5 is_stmt 0 discriminator 3 view .LVU48
+ 143 0052 FAD1     		bne	.L5
+ 144 0054 01FB0366 		mla	r6, r1, r3, r6
+ 145              	.LVL14:
+ 146              	.L4:
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 147              		.loc 1 160 5 is_stmt 1 view .LVU49
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 148              		.loc 1 160 22 is_stmt 0 view .LVU50
+ 149 0058 0023     		movs	r3, #0
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 150              		.loc 1 166 5 view .LVU51
+ 151 005a 6046     		mov	r0, ip
+ 152              	.LVL15:
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 153              		.loc 1 160 22 view .LVU52
+ 154 005c 3360     		str	r3, [r6]
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 155              		.loc 1 166 5 is_stmt 1 view .LVU53
+ 156 005e FFF7FEFF 		bl	LOS_IntRestore
+ 157              	.LVL16:
+ 168:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** }
+ 158              		.loc 1 168 5 view .LVU54
+ 159              		.loc 1 169 1 is_stmt 0 view .LVU55
+ 160 0062 3846     		mov	r0, r7
+ 161 0064 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 162              	.LVL17:
+ 163              	.L17:
+ 148:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 164              		.loc 1 148 9 is_stmt 1 view .LVU56
+ 165 0066 FFF7FEFF 		bl	LOS_IntRestore
+ 166              	.LVL18:
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 167              		.loc 1 149 9 view .LVU57
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 168              		.loc 1 149 16 is_stmt 0 view .LVU58
+ 169 006a 0127     		movs	r7, #1
+ 170 006c D4E7     		b	.L1
+ 171              		.cfi_endproc
+ 172              	.LFE134:
+ 174 006e 00BF     		.section	.text.LOS_MemboxAlloc,"ax",%progbits
+ 175              		.align	1
+ 176              		.p2align 2,,3
+ 177              		.global	LOS_MemboxAlloc
+ 178              		.syntax unified
+ 179              		.thumb
+ 180              		.thumb_func
+ 181              		.fpu fpv4-sp-d16
+ 183              	LOS_MemboxAlloc:
+ 184              	.LVL19:
+ 185              	.LFB135:
+ 170:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 171:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /*****************************************************************************
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 8
+
+
+ 172:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Function : LOS_MemboxAlloc
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Description : Allocate Memory block from Static Memory pool
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Input       : pBoxMem  --- Pointer to memory pool
+ 175:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Output      : None
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Return      : Pointer to allocated memory block
+ 177:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** *****************************************************************************/
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT VOID *LOS_MemboxAlloc(VOID *pBoxMem)
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** {
+ 186              		.loc 1 179 1 is_stmt 1 view -0
+ 187              		.cfi_startproc
+ 188              		@ args = 0, pretend = 0, frame = 0
+ 189              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     LOS_MEMBOX_INFO *pstBoxInfo = (LOS_MEMBOX_INFO *)pBoxMem;
+ 190              		.loc 1 180 5 view .LVU60
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     LOS_MEMBOX_NODE *pstNode = NULL;
+ 191              		.loc 1 181 5 view .LVU61
+ 182:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     LOS_MEMBOX_NODE *pRet = NULL;
+ 192              		.loc 1 182 5 view .LVU62
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     UINTPTR uvIntSave;
+ 193              		.loc 1 183 5 view .LVU63
+ 184:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if (pBoxMem == NULL)
+ 194              		.loc 1 185 5 view .LVU64
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     LOS_MEMBOX_INFO *pstBoxInfo = (LOS_MEMBOX_INFO *)pBoxMem;
+ 195              		.loc 1 179 1 is_stmt 0 view .LVU65
+ 196 0000 38B5     		push	{r3, r4, r5, lr}
+ 197              	.LCFI1:
+ 198              		.cfi_def_cfa_offset 16
+ 199              		.cfi_offset 3, -16
+ 200              		.cfi_offset 4, -12
+ 201              		.cfi_offset 5, -8
+ 202              		.cfi_offset 14, -4
+ 203              		.loc 1 185 8 view .LVU66
+ 204 0002 0446     		mov	r4, r0
+ 205 0004 78B1     		cbz	r0, .L21
+ 186:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         return NULL;
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     uvIntSave = LOS_IntLock();
+ 206              		.loc 1 190 5 is_stmt 1 view .LVU67
+ 207              		.loc 1 190 17 is_stmt 0 view .LVU68
+ 208 0006 FFF7FEFF 		bl	LOS_IntLock
+ 209              	.LVL20:
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 192:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     pstNode = &pstBoxInfo->stFreeList;
+ 210              		.loc 1 192 5 is_stmt 1 view .LVU69
+ 193:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if (pstNode->pstNext != NULL)
+ 211              		.loc 1 193 5 view .LVU70
+ 212              		.loc 1 193 16 is_stmt 0 view .LVU71
+ 213 000a E568     		ldr	r5, [r4, #12]
+ 214              		.loc 1 193 8 view .LVU72
+ 215 000c 3DB1     		cbz	r5, .L23
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 195:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pRet = pstNode->pstNext;
+ 216              		.loc 1 195 9 is_stmt 1 view .LVU73
+ 217              	.LVL21:
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 9
+
+
+ 196:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstNode->pstNext = pRet->pstNext;
+ 218              		.loc 1 196 9 view .LVU74
+ 219              		.loc 1 196 32 is_stmt 0 view .LVU75
+ 220 000e 2A68     		ldr	r2, [r5]
+ 197:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         OS_MEMBOX_SET_MAGIC(pRet);
+ 221              		.loc 1 197 9 view .LVU76
+ 222 0010 064B     		ldr	r3, .L24
+ 196:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstNode->pstNext = pRet->pstNext;
+ 223              		.loc 1 196 26 view .LVU77
+ 224 0012 E260     		str	r2, [r4, #12]
+ 225              		.loc 1 197 9 is_stmt 1 view .LVU78
+ 226 0014 45F8043B 		str	r3, [r5], #4
+ 227              	.LVL22:
+ 198:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstBoxInfo->uwBlkCnt++;
+ 228              		.loc 1 198 9 view .LVU79
+ 229              		.loc 1 198 29 is_stmt 0 view .LVU80
+ 230 0018 A368     		ldr	r3, [r4, #8]
+ 231 001a 0133     		adds	r3, r3, #1
+ 232 001c A360     		str	r3, [r4, #8]
+ 233              	.LVL23:
+ 234              	.L23:
+ 199:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     (VOID)LOS_IntRestore(uvIntSave);
+ 235              		.loc 1 201 5 is_stmt 1 view .LVU81
+ 236 001e FFF7FEFF 		bl	LOS_IntRestore
+ 237              	.LVL24:
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     return pRet == NULL ? NULL : OS_MEMBOX_USER_ADDR(pRet);
+ 238              		.loc 1 203 5 view .LVU82
+ 204:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** }
+ 239              		.loc 1 204 1 is_stmt 0 view .LVU83
+ 240 0022 2846     		mov	r0, r5
+ 241 0024 38BD     		pop	{r3, r4, r5, pc}
+ 242              	.LVL25:
+ 243              	.L21:
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 244              		.loc 1 187 16 view .LVU84
+ 245 0026 0546     		mov	r5, r0
+ 246              		.loc 1 204 1 view .LVU85
+ 247 0028 2846     		mov	r0, r5
+ 248              	.LVL26:
+ 249              		.loc 1 204 1 view .LVU86
+ 250 002a 38BD     		pop	{r3, r4, r5, pc}
+ 251              	.LVL27:
+ 252              	.L25:
+ 253              		.loc 1 204 1 view .LVU87
+ 254              		.align	2
+ 255              	.L24:
+ 256 002c A55A5AA5 		.word	-1520805211
+ 257              		.cfi_endproc
+ 258              	.LFE135:
+ 260              		.section	.text.LOS_MemboxFree,"ax",%progbits
+ 261              		.align	1
+ 262              		.p2align 2,,3
+ 263              		.global	LOS_MemboxFree
+ 264              		.syntax unified
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 10
+
+
+ 265              		.thumb
+ 266              		.thumb_func
+ 267              		.fpu fpv4-sp-d16
+ 269              	LOS_MemboxFree:
+ 270              	.LVL28:
+ 271              	.LFB136:
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /*****************************************************************************
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Function : LOS_MemboxFree
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Description : Free Memory block and return it to Static Memory pool
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Input       : pBoxMem  --- Pointer to memory pool
+ 210:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****                pBox     --- Pointer to memory block to free
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Output      : None
+ 212:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Return      : LOS_OK - OK, LOS_NOK - Error
+ 213:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** *****************************************************************************/
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT UINT32 LOS_MemboxFree(VOID *pBoxMem, VOID *pBox)
+ 215:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** {
+ 272              		.loc 1 215 1 is_stmt 1 view -0
+ 273              		.cfi_startproc
+ 274              		@ args = 0, pretend = 0, frame = 0
+ 275              		@ frame_needed = 0, uses_anonymous_args = 0
+ 216:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     LOS_MEMBOX_INFO *pstBoxInfo = (LOS_MEMBOX_INFO *)pBoxMem;
+ 276              		.loc 1 216 5 view .LVU89
+ 217:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     UINT32 uwRet = LOS_NOK;
+ 277              		.loc 1 217 5 view .LVU90
+ 218:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     UINTPTR uvIntSave;
+ 278              		.loc 1 218 5 view .LVU91
+ 219:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if (pBoxMem == NULL || pBox == NULL)
+ 279              		.loc 1 220 5 view .LVU92
+ 215:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     LOS_MEMBOX_INFO *pstBoxInfo = (LOS_MEMBOX_INFO *)pBoxMem;
+ 280              		.loc 1 215 1 is_stmt 0 view .LVU93
+ 281 0000 70B5     		push	{r4, r5, r6, lr}
+ 282              	.LCFI2:
+ 283              		.cfi_def_cfa_offset 16
+ 284              		.cfi_offset 4, -16
+ 285              		.cfi_offset 5, -12
+ 286              		.cfi_offset 6, -8
+ 287              		.cfi_offset 14, -4
+ 288              		.loc 1 220 8 view .LVU94
+ 289 0002 20B3     		cbz	r0, .L30
+ 290 0004 0E46     		mov	r6, r1
+ 291              		.loc 1 220 25 discriminator 1 view .LVU95
+ 292 0006 11B3     		cbz	r1, .L30
+ 221:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 222:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 224:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 225:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     uvIntSave = LOS_IntLock();
+ 293              		.loc 1 225 5 is_stmt 1 view .LVU96
+ 294 0008 0446     		mov	r4, r0
+ 295              		.loc 1 225 17 is_stmt 0 view .LVU97
+ 296 000a FFF7FEFF 		bl	LOS_IntLock
+ 297              	.LVL29:
+ 298              	.LBB5:
+ 299              	.LBB6:
+ 300              	.LBB7:
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 11
+
+
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 301              		.loc 1 91 19 view .LVU98
+ 302 000e 2568     		ldr	r5, [r4]
+ 303              	.LVL30:
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 304              		.loc 1 91 19 view .LVU99
+ 305              	.LBE7:
+ 306              	.LBE6:
+ 307              	.LBE5:
+ 226:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     do
+ 308              		.loc 1 227 5 is_stmt 1 view .LVU100
+ 309              	.LBB12:
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         LOS_MEMBOX_NODE *pstNode = OS_MEMBOX_NODE_ADDR(pBox);
+ 310              		.loc 1 229 9 view .LVU101
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         if (osCheckBoxMem(pstBoxInfo, pstNode) != LOS_OK)
+ 311              		.loc 1 231 9 view .LVU102
+ 312              	.LBB10:
+ 313              	.LBI6:
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** {
+ 314              		.loc 1 87 39 view .LVU103
+ 315              	.LBB8:
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 316              		.loc 1 89 5 view .LVU104
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 317              		.loc 1 91 5 view .LVU105
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 318              		.loc 1 91 8 is_stmt 0 view .LVU106
+ 319 0010 C5B1     		cbz	r5, .L34
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if ((uwOffSet % pstBoxInfo->uwBlkSize) != 0)
+ 320              		.loc 1 96 14 view .LVU107
+ 321 0012 A6F11403 		sub	r3, r6, #20
+ 322 0016 1B1B     		subs	r3, r3, r4
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 323              		.loc 1 97 19 view .LVU108
+ 324 0018 B3FBF5F2 		udiv	r2, r3, r5
+ 325 001c 05FB1235 		mls	r5, r5, r2, r3
+ 326              	.LBE8:
+ 327              	.LBE10:
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 328              		.loc 1 229 26 view .LVU109
+ 329 0020 311F     		subs	r1, r6, #4
+ 330              	.LVL31:
+ 331              	.LBB11:
+ 332              	.LBB9:
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if ((uwOffSet % pstBoxInfo->uwBlkSize) != 0)
+ 333              		.loc 1 96 5 is_stmt 1 view .LVU110
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 334              		.loc 1 97 5 view .LVU111
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 335              		.loc 1 97 8 is_stmt 0 view .LVU112
+ 336 0022 7DB9     		cbnz	r5, .L34
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 337              		.loc 1 102 5 is_stmt 1 view .LVU113
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 12
+
+
+ 338              		.loc 1 102 8 is_stmt 0 view .LVU114
+ 339 0024 6368     		ldr	r3, [r4, #4]
+ 340              	.LVL32:
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 341              		.loc 1 102 8 view .LVU115
+ 342 0026 9A42     		cmp	r2, r3
+ 343 0028 0CD2     		bcs	.L34
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** }
+ 344              		.loc 1 107 5 is_stmt 1 view .LVU116
+ 345              	.LVL33:
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** }
+ 346              		.loc 1 107 5 is_stmt 0 view .LVU117
+ 347              	.LBE9:
+ 348              	.LBE11:
+ 349              		.loc 1 231 12 view .LVU118
+ 350 002a 0A4B     		ldr	r3, .L36
+ 351 002c 56F8042C 		ldr	r2, [r6, #-4]
+ 352 0030 9A42     		cmp	r2, r3
+ 353 0032 07D1     		bne	.L34
+ 232:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         {
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****             break;
+ 234:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         }
+ 235:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstNode->pstNext = pstBoxInfo->stFreeList.pstNext;
+ 354              		.loc 1 236 9 is_stmt 1 view .LVU119
+ 355              		.loc 1 236 50 is_stmt 0 view .LVU120
+ 356 0034 D4E90232 		ldrd	r3, r2, [r4, #8]
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstBoxInfo->stFreeList.pstNext = pstNode;
+ 238:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstBoxInfo->uwBlkCnt--;
+ 357              		.loc 1 238 29 view .LVU121
+ 358 0038 013B     		subs	r3, r3, #1
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstBoxInfo->stFreeList.pstNext = pstNode;
+ 359              		.loc 1 236 26 view .LVU122
+ 360 003a 46F8042C 		str	r2, [r6, #-4]
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstBoxInfo->stFreeList.pstNext = pstNode;
+ 361              		.loc 1 237 9 is_stmt 1 view .LVU123
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         pstBoxInfo->stFreeList.pstNext = pstNode;
+ 362              		.loc 1 237 40 is_stmt 0 view .LVU124
+ 363 003e C4E90231 		strd	r3, r1, [r4, #8]
+ 364              		.loc 1 238 9 is_stmt 1 view .LVU125
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         uwRet = LOS_OK;
+ 365              		.loc 1 239 9 view .LVU126
+ 366              	.LVL34:
+ 367              		.loc 1 239 9 is_stmt 0 view .LVU127
+ 368 0042 00E0     		b	.L28
+ 369              	.LVL35:
+ 370              	.L34:
+ 371              		.loc 1 239 9 view .LVU128
+ 372              	.LBE12:
+ 217:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     UINTPTR uvIntSave;
+ 373              		.loc 1 217 12 view .LVU129
+ 374 0044 0125     		movs	r5, #1
+ 375              	.LVL36:
+ 376              	.L28:
+ 240:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     } while (0);
+ 377              		.loc 1 240 13 is_stmt 1 view .LVU130
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 13
+
+
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     (VOID)LOS_IntRestore(uvIntSave);
+ 378              		.loc 1 242 5 view .LVU131
+ 379 0046 FFF7FEFF 		bl	LOS_IntRestore
+ 380              	.LVL37:
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 244:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     return uwRet;
+ 381              		.loc 1 244 5 view .LVU132
+ 245:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** }
+ 382              		.loc 1 245 1 is_stmt 0 view .LVU133
+ 383 004a 2846     		mov	r0, r5
+ 384 004c 70BD     		pop	{r4, r5, r6, pc}
+ 385              	.LVL38:
+ 386              	.L30:
+ 222:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 387              		.loc 1 222 16 view .LVU134
+ 388 004e 0125     		movs	r5, #1
+ 389              		.loc 1 245 1 view .LVU135
+ 390 0050 2846     		mov	r0, r5
+ 391              	.LVL39:
+ 392              		.loc 1 245 1 view .LVU136
+ 393 0052 70BD     		pop	{r4, r5, r6, pc}
+ 394              	.L37:
+ 395              		.align	2
+ 396              	.L36:
+ 397 0054 A55A5AA5 		.word	-1520805211
+ 398              		.cfi_endproc
+ 399              	.LFE136:
+ 401              		.section	.text.LOS_MemboxClr,"ax",%progbits
+ 402              		.align	1
+ 403              		.p2align 2,,3
+ 404              		.global	LOS_MemboxClr
+ 405              		.syntax unified
+ 406              		.thumb
+ 407              		.thumb_func
+ 408              		.fpu fpv4-sp-d16
+ 410              	LOS_MemboxClr:
+ 411              	.LVL40:
+ 412              	.LFB137:
+ 246:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 247:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /*****************************************************************************
+ 248:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Function : LOS_MemboxClr
+ 249:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Description : Clear the memory block
+ 250:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Input       : pBoxMem  --- Pointer to memory pool
+ 251:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****                pBox     --- Pointer to memory block to clear
+ 252:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Output      : None
+ 253:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Return      : None
+ 254:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** *****************************************************************************/
+ 255:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT_MINOR VOID LOS_MemboxClr(VOID *pBoxMem, VOID *pBox)
+ 256:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** {
+ 413              		.loc 1 256 1 is_stmt 1 view -0
+ 414              		.cfi_startproc
+ 415              		@ args = 0, pretend = 0, frame = 0
+ 416              		@ frame_needed = 0, uses_anonymous_args = 0
+ 417              		@ link register save eliminated.
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     LOS_MEMBOX_INFO *pstBoxInfo = (LOS_MEMBOX_INFO *)pBoxMem;
+ 418              		.loc 1 257 5 view .LVU138
+ 258:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 14
+
+
+ 259:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if (pBoxMem == NULL || pBox == NULL)
+ 419              		.loc 1 259 5 view .LVU139
+ 420              		.loc 1 259 8 is_stmt 0 view .LVU140
+ 421 0000 30B1     		cbz	r0, .L38
+ 422              		.loc 1 259 25 discriminator 1 view .LVU141
+ 423 0002 29B1     		cbz	r1, .L38
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         return;
+ 262:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 263:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 264:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     memset(pBox, 0, pstBoxInfo->uwBlkSize - LOS_MEMBOX_MAGIC_SIZE);
+ 424              		.loc 1 264 5 is_stmt 1 view .LVU142
+ 425 0004 0268     		ldr	r2, [r0]
+ 426 0006 0846     		mov	r0, r1
+ 427              	.LVL41:
+ 428              		.loc 1 264 5 is_stmt 0 view .LVU143
+ 429 0008 043A     		subs	r2, r2, #4
+ 430 000a 0021     		movs	r1, #0
+ 431              	.LVL42:
+ 432              		.loc 1 264 5 view .LVU144
+ 433 000c FFF7FEBF 		b	memset
+ 434              	.LVL43:
+ 435              	.L38:
+ 265:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** }
+ 436              		.loc 1 265 1 view .LVU145
+ 437 0010 7047     		bx	lr
+ 438              		.cfi_endproc
+ 439              	.LFE137:
+ 441 0012 00BF     		.section	.text.LOS_MemboxStatisticsGet,"ax",%progbits
+ 442              		.align	1
+ 443              		.p2align 2,,3
+ 444              		.global	LOS_MemboxStatisticsGet
+ 445              		.syntax unified
+ 446              		.thumb
+ 447              		.thumb_func
+ 448              		.fpu fpv4-sp-d16
+ 450              	LOS_MemboxStatisticsGet:
+ 451              	.LVL44:
+ 452              	.LFB138:
+ 266:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 267:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** /*****************************************************************************
+ 268:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Function : LOS_MemboxStatisticsGet
+ 269:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Description : Get information about membox
+ 270:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Input       : pBoxMem     --- Pointer to the calculate membox
+ 271:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Output      : puwMaxBlk   --- Record the total number of membox
+ 272:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****                puwBlkCnt   --- Record the number of the allocated blocks of membox
+ 273:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****                puwBlkSize  --- Record the block size of membox
+ 274:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****  Return      : LOS_OK - OK, LOS_NOK - Error
+ 275:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** *****************************************************************************/
+ 276:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** LITE_OS_SEC_TEXT_MINOR UINT32 LOS_MemboxStatisticsGet(VOID *pBoxMem, UINT32 *puwMaxBlk, UINT32 *puw
+ 277:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** {
+ 453              		.loc 1 277 1 is_stmt 1 view -0
+ 454              		.cfi_startproc
+ 455              		@ args = 0, pretend = 0, frame = 0
+ 456              		@ frame_needed = 0, uses_anonymous_args = 0
+ 457              		@ link register save eliminated.
+ 278:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if ((NULL == pBoxMem) || (NULL == puwMaxBlk) || (NULL == puwBlkCnt) || (NULL == puwBlkSize))
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 15
+
+
+ 458              		.loc 1 278 5 view .LVU147
+ 459              		.loc 1 278 8 is_stmt 0 view .LVU148
+ 460 0000 68B1     		cbz	r0, .L51
+ 461              		.loc 1 278 27 discriminator 1 view .LVU149
+ 462 0002 61B1     		cbz	r1, .L51
+ 463              		.loc 1 278 50 discriminator 2 view .LVU150
+ 464 0004 5AB1     		cbz	r2, .L51
+ 465              		.loc 1 278 73 discriminator 3 view .LVU151
+ 466 0006 53B1     		cbz	r3, .L51
+ 279:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     {
+ 280:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****         return LOS_NOK;
+ 281:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 282:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 283:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     *puwMaxBlk = ((LOS_MEMBOX_INFO *)pBoxMem)->uwBlkNum;    /* Total number of blocks */
+ 467              		.loc 1 283 5 is_stmt 1 view .LVU152
+ 277:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     if ((NULL == pBoxMem) || (NULL == puwMaxBlk) || (NULL == puwBlkCnt) || (NULL == puwBlkSize))
+ 468              		.loc 1 277 1 is_stmt 0 view .LVU153
+ 469 0008 10B4     		push	{r4}
+ 470              	.LCFI3:
+ 471              		.cfi_def_cfa_offset 4
+ 472              		.cfi_offset 4, -4
+ 473              		.loc 1 283 46 view .LVU154
+ 474 000a 4468     		ldr	r4, [r0, #4]
+ 475              		.loc 1 283 16 view .LVU155
+ 476 000c 0C60     		str	r4, [r1]
+ 284:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     *puwBlkCnt = ((LOS_MEMBOX_INFO *)pBoxMem)->uwBlkCnt;    /* The number of allocated blocks */
+ 477              		.loc 1 284 5 is_stmt 1 view .LVU156
+ 478              		.loc 1 284 46 is_stmt 0 view .LVU157
+ 479 000e 8168     		ldr	r1, [r0, #8]
+ 480              	.LVL45:
+ 481              		.loc 1 284 16 view .LVU158
+ 482 0010 1160     		str	r1, [r2]
+ 285:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     *puwBlkSize = ((LOS_MEMBOX_INFO *)pBoxMem)->uwBlkSize;  /* Block size */
+ 483              		.loc 1 285 5 is_stmt 1 view .LVU159
+ 484              		.loc 1 285 47 is_stmt 0 view .LVU160
+ 485 0012 0268     		ldr	r2, [r0]
+ 486              	.LVL46:
+ 286:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** 
+ 287:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     return LOS_OK;
+ 288:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** }
+ 487              		.loc 1 288 1 view .LVU161
+ 488 0014 5DF8044B 		ldr	r4, [sp], #4
+ 489              	.LCFI4:
+ 490              		.cfi_restore 4
+ 491              		.cfi_def_cfa_offset 0
+ 285:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     *puwBlkSize = ((LOS_MEMBOX_INFO *)pBoxMem)->uwBlkSize;  /* Block size */
+ 492              		.loc 1 285 17 view .LVU162
+ 493 0018 1A60     		str	r2, [r3]
+ 287:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** }
+ 494              		.loc 1 287 5 is_stmt 1 view .LVU163
+ 287:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c **** }
+ 495              		.loc 1 287 12 is_stmt 0 view .LVU164
+ 496 001a 0020     		movs	r0, #0
+ 497              	.LVL47:
+ 498              		.loc 1 288 1 view .LVU165
+ 499 001c 7047     		bx	lr
+ 500              	.LVL48:
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 16
+
+
+ 501              	.L51:
+ 280:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/membox\los_membox.c ****     }
+ 502              		.loc 1 280 16 view .LVU166
+ 503 001e 0120     		movs	r0, #1
+ 504              	.LVL49:
+ 505              		.loc 1 288 1 view .LVU167
+ 506 0020 7047     		bx	lr
+ 507              		.cfi_endproc
+ 508              	.LFE138:
+ 510 0022 00BF     		.text
+ 511              	.Letext0:
+ 512              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 513              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 514              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 515              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 516              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 517              		.file 7 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/incl
+ 518              		.file 8 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 519              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arch
+ 520              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm3
+ 521              		.file 11 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 522              		.file 12 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.
+ 523              		.file 13 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ 524              		.file 14 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 525              		.file 15 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 526              		.file 16 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arc
+ 527              		.file 17 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 528              		.file 18 "<built-in>"
+ARM GAS  T:\msys\tmp\ccRSx6bw.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_membox.c
+T:\msys\tmp\ccRSx6bw.s:18     .text.LOS_MemboxInit:00000000 $t
+T:\msys\tmp\ccRSx6bw.s:27     .text.LOS_MemboxInit:00000000 LOS_MemboxInit
+T:\msys\tmp\ccRSx6bw.s:175    .text.LOS_MemboxAlloc:00000000 $t
+T:\msys\tmp\ccRSx6bw.s:183    .text.LOS_MemboxAlloc:00000000 LOS_MemboxAlloc
+T:\msys\tmp\ccRSx6bw.s:256    .text.LOS_MemboxAlloc:0000002c $d
+T:\msys\tmp\ccRSx6bw.s:261    .text.LOS_MemboxFree:00000000 $t
+T:\msys\tmp\ccRSx6bw.s:269    .text.LOS_MemboxFree:00000000 LOS_MemboxFree
+T:\msys\tmp\ccRSx6bw.s:397    .text.LOS_MemboxFree:00000054 $d
+T:\msys\tmp\ccRSx6bw.s:402    .text.LOS_MemboxClr:00000000 $t
+T:\msys\tmp\ccRSx6bw.s:410    .text.LOS_MemboxClr:00000000 LOS_MemboxClr
+T:\msys\tmp\ccRSx6bw.s:442    .text.LOS_MemboxStatisticsGet:00000000 $t
+T:\msys\tmp\ccRSx6bw.s:450    .text.LOS_MemboxStatisticsGet:00000000 LOS_MemboxStatisticsGet
+
+UNDEFINED SYMBOLS
+LOS_IntLock
+LOS_IntRestore
+memset

@@ -38,6 +38,10 @@ typedef struct {
 
 static l716_sock_cb_t * s_l716_cbs [MAX_NR_FDS] = { NULL, };
 
+static osal_mutex_t         g_atcombo_lock;
+static osal_mutex_t         g_iobufer_lock;
+
+
 static bool_t __l716_atcmd(const char *cmd,const char *index,char *buf, int len)
 {
     return at_command((const void *) cmd, strlen(cmd), index, buf, len, CMDTIMEOUT) >= 0;
@@ -163,20 +167,24 @@ static int __l716_rcvdeal(void *args,void *msg,size_t len)
 {
     int ret = 0;
 
-    while (msg != NULL)
+    if(osal_mutex_lock(g_iobufer_lock))
     {
-        int r = __l716_rcvdeal_single(msg, len);
-
-        if (r == -1)
+        while (msg != NULL)
         {
-            break;
+            int r = __l716_rcvdeal_single(msg, len);
+
+            if (r == -1)
+            {
+                break;
+            }
+
+            ret += r;
+
+            msg = strstr(r * 2 + (char *)msg, RCVINDEX);
         }
 
-        ret += r;
-
-        msg = strstr(r * 2 + (char *)msg, RCVINDEX);
+        osal_mutex_unlock(g_iobufer_lock);
     }
-
     return ret == 0 ? -1 : ret;
 }
 
@@ -236,6 +244,7 @@ static int __l716_accept(int fd, struct sockaddr *addr, int addrlen)
 
 static int __l716_connect(int fd, const struct sockaddr *addr, int addrlen)
 {
+    int ret = -1;
     const struct sockaddr_in *serv_addr;
     uint16_t                  remote_port;
     struct in_addr            remote_ip_int;
@@ -244,12 +253,12 @@ static int __l716_connect(int fd, const struct sockaddr *addr, int addrlen)
 
     if (addr == NULL)
     {
-        return -1;
+        return ret;
     }
 
     if (fd <= 0 || fd >= MAX_NR_FDS || s_l716_cbs[fd] == NULL)
     {
-        return -1;
+        return ret;
     }
 
     serv_addr = (const struct sockaddr_in *) addr;
@@ -266,37 +275,49 @@ static int __l716_connect(int fd, const struct sockaddr *addr, int addrlen)
     // proto: 0 - TCP, 1 - UDP
     //
 
-    __l716_atcmd_noindex("AT+MIPOPEN=");
-    __l716_atcmd_int_noindex(fd);
-    __l716_atcmd_noindex(",,\"");
-    __l716_atcmd_noindex(remote_ip);
-    __l716_atcmd_noindex("\",");
-    __l716_atcmd_int_noindex(remote_port);
-    __l716_atcmd_noindex(",");
-    __l716_atcmd_int_noindex(proto);
+    if(osal_mutex_lock(g_atcombo_lock)){
+        __l716_atcmd_noindex("AT+MIPOPEN=");
+        __l716_atcmd_int_noindex(fd);
+        __l716_atcmd_noindex(",,\"");
+        __l716_atcmd_noindex(remote_ip);
+        __l716_atcmd_noindex("\",");
+        __l716_atcmd_int_noindex(remote_port);
+        __l716_atcmd_noindex(",");
+        __l716_atcmd_int_noindex(proto);
 
-    if (!__l716_atcmd_simple("\r\n", "MIPOPEN")) {
-        return -1;
+        if (!__l716_atcmd_simple("\r\n", "MIPOPEN")) {
+            ret = -1;
+        }
+        else{
+            s_l716_cbs[fd]->connected = true;
+            ret = 0;
+        }
+        osal_mutex_unlock(g_atcombo_lock);
     }
-
-    s_l716_cbs[fd]->connected = true;
-
-    return 0;
+    return ret;
 }
 
 static int __l716_send(int fd, const void *buf, int len, int flags)
 {
+    int ret = -1;
     if (fd <= 0 || fd > MAX_NR_FDS) {
-        return -1;
+        return ret;
     }
 
-    __l716_atcmd_noindex("AT+MIPSEND=");
-    __l716_atcmd_int_noindex (fd);
-    __l716_atcmd_noindex(",");
-    __l716_atcmd_int_noindex(len);
-    __l716_atcmd_simple("\r\n", ">");
+    if(osal_mutex_lock(g_atcombo_lock)){
 
-    return at_command((const void *)buf, len, "MIPSEND", NULL, 0, CMDTIMEOUT) >= 0 ? len : -1;
+        __l716_atcmd_noindex("AT+MIPSEND=");
+        __l716_atcmd_int_noindex (fd);
+        __l716_atcmd_noindex(",");
+        __l716_atcmd_int_noindex(len);
+        __l716_atcmd_simple("\r\n", ">");
+
+        ret = at_command((const void *)buf, len, "MIPSEND", NULL, 0, CMDTIMEOUT) >= 0 ? len : -1;
+
+        osal_mutex_unlock(g_atcombo_lock);
+    }
+
+    return ret;
 }
 
 static int __l716_sendto(int fd, const void *msg, int len, int flags,
@@ -317,16 +338,22 @@ static int __l716_recv(int fd, void *buf, size_t len, int flags)
 	timeout = s_l716_cbs[fd]->timeout;
 
 	do {
-        if (s_l716_cbs[fd]->type == SOCK_DGRAM) {
-            unsigned short data_len = 0;
-            ret = ring_buffer_read(&s_l716_cbs[fd]->l716_rcvring,
-                                   (unsigned char *)&data_len, sizeof(data_len));
-            ret = ring_buffer_read(&s_l716_cbs[fd]->l716_rcvring,
-                                   (unsigned char *)buf, data_len);
 
-        } else {
-            ret = ring_buffer_read(&s_l716_cbs[fd]->l716_rcvring, (unsigned char *)buf, len);
-        }
+	    if(osal_mutex_lock(g_iobufer_lock))
+	    {
+	        if (s_l716_cbs[fd]->type == SOCK_DGRAM) {
+	            unsigned short data_len = 0;
+	            ret = ring_buffer_read(&s_l716_cbs[fd]->l716_rcvring,
+	                                   (unsigned char *)&data_len, sizeof(data_len));
+	            ret = ring_buffer_read(&s_l716_cbs[fd]->l716_rcvring,
+	                                   (unsigned char *)buf, data_len);
+
+	        } else {
+	            ret = ring_buffer_read(&s_l716_cbs[fd]->l716_rcvring, (unsigned char *)buf, len);
+	        }
+
+	        osal_mutex_unlock(g_iobufer_lock);
+	    }
 
         if (ret > 0) {
             return ret;
@@ -360,15 +387,24 @@ static int __l716_getsockopt(int fd, int level, int optname, const void *optval,
 
 static int __l716_close(int fd)
 {
-    __l716_atcmd_noindex("AT+MIPCLOSE=");
-    __l716_atcmd_int_noindex(fd);
+    int ret = -1;
 
-    if (__l716_atcmd_simple("\r\n", "MIPCLOSE:")) {
-        s_l716_cbs[fd]->connected = false;
-        return 0;
+    if(osal_mutex_lock(g_atcombo_lock)){
+
+        __l716_atcmd_noindex("AT+MIPCLOSE=");
+        __l716_atcmd_int_noindex(fd);
+
+        if (__l716_atcmd_simple("\r\n", "MIPCLOSE:")) {
+
+            osal_free(s_l716_cbs[fd]);
+            s_l716_cbs[fd] = NULL;
+            ret = 0;
+        }
+
+        osal_mutex_unlock(g_atcombo_lock);
     }
 
-    return -1;
+    return ret;
 }
 
 static int __l716_shutdown(int fd, int how)
@@ -399,11 +435,19 @@ static struct hostent *__l716_gethostbyname(const char *name)
     static char          *ipv4_lst[2] = { NULL, NULL };
 
     if (sscanf(name, "%d.%d.%d.%d", &ipv4[0], &ipv4[1], &ipv4[2], &ipv4[3]) != 4) {
-        __l716_atcmd_noindex("at +mping=1,\"");
-        __l716_atcmd_noindex(name);
 
-        if (!__l716_atcmd("\",1\r\n", "+MPING:", resp, 96)) {
-            return NULL;
+        if(osal_mutex_lock(g_atcombo_lock)){
+
+            __l716_atcmd_noindex("at +mping=1,\"");
+            __l716_atcmd_noindex(name);
+
+            if (!__l716_atcmd("\",1\r\n", "+MPING:", resp, 96)) {
+                osal_mutex_unlock(g_atcombo_lock);
+                return NULL;
+            }
+            else{
+                osal_mutex_unlock(g_atcombo_lock);
+            }
         }
 
         str = strchr(resp, '"');
@@ -462,12 +506,12 @@ static const tag_tcpip_domain s_tcpip_socket =
     .ops = &s_tcpip_socket_ops,
 };
 
-static bool_t __l716_joinap(void)
+static bool_t _l716_joinnetwork(void)
 {
-    extern void uart_at_enable(void);
+    extern void atdevice_enable(void);
     
     do {
-        uart_at_enable();
+        atdevice_enable();
     } while (__l716_poll_cmd("AT\r\n", "OK", 1000, 10) != 0);
 
     if (__l716_poll_cmd("AT+CPIN?\r\n", "READY", 1000, 3) != 0) {
@@ -503,11 +547,24 @@ int link_tcpip_imp_init(void)
 
     s_l716_cbs[0] = (l716_sock_cb_t *) -1;
 
+    if(false == osal_mutex_create(&g_atcombo_lock))
+    {
+        printf(" l716 AT MUTEX_ERR\r\n");
+        return ret;
+    }
+
+    if(false == osal_mutex_create(&g_iobufer_lock))
+    {
+        osal_mutex_del(g_atcombo_lock);
+        printf(" l716 IO MUTEX_ERR\r\n");
+        return ret;
+    }
+
     at_oobregister("l716cn", RCVINDEX, strlen(RCVINDEX), __l716_rcvdeal, NULL);
 
-    if (!__l716_joinap()) {
-        printf("Fail to enable network!\r\n");
-        return -1;
+    while (!_l716_joinnetwork()) {
+        printf("Fail to enable network and try another time\r\n");
+        osal_task_sleep(1000);
     }
 
    //reach here means everything is ok, we can go now

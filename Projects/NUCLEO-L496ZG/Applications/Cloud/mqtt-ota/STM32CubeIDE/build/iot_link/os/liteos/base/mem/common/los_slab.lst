@@ -1,0 +1,2067 @@
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"los_slab.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.osAtomicBitsetInit,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	osAtomicBitsetInit
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	osAtomicBitsetInit:
+  28              	.LVL0:
+  29              	.LFB133:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** /*----------------------------------------------------------------------------
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * Copyright (c) <2013-2017>, <Huawei Technologies Co., Ltd>
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * All rights reserved.
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * Redistribution and use in source and binary forms, with or without modification,
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * are permitted provided that the following conditions are met:
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * 1. Redistributions of source code must retain the above copyright notice, this list of
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * conditions and the following disclaimer.
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * 2. Redistributions in binary form must reproduce the above copyright notice, this list
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * of conditions and the following disclaimer in the documentation and/or other materials
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * provided with the distribution.
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * 3. Neither the name of the copyright holder nor the names of its contributors may be used
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * to endorse or promote products derived from this software without specific prior written
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * permission.
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  *---------------------------------------------------------------------------*/
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** /*----------------------------------------------------------------------------
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * Notice of Export Control Law
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * ===============================================
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * Huawei LiteOS may be subject to applicable export control laws and regulations, which might
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * include those applicable to Huawei LiteOS of U.S. and the country in which you are located.
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * Import, export and usage of Huawei LiteOS in any manner by you shall be in compliance with such
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  * applicable export control laws and regulations.
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****  *---------------------------------------------------------------------------*/
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** #include <string.h>
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** #include <stdint.h>
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** #include <los_slab.ph>
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** extern VOID* osHeapAlloc(VOID *pPool, UINT32 uwSz);
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** extern BOOL osHeapFree(VOID *pPool, VOID* pPtr);
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** VOID osAtomicBitsetInit(struct AtomicBitset *pstSet, UINT32 uwNumBits)
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+  31              		.loc 1 42 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     pstSet->numBits = uwNumBits;
+  35              		.loc 1 43 5 view .LVU1
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     memset(pstSet->words, 0, (uwNumBits + 31) / 8);
+  36              		.loc 1 44 41 is_stmt 0 view .LVU2
+  37 0000 01F11F02 		add	r2, r1, #31
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     pstSet->numBits = uwNumBits;
+  38              		.loc 1 42 1 view .LVU3
+  39 0004 38B5     		push	{r3, r4, r5, lr}
+  40              	.LCFI0:
+  41              		.cfi_def_cfa_offset 16
+  42              		.cfi_offset 3, -16
+  43              		.cfi_offset 4, -12
+  44              		.cfi_offset 5, -8
+  45              		.cfi_offset 14, -4
+  46              		.loc 1 44 5 view .LVU4
+  47 0006 D208     		lsrs	r2, r2, #3
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     pstSet->numBits = uwNumBits;
+  48              		.loc 1 42 1 view .LVU5
+  49 0008 0546     		mov	r5, r0
+  50 000a 0C46     		mov	r4, r1
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     pstSet->numBits = uwNumBits;
+  51              		.loc 1 43 21 view .LVU6
+  52 000c 40F8041B 		str	r1, [r0], #4
+  53              	.LVL1:
+  54              		.loc 1 44 5 is_stmt 1 view .LVU7
+  55 0010 0021     		movs	r1, #0
+  56              	.LVL2:
+  57              		.loc 1 44 5 is_stmt 0 view .LVU8
+  58 0012 FFF7FEFF 		bl	memset
+  59              	.LVL3:
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if (uwNumBits & 31) //mark all high bits so that osAtomicBitsetFindClearAndSet() is simpler
+  60              		.loc 1 45 5 is_stmt 1 view .LVU9
+  61              		.loc 1 45 8 is_stmt 0 view .LVU10
+  62 0016 14F01F02 		ands	r2, r4, #31
+  63 001a 06D0     		beq	.L1
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         pstSet->words[uwNumBits / 32] = ((UINT32)((INT32)-1LL)) << (uwNumBits & 31);
+  64              		.loc 1 47 9 is_stmt 1 view .LVU11
+  65              		.loc 1 47 33 is_stmt 0 view .LVU12
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 3
+
+
+  66 001c 6409     		lsrs	r4, r4, #5
+  67              	.LVL4:
+  68              		.loc 1 47 39 view .LVU13
+  69 001e 05EB8404 		add	r4, r5, r4, lsl #2
+  70              		.loc 1 47 65 view .LVU14
+  71 0022 4FF0FF33 		mov	r3, #-1
+  72 0026 9340     		lsls	r3, r3, r2
+  73              		.loc 1 47 39 view .LVU15
+  74 0028 6360     		str	r3, [r4, #4]
+  75              	.L1:
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+  76              		.loc 1 49 1 view .LVU16
+  77 002a 38BD     		pop	{r3, r4, r5, pc}
+  78              		.loc 1 49 1 view .LVU17
+  79              		.cfi_endproc
+  80              	.LFE133:
+  82              		.section	.text.osAtomicBitsetGetNumBits,"ax",%progbits
+  83              		.align	1
+  84              		.p2align 2,,3
+  85              		.global	osAtomicBitsetGetNumBits
+  86              		.syntax unified
+  87              		.thumb
+  88              		.thumb_func
+  89              		.fpu fpv4-sp-d16
+  91              	osAtomicBitsetGetNumBits:
+  92              	.LVL5:
+  93              	.LFB134:
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** inline UINT32 osAtomicBitsetGetNumBits(const struct AtomicBitset *pstSet)
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+  94              		.loc 1 52 1 is_stmt 1 view -0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              		@ link register save eliminated.
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return pstSet->numBits;
+  99              		.loc 1 53 5 view .LVU19
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 100              		.loc 1 54 1 is_stmt 0 view .LVU20
+ 101 0000 0068     		ldr	r0, [r0]
+ 102              	.LVL6:
+ 103              		.loc 1 54 1 view .LVU21
+ 104 0002 7047     		bx	lr
+ 105              		.cfi_endproc
+ 106              	.LFE134:
+ 108              		.section	.text.osAtomicBitsetGetBit,"ax",%progbits
+ 109              		.align	1
+ 110              		.p2align 2,,3
+ 111              		.global	osAtomicBitsetGetBit
+ 112              		.syntax unified
+ 113              		.thumb
+ 114              		.thumb_func
+ 115              		.fpu fpv4-sp-d16
+ 117              	osAtomicBitsetGetBit:
+ 118              	.LVL7:
+ 119              	.LFB135:
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 4
+
+
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** BOOL osAtomicBitsetGetBit(const struct AtomicBitset *pstSet, UINT32 uwNum)
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 120              		.loc 1 57 1 is_stmt 1 view -0
+ 121              		.cfi_startproc
+ 122              		@ args = 0, pretend = 0, frame = 0
+ 123              		@ frame_needed = 0, uses_anonymous_args = 0
+ 124              		@ link register save eliminated.
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if (uwNum >= pstSet->numBits) /* any value is as good as the next */
+ 125              		.loc 1 58 5 view .LVU23
+ 126              		.loc 1 58 8 is_stmt 0 view .LVU24
+ 127 0000 0368     		ldr	r3, [r0]
+ 128 0002 8B42     		cmp	r3, r1
+ 129 0004 0AD9     		bls	.L11
+ 130              	.LVL8:
+ 131              	.LBB28:
+ 132              	.LBI28:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 133              		.loc 1 56 6 is_stmt 1 view .LVU25
+ 134              	.LBB29:
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return FALSE;
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return !!((pstSet->words[uwNum / 32]) & (1UL << (uwNum & 31)));
+ 135              		.loc 1 62 5 view .LVU26
+ 136              		.loc 1 62 36 is_stmt 0 view .LVU27
+ 137 0006 4B09     		lsrs	r3, r1, #5
+ 138              		.loc 1 62 29 view .LVU28
+ 139 0008 00EB8300 		add	r0, r0, r3, lsl #2
+ 140              	.LVL9:
+ 141              		.loc 1 62 60 view .LVU29
+ 142 000c 01F01F01 		and	r1, r1, #31
+ 143              	.LVL10:
+ 144              		.loc 1 62 12 view .LVU30
+ 145 0010 4068     		ldr	r0, [r0, #4]
+ 146 0012 20FA01F1 		lsr	r1, r0, r1
+ 147 0016 01F00100 		and	r0, r1, #1
+ 148              	.LVL11:
+ 149              		.loc 1 62 12 view .LVU31
+ 150 001a 7047     		bx	lr
+ 151              	.LVL12:
+ 152              	.L11:
+ 153              		.loc 1 62 12 view .LVU32
+ 154              	.LBE29:
+ 155              	.LBE28:
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+ 156              		.loc 1 60 16 view .LVU33
+ 157 001c 0020     		movs	r0, #0
+ 158              	.LVL13:
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 159              		.loc 1 63 1 view .LVU34
+ 160 001e 7047     		bx	lr
+ 161              		.cfi_endproc
+ 162              	.LFE135:
+ 164              		.section	.text.osAtomicBitsetClearBit,"ax",%progbits
+ 165              		.align	1
+ 166              		.p2align 2,,3
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 5
+
+
+ 167              		.global	osAtomicBitsetClearBit
+ 168              		.syntax unified
+ 169              		.thumb
+ 170              		.thumb_func
+ 171              		.fpu fpv4-sp-d16
+ 173              	osAtomicBitsetClearBit:
+ 174              	.LVL14:
+ 175              	.LFB136:
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** VOID osAtomicBitsetClearBit(struct AtomicBitset *pstSet, UINT32 uwNum)
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 176              		.loc 1 66 1 is_stmt 1 view -0
+ 177              		.cfi_startproc
+ 178              		@ args = 0, pretend = 0, frame = 0
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180              		@ link register save eliminated.
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 *puwWordPtr = pstSet->words + uwNum / 32;
+ 181              		.loc 1 67 5 view .LVU36
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if (uwNum >= pstSet->numBits)
+ 182              		.loc 1 69 8 is_stmt 0 view .LVU37
+ 183 0000 0368     		ldr	r3, [r0]
+ 184              	.LVL15:
+ 185              		.loc 1 69 5 is_stmt 1 view .LVU38
+ 186              		.loc 1 69 8 is_stmt 0 view .LVU39
+ 187 0002 8B42     		cmp	r3, r1
+ 188 0004 10D9     		bls	.L15
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 *puwWordPtr = pstSet->words + uwNum / 32;
+ 189              		.loc 1 66 1 view .LVU40
+ 190 0006 10B4     		push	{r4}
+ 191              	.LCFI1:
+ 192              		.cfi_def_cfa_offset 4
+ 193              		.cfi_offset 4, -4
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 *puwWordPtr = pstSet->words + uwNum / 32;
+ 194              		.loc 1 67 26 view .LVU41
+ 195 0008 0430     		adds	r0, r0, #4
+ 196              	.LVL16:
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 *puwWordPtr = pstSet->words + uwNum / 32;
+ 197              		.loc 1 67 48 view .LVU42
+ 198 000a 4C09     		lsrs	r4, r1, #5
+ 199              	.LVL17:
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return;
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     (*puwWordPtr) &= ~(1UL << (uwNum & 31));
+ 200              		.loc 1 73 5 is_stmt 1 view .LVU43
+ 201              		.loc 1 73 28 is_stmt 0 view .LVU44
+ 202 000c 0122     		movs	r2, #1
+ 203              		.loc 1 73 19 view .LVU45
+ 204 000e 50F82430 		ldr	r3, [r0, r4, lsl #2]
+ 205              		.loc 1 73 38 view .LVU46
+ 206 0012 01F01F01 		and	r1, r1, #31
+ 207              	.LVL18:
+ 208              		.loc 1 73 28 view .LVU47
+ 209 0016 02FA01F1 		lsl	r1, r2, r1
+ 210              		.loc 1 73 19 view .LVU48
+ 211 001a 23EA0103 		bic	r3, r3, r1
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 6
+
+
+ 212 001e 40F82430 		str	r3, [r0, r4, lsl #2]
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 213              		.loc 1 74 1 view .LVU49
+ 214 0022 5DF8044B 		ldr	r4, [sp], #4
+ 215              	.LCFI2:
+ 216              		.cfi_restore 4
+ 217              		.cfi_def_cfa_offset 0
+ 218              	.LVL19:
+ 219              		.loc 1 74 1 view .LVU50
+ 220 0026 7047     		bx	lr
+ 221              	.LVL20:
+ 222              	.L15:
+ 223              		.loc 1 74 1 view .LVU51
+ 224 0028 7047     		bx	lr
+ 225              		.cfi_endproc
+ 226              	.LFE136:
+ 228 002a 00BF     		.section	.text.osAtomicBitsetFindClearAndSet,"ax",%progbits
+ 229              		.align	1
+ 230              		.p2align 2,,3
+ 231              		.global	osAtomicBitsetFindClearAndSet
+ 232              		.syntax unified
+ 233              		.thumb
+ 234              		.thumb_func
+ 235              		.fpu fpv4-sp-d16
+ 237              	osAtomicBitsetFindClearAndSet:
+ 238              	.LVL21:
+ 239              	.LFB137:
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** /* find from the high bit to high bit£¬return the address of the first available bit */
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** INT32 osAtomicBitsetFindClearAndSet(struct AtomicBitset *pstSet)
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 240              		.loc 1 78 1 is_stmt 1 view -0
+ 241              		.cfi_startproc
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 0, uses_anonymous_args = 0
+ 244              		@ link register save eliminated.
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwIdx, uwNumWords = (pstSet->numBits + 31) / 32;
+ 245              		.loc 1 79 5 view .LVU53
+ 246              		.loc 1 79 49 is_stmt 0 view .LVU54
+ 247 0000 0368     		ldr	r3, [r0]
+ 248 0002 1F33     		adds	r3, r3, #31
+ 249              	.LVL22:
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 *puwWordPtr = pstSet->words;
+ 250              		.loc 1 80 5 is_stmt 1 view .LVU55
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwTmpWord;
+ 251              		.loc 1 81 5 view .LVU56
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     INT32 swCnt = 0;
+ 252              		.loc 1 82 5 view .LVU57
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     for (uwIdx = 0; uwIdx < uwNumWords; uwIdx++, puwWordPtr++)
+ 253              		.loc 1 84 5 view .LVU58
+ 254              		.loc 1 84 21 view .LVU59
+ 255              		.loc 1 84 5 is_stmt 0 view .LVU60
+ 256 0004 5A09     		lsrs	r2, r3, #5
+ 257              	.LVL23:
+ 258              		.loc 1 84 5 view .LVU61
+ 259 0006 1ED0     		beq	.L23
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 7
+
+
+ 260 0008 031D     		adds	r3, r0, #4
+ 261              	.LVL24:
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwIdx, uwNumWords = (pstSet->numBits + 31) / 32;
+ 262              		.loc 1 78 1 view .LVU62
+ 263 000a 30B4     		push	{r4, r5}
+ 264              	.LCFI3:
+ 265              		.cfi_def_cfa_offset 8
+ 266              		.cfi_offset 4, -8
+ 267              		.cfi_offset 5, -4
+ 268 000c 03EB8202 		add	r2, r3, r2, lsl #2
+ 269              	.LVL25:
+ 270              		.loc 1 84 16 view .LVU63
+ 271 0010 0024     		movs	r4, #0
+ 272              	.LVL26:
+ 273              	.L21:
+ 274              		.loc 1 84 16 view .LVU64
+ 275 0012 1D46     		mov	r5, r3
+ 276              	.LVL27:
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         if (*puwWordPtr == 0xFFFFFFFF)
+ 277              		.loc 1 86 9 is_stmt 1 view .LVU65
+ 278              		.loc 1 86 13 is_stmt 0 view .LVU66
+ 279 0014 53F8041B 		ldr	r1, [r3], #4
+ 280              	.LVL28:
+ 281              		.loc 1 86 12 view .LVU67
+ 282 0018 481C     		adds	r0, r1, #1
+ 283 001a 0ED0     		beq	.L30
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****             continue;
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         }
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         uwTmpWord = ~(*puwWordPtr);
+ 284              		.loc 1 91 9 is_stmt 1 view .LVU68
+ 285              		.loc 1 91 19 is_stmt 0 view .LVU69
+ 286 001c CA43     		mvns	r2, r1
+ 287              	.LVL29:
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         while(uwTmpWord)
+ 288              		.loc 1 93 9 is_stmt 1 view .LVU70
+ 289              		.loc 1 93 14 view .LVU71
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 290              		.loc 1 82 11 is_stmt 0 view .LVU72
+ 291 001e 0023     		movs	r3, #0
+ 292              	.LVL30:
+ 293              	.L22:
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****             uwTmpWord = uwTmpWord >> 1UL;
+ 294              		.loc 1 95 13 is_stmt 1 view .LVU73
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****             swCnt++;
+ 295              		.loc 1 96 13 view .LVU74
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 296              		.loc 1 93 14 is_stmt 0 view .LVU75
+ 297 0020 5208     		lsrs	r2, r2, #1
+ 298              	.LVL31:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 299              		.loc 1 93 14 view .LVU76
+ 300 0022 1846     		mov	r0, r3
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 8
+
+
+ 301              		.loc 1 96 18 view .LVU77
+ 302 0024 03F10103 		add	r3, r3, #1
+ 303              	.LVL32:
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 304              		.loc 1 93 14 is_stmt 1 view .LVU78
+ 305 0028 FAD1     		bne	.L22
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         }
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         *puwWordPtr |= (1UL << (swCnt - 1));
+ 306              		.loc 1 99 9 view .LVU79
+ 307              		.loc 1 99 29 is_stmt 0 view .LVU80
+ 308 002a 0123     		movs	r3, #1
+ 309              	.LVL33:
+ 310              		.loc 1 99 29 view .LVU81
+ 311 002c 8340     		lsls	r3, r3, r0
+ 312              		.loc 1 99 21 view .LVU82
+ 313 002e 0B43     		orrs	r3, r3, r1
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return (INT32)(uwIdx * 32 + swCnt - 1);
+ 314              		.loc 1 101 43 view .LVU83
+ 315 0030 00EB4410 		add	r0, r0, r4, lsl #5
+ 316              	.LVL34:
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 317              		.loc 1 99 21 view .LVU84
+ 318 0034 2B60     		str	r3, [r5]
+ 319              	.LVL35:
+ 320              		.loc 1 101 9 is_stmt 1 view .LVU85
+ 321              	.L18:
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return -1;
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 322              		.loc 1 105 1 is_stmt 0 view .LVU86
+ 323 0036 30BC     		pop	{r4, r5}
+ 324              	.LCFI4:
+ 325              		.cfi_remember_state
+ 326              		.cfi_restore 5
+ 327              		.cfi_restore 4
+ 328              		.cfi_def_cfa_offset 0
+ 329              	.LVL36:
+ 330              		.loc 1 105 1 view .LVU87
+ 331 0038 7047     		bx	lr
+ 332              	.LVL37:
+ 333              	.L30:
+ 334              	.LCFI5:
+ 335              		.cfi_restore_state
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         }
+ 336              		.loc 1 88 13 is_stmt 1 view .LVU88
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 337              		.loc 1 84 41 view .LVU89
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 338              		.loc 1 84 5 is_stmt 0 view .LVU90
+ 339 003a 9A42     		cmp	r2, r3
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 340              		.loc 1 84 46 view .LVU91
+ 341 003c 04F10104 		add	r4, r4, #1
+ 342              	.LVL38:
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 9
+
+
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 343              		.loc 1 84 21 is_stmt 1 view .LVU92
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 344              		.loc 1 84 5 is_stmt 0 view .LVU93
+ 345 0040 E7D1     		bne	.L21
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 346              		.loc 1 104 12 view .LVU94
+ 347 0042 0846     		mov	r0, r1
+ 348 0044 F7E7     		b	.L18
+ 349              	.LVL39:
+ 350              	.L23:
+ 351              	.LCFI6:
+ 352              		.cfi_def_cfa_offset 0
+ 353              		.cfi_restore 4
+ 354              		.cfi_restore 5
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 355              		.loc 1 104 12 view .LVU95
+ 356 0046 4FF0FF30 		mov	r0, #-1
+ 357              	.LVL40:
+ 358              		.loc 1 105 1 view .LVU96
+ 359 004a 7047     		bx	lr
+ 360              		.cfi_endproc
+ 361              	.LFE137:
+ 363              		.section	.text.osAtomicBitsetIdxChgToNatural,"ax",%progbits
+ 364              		.align	1
+ 365              		.p2align 2,,3
+ 366              		.global	osAtomicBitsetIdxChgToNatural
+ 367              		.syntax unified
+ 368              		.thumb
+ 369              		.thumb_func
+ 370              		.fpu fpv4-sp-d16
+ 372              	osAtomicBitsetIdxChgToNatural:
+ 373              	.LVL41:
+ 374              	.LFB138:
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** /* change the order of the output idx of osAtomicBitsetFindClearAndSet to order of natural numbers 
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** INT32 osAtomicBitsetIdxChgToNatural(struct AtomicBitset *pstBitset, INT32 swIdx)
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 375              		.loc 1 109 1 is_stmt 1 view -0
+ 376              		.cfi_startproc
+ 377              		@ args = 0, pretend = 0, frame = 0
+ 378              		@ frame_needed = 0, uses_anonymous_args = 0
+ 379              		@ link register save eliminated.
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwRet, uwB;
+ 380              		.loc 1 110 5 view .LVU98
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if (swIdx < 0)
+ 381              		.loc 1 111 5 view .LVU99
+ 382              		.loc 1 111 8 is_stmt 0 view .LVU100
+ 383 0000 0029     		cmp	r1, #0
+ 384              		.loc 1 111 8 view .LVU101
+ 385 0002 0CDB     		blt	.L33
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return swIdx;
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     uwB = 31 + (swIdx & ~31);
+ 386              		.loc 1 115 5 is_stmt 1 view .LVU102
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if (uwB > pstBitset->numBits - 1)
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 10
+
+
+ 387              		.loc 1 116 34 is_stmt 0 view .LVU103
+ 388 0004 0068     		ldr	r0, [r0]
+ 389              	.LVL42:
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if (uwB > pstBitset->numBits - 1)
+ 390              		.loc 1 115 14 view .LVU104
+ 391 0006 41F01F03 		orr	r3, r1, #31
+ 392              	.LVL43:
+ 393              		.loc 1 116 5 is_stmt 1 view .LVU105
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         uwB = pstBitset->numBits - 1;
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     uwRet = uwB - (swIdx & 31);
+ 394              		.loc 1 120 5 view .LVU106
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return uwRet;
+ 395              		.loc 1 121 5 view .LVU107
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 396              		.loc 1 116 34 is_stmt 0 view .LVU108
+ 397 000a 0138     		subs	r0, r0, #1
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return uwRet;
+ 398              		.loc 1 120 26 view .LVU109
+ 399 000c 01F01F01 		and	r1, r1, #31
+ 400              	.LVL44:
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return uwRet;
+ 401              		.loc 1 120 11 view .LVU110
+ 402 0010 9842     		cmp	r0, r3
+ 403 0012 94BF     		ite	ls
+ 404 0014 C1EB0000 		rsbls	r0, r1, r0
+ 405 0018 C1EB0300 		rsbhi	r0, r1, r3
+ 406              		.loc 1 121 12 view .LVU111
+ 407 001c 7047     		bx	lr
+ 408              	.LVL45:
+ 409              	.L33:
+ 410              		.loc 1 121 12 view .LVU112
+ 411 001e 0846     		mov	r0, r1
+ 412              	.LVL46:
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 413              		.loc 1 122 1 view .LVU113
+ 414 0020 7047     		bx	lr
+ 415              		.cfi_endproc
+ 416              	.LFE138:
+ 418 0022 00BF     		.section	.text.osAtomicBitsetEmpty,"ax",%progbits
+ 419              		.align	1
+ 420              		.p2align 2,,3
+ 421              		.global	osAtomicBitsetEmpty
+ 422              		.syntax unified
+ 423              		.thumb
+ 424              		.thumb_func
+ 425              		.fpu fpv4-sp-d16
+ 427              	osAtomicBitsetEmpty:
+ 428              	.LVL47:
+ 429              	.LFB139:
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** BOOL osAtomicBitsetEmpty(struct AtomicBitset *pstBitset)
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 430              		.loc 1 125 1 is_stmt 1 view -0
+ 431              		.cfi_startproc
+ 432              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 11
+
+
+ 433              		@ frame_needed = 0, uses_anonymous_args = 0
+ 434              		@ link register save eliminated.
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwIdx = 0;
+ 435              		.loc 1 126 5 view .LVU115
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     for (uwIdx = 0; uwIdx < pstBitset->numBits / 32;)
+ 436              		.loc 1 127 5 view .LVU116
+ 437              		.loc 1 127 21 view .LVU117
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwIdx = 0;
+ 438              		.loc 1 125 1 is_stmt 0 view .LVU118
+ 439 0000 30B4     		push	{r4, r5}
+ 440              	.LCFI7:
+ 441              		.cfi_def_cfa_offset 8
+ 442              		.cfi_offset 4, -8
+ 443              		.cfi_offset 5, -4
+ 444              		.loc 1 127 38 view .LVU119
+ 445 0002 0568     		ldr	r5, [r0]
+ 446              		.loc 1 127 5 view .LVU120
+ 447 0004 6C09     		lsrs	r4, r5, #5
+ 448 0006 0CD0     		beq	.L35
+ 449 0008 0246     		mov	r2, r0
+ 450              		.loc 1 127 16 view .LVU121
+ 451 000a 0023     		movs	r3, #0
+ 452 000c 01E0     		b	.L37
+ 453              	.LVL48:
+ 454              	.L45:
+ 455              		.loc 1 127 5 view .LVU122
+ 456 000e A342     		cmp	r3, r4
+ 457 0010 07D0     		beq	.L35
+ 458              	.LVL49:
+ 459              	.L37:
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         if (pstBitset->words[uwIdx] != 0)
+ 460              		.loc 1 129 9 is_stmt 1 view .LVU123
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****             return FALSE;
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         }
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         uwIdx++;
+ 461              		.loc 1 133 9 view .LVU124
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 462              		.loc 1 129 12 is_stmt 0 view .LVU125
+ 463 0012 52F8041F 		ldr	r1, [r2, #4]!
+ 464              		.loc 1 133 14 view .LVU126
+ 465 0016 0133     		adds	r3, r3, #1
+ 466              	.LVL50:
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 467              		.loc 1 127 21 is_stmt 1 view .LVU127
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 468              		.loc 1 129 12 is_stmt 0 view .LVU128
+ 469 0018 0029     		cmp	r1, #0
+ 470 001a F8D0     		beq	.L45
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         }
+ 471              		.loc 1 131 20 view .LVU129
+ 472 001c 0020     		movs	r0, #0
+ 473              	.LVL51:
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if (pstBitset->numBits & 31)
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 12
+
+
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         if (pstBitset->words[uwIdx] & ~(0xFFFFFFFF << (pstBitset->numBits & 31)))
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****             return FALSE;
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         }
+ 141:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return TRUE;
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 474              		.loc 1 143 1 view .LVU130
+ 475 001e 30BC     		pop	{r4, r5}
+ 476              	.LCFI8:
+ 477              		.cfi_remember_state
+ 478              		.cfi_restore 5
+ 479              		.cfi_restore 4
+ 480              		.cfi_def_cfa_offset 0
+ 481 0020 7047     		bx	lr
+ 482              	.LVL52:
+ 483              	.L35:
+ 484              	.LCFI9:
+ 485              		.cfi_restore_state
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 486              		.loc 1 135 5 is_stmt 1 view .LVU131
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 487              		.loc 1 135 8 is_stmt 0 view .LVU132
+ 488 0022 15F01F05 		ands	r5, r5, #31
+ 489 0026 0DD0     		beq	.L39
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 490              		.loc 1 137 9 is_stmt 1 view .LVU133
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 491              		.loc 1 137 29 is_stmt 0 view .LVU134
+ 492 0028 00EB8400 		add	r0, r0, r4, lsl #2
+ 493              	.LVL53:
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 494              		.loc 1 137 52 view .LVU135
+ 495 002c 4FF0FF33 		mov	r3, #-1
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 496              		.loc 1 137 37 view .LVU136
+ 497 0030 4268     		ldr	r2, [r0, #4]
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 498              		.loc 1 137 52 view .LVU137
+ 499 0032 03FA05F5 		lsl	r5, r3, r5
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 500              		.loc 1 137 12 view .LVU138
+ 501 0036 32EA0503 		bics	r3, r2, r5
+ 502 003a 0CBF     		ite	eq
+ 503 003c 0120     		moveq	r0, #1
+ 504 003e 0020     		movne	r0, #0
+ 505              		.loc 1 143 1 view .LVU139
+ 506 0040 30BC     		pop	{r4, r5}
+ 507              	.LCFI10:
+ 508              		.cfi_remember_state
+ 509              		.cfi_restore 5
+ 510              		.cfi_restore 4
+ 511              		.cfi_def_cfa_offset 0
+ 512 0042 7047     		bx	lr
+ 513              	.LVL54:
+ 514              	.L39:
+ 515              	.LCFI11:
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 13
+
+
+ 516              		.cfi_restore_state
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 517              		.loc 1 142 12 view .LVU140
+ 518 0044 0120     		movs	r0, #1
+ 519              	.LVL55:
+ 520              		.loc 1 143 1 view .LVU141
+ 521 0046 30BC     		pop	{r4, r5}
+ 522              	.LCFI12:
+ 523              		.cfi_restore 5
+ 524              		.cfi_restore 4
+ 525              		.cfi_def_cfa_offset 0
+ 526 0048 7047     		bx	lr
+ 527              		.cfi_endproc
+ 528              	.LFE139:
+ 530 004a 00BF     		.section	.text.osSlabAllocatorNew,"ax",%progbits
+ 531              		.align	1
+ 532              		.p2align 2,,3
+ 533              		.global	osSlabAllocatorNew
+ 534              		.syntax unified
+ 535              		.thumb
+ 536              		.thumb_func
+ 537              		.fpu fpv4-sp-d16
+ 539              	osSlabAllocatorNew:
+ 540              	.LVL56:
+ 541              	.LFB140:
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 145:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** OS_SLAB_ALLOCATOR* osSlabAllocatorNew(VOID *pPool, UINT32 uwItemSz, UINT32 uwItemAlign, UINT32 uwNu
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 542              		.loc 1 146 1 is_stmt 1 view -0
+ 543              		.cfi_startproc
+ 544              		@ args = 0, pretend = 0, frame = 0
+ 545              		@ frame_needed = 0, uses_anonymous_args = 0
+ 147:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     OS_SLAB_ALLOCATOR *pstAllocator;
+ 546              		.loc 1 147 5 view .LVU143
+ 148:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwBitsetSz, uwDataSz;
+ 547              		.loc 1 148 5 view .LVU144
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     /* calcualte size */
+ 151:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     uwBitsetSz = ATOMIC_BITSET_SZ(uwNumItems);
+ 548              		.loc 1 151 5 view .LVU145
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     OS_SLAB_ALLOCATOR *pstAllocator;
+ 549              		.loc 1 146 1 is_stmt 0 view .LVU146
+ 550 0000 F8B5     		push	{r3, r4, r5, r6, r7, lr}
+ 551              	.LCFI13:
+ 552              		.cfi_def_cfa_offset 24
+ 553              		.cfi_offset 3, -24
+ 554              		.cfi_offset 4, -20
+ 555              		.cfi_offset 5, -16
+ 556              		.cfi_offset 6, -12
+ 557              		.cfi_offset 7, -8
+ 558              		.cfi_offset 14, -4
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     OS_SLAB_ALLOCATOR *pstAllocator;
+ 559              		.loc 1 146 1 view .LVU147
+ 560 0002 1F46     		mov	r7, r3
+ 561              	.LVL57:
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     uwBitsetSz = (uwBitsetSz + uwItemAlign - 1) & ~(uwItemAlign - 1);
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 14
+
+
+ 562              		.loc 1 153 5 is_stmt 1 view .LVU148
+ 154:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     uwItemSz = (uwItemSz + uwItemAlign - 1) & ~(uwItemAlign - 1);
+ 563              		.loc 1 154 40 is_stmt 0 view .LVU149
+ 564 0004 4C1E     		subs	r4, r1, #1
+ 151:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 565              		.loc 1 151 18 view .LVU150
+ 566 0006 1F33     		adds	r3, r3, #31
+ 567              	.LVL58:
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     uwItemSz = (uwItemSz + uwItemAlign - 1) & ~(uwItemAlign - 1);
+ 568              		.loc 1 153 44 view .LVU151
+ 569 0008 D51C     		adds	r5, r2, #3
+ 570              		.loc 1 154 40 view .LVU152
+ 571 000a 1444     		add	r4, r4, r2
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     uwItemSz = (uwItemSz + uwItemAlign - 1) & ~(uwItemAlign - 1);
+ 572              		.loc 1 153 44 view .LVU153
+ 573 000c 05EBD305 		add	r5, r5, r3, lsr #3
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     uwItemSz = (uwItemSz + uwItemAlign - 1) & ~(uwItemAlign - 1);
+ 574              		.loc 1 153 51 view .LVU154
+ 575 0010 5242     		rsbs	r2, r2, #0
+ 576              	.LVL59:
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     uwItemSz = (uwItemSz + uwItemAlign - 1) & ~(uwItemAlign - 1);
+ 577              		.loc 1 153 16 view .LVU155
+ 578 0012 1540     		ands	r5, r5, r2
+ 579              	.LVL60:
+ 580              		.loc 1 154 5 is_stmt 1 view .LVU156
+ 581              		.loc 1 154 14 is_stmt 0 view .LVU157
+ 582 0014 1440     		ands	r4, r4, r2
+ 583              	.LVL61:
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     uwDataSz = uwItemSz * uwNumItems;
+ 584              		.loc 1 155 5 is_stmt 1 view .LVU158
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     pstAllocator = (OS_SLAB_ALLOCATOR*)osHeapAlloc(pPool, sizeof(OS_SLAB_ALLOCATOR) + uwBitsetSz + 
+ 585              		.loc 1 157 5 view .LVU159
+ 586              		.loc 1 157 40 is_stmt 0 view .LVU160
+ 587 0016 04FB0751 		mla	r1, r4, r7, r5
+ 588 001a 0C31     		adds	r1, r1, #12
+ 589 001c FFF7FEFF 		bl	osHeapAlloc
+ 590              	.LVL62:
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 159:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if (pstAllocator)
+ 591              		.loc 1 159 5 is_stmt 1 view .LVU161
+ 592              		.loc 1 159 8 is_stmt 0 view .LVU162
+ 593 0020 0646     		mov	r6, r0
+ 594 0022 38B1     		cbz	r0, .L46
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         pstAllocator->uwItemSz = uwItemSz;
+ 595              		.loc 1 161 9 is_stmt 1 view .LVU163
+ 596              		.loc 1 161 32 is_stmt 0 view .LVU164
+ 597 0024 40F80C4B 		str	r4, [r0], #12
+ 598              	.LVL63:
+ 162:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         pstAllocator->bitset = (struct AtomicBitset *)((UINT8*)pstAllocator + sizeof(OS_SLAB_ALLOCA
+ 599              		.loc 1 163 9 is_stmt 1 view .LVU165
+ 164:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         pstAllocator->ucDataChunks = ((UINT8*)pstAllocator->bitset) + uwBitsetSz;
+ 600              		.loc 1 164 69 is_stmt 0 view .LVU166
+ 601 0028 0544     		add	r5, r5, r0
+ 602              	.LVL64:
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 15
+
+
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         pstAllocator->ucDataChunks = ((UINT8*)pstAllocator->bitset) + uwBitsetSz;
+ 603              		.loc 1 163 30 view .LVU167
+ 604 002a C6E90150 		strd	r5, r0, [r6, #4]
+ 605              		.loc 1 164 9 is_stmt 1 view .LVU168
+ 165:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         osAtomicBitsetInit(pstAllocator->bitset, uwNumItems);
+ 606              		.loc 1 165 9 view .LVU169
+ 607 002e 3946     		mov	r1, r7
+ 608 0030 FFF7FEFF 		bl	osAtomicBitsetInit
+ 609              	.LVL65:
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+ 167:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 168:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return pstAllocator;
+ 610              		.loc 1 168 5 view .LVU170
+ 611              	.L46:
+ 169:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 612              		.loc 1 169 1 is_stmt 0 view .LVU171
+ 613 0034 3046     		mov	r0, r6
+ 614 0036 F8BD     		pop	{r3, r4, r5, r6, r7, pc}
+ 615              		.loc 1 169 1 view .LVU172
+ 616              		.cfi_endproc
+ 617              	.LFE140:
+ 619              		.section	.text.osSlabAllocatorDestroy,"ax",%progbits
+ 620              		.align	1
+ 621              		.p2align 2,,3
+ 622              		.global	osSlabAllocatorDestroy
+ 623              		.syntax unified
+ 624              		.thumb
+ 625              		.thumb_func
+ 626              		.fpu fpv4-sp-d16
+ 628              	osSlabAllocatorDestroy:
+ 629              	.LVL66:
+ 630              	.LFB141:
+ 170:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 171:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 172:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** VOID osSlabAllocatorDestroy(VOID *pPool, OS_SLAB_ALLOCATOR *pstAllocator)
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 631              		.loc 1 173 1 is_stmt 1 view -0
+ 632              		.cfi_startproc
+ 633              		@ args = 0, pretend = 0, frame = 0
+ 634              		@ frame_needed = 0, uses_anonymous_args = 0
+ 635              		@ link register save eliminated.
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     (VOID)osHeapFree(pPool, pstAllocator);
+ 636              		.loc 1 174 5 view .LVU174
+ 637              		.loc 1 174 11 is_stmt 0 view .LVU175
+ 638 0000 FFF7FEBF 		b	osHeapFree
+ 639              	.LVL67:
+ 640              		.loc 1 174 11 view .LVU176
+ 641              		.cfi_endproc
+ 642              	.LFE141:
+ 644              		.section	.text.osSlabAllocatorAlloc,"ax",%progbits
+ 645              		.align	1
+ 646              		.p2align 2,,3
+ 647              		.global	osSlabAllocatorAlloc
+ 648              		.syntax unified
+ 649              		.thumb
+ 650              		.thumb_func
+ 651              		.fpu fpv4-sp-d16
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 16
+
+
+ 653              	osSlabAllocatorAlloc:
+ 654              	.LVL68:
+ 655              	.LFB142:
+ 175:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 177:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** VOID* osSlabAllocatorAlloc(OS_SLAB_ALLOCATOR *pstAllocator)
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 656              		.loc 1 178 1 is_stmt 1 view -0
+ 657              		.cfi_startproc
+ 658              		@ args = 0, pretend = 0, frame = 0
+ 659              		@ frame_needed = 0, uses_anonymous_args = 0
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     INT32 swItemIdx = osAtomicBitsetFindClearAndSet(pstAllocator->bitset);
+ 660              		.loc 1 179 5 view .LVU178
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     INT32 swItemIdx = osAtomicBitsetFindClearAndSet(pstAllocator->bitset);
+ 661              		.loc 1 178 1 is_stmt 0 view .LVU179
+ 662 0000 10B5     		push	{r4, lr}
+ 663              	.LCFI14:
+ 664              		.cfi_def_cfa_offset 8
+ 665              		.cfi_offset 4, -8
+ 666              		.cfi_offset 14, -4
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     INT32 swItemIdx = osAtomicBitsetFindClearAndSet(pstAllocator->bitset);
+ 667              		.loc 1 178 1 view .LVU180
+ 668 0002 0446     		mov	r4, r0
+ 669              		.loc 1 179 23 view .LVU181
+ 670 0004 8068     		ldr	r0, [r0, #8]
+ 671              	.LVL69:
+ 672              		.loc 1 179 23 view .LVU182
+ 673 0006 FFF7FEFF 		bl	osAtomicBitsetFindClearAndSet
+ 674              	.LVL70:
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if (swItemIdx < 0)
+ 675              		.loc 1 180 5 is_stmt 1 view .LVU183
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return NULL;
+ 182:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return pstAllocator->ucDataChunks + pstAllocator->uwItemSz * swItemIdx;
+ 676              		.loc 1 183 5 view .LVU184
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if (swItemIdx < 0)
+ 677              		.loc 1 180 8 is_stmt 0 view .LVU185
+ 678 000a 031E     		subs	r3, r0, #0
+ 679              		.loc 1 183 39 view .LVU186
+ 680 000c AABF     		itet	ge
+ 681 000e D4E90020 		ldrdge	r2, r0, [r4]
+ 682              	.LVL71:
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return NULL;
+ 683              		.loc 1 181 16 view .LVU187
+ 684 0012 0020     		movlt	r0, #0
+ 685              		.loc 1 183 39 view .LVU188
+ 686 0014 02FB0300 		mlage	r0, r2, r3, r0
+ 184:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 687              		.loc 1 184 1 view .LVU189
+ 688 0018 10BD     		pop	{r4, pc}
+ 689              		.loc 1 184 1 view .LVU190
+ 690              		.cfi_endproc
+ 691              	.LFE142:
+ 693 001a 00BF     		.section	.text.osSlabAllocatorFree,"ax",%progbits
+ 694              		.align	1
+ 695              		.p2align 2,,3
+ 696              		.global	osSlabAllocatorFree
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 17
+
+
+ 697              		.syntax unified
+ 698              		.thumb
+ 699              		.thumb_func
+ 700              		.fpu fpv4-sp-d16
+ 702              	osSlabAllocatorFree:
+ 703              	.LVL72:
+ 704              	.LFB143:
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 186:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** BOOL osSlabAllocatorFree(OS_SLAB_ALLOCATOR *pstAllocator, VOID* ptrP)
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 705              		.loc 1 187 1 is_stmt 1 view -0
+ 706              		.cfi_startproc
+ 707              		@ args = 0, pretend = 0, frame = 0
+ 708              		@ frame_needed = 0, uses_anonymous_args = 0
+ 709              		@ link register save eliminated.
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT8 *ptr = (UINT8*)ptrP;
+ 710              		.loc 1 188 5 view .LVU192
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT8 *ptr = (UINT8*)ptrP;
+ 711              		.loc 1 187 1 is_stmt 0 view .LVU193
+ 712 0000 0246     		mov	r2, r0
+ 713              	.LVL73:
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwItemOffset = ptr - pstAllocator->ucDataChunks;
+ 714              		.loc 1 189 5 is_stmt 1 view .LVU194
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwItemIdx = uwItemOffset / pstAllocator->uwItemSz;
+ 715              		.loc 1 190 51 is_stmt 0 view .LVU195
+ 716 0002 D0E90003 		ldrd	r0, r3, [r0]
+ 717              	.LVL74:
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwItemOffset = ptr - pstAllocator->ucDataChunks;
+ 718              		.loc 1 189 31 view .LVU196
+ 719 0006 C91A     		subs	r1, r1, r3
+ 720              	.LVL75:
+ 721              		.loc 1 190 5 is_stmt 1 view .LVU197
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 192:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     //check for invalid inputs
+ 193:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if ((uwItemOffset % pstAllocator->uwItemSz) || (uwItemIdx >= osAtomicBitsetGetNumBits(pstAlloca
+ 722              		.loc 1 193 5 view .LVU198
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT8 *ptr = (UINT8*)ptrP;
+ 723              		.loc 1 187 1 is_stmt 0 view .LVU199
+ 724 0008 30B4     		push	{r4, r5}
+ 725              	.LCFI15:
+ 726              		.cfi_def_cfa_offset 8
+ 727              		.cfi_offset 4, -8
+ 728              		.cfi_offset 5, -4
+ 729              		.loc 1 193 23 view .LVU200
+ 730 000a B1FBF0F4 		udiv	r4, r1, r0
+ 731              	.LVL76:
+ 732              		.loc 1 193 23 view .LVU201
+ 733 000e 00FB1410 		mls	r0, r0, r4, r1
+ 734              		.loc 1 193 8 view .LVU202
+ 735 0012 C8B9     		cbnz	r0, .L59
+ 736              		.loc 1 193 103 discriminator 1 view .LVU203
+ 737 0014 9368     		ldr	r3, [r2, #8]
+ 738              	.LVL77:
+ 739              	.LBB38:
+ 740              	.LBI38:
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 741              		.loc 1 51 15 is_stmt 1 discriminator 1 view .LVU204
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 18
+
+
+ 742              	.LBB39:
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 743              		.loc 1 53 5 discriminator 1 view .LVU205
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 744              		.loc 1 53 5 is_stmt 0 discriminator 1 view .LVU206
+ 745              	.LBE39:
+ 746              	.LBE38:
+ 747              		.loc 1 193 49 discriminator 1 view .LVU207
+ 748 0016 1A68     		ldr	r2, [r3]
+ 749              	.LVL78:
+ 750              		.loc 1 193 49 discriminator 1 view .LVU208
+ 751 0018 9442     		cmp	r4, r2
+ 752 001a 13D2     		bcs	.L57
+ 753              	.LVL79:
+ 754              	.LBB40:
+ 755              	.LBI40:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 756              		.loc 1 56 6 is_stmt 1 view .LVU209
+ 757              	.LBE40:
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 758              		.loc 1 58 5 view .LVU210
+ 759              	.LBB43:
+ 760              	.LBB41:
+ 761              	.LBI41:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 762              		.loc 1 56 6 view .LVU211
+ 763              	.LBB42:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 764              		.loc 1 62 5 view .LVU212
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 765              		.loc 1 62 36 is_stmt 0 view .LVU213
+ 766 001c 6209     		lsrs	r2, r4, #5
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 767              		.loc 1 62 29 view .LVU214
+ 768 001e 03EB8201 		add	r1, r3, r2, lsl #2
+ 769              	.LVL80:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 770              		.loc 1 62 60 view .LVU215
+ 771 0022 04F01F04 		and	r4, r4, #31
+ 772              	.LVL81:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 773              		.loc 1 62 12 view .LVU216
+ 774 0026 4868     		ldr	r0, [r1, #4]
+ 775 0028 E040     		lsrs	r0, r0, r4
+ 776              	.LBE42:
+ 777              	.LBE41:
+ 778              	.LBE43:
+ 779              		.loc 1 193 114 view .LVU217
+ 780 002a 10F00100 		ands	r0, r0, #1
+ 781 002e 09D0     		beq	.L57
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return FALSE;
+ 195:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 196:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     osAtomicBitsetClearBit(pstAllocator->bitset, uwItemIdx);
+ 782              		.loc 1 196 5 is_stmt 1 view .LVU218
+ 783              	.LVL82:
+ 784              	.LBB44:
+ 785              	.LBI44:
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 19
+
+
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 786              		.loc 1 65 6 view .LVU219
+ 787              	.LBB45:
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 788              		.loc 1 67 5 view .LVU220
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 789              		.loc 1 67 26 is_stmt 0 view .LVU221
+ 790 0030 0433     		adds	r3, r3, #4
+ 791              	.LVL83:
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 792              		.loc 1 69 5 is_stmt 1 view .LVU222
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 793              		.loc 1 73 5 view .LVU223
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 794              		.loc 1 73 28 is_stmt 0 view .LVU224
+ 795 0032 0125     		movs	r5, #1
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 796              		.loc 1 73 19 view .LVU225
+ 797 0034 53F82210 		ldr	r1, [r3, r2, lsl #2]
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 798              		.loc 1 73 28 view .LVU226
+ 799 0038 05FA04F4 		lsl	r4, r5, r4
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 800              		.loc 1 73 19 view .LVU227
+ 801 003c 21EA0401 		bic	r1, r1, r4
+ 802 0040 43F82210 		str	r1, [r3, r2, lsl #2]
+ 803              	.LVL84:
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 804              		.loc 1 73 19 view .LVU228
+ 805              	.LBE45:
+ 806              	.LBE44:
+ 197:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return TRUE;
+ 807              		.loc 1 197 5 is_stmt 1 view .LVU229
+ 808              	.L57:
+ 198:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 809              		.loc 1 198 1 is_stmt 0 view .LVU230
+ 810 0044 30BC     		pop	{r4, r5}
+ 811              	.LCFI16:
+ 812              		.cfi_remember_state
+ 813              		.cfi_restore 5
+ 814              		.cfi_restore 4
+ 815              		.cfi_def_cfa_offset 0
+ 816 0046 7047     		bx	lr
+ 817              	.LVL85:
+ 818              	.L59:
+ 819              	.LCFI17:
+ 820              		.cfi_restore_state
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 821              		.loc 1 194 16 view .LVU231
+ 822 0048 0020     		movs	r0, #0
+ 823              		.loc 1 198 1 view .LVU232
+ 824 004a 30BC     		pop	{r4, r5}
+ 825              	.LCFI18:
+ 826              		.cfi_restore 5
+ 827              		.cfi_restore 4
+ 828              		.cfi_def_cfa_offset 0
+ 829              	.LVL86:
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 20
+
+
+ 830              		.loc 1 198 1 view .LVU233
+ 831 004c 7047     		bx	lr
+ 832              		.cfi_endproc
+ 833              	.LFE143:
+ 835 004e 00BF     		.section	.text.osSlabAllocatorGetNth,"ax",%progbits
+ 836              		.align	1
+ 837              		.p2align 2,,3
+ 838              		.global	osSlabAllocatorGetNth
+ 839              		.syntax unified
+ 840              		.thumb
+ 841              		.thumb_func
+ 842              		.fpu fpv4-sp-d16
+ 844              	osSlabAllocatorGetNth:
+ 845              	.LVL87:
+ 846              	.LFB144:
+ 199:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** VOID* osSlabAllocatorGetNth(OS_SLAB_ALLOCATOR *pstAllocator, UINT32 uwIdx)
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 847              		.loc 1 201 1 is_stmt 1 view -0
+ 848              		.cfi_startproc
+ 849              		@ args = 0, pretend = 0, frame = 0
+ 850              		@ frame_needed = 0, uses_anonymous_args = 0
+ 851              		@ link register save eliminated.
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if (!osAtomicBitsetGetBit(pstAllocator->bitset, uwIdx))
+ 852              		.loc 1 202 5 view .LVU235
+ 853              		.loc 1 202 43 is_stmt 0 view .LVU236
+ 854 0000 8368     		ldr	r3, [r0, #8]
+ 855              	.LVL88:
+ 856              	.LBB50:
+ 857              	.LBB51:
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 858              		.loc 1 58 8 view .LVU237
+ 859 0002 1A68     		ldr	r2, [r3]
+ 860              	.LVL89:
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 861              		.loc 1 58 8 view .LVU238
+ 862              	.LBE51:
+ 863              	.LBI50:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 864              		.loc 1 56 6 is_stmt 1 view .LVU239
+ 865              	.LBB54:
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 866              		.loc 1 58 5 view .LVU240
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 867              		.loc 1 58 8 is_stmt 0 view .LVU241
+ 868 0004 9142     		cmp	r1, r2
+ 869 0006 0FD2     		bcs	.L66
+ 870              	.LVL90:
+ 871              	.LBB52:
+ 872              	.LBI52:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 873              		.loc 1 56 6 is_stmt 1 view .LVU242
+ 874              	.LBB53:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 875              		.loc 1 62 5 view .LVU243
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 876              		.loc 1 62 36 is_stmt 0 view .LVU244
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 21
+
+
+ 877 0008 4A09     		lsrs	r2, r1, #5
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 878              		.loc 1 62 29 view .LVU245
+ 879 000a 03EB8202 		add	r2, r3, r2, lsl #2
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 880              		.loc 1 62 60 view .LVU246
+ 881 000e 01F01F03 		and	r3, r1, #31
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 882              		.loc 1 62 12 view .LVU247
+ 883 0012 5268     		ldr	r2, [r2, #4]
+ 884 0014 22FA03F3 		lsr	r3, r2, r3
+ 885              	.LBE53:
+ 886              	.LBE52:
+ 887              	.LBE54:
+ 888              	.LBE50:
+ 889              		.loc 1 202 8 view .LVU248
+ 890 0018 13F00103 		ands	r3, r3, #1
+ 891 001c 04D0     		beq	.L66
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return NULL;
+ 204:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return pstAllocator->ucDataChunks + pstAllocator->uwItemSz * uwIdx;
+ 892              		.loc 1 205 5 is_stmt 1 view .LVU249
+ 893              		.loc 1 205 39 is_stmt 0 view .LVU250
+ 894 001e D0E90030 		ldrd	r3, r0, [r0]
+ 895              	.LVL91:
+ 896              		.loc 1 205 39 view .LVU251
+ 897 0022 03FB0100 		mla	r0, r3, r1, r0
+ 898 0026 7047     		bx	lr
+ 899              	.LVL92:
+ 900              	.L66:
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return NULL;
+ 901              		.loc 1 203 16 view .LVU252
+ 902 0028 0020     		movs	r0, #0
+ 903              	.LVL93:
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return NULL;
+ 904              		.loc 1 203 16 view .LVU253
+ 905 002a 7047     		bx	lr
+ 906              		.cfi_endproc
+ 907              	.LFE144:
+ 909              		.section	.text.osSlabAllocatorGetIdxP,"ax",%progbits
+ 910              		.align	1
+ 911              		.p2align 2,,3
+ 912              		.global	osSlabAllocatorGetIdxP
+ 913              		.syntax unified
+ 914              		.thumb
+ 915              		.thumb_func
+ 916              		.fpu fpv4-sp-d16
+ 918              	osSlabAllocatorGetIdxP:
+ 919              	.LVL94:
+ 920              	.LFB145:
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** VOID* osSlabAllocatorGetIdxP(OS_SLAB_ALLOCATOR *pstAllocator, UINT32 uwIdx)
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 921              		.loc 1 209 1 is_stmt 1 view -0
+ 922              		.cfi_startproc
+ 923              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 22
+
+
+ 924              		@ frame_needed = 0, uses_anonymous_args = 0
+ 925              		@ link register save eliminated.
+ 210:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return pstAllocator->ucDataChunks + pstAllocator->uwItemSz * uwIdx;
+ 926              		.loc 1 210 5 view .LVU255
+ 927              		.loc 1 210 39 is_stmt 0 view .LVU256
+ 928 0000 D0E90020 		ldrd	r2, r0, [r0]
+ 929              	.LVL95:
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 930              		.loc 1 211 1 view .LVU257
+ 931 0004 02FB0100 		mla	r0, r2, r1, r0
+ 932 0008 7047     		bx	lr
+ 933              		.cfi_endproc
+ 934              	.LFE145:
+ 936 000a 00BF     		.section	.text.osSlabAllocatorGetIndex,"ax",%progbits
+ 937              		.align	1
+ 938              		.p2align 2,,3
+ 939              		.global	osSlabAllocatorGetIndex
+ 940              		.syntax unified
+ 941              		.thumb
+ 942              		.thumb_func
+ 943              		.fpu fpv4-sp-d16
+ 945              	osSlabAllocatorGetIndex:
+ 946              	.LVL96:
+ 947              	.LFB146:
+ 212:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 213:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** UINT32 osSlabAllocatorGetIndex(OS_SLAB_ALLOCATOR *pstAllocator, VOID* ptrP)
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 948              		.loc 1 214 1 is_stmt 1 view -0
+ 949              		.cfi_startproc
+ 950              		@ args = 0, pretend = 0, frame = 0
+ 951              		@ frame_needed = 0, uses_anonymous_args = 0
+ 952              		@ link register save eliminated.
+ 215:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT8 *ptr = (UINT8*)ptrP;
+ 953              		.loc 1 215 5 view .LVU259
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT8 *ptr = (UINT8*)ptrP;
+ 954              		.loc 1 214 1 is_stmt 0 view .LVU260
+ 955 0000 0346     		mov	r3, r0
+ 956              	.LVL97:
+ 216:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwItemOffset = ptr - pstAllocator->ucDataChunks;
+ 957              		.loc 1 216 5 is_stmt 1 view .LVU261
+ 217:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwItemIdx = uwItemOffset / pstAllocator->uwItemSz;
+ 958              		.loc 1 217 51 is_stmt 0 view .LVU262
+ 959 0002 D0E90020 		ldrd	r2, r0, [r0]
+ 960              	.LVL98:
+ 216:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwItemOffset = ptr - pstAllocator->ucDataChunks;
+ 961              		.loc 1 216 31 view .LVU263
+ 962 0006 091A     		subs	r1, r1, r0
+ 963              	.LVL99:
+ 964              		.loc 1 217 5 is_stmt 1 view .LVU264
+ 965              		.loc 1 217 12 is_stmt 0 view .LVU265
+ 966 0008 B1FBF2F0 		udiv	r0, r1, r2
+ 967              	.LVL100:
+ 218:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 219:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if ((uwItemOffset % pstAllocator->uwItemSz) || (uwItemIdx >= osAtomicBitsetGetNumBits(pstAlloca
+ 968              		.loc 1 219 5 is_stmt 1 view .LVU266
+ 969              		.loc 1 219 23 is_stmt 0 view .LVU267
+ 970 000c 02FB1012 		mls	r2, r2, r0, r1
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 23
+
+
+ 971              		.loc 1 219 8 view .LVU268
+ 972 0010 82B9     		cbnz	r2, .L72
+ 973              		.loc 1 219 103 discriminator 1 view .LVU269
+ 974 0012 9B68     		ldr	r3, [r3, #8]
+ 975              	.LVL101:
+ 976              	.LBB61:
+ 977              	.LBI61:
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 978              		.loc 1 51 15 is_stmt 1 discriminator 1 view .LVU270
+ 979              	.LBB62:
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 980              		.loc 1 53 5 discriminator 1 view .LVU271
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 981              		.loc 1 53 5 is_stmt 0 discriminator 1 view .LVU272
+ 982              	.LBE62:
+ 983              	.LBE61:
+ 984              		.loc 1 219 49 discriminator 1 view .LVU273
+ 985 0014 1A68     		ldr	r2, [r3]
+ 986 0016 9042     		cmp	r0, r2
+ 987 0018 0CD2     		bcs	.L72
+ 988              	.LVL102:
+ 989              	.LBB63:
+ 990              	.LBI63:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 991              		.loc 1 56 6 is_stmt 1 view .LVU274
+ 992              	.LBE63:
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 993              		.loc 1 58 5 view .LVU275
+ 994              	.LBB66:
+ 995              	.LBB64:
+ 996              	.LBI64:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 997              		.loc 1 56 6 view .LVU276
+ 998              	.LBB65:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 999              		.loc 1 62 5 view .LVU277
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1000              		.loc 1 62 36 is_stmt 0 view .LVU278
+ 1001 001a 4209     		lsrs	r2, r0, #5
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1002              		.loc 1 62 29 view .LVU279
+ 1003 001c 03EB8203 		add	r3, r3, r2, lsl #2
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1004              		.loc 1 62 60 view .LVU280
+ 1005 0020 00F01F02 		and	r2, r0, #31
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1006              		.loc 1 62 12 view .LVU281
+ 1007 0024 5B68     		ldr	r3, [r3, #4]
+ 1008 0026 D340     		lsrs	r3, r3, r2
+ 1009              	.LBE65:
+ 1010              	.LBE64:
+ 1011              	.LBE66:
+ 1012              		.loc 1 219 114 view .LVU282
+ 1013 0028 13F0010F 		tst	r3, #1
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return (UINT32)(-1);
+ 1014              		.loc 1 220 16 view .LVU283
+ 1015 002c 08BF     		it	eq
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 24
+
+
+ 1016 002e 4FF0FF30 		moveq	r0, #-1
+ 1017              	.LVL103:
+ 1018              		.loc 1 220 16 view .LVU284
+ 1019 0032 7047     		bx	lr
+ 1020              	.LVL104:
+ 1021              	.L72:
+ 1022              		.loc 1 220 16 view .LVU285
+ 1023 0034 4FF0FF30 		mov	r0, #-1
+ 1024              	.LVL105:
+ 221:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 222:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return uwItemIdx;
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1025              		.loc 1 223 1 view .LVU286
+ 1026 0038 7047     		bx	lr
+ 1027              		.cfi_endproc
+ 1028              	.LFE146:
+ 1030 003a 00BF     		.section	.text.osSlabAllocatorGetNumItems,"ax",%progbits
+ 1031              		.align	1
+ 1032              		.p2align 2,,3
+ 1033              		.global	osSlabAllocatorGetNumItems
+ 1034              		.syntax unified
+ 1035              		.thumb
+ 1036              		.thumb_func
+ 1037              		.fpu fpv4-sp-d16
+ 1039              	osSlabAllocatorGetNumItems:
+ 1040              	.LVL106:
+ 1041              	.LFB147:
+ 224:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 225:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** UINT32 osSlabAllocatorGetNumItems(OS_SLAB_ALLOCATOR *pstAllocator)
+ 226:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1042              		.loc 1 226 1 is_stmt 1 view -0
+ 1043              		.cfi_startproc
+ 1044              		@ args = 0, pretend = 0, frame = 0
+ 1045              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1046              		@ link register save eliminated.
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return osAtomicBitsetGetNumBits(pstAllocator->bitset);
+ 1047              		.loc 1 227 5 view .LVU288
+ 1048              	.LBB67:
+ 1049              	.LBI67:
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1050              		.loc 1 51 15 view .LVU289
+ 1051              	.LBB68:
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1052              		.loc 1 53 5 view .LVU290
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1053              		.loc 1 53 18 is_stmt 0 view .LVU291
+ 1054 0000 8368     		ldr	r3, [r0, #8]
+ 1055              	.LBE68:
+ 1056              	.LBE67:
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1057              		.loc 1 228 1 view .LVU292
+ 1058 0002 1868     		ldr	r0, [r3]
+ 1059              	.LVL107:
+ 1060              		.loc 1 228 1 view .LVU293
+ 1061 0004 7047     		bx	lr
+ 1062              		.cfi_endproc
+ 1063              	.LFE147:
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 25
+
+
+ 1065 0006 00BF     		.section	.text.osSlabAllocatorEmpty,"ax",%progbits
+ 1066              		.align	1
+ 1067              		.p2align 2,,3
+ 1068              		.global	osSlabAllocatorEmpty
+ 1069              		.syntax unified
+ 1070              		.thumb
+ 1071              		.thumb_func
+ 1072              		.fpu fpv4-sp-d16
+ 1074              	osSlabAllocatorEmpty:
+ 1075              	.LVL108:
+ 1076              	.LFB148:
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** BOOL osSlabAllocatorEmpty(OS_SLAB_ALLOCATOR *pstAllocator)
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1077              		.loc 1 231 1 is_stmt 1 view -0
+ 1078              		.cfi_startproc
+ 1079              		@ args = 0, pretend = 0, frame = 0
+ 1080              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1081              		@ link register save eliminated.
+ 232:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return osAtomicBitsetEmpty(pstAllocator->bitset);
+ 1082              		.loc 1 232 5 view .LVU295
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return osAtomicBitsetEmpty(pstAllocator->bitset);
+ 1083              		.loc 1 231 1 is_stmt 0 view .LVU296
+ 1084 0000 30B4     		push	{r4, r5}
+ 1085              	.LCFI19:
+ 1086              		.cfi_def_cfa_offset 8
+ 1087              		.cfi_offset 4, -8
+ 1088              		.cfi_offset 5, -4
+ 1089              		.loc 1 232 12 view .LVU297
+ 1090 0002 8568     		ldr	r5, [r0, #8]
+ 1091              	.LVL109:
+ 1092              	.LBB69:
+ 1093              	.LBI69:
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1094              		.loc 1 124 6 is_stmt 1 view .LVU298
+ 1095              	.LBB70:
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     for (uwIdx = 0; uwIdx < pstBitset->numBits / 32;)
+ 1096              		.loc 1 126 5 view .LVU299
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1097              		.loc 1 127 5 view .LVU300
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1098              		.loc 1 127 21 view .LVU301
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1099              		.loc 1 127 38 is_stmt 0 view .LVU302
+ 1100 0004 2C68     		ldr	r4, [r5]
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1101              		.loc 1 127 5 view .LVU303
+ 1102 0006 6009     		lsrs	r0, r4, #5
+ 1103              	.LVL110:
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1104              		.loc 1 127 5 view .LVU304
+ 1105 0008 0CD0     		beq	.L76
+ 1106 000a 2A46     		mov	r2, r5
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1107              		.loc 1 127 16 view .LVU305
+ 1108 000c 0023     		movs	r3, #0
+ 1109 000e 01E0     		b	.L78
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 26
+
+
+ 1110              	.LVL111:
+ 1111              	.L86:
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1112              		.loc 1 127 5 view .LVU306
+ 1113 0010 8342     		cmp	r3, r0
+ 1114 0012 07D0     		beq	.L76
+ 1115              	.LVL112:
+ 1116              	.L78:
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 1117              		.loc 1 129 9 is_stmt 1 view .LVU307
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+ 1118              		.loc 1 133 9 view .LVU308
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 1119              		.loc 1 129 12 is_stmt 0 view .LVU309
+ 1120 0014 52F8041F 		ldr	r1, [r2, #4]!
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+ 1121              		.loc 1 133 14 view .LVU310
+ 1122 0018 0133     		adds	r3, r3, #1
+ 1123              	.LVL113:
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1124              		.loc 1 127 21 is_stmt 1 view .LVU311
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 1125              		.loc 1 129 12 is_stmt 0 view .LVU312
+ 1126 001a 0029     		cmp	r1, #0
+ 1127 001c F8D0     		beq	.L86
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         }
+ 1128              		.loc 1 131 20 view .LVU313
+ 1129 001e 0020     		movs	r0, #0
+ 1130              	.LBE70:
+ 1131              	.LBE69:
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1132              		.loc 1 233 1 view .LVU314
+ 1133 0020 30BC     		pop	{r4, r5}
+ 1134              	.LCFI20:
+ 1135              		.cfi_remember_state
+ 1136              		.cfi_restore 5
+ 1137              		.cfi_restore 4
+ 1138              		.cfi_def_cfa_offset 0
+ 1139              	.LVL114:
+ 1140              		.loc 1 233 1 view .LVU315
+ 1141 0022 7047     		bx	lr
+ 1142              	.LVL115:
+ 1143              	.L76:
+ 1144              	.LCFI21:
+ 1145              		.cfi_restore_state
+ 1146              	.LBB73:
+ 1147              	.LBB71:
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1148              		.loc 1 135 5 is_stmt 1 view .LVU316
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1149              		.loc 1 135 8 is_stmt 0 view .LVU317
+ 1150 0024 14F01F04 		ands	r4, r4, #31
+ 1151 0028 0DD0     		beq	.L80
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 1152              		.loc 1 137 9 is_stmt 1 view .LVU318
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 1153              		.loc 1 137 29 is_stmt 0 view .LVU319
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 27
+
+
+ 1154 002a 05EB8000 		add	r0, r5, r0, lsl #2
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 1155              		.loc 1 137 52 view .LVU320
+ 1156 002e 4FF0FF33 		mov	r3, #-1
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 1157              		.loc 1 137 37 view .LVU321
+ 1158 0032 4268     		ldr	r2, [r0, #4]
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 1159              		.loc 1 137 52 view .LVU322
+ 1160 0034 03FA04F4 		lsl	r4, r3, r4
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 1161              		.loc 1 137 12 view .LVU323
+ 1162 0038 32EA0403 		bics	r3, r2, r4
+ 1163 003c 0CBF     		ite	eq
+ 1164 003e 0120     		moveq	r0, #1
+ 1165 0040 0020     		movne	r0, #0
+ 1166              	.LBE71:
+ 1167              	.LBE73:
+ 1168              		.loc 1 233 1 view .LVU324
+ 1169 0042 30BC     		pop	{r4, r5}
+ 1170              	.LCFI22:
+ 1171              		.cfi_remember_state
+ 1172              		.cfi_restore 5
+ 1173              		.cfi_restore 4
+ 1174              		.cfi_def_cfa_offset 0
+ 1175              	.LVL116:
+ 1176              		.loc 1 233 1 view .LVU325
+ 1177 0044 7047     		bx	lr
+ 1178              	.LVL117:
+ 1179              	.L80:
+ 1180              	.LCFI23:
+ 1181              		.cfi_restore_state
+ 1182              	.LBB74:
+ 1183              	.LBB72:
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1184              		.loc 1 142 12 view .LVU326
+ 1185 0046 0120     		movs	r0, #1
+ 1186              	.LVL118:
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1187              		.loc 1 142 12 view .LVU327
+ 1188              	.LBE72:
+ 1189              	.LBE74:
+ 1190              		.loc 1 233 1 view .LVU328
+ 1191 0048 30BC     		pop	{r4, r5}
+ 1192              	.LCFI24:
+ 1193              		.cfi_restore 5
+ 1194              		.cfi_restore 4
+ 1195              		.cfi_def_cfa_offset 0
+ 1196 004a 7047     		bx	lr
+ 1197              		.cfi_endproc
+ 1198              	.LFE148:
+ 1200              		.section	.text.osSlabAllocatorGetUsedItemCnt,"ax",%progbits
+ 1201              		.align	1
+ 1202              		.p2align 2,,3
+ 1203              		.global	osSlabAllocatorGetUsedItemCnt
+ 1204              		.syntax unified
+ 1205              		.thumb
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 28
+
+
+ 1206              		.thumb_func
+ 1207              		.fpu fpv4-sp-d16
+ 1209              	osSlabAllocatorGetUsedItemCnt:
+ 1210              	.LVL119:
+ 1211              	.LFB149:
+ 234:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 235:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** UINT32 osSlabAllocatorGetUsedItemCnt(OS_SLAB_ALLOCATOR *pstAllocator)
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1212              		.loc 1 236 1 is_stmt 1 view -0
+ 1213              		.cfi_startproc
+ 1214              		@ args = 0, pretend = 0, frame = 0
+ 1215              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1216              		@ link register save eliminated.
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwUsed, uwIdx;
+ 1217              		.loc 1 237 5 view .LVU330
+ 238:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     struct AtomicBitset *p_bitset = pstAllocator->bitset;
+ 1218              		.loc 1 238 5 view .LVU331
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwUsed, uwIdx;
+ 1219              		.loc 1 236 1 is_stmt 0 view .LVU332
+ 1220 0000 70B4     		push	{r4, r5, r6}
+ 1221              	.LCFI25:
+ 1222              		.cfi_def_cfa_offset 12
+ 1223              		.cfi_offset 4, -12
+ 1224              		.cfi_offset 5, -8
+ 1225              		.cfi_offset 6, -4
+ 1226              		.loc 1 238 26 view .LVU333
+ 1227 0002 8668     		ldr	r6, [r0, #8]
+ 1228              	.LVL120:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     for (uwUsed = 0, uwIdx = 0; uwIdx < p_bitset->numBits; uwIdx++)
+ 1229              		.loc 1 239 5 is_stmt 1 view .LVU334
+ 1230              		.loc 1 239 33 view .LVU335
+ 1231              		.loc 1 239 49 is_stmt 0 view .LVU336
+ 1232 0004 3568     		ldr	r5, [r6]
+ 1233              		.loc 1 239 5 view .LVU337
+ 1234 0006 8DB1     		cbz	r5, .L91
+ 1235              		.loc 1 239 28 view .LVU338
+ 1236 0008 0023     		movs	r3, #0
+ 1237              		.loc 1 239 17 view .LVU339
+ 1238 000a 1846     		mov	r0, r3
+ 1239              	.LVL121:
+ 1240              	.L90:
+ 240:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         if (osAtomicBitsetGetBit(p_bitset, uwIdx))
+ 1241              		.loc 1 241 9 is_stmt 1 view .LVU340
+ 1242              	.LBB79:
+ 1243              	.LBI79:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1244              		.loc 1 56 6 view .LVU341
+ 1245              	.LBE79:
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1246              		.loc 1 58 5 view .LVU342
+ 1247              	.LBB84:
+ 1248              	.LBB80:
+ 1249              	.LBI80:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1250              		.loc 1 56 6 view .LVU343
+ 1251              	.LBB81:
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 29
+
+
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1252              		.loc 1 62 5 view .LVU344
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1253              		.loc 1 62 5 is_stmt 0 view .LVU345
+ 1254              	.LBE81:
+ 1255              	.LBE80:
+ 1256              	.LBE84:
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****             uwUsed ++;
+ 1257              		.loc 1 243 13 is_stmt 1 view .LVU346
+ 1258              	.LBB85:
+ 1259              	.LBB83:
+ 1260              	.LBB82:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1261              		.loc 1 62 36 is_stmt 0 view .LVU347
+ 1262 000c 5909     		lsrs	r1, r3, #5
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1263              		.loc 1 62 29 view .LVU348
+ 1264 000e 06EB8101 		add	r1, r6, r1, lsl #2
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1265              		.loc 1 62 60 view .LVU349
+ 1266 0012 03F01F04 		and	r4, r3, #31
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1267              		.loc 1 62 12 view .LVU350
+ 1268 0016 4A68     		ldr	r2, [r1, #4]
+ 1269 0018 E240     		lsrs	r2, r2, r4
+ 1270              	.LBE82:
+ 1271              	.LBE83:
+ 1272              	.LBE85:
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         {
+ 1273              		.loc 1 241 12 view .LVU351
+ 1274 001a D207     		lsls	r2, r2, #31
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1275              		.loc 1 239 65 view .LVU352
+ 1276 001c 03F10103 		add	r3, r3, #1
+ 1277              	.LVL122:
+ 1278              		.loc 1 243 20 view .LVU353
+ 1279 0020 48BF     		it	mi
+ 1280 0022 0130     		addmi	r0, r0, #1
+ 1281              	.LVL123:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1282              		.loc 1 239 60 is_stmt 1 view .LVU354
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1283              		.loc 1 239 33 view .LVU355
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1284              		.loc 1 239 5 is_stmt 0 view .LVU356
+ 1285 0024 AB42     		cmp	r3, r5
+ 1286 0026 F1D1     		bne	.L90
+ 244:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         }
+ 245:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     }
+ 246:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return uwUsed;
+ 247:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1287              		.loc 1 247 1 view .LVU357
+ 1288 0028 70BC     		pop	{r4, r5, r6}
+ 1289              	.LCFI26:
+ 1290              		.cfi_remember_state
+ 1291              		.cfi_restore 6
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 30
+
+
+ 1292              		.cfi_restore 5
+ 1293              		.cfi_restore 4
+ 1294              		.cfi_def_cfa_offset 0
+ 1295              	.LVL124:
+ 1296              		.loc 1 247 1 view .LVU358
+ 1297 002a 7047     		bx	lr
+ 1298              	.LVL125:
+ 1299              	.L91:
+ 1300              	.LCFI27:
+ 1301              		.cfi_restore_state
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1302              		.loc 1 239 17 view .LVU359
+ 1303 002c 2846     		mov	r0, r5
+ 1304              	.LVL126:
+ 246:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1305              		.loc 1 246 5 is_stmt 1 view .LVU360
+ 1306              		.loc 1 247 1 is_stmt 0 view .LVU361
+ 1307 002e 70BC     		pop	{r4, r5, r6}
+ 1308              	.LCFI28:
+ 1309              		.cfi_restore 6
+ 1310              		.cfi_restore 5
+ 1311              		.cfi_restore 4
+ 1312              		.cfi_def_cfa_offset 0
+ 1313              	.LVL127:
+ 1314              		.loc 1 247 1 view .LVU362
+ 1315 0030 7047     		bx	lr
+ 1316              		.cfi_endproc
+ 1317              	.LFE149:
+ 1319 0032 00BF     		.section	.text.osSlabAllocatorGetSlabInfo,"ax",%progbits
+ 1320              		.align	1
+ 1321              		.p2align 2,,3
+ 1322              		.global	osSlabAllocatorGetSlabInfo
+ 1323              		.syntax unified
+ 1324              		.thumb
+ 1325              		.thumb_func
+ 1326              		.fpu fpv4-sp-d16
+ 1328              	osSlabAllocatorGetSlabInfo:
+ 1329              	.LVL128:
+ 1330              	.LFB150:
+ 248:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 249:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** VOID osSlabAllocatorGetSlabInfo(OS_SLAB_ALLOCATOR *pstAllocator, UINT32 *puwItemSz, UINT32 *puwItem
+ 250:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1331              		.loc 1 250 1 is_stmt 1 view -0
+ 1332              		.cfi_startproc
+ 1333              		@ args = 0, pretend = 0, frame = 0
+ 1334              		@ frame_needed = 0, uses_anonymous_args = 0
+ 251:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     *puwItemSz = pstAllocator->uwItemSz;
+ 1335              		.loc 1 251 5 view .LVU364
+ 250:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     *puwItemSz = pstAllocator->uwItemSz;
+ 1336              		.loc 1 250 1 is_stmt 0 view .LVU365
+ 1337 0000 38B5     		push	{r3, r4, r5, lr}
+ 1338              	.LCFI29:
+ 1339              		.cfi_def_cfa_offset 16
+ 1340              		.cfi_offset 3, -16
+ 1341              		.cfi_offset 4, -12
+ 1342              		.cfi_offset 5, -8
+ 1343              		.cfi_offset 14, -4
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 31
+
+
+ 1344              	.LBB86:
+ 1345              	.LBB87:
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1346              		.loc 1 53 18 view .LVU366
+ 1347 0002 8468     		ldr	r4, [r0, #8]
+ 1348              	.LBE87:
+ 1349              	.LBE86:
+ 1350              		.loc 1 251 30 view .LVU367
+ 1351 0004 0568     		ldr	r5, [r0]
+ 1352              		.loc 1 251 16 view .LVU368
+ 1353 0006 0D60     		str	r5, [r1]
+ 252:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     *puwItemCnt = osAtomicBitsetGetNumBits(pstAllocator->bitset);
+ 1354              		.loc 1 252 5 is_stmt 1 view .LVU369
+ 1355              	.LVL129:
+ 1356              	.LBB89:
+ 1357              	.LBI86:
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1358              		.loc 1 51 15 view .LVU370
+ 1359              	.LBB88:
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1360              		.loc 1 53 5 view .LVU371
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1361              		.loc 1 53 18 is_stmt 0 view .LVU372
+ 1362 0008 2168     		ldr	r1, [r4]
+ 1363              	.LVL130:
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1364              		.loc 1 53 18 view .LVU373
+ 1365              	.LBE88:
+ 1366              	.LBE89:
+ 1367              		.loc 1 252 17 view .LVU374
+ 1368 000a 1160     		str	r1, [r2]
+ 253:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     *puwCurUsage = osSlabAllocatorGetUsedItemCnt(pstAllocator);
+ 1369              		.loc 1 253 5 is_stmt 1 view .LVU375
+ 250:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     *puwItemSz = pstAllocator->uwItemSz;
+ 1370              		.loc 1 250 1 is_stmt 0 view .LVU376
+ 1371 000c 1C46     		mov	r4, r3
+ 1372              		.loc 1 253 20 view .LVU377
+ 1373 000e FFF7FEFF 		bl	osSlabAllocatorGetUsedItemCnt
+ 1374              	.LVL131:
+ 1375              		.loc 1 253 18 view .LVU378
+ 1376 0012 2060     		str	r0, [r4]
+ 254:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1377              		.loc 1 254 1 view .LVU379
+ 1378 0014 38BD     		pop	{r3, r4, r5, pc}
+ 1379              		.loc 1 254 1 view .LVU380
+ 1380              		.cfi_endproc
+ 1381              	.LFE150:
+ 1383 0016 00BF     		.section	.text.osSlabAllocatorCheck,"ax",%progbits
+ 1384              		.align	1
+ 1385              		.p2align 2,,3
+ 1386              		.global	osSlabAllocatorCheck
+ 1387              		.syntax unified
+ 1388              		.thumb
+ 1389              		.thumb_func
+ 1390              		.fpu fpv4-sp-d16
+ 1392              	osSlabAllocatorCheck:
+ 1393              	.LVL132:
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 32
+
+
+ 1394              	.LFB151:
+ 255:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 256:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** BOOL osSlabAllocatorCheck(OS_SLAB_ALLOCATOR *pstAllocator, VOID* ptrP)
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1395              		.loc 1 257 1 is_stmt 1 view -0
+ 1396              		.cfi_startproc
+ 1397              		@ args = 0, pretend = 0, frame = 0
+ 1398              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1399              		@ link register save eliminated.
+ 258:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT8 *ptr = (UINT8*)ptrP;
+ 1400              		.loc 1 258 5 view .LVU382
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT8 *ptr = (UINT8*)ptrP;
+ 1401              		.loc 1 257 1 is_stmt 0 view .LVU383
+ 1402 0000 0246     		mov	r2, r0
+ 1403              	.LVL133:
+ 259:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwItemOffset = ptr - pstAllocator->ucDataChunks;
+ 1404              		.loc 1 259 5 is_stmt 1 view .LVU384
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwItemIdx = uwItemOffset / pstAllocator->uwItemSz;
+ 1405              		.loc 1 260 51 is_stmt 0 view .LVU385
+ 1406 0002 D0E90003 		ldrd	r0, r3, [r0]
+ 1407              	.LVL134:
+ 259:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT32 uwItemOffset = ptr - pstAllocator->ucDataChunks;
+ 1408              		.loc 1 259 31 view .LVU386
+ 1409 0006 C91A     		subs	r1, r1, r3
+ 1410              	.LVL135:
+ 1411              		.loc 1 260 5 is_stmt 1 view .LVU387
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 262:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     //check for invalid inputs
+ 263:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 264:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     if ((uwItemOffset % pstAllocator->uwItemSz) || (uwItemIdx >= osAtomicBitsetGetNumBits(pstAlloca
+ 1412              		.loc 1 264 5 view .LVU388
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     UINT8 *ptr = (UINT8*)ptrP;
+ 1413              		.loc 1 257 1 is_stmt 0 view .LVU389
+ 1414 0008 10B4     		push	{r4}
+ 1415              	.LCFI30:
+ 1416              		.cfi_def_cfa_offset 4
+ 1417              		.cfi_offset 4, -4
+ 1418              		.loc 1 264 23 view .LVU390
+ 1419 000a B1FBF0F4 		udiv	r4, r1, r0
+ 1420              	.LVL136:
+ 1421              		.loc 1 264 23 view .LVU391
+ 1422 000e 00FB1410 		mls	r0, r0, r4, r1
+ 1423              		.loc 1 264 8 view .LVU392
+ 1424 0012 78B9     		cbnz	r0, .L101
+ 1425              		.loc 1 264 103 discriminator 1 view .LVU393
+ 1426 0014 9368     		ldr	r3, [r2, #8]
+ 1427              	.LVL137:
+ 1428              	.LBB96:
+ 1429              	.LBI96:
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1430              		.loc 1 51 15 is_stmt 1 discriminator 1 view .LVU394
+ 1431              	.LBB97:
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1432              		.loc 1 53 5 discriminator 1 view .LVU395
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1433              		.loc 1 53 5 is_stmt 0 discriminator 1 view .LVU396
+ 1434              	.LBE97:
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 33
+
+
+ 1435              	.LBE96:
+ 1436              		.loc 1 264 49 discriminator 1 view .LVU397
+ 1437 0016 1A68     		ldr	r2, [r3]
+ 1438              	.LVL138:
+ 1439              		.loc 1 264 49 discriminator 1 view .LVU398
+ 1440 0018 9442     		cmp	r4, r2
+ 1441 001a 08D2     		bcs	.L99
+ 1442              	.LVL139:
+ 1443              	.LBB98:
+ 1444              	.LBI98:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1445              		.loc 1 56 6 is_stmt 1 view .LVU399
+ 1446              	.LBE98:
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     {
+ 1447              		.loc 1 58 5 view .LVU400
+ 1448              	.LBB101:
+ 1449              	.LBB99:
+ 1450              	.LBI99:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** {
+ 1451              		.loc 1 56 6 view .LVU401
+ 1452              	.LBB100:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1453              		.loc 1 62 5 view .LVU402
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1454              		.loc 1 62 36 is_stmt 0 view .LVU403
+ 1455 001c 6209     		lsrs	r2, r4, #5
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1456              		.loc 1 62 29 view .LVU404
+ 1457 001e 03EB8203 		add	r3, r3, r2, lsl #2
+ 1458              	.LVL140:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1459              		.loc 1 62 60 view .LVU405
+ 1460 0022 04F01F04 		and	r4, r4, #31
+ 1461              	.LVL141:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1462              		.loc 1 62 12 view .LVU406
+ 1463 0026 5868     		ldr	r0, [r3, #4]
+ 1464 0028 E040     		lsrs	r0, r0, r4
+ 1465 002a 00F00100 		and	r0, r0, #1
+ 1466              	.LVL142:
+ 1467              	.L99:
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1468              		.loc 1 62 12 view .LVU407
+ 1469              	.LBE100:
+ 1470              	.LBE99:
+ 1471              	.LBE101:
+ 265:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         || !osAtomicBitsetGetBit(pstAllocator->bitset, uwItemIdx))
+ 266:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****         return FALSE;
+ 267:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 268:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c ****     return TRUE;
+ 269:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** }
+ 1472              		.loc 1 269 1 view .LVU408
+ 1473 002e 5DF8044B 		ldr	r4, [sp], #4
+ 1474              	.LCFI31:
+ 1475              		.cfi_remember_state
+ 1476              		.cfi_restore 4
+ 1477              		.cfi_def_cfa_offset 0
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 34
+
+
+ 1478 0032 7047     		bx	lr
+ 1479              	.LVL143:
+ 1480              	.L101:
+ 1481              	.LCFI32:
+ 1482              		.cfi_restore_state
+ 266:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/base/mem/common\los_slab.c **** 
+ 1483              		.loc 1 266 16 view .LVU409
+ 1484 0034 0020     		movs	r0, #0
+ 1485              		.loc 1 269 1 view .LVU410
+ 1486 0036 5DF8044B 		ldr	r4, [sp], #4
+ 1487              	.LCFI33:
+ 1488              		.cfi_restore 4
+ 1489              		.cfi_def_cfa_offset 0
+ 1490              	.LVL144:
+ 1491              		.loc 1 269 1 view .LVU411
+ 1492 003a 7047     		bx	lr
+ 1493              		.cfi_endproc
+ 1494              	.LFE151:
+ 1496              		.text
+ 1497              	.Letext0:
+ 1498              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 1499              		.file 3 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\machine\
+ 1500              		.file 4 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 1501              		.file 5 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 1502              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 1503              		.file 7 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_st
+ 1504              		.file 8 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/incl
+ 1505              		.file 9 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/arch
+ 1506              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/CMSIS/Device/ST/STM32L4xx/Include/system_stm3
+ 1507              		.file 11 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_def.h"
+ 1508              		.file 12 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_flash.
+ 1509              		.file 13 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h"
+ 1510              		.file 14 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 1511              		.file 15 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/inc
+ 1512              		.file 16 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/os/liteos/bas
+ 1513              		.file 17 "<built-in>"
+ARM GAS  T:\msys\tmp\ccNEocsJ.s 			page 35
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 los_slab.c
+T:\msys\tmp\ccNEocsJ.s:18     .text.osAtomicBitsetInit:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:27     .text.osAtomicBitsetInit:00000000 osAtomicBitsetInit
+T:\msys\tmp\ccNEocsJ.s:83     .text.osAtomicBitsetGetNumBits:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:91     .text.osAtomicBitsetGetNumBits:00000000 osAtomicBitsetGetNumBits
+T:\msys\tmp\ccNEocsJ.s:109    .text.osAtomicBitsetGetBit:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:117    .text.osAtomicBitsetGetBit:00000000 osAtomicBitsetGetBit
+T:\msys\tmp\ccNEocsJ.s:165    .text.osAtomicBitsetClearBit:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:173    .text.osAtomicBitsetClearBit:00000000 osAtomicBitsetClearBit
+T:\msys\tmp\ccNEocsJ.s:229    .text.osAtomicBitsetFindClearAndSet:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:237    .text.osAtomicBitsetFindClearAndSet:00000000 osAtomicBitsetFindClearAndSet
+T:\msys\tmp\ccNEocsJ.s:364    .text.osAtomicBitsetIdxChgToNatural:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:372    .text.osAtomicBitsetIdxChgToNatural:00000000 osAtomicBitsetIdxChgToNatural
+T:\msys\tmp\ccNEocsJ.s:419    .text.osAtomicBitsetEmpty:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:427    .text.osAtomicBitsetEmpty:00000000 osAtomicBitsetEmpty
+T:\msys\tmp\ccNEocsJ.s:531    .text.osSlabAllocatorNew:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:539    .text.osSlabAllocatorNew:00000000 osSlabAllocatorNew
+T:\msys\tmp\ccNEocsJ.s:620    .text.osSlabAllocatorDestroy:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:628    .text.osSlabAllocatorDestroy:00000000 osSlabAllocatorDestroy
+T:\msys\tmp\ccNEocsJ.s:645    .text.osSlabAllocatorAlloc:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:653    .text.osSlabAllocatorAlloc:00000000 osSlabAllocatorAlloc
+T:\msys\tmp\ccNEocsJ.s:694    .text.osSlabAllocatorFree:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:702    .text.osSlabAllocatorFree:00000000 osSlabAllocatorFree
+T:\msys\tmp\ccNEocsJ.s:836    .text.osSlabAllocatorGetNth:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:844    .text.osSlabAllocatorGetNth:00000000 osSlabAllocatorGetNth
+T:\msys\tmp\ccNEocsJ.s:910    .text.osSlabAllocatorGetIdxP:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:918    .text.osSlabAllocatorGetIdxP:00000000 osSlabAllocatorGetIdxP
+T:\msys\tmp\ccNEocsJ.s:937    .text.osSlabAllocatorGetIndex:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:945    .text.osSlabAllocatorGetIndex:00000000 osSlabAllocatorGetIndex
+T:\msys\tmp\ccNEocsJ.s:1031   .text.osSlabAllocatorGetNumItems:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:1039   .text.osSlabAllocatorGetNumItems:00000000 osSlabAllocatorGetNumItems
+T:\msys\tmp\ccNEocsJ.s:1066   .text.osSlabAllocatorEmpty:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:1074   .text.osSlabAllocatorEmpty:00000000 osSlabAllocatorEmpty
+T:\msys\tmp\ccNEocsJ.s:1201   .text.osSlabAllocatorGetUsedItemCnt:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:1209   .text.osSlabAllocatorGetUsedItemCnt:00000000 osSlabAllocatorGetUsedItemCnt
+T:\msys\tmp\ccNEocsJ.s:1320   .text.osSlabAllocatorGetSlabInfo:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:1328   .text.osSlabAllocatorGetSlabInfo:00000000 osSlabAllocatorGetSlabInfo
+T:\msys\tmp\ccNEocsJ.s:1384   .text.osSlabAllocatorCheck:00000000 $t
+T:\msys\tmp\ccNEocsJ.s:1392   .text.osSlabAllocatorCheck:00000000 osSlabAllocatorCheck
+
+UNDEFINED SYMBOLS
+memset
+osHeapAlloc
+osHeapFree

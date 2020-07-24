@@ -51,9 +51,6 @@ char *oc_mqtt_profile_package_propertysetresp(oc_mqtt_profile_propertysetresp_t 
 char *oc_mqtt_profile_package_propertygetresp(oc_mqtt_profile_propertygetresp_t *payload);
 char *oc_mqtt_profile_package_cmdresp(oc_mqtt_profile_cmdresp_t *payload);
 char *oc_mqtt_profile_package_shadowget(oc_mqtt_profile_shadowget_t *payload);
-
-
-
-
+char *oc_mqtt_profile_package_event(oc_mqtt_profile_event_t *event);
 
 #endif /* LITEOS_LAB_IOT_LINK_OC_OC_MQTT_OC_MQTT_PROFILE_OC_MQTT_PROFILE_PACKAGE_H_ */

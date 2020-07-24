@@ -1031,6 +1031,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\..\..\..\Middlewares\Third_Party\Huawei\iot_link\oc\oc_mqtt\oc_mqtt_tiny_v5\oc_mqtt_tiny.c</FilePath>
             </File>
+            <File>
+              <FileName>oc_mqtt_event.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\..\..\Middlewares\Third_Party\Huawei\iot_link\oc\oc_mqtt\oc_mqtt_profile_v5\oc_mqtt_event.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -1051,4 +1056,6 @@
       </Groups>
     </Target>
   </Targets>
+
+
 </Project>

@@ -1,0 +1,1884 @@
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 27, 1
+   3              		.eabi_attribute 28, 1
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 2
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.file	"pkcs12.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.section	.text.mbedtls_pkcs12_pbe_sha1_rc4_128,"ax",%progbits
+  18              		.align	1
+  19              		.p2align 2,,3
+  20              		.global	mbedtls_pkcs12_pbe_sha1_rc4_128
+  21              		.arch armv7e-m
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  25              		.fpu fpv4-sp-d16
+  27              	mbedtls_pkcs12_pbe_sha1_rc4_128:
+  28              	.LVL0:
+  29              	.LFB9:
+  30              		.file 1 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/m
+   1:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** /*
+   2:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  PKCS#12 Personal Information Exchange Syntax
+   3:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *
+   4:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  Copyright (C) 2006-2015, ARM Limited, All Rights Reserved
+   5:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  SPDX-License-Identifier: Apache-2.0
+   6:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *
+   7:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  Licensed under the Apache License, Version 2.0 (the "License"); you may
+   8:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  not use this file except in compliance with the License.
+   9:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  You may obtain a copy of the License at
+  10:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *
+  11:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  http://www.apache.org/licenses/LICENSE-2.0
+  12:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *
+  13:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  Unless required by applicable law or agreed to in writing, software
+  14:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+  15:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  16:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  See the License for the specific language governing permissions and
+  17:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  limitations under the License.
+  18:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *
+  19:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  This file is part of mbed TLS (https://tls.mbed.org)
+  20:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  */
+  21:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** /*
+  22:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  The PKCS #12 Personal Information Exchange Syntax Standard v1.1
+  23:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *
+  24:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  http://www.rsa.com/rsalabs/pkcs/files/h11301-wp-pkcs-12v1-1-personal-information-exchange-synta
+  25:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  *  ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-12/pkcs-12v1-1.asn
+  26:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****  */
+  27:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  28:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #if !defined(MBEDTLS_CONFIG_FILE)
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 2
+
+
+  29:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #include "mbedtls/config.h"
+  30:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #else
+  31:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #include MBEDTLS_CONFIG_FILE
+  32:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #endif
+  33:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  34:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #if defined(MBEDTLS_PKCS12_C)
+  35:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  36:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #include "mbedtls/pkcs12.h"
+  37:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #include "mbedtls/asn1.h"
+  38:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #include "mbedtls/cipher.h"
+  39:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #include "mbedtls/platform_util.h"
+  40:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  41:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #include <string.h>
+  42:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  43:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #if defined(MBEDTLS_ARC4_C)
+  44:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #include "mbedtls/arc4.h"
+  45:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #endif
+  46:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  47:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #if defined(MBEDTLS_DES_C)
+  48:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #include "mbedtls/des.h"
+  49:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #endif
+  50:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  51:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #if defined(MBEDTLS_ASN1_PARSE_C)
+  52:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** static int pkcs12_parse_pbe_params( mbedtls_asn1_buf *params,
+  54:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                     mbedtls_asn1_buf *salt, int *iterations )
+  55:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** {
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret;
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char **p = &params->p;
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     const unsigned char *end = params->p + params->len;
+  59:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  60:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     /*
+  61:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****      *  pkcs-12PbeParams ::= SEQUENCE {
+  62:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****      *    salt          OCTET STRING,
+  63:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****      *    iterations    INTEGER
+  64:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****      *  }
+  65:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****      *
+  66:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****      */
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( params->tag != ( MBEDTLS_ASN1_CONSTRUCTED | MBEDTLS_ASN1_SEQUENCE ) )
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT +
+  69:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 MBEDTLS_ERR_ASN1_UNEXPECTED_TAG );
+  70:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_asn1_get_tag( p, end, &salt->len, MBEDTLS_ASN1_OCTET_STRING ) ) != 0 )
+  72:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT + ret );
+  73:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     salt->p = *p;
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     *p += salt->len;
+  76:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_asn1_get_int( p, end, iterations ) ) != 0 )
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT + ret );
+  79:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( *p != end )
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT +
+  82:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 MBEDTLS_ERR_ASN1_LENGTH_MISMATCH );
+  83:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  84:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     return( 0 );
+  85:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** }
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 3
+
+
+  86:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  87:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #define PKCS12_MAX_PWDLEN 128
+  88:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** static int pkcs12_pbe_derive_key_iv( mbedtls_asn1_buf *pbe_params, mbedtls_md_type_t md_type,
+  90:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                      const unsigned char *pwd,  size_t pwdlen,
+  91:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                      unsigned char *key, size_t keylen,
+  92:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                      unsigned char *iv,  size_t ivlen )
+  93:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** {
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret, iterations = 0;
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_asn1_buf salt;
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t i;
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char unipwd[PKCS12_MAX_PWDLEN * 2 + 2];
+  98:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( pwdlen > PKCS12_MAX_PWDLEN )
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_BAD_INPUT_DATA );
+ 101:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     memset( &salt, 0, sizeof(mbedtls_asn1_buf) );
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     memset( &unipwd, 0, sizeof(unipwd) );
+ 104:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = pkcs12_parse_pbe_params( pbe_params, &salt,
+ 106:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                          &iterations ) ) != 0 )
+ 107:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( ret );
+ 108:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     for( i = 0; i < pwdlen; i++ )
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         unipwd[i * 2 + 1] = pwd[i];
+ 111:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_pkcs12_derivation( key, keylen, unipwd, pwdlen * 2 + 2,
+ 113:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 114:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    MBEDTLS_PKCS12_DERIVE_KEY, iterations ) ) != 0 )
+ 115:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 116:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( ret );
+ 117:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     }
+ 118:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( iv == NULL || ivlen == 0 )
+ 120:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( 0 );
+ 121:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_pkcs12_derivation( iv, ivlen, unipwd, pwdlen * 2 + 2,
+ 123:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 124:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    MBEDTLS_PKCS12_DERIVE_IV, iterations ) ) != 0 )
+ 125:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 126:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( ret );
+ 127:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     }
+ 128:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     return( 0 );
+ 129:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** }
+ 130:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 131:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #undef PKCS12_MAX_PWDLEN
+ 132:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 133:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** int mbedtls_pkcs12_pbe_sha1_rc4_128( mbedtls_asn1_buf *pbe_params, int mode,
+ 134:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                              const unsigned char *pwd,  size_t pwdlen,
+ 135:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                              const unsigned char *data, size_t len,
+ 136:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                              unsigned char *output )
+ 137:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** {
+  31              		.loc 1 137 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 12, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		@ link register save eliminated.
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 4
+
+
+ 138:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #if !defined(MBEDTLS_ARC4_C)
+ 139:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     ((void) pbe_params);
+  36              		.loc 1 139 5 view .LVU1
+ 140:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     ((void) mode);
+  37              		.loc 1 140 5 view .LVU2
+ 141:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     ((void) pwd);
+  38              		.loc 1 141 5 view .LVU3
+ 142:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     ((void) pwdlen);
+  39              		.loc 1 142 5 view .LVU4
+ 143:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     ((void) data);
+  40              		.loc 1 143 5 view .LVU5
+ 144:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     ((void) len);
+  41              		.loc 1 144 5 view .LVU6
+ 145:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     ((void) output);
+  42              		.loc 1 145 5 view .LVU7
+ 146:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     return( MBEDTLS_ERR_PKCS12_FEATURE_UNAVAILABLE );
+  43              		.loc 1 146 5 view .LVU8
+ 147:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #else
+ 148:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret;
+ 149:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char key[16];
+ 150:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_arc4_context ctx;
+ 151:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     ((void) mode);
+ 152:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 153:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_arc4_init( &ctx );
+ 154:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 155:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = pkcs12_pbe_derive_key_iv( pbe_params, MBEDTLS_MD_SHA1,
+ 156:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                           pwd, pwdlen,
+ 157:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                           key, 16, NULL, 0 ) ) != 0 )
+ 158:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 159:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( ret );
+ 160:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     }
+ 161:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 162:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_arc4_setup( &ctx, key, 16 );
+ 163:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_arc4_crypt( &ctx, len, data, output ) ) != 0 )
+ 164:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 165:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 166:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** exit:
+ 167:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( key, sizeof( key ) );
+ 168:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_arc4_free( &ctx );
+ 169:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 170:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     return( ret );
+ 171:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #endif /* MBEDTLS_ARC4_C */
+ 172:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** }
+  44              		.loc 1 172 1 is_stmt 0 view .LVU9
+  45 0000 0048     		ldr	r0, .L3
+  46              	.LVL1:
+  47              		.loc 1 172 1 view .LVU10
+  48 0002 7047     		bx	lr
+  49              	.L4:
+  50              		.align	2
+  51              	.L3:
+  52 0004 00E1FFFF 		.word	-7936
+  53              		.cfi_endproc
+  54              	.LFE9:
+  56              		.section	.text.mbedtls_pkcs12_derivation,"ax",%progbits
+  57              		.align	1
+  58              		.p2align 2,,3
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 5
+
+
+  59              		.global	mbedtls_pkcs12_derivation
+  60              		.syntax unified
+  61              		.thumb
+  62              		.thumb_func
+  63              		.fpu fpv4-sp-d16
+  65              	mbedtls_pkcs12_derivation:
+  66              	.LVL2:
+  67              	.LFB12:
+ 173:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 174:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** int mbedtls_pkcs12_pbe( mbedtls_asn1_buf *pbe_params, int mode,
+ 175:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 mbedtls_cipher_type_t cipher_type, mbedtls_md_type_t md_type,
+ 176:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 const unsigned char *pwd,  size_t pwdlen,
+ 177:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 const unsigned char *data, size_t len,
+ 178:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 unsigned char *output )
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** {
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret, keylen = 0;
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char key[32];
+ 182:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char iv[16];
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     const mbedtls_cipher_info_t *cipher_info;
+ 184:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_cipher_context_t cipher_ctx;
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t olen = 0;
+ 186:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     cipher_info = mbedtls_cipher_info_from_type( cipher_type );
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( cipher_info == NULL )
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_FEATURE_UNAVAILABLE );
+ 190:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     keylen = cipher_info->key_bitlen / 8;
+ 192:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 193:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = pkcs12_pbe_derive_key_iv( pbe_params, md_type, pwd, pwdlen,
+ 194:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                           key, keylen,
+ 195:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                           iv, cipher_info->iv_size ) ) != 0 )
+ 196:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 197:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( ret );
+ 198:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     }
+ 199:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_cipher_init( &cipher_ctx );
+ 201:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_cipher_setup( &cipher_ctx, cipher_info ) ) != 0 )
+ 203:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 204:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_cipher_setkey( &cipher_ctx, key, 8 * keylen, (mbedtls_operation_t) mode ) )
+ 206:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 207:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_cipher_set_iv( &cipher_ctx, iv, cipher_info->iv_size ) ) != 0 )
+ 209:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 210:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_cipher_reset( &cipher_ctx ) ) != 0 )
+ 212:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 213:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_cipher_update( &cipher_ctx, data, len,
+ 215:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                 output, &olen ) ) != 0 )
+ 216:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 217:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 218:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     }
+ 219:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_cipher_finish( &cipher_ctx, output + olen, &olen ) ) != 0 )
+ 221:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         ret = MBEDTLS_ERR_PKCS12_PASSWORD_MISMATCH;
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 6
+
+
+ 222:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 223:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** exit:
+ 224:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( key, sizeof( key ) );
+ 225:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( iv,  sizeof( iv  ) );
+ 226:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_cipher_free( &cipher_ctx );
+ 227:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     return( ret );
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** }
+ 230:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 231:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** #endif /* MBEDTLS_ASN1_PARSE_C */
+ 232:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** static void pkcs12_fill_buffer( unsigned char *data, size_t data_len,
+ 234:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                 const unsigned char *filler, size_t fill_len )
+ 235:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** {
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char *p = data;
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t use_len;
+ 238:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     while( data_len > 0 )
+ 240:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         use_len = ( data_len > fill_len ) ? fill_len : data_len;
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         memcpy( p, filler, use_len );
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         p += use_len;
+ 244:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         data_len -= use_len;
+ 245:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     }
+ 246:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** }
+ 247:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 248:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** int mbedtls_pkcs12_derivation( unsigned char *data, size_t datalen,
+ 249:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                        const unsigned char *pwd, size_t pwdlen,
+ 250:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                        const unsigned char *salt, size_t saltlen,
+ 251:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                        mbedtls_md_type_t md_type, int id, int iterations )
+ 252:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** {
+  68              		.loc 1 252 1 is_stmt 1 view -0
+  69              		.cfi_startproc
+  70              		@ args = 20, pretend = 0, frame = 584
+  71              		@ frame_needed = 0, uses_anonymous_args = 0
+ 253:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret;
+  72              		.loc 1 253 5 view .LVU12
+ 254:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned int j;
+  73              		.loc 1 254 5 view .LVU13
+ 255:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 256:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char diversifier[128];
+  74              		.loc 1 256 5 view .LVU14
+ 257:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char salt_block[128], pwd_block[128], hash_block[128];
+  75              		.loc 1 257 5 view .LVU15
+ 258:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char hash_output[MBEDTLS_MD_MAX_SIZE];
+  76              		.loc 1 258 5 view .LVU16
+ 259:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char *p;
+  77              		.loc 1 259 5 view .LVU17
+ 260:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char c;
+  78              		.loc 1 260 5 view .LVU18
+ 261:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 262:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t hlen, use_len, v, i;
+  79              		.loc 1 262 5 view .LVU19
+ 263:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 264:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     const mbedtls_md_info_t *md_info;
+  80              		.loc 1 264 5 view .LVU20
+ 265:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_md_context_t md_ctx;
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 7
+
+
+  81              		.loc 1 265 5 view .LVU21
+ 266:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 267:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     // This version only allows max of 64 bytes of password or salt
+ 268:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( datalen > 128 || pwdlen > 64 || saltlen > 64 )
+  82              		.loc 1 268 5 view .LVU22
+ 252:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret;
+  83              		.loc 1 252 1 is_stmt 0 view .LVU23
+  84 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+  85              	.LCFI0:
+  86              		.cfi_def_cfa_offset 36
+  87              		.cfi_offset 4, -36
+  88              		.cfi_offset 5, -32
+  89              		.cfi_offset 6, -28
+  90              		.cfi_offset 7, -24
+  91              		.cfi_offset 8, -20
+  92              		.cfi_offset 9, -16
+  93              		.cfi_offset 10, -12
+  94              		.cfi_offset 11, -8
+  95              		.cfi_offset 14, -4
+  96 0004 ADF5137D 		sub	sp, sp, #588
+  97              	.LCFI1:
+  98              		.cfi_def_cfa_offset 624
+  99              		.loc 1 268 7 view .LVU24
+ 100 0008 8029     		cmp	r1, #128
+ 252:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret;
+ 101              		.loc 1 252 1 view .LVU25
+ 102 000a CDE90110 		strd	r1, r0, [sp, #4]
+ 103 000e DDF870B2 		ldr	fp, [sp, #624]
+ 104 0012 9DF87802 		ldrb	r0, [sp, #632]	@ zero_extendqisi2
+ 105              	.LVL3:
+ 252:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret;
+ 106              		.loc 1 252 1 view .LVU26
+ 107 0016 1F46     		mov	r7, r3
+ 108              		.loc 1 268 7 view .LVU27
+ 109 0018 00F2FA80 		bhi	.L22
+ 110              		.loc 1 268 23 discriminator 1 view .LVU28
+ 111 001c 402B     		cmp	r3, #64
+ 112 001e 00F2F780 		bhi	.L22
+ 113              		.loc 1 268 38 discriminator 2 view .LVU29
+ 114 0022 9D9B     		ldr	r3, [sp, #628]
+ 115              	.LVL4:
+ 116              		.loc 1 268 38 discriminator 2 view .LVU30
+ 117 0024 402B     		cmp	r3, #64
+ 118 0026 00F2F380 		bhi	.L22
+ 269:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_BAD_INPUT_DATA );
+ 270:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 271:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     md_info = mbedtls_md_info_from_type( md_type );
+ 119              		.loc 1 271 5 is_stmt 1 view .LVU31
+ 120 002a 9046     		mov	r8, r2
+ 121              		.loc 1 271 15 is_stmt 0 view .LVU32
+ 122 002c FFF7FEFF 		bl	mbedtls_md_info_from_type
+ 123              	.LVL5:
+ 272:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( md_info == NULL )
+ 124              		.loc 1 272 5 is_stmt 1 view .LVU33
+ 125              		.loc 1 272 7 is_stmt 0 view .LVU34
+ 126 0030 0646     		mov	r6, r0
+ 127 0032 0028     		cmp	r0, #0
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 8
+
+
+ 128 0034 00F0F280 		beq	.L23
+ 273:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_FEATURE_UNAVAILABLE );
+ 274:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 275:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_md_init( &md_ctx );
+ 129              		.loc 1 275 5 is_stmt 1 view .LVU35
+ 130 0038 07A8     		add	r0, sp, #28
+ 131              	.LVL6:
+ 132              		.loc 1 275 5 is_stmt 0 view .LVU36
+ 133 003a FFF7FEFF 		bl	mbedtls_md_init
+ 134              	.LVL7:
+ 276:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 277:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( ( ret = mbedtls_md_setup( &md_ctx, md_info, 0 ) ) != 0 )
+ 135              		.loc 1 277 5 is_stmt 1 view .LVU37
+ 136              		.loc 1 277 17 is_stmt 0 view .LVU38
+ 137 003e 07A8     		add	r0, sp, #28
+ 138 0040 0022     		movs	r2, #0
+ 139 0042 3146     		mov	r1, r6
+ 140 0044 FFF7FEFF 		bl	mbedtls_md_setup
+ 141              	.LVL8:
+ 142              		.loc 1 277 7 view .LVU39
+ 143 0048 18B1     		cbz	r0, .L46
+ 144              	.LVL9:
+ 145              	.L5:
+ 278:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( ret );
+ 279:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     hlen = mbedtls_md_get_size( md_info );
+ 280:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 281:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( hlen <= 32 )
+ 282:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         v = 64;
+ 283:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     else
+ 284:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         v = 128;
+ 285:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 286:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     memset( diversifier, (unsigned char) id, v );
+ 287:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 288:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     pkcs12_fill_buffer( salt_block, v, salt, saltlen );
+ 289:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     pkcs12_fill_buffer( pwd_block,  v, pwd,  pwdlen  );
+ 290:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 291:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     p = data;
+ 292:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     while( datalen > 0 )
+ 293:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 294:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         // Calculate hash( diversifier || salt_block || pwd_block )
+ 295:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         if( ( ret = mbedtls_md_starts( &md_ctx ) ) != 0 )
+ 296:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 297:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 298:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         if( ( ret = mbedtls_md_update( &md_ctx, diversifier, v ) ) != 0 )
+ 299:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 300:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 301:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         if( ( ret = mbedtls_md_update( &md_ctx, salt_block, v ) ) != 0 )
+ 302:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 303:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 304:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         if( ( ret = mbedtls_md_update( &md_ctx, pwd_block, v ) ) != 0 )
+ 305:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 306:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 307:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         if( ( ret = mbedtls_md_finish( &md_ctx, hash_output ) ) != 0 )
+ 308:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 309:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 310:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         // Perform remaining ( iterations - 1 ) recursive hash calculations
+ 311:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         for( i = 1; i < (size_t) iterations; i++ )
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 9
+
+
+ 312:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 313:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             if( ( ret = mbedtls_md( md_info, hash_output, hlen, hash_output ) ) != 0 )
+ 314:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 goto exit;
+ 315:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         }
+ 316:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 317:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         use_len = ( datalen > hlen ) ? hlen : datalen;
+ 318:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         memcpy( p, hash_output, use_len );
+ 319:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         datalen -= use_len;
+ 320:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         p += use_len;
+ 321:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 322:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         if( datalen == 0 )
+ 323:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             break;
+ 324:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 325:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         // Concatenating copies of hash_output into hash_block (B)
+ 326:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         pkcs12_fill_buffer( hash_block, v, hash_output, hlen );
+ 327:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 328:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         // B += 1
+ 329:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         for( i = v; i > 0; i-- )
+ 330:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             if( ++hash_block[i - 1] != 0 )
+ 331:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 break;
+ 332:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 333:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         // salt_block += B
+ 334:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         c = 0;
+ 335:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         for( i = v; i > 0; i-- )
+ 336:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 337:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             j = salt_block[i - 1] + hash_block[i - 1] + c;
+ 338:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 339:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             salt_block[i - 1] = j & 0xFF;
+ 340:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         }
+ 341:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 342:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         // pwd_block  += B
+ 343:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         c = 0;
+ 344:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         for( i = v; i > 0; i-- )
+ 345:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 346:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             j = pwd_block[i - 1] + hash_block[i - 1] + c;
+ 347:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 348:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             pwd_block[i - 1] = j & 0xFF;
+ 349:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         }
+ 350:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     }
+ 351:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 352:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     ret = 0;
+ 353:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 354:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** exit:
+ 355:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( salt_block, sizeof( salt_block ) );
+ 356:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( pwd_block, sizeof( pwd_block ) );
+ 357:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( hash_block, sizeof( hash_block ) );
+ 358:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( hash_output, sizeof( hash_output ) );
+ 359:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 360:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_md_free( &md_ctx );
+ 361:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 362:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     return( ret );
+ 363:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** }
+ 146              		.loc 1 363 1 view .LVU40
+ 147 004a 0DF5137D 		add	sp, sp, #588
+ 148              	.LCFI2:
+ 149              		.cfi_remember_state
+ 150              		.cfi_def_cfa_offset 36
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 10
+
+
+ 151              		@ sp needed
+ 152 004e BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 153              	.LVL10:
+ 154              	.L46:
+ 155              	.LCFI3:
+ 156              		.cfi_restore_state
+ 279:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 157              		.loc 1 279 5 is_stmt 1 view .LVU41
+ 279:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 158              		.loc 1 279 12 is_stmt 0 view .LVU42
+ 159 0052 3046     		mov	r0, r6
+ 160              	.LVL11:
+ 279:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 161              		.loc 1 279 12 view .LVU43
+ 162 0054 FFF7FEFF 		bl	mbedtls_md_get_size
+ 163              	.LVL12:
+ 286:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 164              		.loc 1 286 5 view .LVU44
+ 165 0058 9F9B     		ldr	r3, [sp, #636]
+ 284:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 166              		.loc 1 284 11 view .LVU45
+ 167 005a 2128     		cmp	r0, #33
+ 168 005c 34BF     		ite	cc
+ 169 005e 4FF0400A 		movcc	r10, #64
+ 170 0062 4FF0800A 		movcs	r10, #128
+ 286:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 171              		.loc 1 286 5 view .LVU46
+ 172 0066 D9B2     		uxtb	r1, r3
+ 279:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 173              		.loc 1 279 12 view .LVU47
+ 174 0068 0546     		mov	r5, r0
+ 175              	.LVL13:
+ 281:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         v = 64;
+ 176              		.loc 1 281 5 is_stmt 1 view .LVU48
+ 286:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 177              		.loc 1 286 5 view .LVU49
+ 178 006a 5246     		mov	r2, r10
+ 179 006c 12A8     		add	r0, sp, #72
+ 180              	.LVL14:
+ 286:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 181              		.loc 1 286 5 is_stmt 0 view .LVU50
+ 182 006e FFF7FEFF 		bl	memset
+ 183              	.LVL15:
+ 288:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     pkcs12_fill_buffer( pwd_block,  v, pwd,  pwdlen  );
+ 184              		.loc 1 288 5 is_stmt 1 view .LVU51
+ 185              	.LBB8:
+ 186              	.LBI8:
+ 233:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                 const unsigned char *filler, size_t fill_len )
+ 187              		.loc 1 233 13 view .LVU52
+ 188              	.LBB9:
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t use_len;
+ 189              		.loc 1 236 5 view .LVU53
+ 237:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 190              		.loc 1 237 5 view .LVU54
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 191              		.loc 1 239 5 view .LVU55
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 11
+
+
+ 192              		.loc 1 239 10 view .LVU56
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t use_len;
+ 193              		.loc 1 236 20 is_stmt 0 view .LVU57
+ 194 0072 0397     		str	r7, [sp, #12]
+ 195 0074 9D9F     		ldr	r7, [sp, #628]
+ 196              	.LVL16:
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t use_len;
+ 197              		.loc 1 236 20 view .LVU58
+ 198              	.LBE9:
+ 199              	.LBE8:
+ 286:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 200              		.loc 1 286 5 view .LVU59
+ 201 0076 5446     		mov	r4, r10
+ 202              	.LBB12:
+ 203              	.LBB10:
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t use_len;
+ 204              		.loc 1 236 20 view .LVU60
+ 205 0078 32AB     		add	r3, sp, #200
+ 206              	.LVL17:
+ 207              	.L8:
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         memcpy( p, filler, use_len );
+ 208              		.loc 1 241 9 is_stmt 1 view .LVU61
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         memcpy( p, filler, use_len );
+ 209              		.loc 1 241 17 is_stmt 0 view .LVU62
+ 210 007a A742     		cmp	r7, r4
+ 211 007c B946     		mov	r9, r7
+ 212 007e 28BF     		it	cs
+ 213 0080 A146     		movcs	r9, r4
+ 214              	.LVL18:
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         p += use_len;
+ 215              		.loc 1 242 9 is_stmt 1 view .LVU63
+ 216 0082 1846     		mov	r0, r3
+ 217 0084 4A46     		mov	r2, r9
+ 218 0086 5946     		mov	r1, fp
+ 219 0088 FFF7FEFF 		bl	memcpy
+ 220              	.LVL19:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 221              		.loc 1 239 10 is_stmt 0 view .LVU64
+ 222 008c B4EB0904 		subs	r4, r4, r9
+ 223              	.LVL20:
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         p += use_len;
+ 224              		.loc 1 242 9 view .LVU65
+ 225 0090 0346     		mov	r3, r0
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         data_len -= use_len;
+ 226              		.loc 1 243 9 is_stmt 1 view .LVU66
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         data_len -= use_len;
+ 227              		.loc 1 243 11 is_stmt 0 view .LVU67
+ 228 0092 4B44     		add	r3, r3, r9
+ 229              	.LVL21:
+ 244:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     }
+ 230              		.loc 1 244 9 is_stmt 1 view .LVU68
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 231              		.loc 1 239 10 view .LVU69
+ 232 0094 F1D1     		bne	.L8
+ 233              	.LBE10:
+ 234              	.LBE12:
+ 235              	.LBB13:
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 12
+
+
+ 236              	.LBB14:
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t use_len;
+ 237              		.loc 1 236 20 is_stmt 0 view .LVU70
+ 238 0096 0DF5A479 		add	r9, sp, #328
+ 239              	.LVL22:
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t use_len;
+ 240              		.loc 1 236 20 view .LVU71
+ 241 009a 039F     		ldr	r7, [sp, #12]
+ 242 009c 4B46     		mov	r3, r9
+ 243              	.LVL23:
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t use_len;
+ 244              		.loc 1 236 20 view .LVU72
+ 245              	.LBE14:
+ 246              	.LBE13:
+ 247              	.LBB16:
+ 248              	.LBB11:
+ 249 009e 5446     		mov	r4, r10
+ 250              	.LVL24:
+ 251              	.L9:
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t use_len;
+ 252              		.loc 1 236 20 view .LVU73
+ 253              	.LBE11:
+ 254              	.LBE16:
+ 255              	.LBB17:
+ 256              	.LBB15:
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         memcpy( p, filler, use_len );
+ 257              		.loc 1 241 9 is_stmt 1 view .LVU74
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         memcpy( p, filler, use_len );
+ 258              		.loc 1 241 17 is_stmt 0 view .LVU75
+ 259 00a0 A742     		cmp	r7, r4
+ 260 00a2 BB46     		mov	fp, r7
+ 261 00a4 28BF     		it	cs
+ 262 00a6 A346     		movcs	fp, r4
+ 263              	.LVL25:
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         p += use_len;
+ 264              		.loc 1 242 9 is_stmt 1 view .LVU76
+ 265 00a8 1846     		mov	r0, r3
+ 266 00aa 5A46     		mov	r2, fp
+ 267 00ac 4146     		mov	r1, r8
+ 268 00ae FFF7FEFF 		bl	memcpy
+ 269              	.LVL26:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 270              		.loc 1 239 10 is_stmt 0 view .LVU77
+ 271 00b2 B4EB0B04 		subs	r4, r4, fp
+ 272              	.LVL27:
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         p += use_len;
+ 273              		.loc 1 242 9 view .LVU78
+ 274 00b6 0346     		mov	r3, r0
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         data_len -= use_len;
+ 275              		.loc 1 243 9 is_stmt 1 view .LVU79
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         data_len -= use_len;
+ 276              		.loc 1 243 11 is_stmt 0 view .LVU80
+ 277 00b8 5B44     		add	r3, r3, fp
+ 278              	.LVL28:
+ 244:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     }
+ 279              		.loc 1 244 9 is_stmt 1 view .LVU81
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 13
+
+
+ 280              		.loc 1 239 10 view .LVU82
+ 281 00ba F1D1     		bne	.L9
+ 282              	.LVL29:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 283              		.loc 1 239 10 is_stmt 0 view .LVU83
+ 284              	.LBE15:
+ 285              	.LBE17:
+ 292:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 286              		.loc 1 292 10 is_stmt 1 view .LVU84
+ 287 00bc 019B     		ldr	r3, [sp, #4]
+ 288 00be 0AAF     		add	r7, sp, #40
+ 289 00c0 002B     		cmp	r3, #0
+ 290 00c2 00F0A780 		beq	.L47
+ 291 00c6 72AB     		add	r3, sp, #456
+ 292 00c8 0393     		str	r3, [sp, #12]
+ 293              	.LVL30:
+ 292:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 294              		.loc 1 292 10 is_stmt 0 view .LVU85
+ 295 00ca 0AF1FF33 		add	r3, r10, #-1
+ 296 00ce 0493     		str	r3, [sp, #16]
+ 329:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             if( ++hash_block[i - 1] != 0 )
+ 297              		.loc 1 329 9 view .LVU86
+ 298 00d0 92AB     		add	r3, sp, #584
+ 299 00d2 C3F18108 		rsb	r8, r3, #129
+ 300              	.LVL31:
+ 329:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             if( ++hash_block[i - 1] != 0 )
+ 301              		.loc 1 329 9 view .LVU87
+ 302 00d6 DDF880B2 		ldr	fp, [sp, #640]
+ 303 00da CDF81480 		str	r8, [sp, #20]
+ 304              	.LVL32:
+ 305              	.L19:
+ 295:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 306              		.loc 1 295 9 is_stmt 1 view .LVU88
+ 295:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 307              		.loc 1 295 21 is_stmt 0 view .LVU89
+ 308 00de 07A8     		add	r0, sp, #28
+ 309 00e0 FFF7FEFF 		bl	mbedtls_md_starts
+ 310              	.LVL33:
+ 295:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 311              		.loc 1 295 11 view .LVU90
+ 312 00e4 30BB     		cbnz	r0, .L43
+ 298:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 313              		.loc 1 298 9 is_stmt 1 view .LVU91
+ 298:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 314              		.loc 1 298 21 is_stmt 0 view .LVU92
+ 315 00e6 5246     		mov	r2, r10
+ 316 00e8 12A9     		add	r1, sp, #72
+ 317 00ea 07A8     		add	r0, sp, #28
+ 318              	.LVL34:
+ 298:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 319              		.loc 1 298 21 view .LVU93
+ 320 00ec FFF7FEFF 		bl	mbedtls_md_update
+ 321              	.LVL35:
+ 298:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 322              		.loc 1 298 11 view .LVU94
+ 323 00f0 00BB     		cbnz	r0, .L43
+ 301:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 14
+
+
+ 324              		.loc 1 301 9 is_stmt 1 view .LVU95
+ 301:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 325              		.loc 1 301 21 is_stmt 0 view .LVU96
+ 326 00f2 5246     		mov	r2, r10
+ 327 00f4 32A9     		add	r1, sp, #200
+ 328 00f6 07A8     		add	r0, sp, #28
+ 329              	.LVL36:
+ 301:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 330              		.loc 1 301 21 view .LVU97
+ 331 00f8 FFF7FEFF 		bl	mbedtls_md_update
+ 332              	.LVL37:
+ 301:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 333              		.loc 1 301 11 view .LVU98
+ 334 00fc D0B9     		cbnz	r0, .L43
+ 304:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 335              		.loc 1 304 9 is_stmt 1 view .LVU99
+ 304:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 336              		.loc 1 304 21 is_stmt 0 view .LVU100
+ 337 00fe 5246     		mov	r2, r10
+ 338 0100 4946     		mov	r1, r9
+ 339 0102 07A8     		add	r0, sp, #28
+ 340              	.LVL38:
+ 304:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 341              		.loc 1 304 21 view .LVU101
+ 342 0104 FFF7FEFF 		bl	mbedtls_md_update
+ 343              	.LVL39:
+ 304:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 344              		.loc 1 304 11 view .LVU102
+ 345 0108 A0B9     		cbnz	r0, .L43
+ 307:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 346              		.loc 1 307 9 is_stmt 1 view .LVU103
+ 307:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 347              		.loc 1 307 21 is_stmt 0 view .LVU104
+ 348 010a 3946     		mov	r1, r7
+ 349 010c 07A8     		add	r0, sp, #28
+ 350              	.LVL40:
+ 307:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 351              		.loc 1 307 21 view .LVU105
+ 352 010e FFF7FEFF 		bl	mbedtls_md_finish
+ 353              	.LVL41:
+ 307:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             goto exit;
+ 354              		.loc 1 307 11 view .LVU106
+ 355 0112 78B9     		cbnz	r0, .L43
+ 356              	.LVL42:
+ 311:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 357              		.loc 1 311 21 is_stmt 1 view .LVU107
+ 311:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 358              		.loc 1 311 9 is_stmt 0 view .LVU108
+ 359 0114 BBF1010F 		cmp	fp, #1
+ 360 0118 27D9     		bls	.L12
+ 311:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 361              		.loc 1 311 16 view .LVU109
+ 362 011a 0124     		movs	r4, #1
+ 363 011c 01E0     		b	.L13
+ 364              	.LVL43:
+ 365              	.L48:
+ 311:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 15
+
+
+ 366              		.loc 1 311 9 discriminator 2 view .LVU110
+ 367 011e 5C45     		cmp	r4, fp
+ 368 0120 23D0     		beq	.L12
+ 369              	.LVL44:
+ 370              	.L13:
+ 313:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 goto exit;
+ 371              		.loc 1 313 13 is_stmt 1 view .LVU111
+ 313:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 goto exit;
+ 372              		.loc 1 313 25 is_stmt 0 view .LVU112
+ 373 0122 3B46     		mov	r3, r7
+ 374 0124 2A46     		mov	r2, r5
+ 375 0126 3946     		mov	r1, r7
+ 376 0128 3046     		mov	r0, r6
+ 377              	.LVL45:
+ 311:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 378              		.loc 1 311 47 view .LVU113
+ 379 012a 0134     		adds	r4, r4, #1
+ 380              	.LVL46:
+ 313:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 goto exit;
+ 381              		.loc 1 313 25 view .LVU114
+ 382 012c FFF7FEFF 		bl	mbedtls_md
+ 383              	.LVL47:
+ 311:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 384              		.loc 1 311 46 is_stmt 1 view .LVU115
+ 311:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 385              		.loc 1 311 21 view .LVU116
+ 313:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 goto exit;
+ 386              		.loc 1 313 15 is_stmt 0 view .LVU117
+ 387 0130 0028     		cmp	r0, #0
+ 388 0132 F4D0     		beq	.L48
+ 389              	.LVL48:
+ 390              	.L43:
+ 313:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 goto exit;
+ 391              		.loc 1 313 15 view .LVU118
+ 392 0134 0346     		mov	r3, r0
+ 393              	.LVL49:
+ 394              	.L11:
+ 355:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( pwd_block, sizeof( pwd_block ) );
+ 395              		.loc 1 355 5 view .LVU119
+ 396 0136 32A8     		add	r0, sp, #200
+ 397 0138 8021     		movs	r1, #128
+ 398 013a 0193     		str	r3, [sp, #4]
+ 399              	.LVL50:
+ 355:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( pwd_block, sizeof( pwd_block ) );
+ 400              		.loc 1 355 5 is_stmt 1 view .LVU120
+ 401 013c FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 402              	.LVL51:
+ 356:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( hash_block, sizeof( hash_block ) );
+ 403              		.loc 1 356 5 view .LVU121
+ 404 0140 4846     		mov	r0, r9
+ 405 0142 8021     		movs	r1, #128
+ 406 0144 FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 407              	.LVL52:
+ 357:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( hash_output, sizeof( hash_output ) );
+ 408              		.loc 1 357 5 view .LVU122
+ 409 0148 0398     		ldr	r0, [sp, #12]
+ 410 014a 8021     		movs	r1, #128
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 16
+
+
+ 411 014c FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 412              	.LVL53:
+ 358:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 413              		.loc 1 358 5 view .LVU123
+ 414 0150 3846     		mov	r0, r7
+ 415 0152 2021     		movs	r1, #32
+ 416 0154 FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 417              	.LVL54:
+ 360:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 418              		.loc 1 360 5 view .LVU124
+ 419 0158 07A8     		add	r0, sp, #28
+ 420 015a FFF7FEFF 		bl	mbedtls_md_free
+ 421              	.LVL55:
+ 362:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** }
+ 422              		.loc 1 362 5 view .LVU125
+ 362:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** }
+ 423              		.loc 1 362 11 is_stmt 0 view .LVU126
+ 424 015e 019B     		ldr	r3, [sp, #4]
+ 425 0160 1846     		mov	r0, r3
+ 426              		.loc 1 363 1 view .LVU127
+ 427 0162 0DF5137D 		add	sp, sp, #588
+ 428              	.LCFI4:
+ 429              		.cfi_remember_state
+ 430              		.cfi_def_cfa_offset 36
+ 431              		@ sp needed
+ 432 0166 BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 433              	.LVL56:
+ 434              	.L12:
+ 435              	.LCFI5:
+ 436              		.cfi_restore_state
+ 317:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         memcpy( p, hash_output, use_len );
+ 437              		.loc 1 317 9 is_stmt 1 view .LVU128
+ 317:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         memcpy( p, hash_output, use_len );
+ 438              		.loc 1 317 17 is_stmt 0 view .LVU129
+ 439 016a 019B     		ldr	r3, [sp, #4]
+ 318:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         datalen -= use_len;
+ 440              		.loc 1 318 9 view .LVU130
+ 441 016c DDF80880 		ldr	r8, [sp, #8]
+ 317:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         memcpy( p, hash_output, use_len );
+ 442              		.loc 1 317 17 view .LVU131
+ 443 0170 AB42     		cmp	r3, r5
+ 444 0172 1C46     		mov	r4, r3
+ 445 0174 28BF     		it	cs
+ 446 0176 2C46     		movcs	r4, r5
+ 447              	.LVL57:
+ 318:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         datalen -= use_len;
+ 448              		.loc 1 318 9 is_stmt 1 view .LVU132
+ 449 0178 2246     		mov	r2, r4
+ 450 017a 3946     		mov	r1, r7
+ 451 017c 4046     		mov	r0, r8
+ 452              	.LVL58:
+ 318:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         datalen -= use_len;
+ 453              		.loc 1 318 9 is_stmt 0 view .LVU133
+ 454 017e FFF7FEFF 		bl	memcpy
+ 455              	.LVL59:
+ 319:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         p += use_len;
+ 456              		.loc 1 319 9 is_stmt 1 view .LVU134
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 17
+
+
+ 320:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 457              		.loc 1 320 9 view .LVU135
+ 322:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             break;
+ 458              		.loc 1 322 11 is_stmt 0 view .LVU136
+ 459 0182 019B     		ldr	r3, [sp, #4]
+ 320:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 460              		.loc 1 320 11 view .LVU137
+ 461 0184 4246     		mov	r2, r8
+ 462 0186 2244     		add	r2, r2, r4
+ 322:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             break;
+ 463              		.loc 1 322 11 view .LVU138
+ 464 0188 1B1B     		subs	r3, r3, r4
+ 465              	.LVL60:
+ 320:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 466              		.loc 1 320 11 view .LVU139
+ 467 018a 0292     		str	r2, [sp, #8]
+ 468              	.LVL61:
+ 322:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             break;
+ 469              		.loc 1 322 9 is_stmt 1 view .LVU140
+ 322:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             break;
+ 470              		.loc 1 322 11 is_stmt 0 view .LVU141
+ 471 018c 0193     		str	r3, [sp, #4]
+ 472 018e 43D0     		beq	.L10
+ 473              	.LBB18:
+ 474              	.LBB19:
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t use_len;
+ 475              		.loc 1 236 20 view .LVU142
+ 476 0190 039B     		ldr	r3, [sp, #12]
+ 477              	.LVL62:
+ 236:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t use_len;
+ 478              		.loc 1 236 20 view .LVU143
+ 479              	.LBE19:
+ 480              	.LBE18:
+ 481 0192 5446     		mov	r4, r10
+ 482              	.LVL63:
+ 483              	.L14:
+ 484              	.LBB22:
+ 485              	.LBB20:
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         memcpy( p, filler, use_len );
+ 486              		.loc 1 241 9 is_stmt 1 view .LVU144
+ 241:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         memcpy( p, filler, use_len );
+ 487              		.loc 1 241 17 is_stmt 0 view .LVU145
+ 488 0194 A542     		cmp	r5, r4
+ 489 0196 A846     		mov	r8, r5
+ 490 0198 28BF     		it	cs
+ 491 019a A046     		movcs	r8, r4
+ 492              	.LVL64:
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         p += use_len;
+ 493              		.loc 1 242 9 is_stmt 1 view .LVU146
+ 494 019c 1846     		mov	r0, r3
+ 495 019e 4246     		mov	r2, r8
+ 496 01a0 3946     		mov	r1, r7
+ 497 01a2 FFF7FEFF 		bl	memcpy
+ 498              	.LVL65:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 499              		.loc 1 239 10 is_stmt 0 view .LVU147
+ 500 01a6 B4EB0804 		subs	r4, r4, r8
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 18
+
+
+ 501              	.LVL66:
+ 242:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         p += use_len;
+ 502              		.loc 1 242 9 view .LVU148
+ 503 01aa 0346     		mov	r3, r0
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         data_len -= use_len;
+ 504              		.loc 1 243 9 is_stmt 1 view .LVU149
+ 243:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         data_len -= use_len;
+ 505              		.loc 1 243 11 is_stmt 0 view .LVU150
+ 506 01ac 4344     		add	r3, r3, r8
+ 507              	.LVL67:
+ 244:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     }
+ 508              		.loc 1 244 9 is_stmt 1 view .LVU151
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 509              		.loc 1 239 10 view .LVU152
+ 510 01ae F1D1     		bne	.L14
+ 511 01b0 DDE90332 		ldrd	r3, r2, [sp, #12]
+ 512              	.LVL68:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 513              		.loc 1 239 10 is_stmt 0 view .LVU153
+ 514 01b4 0598     		ldr	r0, [sp, #20]
+ 515              	.LVL69:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 516              		.loc 1 239 10 view .LVU154
+ 517 01b6 9918     		adds	r1, r3, r2
+ 518 01b8 0A46     		mov	r2, r1
+ 519              	.LVL70:
+ 520              	.L16:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 521              		.loc 1 239 10 view .LVU155
+ 522              	.LBE20:
+ 523              	.LBE22:
+ 330:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 break;
+ 524              		.loc 1 330 13 is_stmt 1 view .LVU156
+ 330:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 break;
+ 525              		.loc 1 330 29 is_stmt 0 view .LVU157
+ 526 01ba 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 330:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 break;
+ 527              		.loc 1 330 17 view .LVU158
+ 528 01bc 0133     		adds	r3, r3, #1
+ 529 01be DBB2     		uxtb	r3, r3
+ 330:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 break;
+ 530              		.loc 1 330 15 view .LVU159
+ 531 01c0 02F80139 		strb	r3, [r2], #-1
+ 532              	.LVL71:
+ 329:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             if( ++hash_block[i - 1] != 0 )
+ 533              		.loc 1 329 21 is_stmt 1 view .LVU160
+ 330:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 break;
+ 534              		.loc 1 330 15 is_stmt 0 view .LVU161
+ 535 01c4 0BB9     		cbnz	r3, .L15
+ 329:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             if( ++hash_block[i - 1] != 0 )
+ 536              		.loc 1 329 9 discriminator 1 view .LVU162
+ 537 01c6 D042     		cmn	r0, r2
+ 538 01c8 F7D1     		bne	.L16
+ 539              	.L15:
+ 540 01ca 049A     		ldr	r2, [sp, #16]
+ 541              	.LVL72:
+ 329:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             if( ++hash_block[i - 1] != 0 )
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 19
+
+
+ 542              		.loc 1 329 9 discriminator 1 view .LVU163
+ 543 01cc 32AB     		add	r3, sp, #200
+ 544 01ce 9A18     		adds	r2, r3, r2
+ 545              	.LBB23:
+ 546              	.LBB21:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 547              		.loc 1 239 10 discriminator 3 view .LVU164
+ 548 01d0 0C46     		mov	r4, r1
+ 549 01d2 0020     		movs	r0, #0
+ 550              	.L17:
+ 551              	.LVL73:
+ 239:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     {
+ 552              		.loc 1 239 10 discriminator 3 view .LVU165
+ 553              	.LBE21:
+ 554              	.LBE23:
+ 337:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 555              		.loc 1 337 13 is_stmt 1 discriminator 3 view .LVU166
+ 337:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 556              		.loc 1 337 27 is_stmt 0 discriminator 3 view .LVU167
+ 557 01d4 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 337:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 558              		.loc 1 337 47 discriminator 3 view .LVU168
+ 559 01d6 14F801C9 		ldrb	ip, [r4], #-1	@ zero_extendqisi2
+ 337:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 560              		.loc 1 337 35 discriminator 3 view .LVU169
+ 561 01da 6344     		add	r3, r3, ip
+ 337:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 562              		.loc 1 337 55 discriminator 3 view .LVU170
+ 563 01dc 0344     		add	r3, r3, r0
+ 564              	.LVL74:
+ 338:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             salt_block[i - 1] = j & 0xFF;
+ 565              		.loc 1 338 13 is_stmt 1 discriminator 3 view .LVU171
+ 566 01de 9446     		mov	ip, r2
+ 338:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             salt_block[i - 1] = j & 0xFF;
+ 567              		.loc 1 338 15 is_stmt 0 discriminator 3 view .LVU172
+ 568 01e0 C3F30720 		ubfx	r0, r3, #8, #8
+ 569              	.LVL75:
+ 339:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         }
+ 570              		.loc 1 339 13 is_stmt 1 discriminator 3 view .LVU173
+ 339:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         }
+ 571              		.loc 1 339 31 is_stmt 0 discriminator 3 view .LVU174
+ 572 01e4 02F80139 		strb	r3, [r2], #-1
+ 573              	.LVL76:
+ 335:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 574              		.loc 1 335 28 is_stmt 1 discriminator 3 view .LVU175
+ 335:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 575              		.loc 1 335 21 discriminator 3 view .LVU176
+ 335:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 576              		.loc 1 335 9 is_stmt 0 discriminator 3 view .LVU177
+ 577 01e8 32AB     		add	r3, sp, #200
+ 578              	.LVL77:
+ 335:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 579              		.loc 1 335 9 discriminator 3 view .LVU178
+ 580 01ea 6345     		cmp	r3, ip
+ 581 01ec F2D1     		bne	.L17
+ 582 01ee 049B     		ldr	r3, [sp, #16]
+ 343:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         for( i = v; i > 0; i-- )
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 20
+
+
+ 583              		.loc 1 343 11 view .LVU179
+ 584 01f0 0020     		movs	r0, #0
+ 585              	.LVL78:
+ 343:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         for( i = v; i > 0; i-- )
+ 586              		.loc 1 343 11 view .LVU180
+ 587 01f2 09EB0302 		add	r2, r9, r3
+ 588              	.LVL79:
+ 589              	.L18:
+ 346:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 590              		.loc 1 346 13 is_stmt 1 discriminator 3 view .LVU181
+ 346:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 591              		.loc 1 346 26 is_stmt 0 discriminator 3 view .LVU182
+ 592 01f6 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+ 346:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 593              		.loc 1 346 46 discriminator 3 view .LVU183
+ 594 01f8 11F80149 		ldrb	r4, [r1], #-1	@ zero_extendqisi2
+ 346:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 595              		.loc 1 346 34 discriminator 3 view .LVU184
+ 596 01fc 2344     		add	r3, r3, r4
+ 597 01fe 1446     		mov	r4, r2
+ 346:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             c = (unsigned char) (j >> 8);
+ 598              		.loc 1 346 54 discriminator 3 view .LVU185
+ 599 0200 0344     		add	r3, r3, r0
+ 600              	.LVL80:
+ 347:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             pwd_block[i - 1] = j & 0xFF;
+ 601              		.loc 1 347 13 is_stmt 1 discriminator 3 view .LVU186
+ 344:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 602              		.loc 1 344 9 is_stmt 0 discriminator 3 view .LVU187
+ 603 0202 4C45     		cmp	r4, r9
+ 348:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         }
+ 604              		.loc 1 348 30 discriminator 3 view .LVU188
+ 605 0204 02F80139 		strb	r3, [r2], #-1
+ 606              	.LVL81:
+ 347:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****             pwd_block[i - 1] = j & 0xFF;
+ 607              		.loc 1 347 15 discriminator 3 view .LVU189
+ 608 0208 C3F30720 		ubfx	r0, r3, #8, #8
+ 609              	.LVL82:
+ 348:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         }
+ 610              		.loc 1 348 13 is_stmt 1 discriminator 3 view .LVU190
+ 344:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 611              		.loc 1 344 28 discriminator 3 view .LVU191
+ 344:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 612              		.loc 1 344 21 discriminator 3 view .LVU192
+ 344:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         {
+ 613              		.loc 1 344 9 is_stmt 0 discriminator 3 view .LVU193
+ 614 020c F3D1     		bne	.L18
+ 615 020e 66E7     		b	.L19
+ 616              	.LVL83:
+ 617              	.L22:
+ 269:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 618              		.loc 1 269 15 view .LVU194
+ 619 0210 0348     		ldr	r0, .L49
+ 620 0212 1AE7     		b	.L5
+ 621              	.LVL84:
+ 622              	.L47:
+ 269:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 623              		.loc 1 269 15 view .LVU195
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 21
+
+
+ 624 0214 72AB     		add	r3, sp, #456
+ 625              	.LVL85:
+ 269:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 626              		.loc 1 269 15 view .LVU196
+ 627 0216 0393     		str	r3, [sp, #12]
+ 628              	.LVL86:
+ 629              	.L10:
+ 352:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 630              		.loc 1 352 9 view .LVU197
+ 631 0218 0023     		movs	r3, #0
+ 632 021a 8CE7     		b	.L11
+ 633              	.LVL87:
+ 634              	.L23:
+ 273:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 635              		.loc 1 273 15 view .LVU198
+ 636 021c 0148     		ldr	r0, .L49+4
+ 637              	.LVL88:
+ 273:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 638              		.loc 1 273 15 view .LVU199
+ 639 021e 14E7     		b	.L5
+ 640              	.L50:
+ 641              		.align	2
+ 642              	.L49:
+ 643 0220 80E0FFFF 		.word	-8064
+ 644 0224 00E1FFFF 		.word	-7936
+ 645              		.cfi_endproc
+ 646              	.LFE12:
+ 648              		.section	.text.mbedtls_pkcs12_pbe,"ax",%progbits
+ 649              		.align	1
+ 650              		.p2align 2,,3
+ 651              		.global	mbedtls_pkcs12_pbe
+ 652              		.syntax unified
+ 653              		.thumb
+ 654              		.thumb_func
+ 655              		.fpu fpv4-sp-d16
+ 657              	mbedtls_pkcs12_pbe:
+ 658              	.LVL89:
+ 659              	.LFB10:
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret, keylen = 0;
+ 660              		.loc 1 179 1 is_stmt 1 view -0
+ 661              		.cfi_startproc
+ 662              		@ args = 20, pretend = 0, frame = 336
+ 663              		@ frame_needed = 0, uses_anonymous_args = 0
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret, keylen = 0;
+ 664              		.loc 1 179 1 is_stmt 0 view .LVU201
+ 665 0000 2DE9F04F 		push	{r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 666              	.LCFI6:
+ 667              		.cfi_def_cfa_offset 36
+ 668              		.cfi_offset 4, -36
+ 669              		.cfi_offset 5, -32
+ 670              		.cfi_offset 6, -28
+ 671              		.cfi_offset 7, -24
+ 672              		.cfi_offset 8, -20
+ 673              		.cfi_offset 9, -16
+ 674              		.cfi_offset 10, -12
+ 675              		.cfi_offset 11, -8
+ 676              		.cfi_offset 14, -4
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 22
+
+
+ 677 0004 DBB0     		sub	sp, sp, #364
+ 678              	.LCFI7:
+ 679              		.cfi_def_cfa_offset 400
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret, keylen = 0;
+ 680              		.loc 1 179 1 view .LVU202
+ 681 0006 0446     		mov	r4, r0
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 682              		.loc 1 185 12 view .LVU203
+ 683 0008 4FF0000A 		mov	r10, #0
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( cipher_info == NULL )
+ 684              		.loc 1 187 19 view .LVU204
+ 685 000c 1046     		mov	r0, r2
+ 686              	.LVL90:
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret, keylen = 0;
+ 687              		.loc 1 179 1 view .LVU205
+ 688 000e 659D     		ldr	r5, [sp, #404]
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 689              		.loc 1 185 12 view .LVU206
+ 690 0010 CDF820A0 		str	r10, [sp, #32]
+ 179:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     int ret, keylen = 0;
+ 691              		.loc 1 179 1 view .LVU207
+ 692 0014 8846     		mov	r8, r1
+ 693 0016 1F46     		mov	r7, r3
+ 180:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char key[32];
+ 694              		.loc 1 180 5 is_stmt 1 view .LVU208
+ 695              	.LVL91:
+ 181:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char iv[16];
+ 696              		.loc 1 181 5 view .LVU209
+ 182:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     const mbedtls_cipher_info_t *cipher_info;
+ 697              		.loc 1 182 5 view .LVU210
+ 183:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_cipher_context_t cipher_ctx;
+ 698              		.loc 1 183 5 view .LVU211
+ 184:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t olen = 0;
+ 699              		.loc 1 184 5 view .LVU212
+ 185:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 700              		.loc 1 185 5 view .LVU213
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( cipher_info == NULL )
+ 701              		.loc 1 187 5 view .LVU214
+ 187:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     if( cipher_info == NULL )
+ 702              		.loc 1 187 19 is_stmt 0 view .LVU215
+ 703 0018 FFF7FEFF 		bl	mbedtls_cipher_info_from_type
+ 704              	.LVL92:
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_FEATURE_UNAVAILABLE );
+ 705              		.loc 1 188 5 is_stmt 1 view .LVU216
+ 188:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_FEATURE_UNAVAILABLE );
+ 706              		.loc 1 188 7 is_stmt 0 view .LVU217
+ 707 001c 0028     		cmp	r0, #0
+ 708 001e 00F0C680 		beq	.L67
+ 709              	.LBB28:
+ 710              	.LBB29:
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_BAD_INPUT_DATA );
+ 711              		.loc 1 99 7 view .LVU218
+ 712 0022 802D     		cmp	r5, #128
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_asn1_buf salt;
+ 713              		.loc 1 94 14 view .LVU219
+ 714 0024 CDF824A0 		str	r10, [sp, #36]
+ 715              	.LBE29:
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 23
+
+
+ 716              	.LBE28:
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 717              		.loc 1 191 25 view .LVU220
+ 718 0028 D0F80490 		ldr	r9, [r0, #4]
+ 193:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                           key, keylen,
+ 719              		.loc 1 193 17 view .LVU221
+ 720 002c D0F80CB0 		ldr	fp, [r0, #12]
+ 721 0030 0646     		mov	r6, r0
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 722              		.loc 1 191 5 is_stmt 1 view .LVU222
+ 723              	.LVL93:
+ 193:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                           key, keylen,
+ 724              		.loc 1 193 5 view .LVU223
+ 725              	.LBB40:
+ 726              	.LBI28:
+  89:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                      const unsigned char *pwd,  size_t pwdlen,
+ 727              		.loc 1 89 12 view .LVU224
+ 728              	.LBB36:
+  94:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_asn1_buf salt;
+ 729              		.loc 1 94 5 view .LVU225
+  95:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     size_t i;
+ 730              		.loc 1 95 5 view .LVU226
+  96:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char unipwd[PKCS12_MAX_PWDLEN * 2 + 2];
+ 731              		.loc 1 96 5 view .LVU227
+  97:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 732              		.loc 1 97 5 view .LVU228
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_BAD_INPUT_DATA );
+ 733              		.loc 1 99 5 view .LVU229
+ 100:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 734              		.loc 1 100 15 is_stmt 0 view .LVU230
+ 735 0032 88BF     		it	hi
+ 736 0034 AAF5FC5A 		subhi	r10, r10, #8064
+  99:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_BAD_INPUT_DATA );
+ 737              		.loc 1 99 7 view .LVU231
+ 738 0038 66D8     		bhi	.L51
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     memset( &unipwd, 0, sizeof(unipwd) );
+ 739              		.loc 1 102 5 is_stmt 1 view .LVU232
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 740              		.loc 1 103 5 is_stmt 0 view .LVU233
+ 741 003a 5146     		mov	r1, r10
+ 742 003c 4FF48172 		mov	r2, #258
+ 743 0040 19A8     		add	r0, sp, #100
+ 744              	.LVL94:
+ 102:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     memset( &unipwd, 0, sizeof(unipwd) );
+ 745              		.loc 1 102 5 view .LVU234
+ 746 0042 CDE90AAA 		strd	r10, r10, [sp, #40]
+ 747 0046 CDF830A0 		str	r10, [sp, #48]
+ 103:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 748              		.loc 1 103 5 is_stmt 1 view .LVU235
+ 749 004a FFF7FEFF 		bl	memset
+ 750              	.LVL95:
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                          &iterations ) ) != 0 )
+ 751              		.loc 1 105 5 view .LVU236
+ 752              	.LBB30:
+ 753              	.LBI30:
+  53:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                     mbedtls_asn1_buf *salt, int *iterations )
+ 754              		.loc 1 53 12 view .LVU237
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 24
+
+
+ 755              	.LBB31:
+  56:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     unsigned char **p = &params->p;
+ 756              		.loc 1 56 5 view .LVU238
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     const unsigned char *end = params->p + params->len;
+ 757              		.loc 1 57 5 view .LVU239
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 758              		.loc 1 58 26 is_stmt 0 view .LVU240
+ 759 004e D4E90112 		ldrd	r1, r2, [r4, #4]
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT +
+ 760              		.loc 1 67 7 view .LVU241
+ 761 0052 2368     		ldr	r3, [r4]
+ 762 0054 302B     		cmp	r3, #48
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 763              		.loc 1 58 26 view .LVU242
+ 764 0056 1144     		add	r1, r1, r2
+  57:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     const unsigned char *end = params->p + params->len;
+ 765              		.loc 1 57 21 view .LVU243
+ 766 0058 04F1080A 		add	r10, r4, #8
+ 767              	.LVL96:
+  58:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 768              		.loc 1 58 5 is_stmt 1 view .LVU244
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT +
+ 769              		.loc 1 67 5 view .LVU245
+  67:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT +
+ 770              		.loc 1 67 7 is_stmt 0 view .LVU246
+ 771 005c 40F0A480 		bne	.L68
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT + ret );
+ 772              		.loc 1 71 5 is_stmt 1 view .LVU247
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT + ret );
+ 773              		.loc 1 71 17 is_stmt 0 view .LVU248
+ 774 0060 0423     		movs	r3, #4
+ 775 0062 0BAA     		add	r2, sp, #44
+ 776 0064 5046     		mov	r0, r10
+ 777 0066 0791     		str	r1, [sp, #28]
+ 778 0068 FFF7FEFF 		bl	mbedtls_asn1_get_tag
+ 779              	.LVL97:
+  71:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT + ret );
+ 780              		.loc 1 71 7 view .LVU249
+ 781 006c 0799     		ldr	r1, [sp, #28]
+ 782 006e 0028     		cmp	r0, #0
+ 783 0070 4ED0     		beq	.L55
+ 784              	.LVL98:
+ 785              	.L73:
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 786              		.loc 1 78 9 is_stmt 1 view .LVU250
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 787              		.loc 1 78 55 is_stmt 0 view .LVU251
+ 788 0072 A0F5F45A 		sub	r10, r0, #7808
+ 789              	.LVL99:
+  78:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 790              		.loc 1 78 55 view .LVU252
+ 791              	.LBE31:
+ 792              	.LBE30:
+ 105:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                          &iterations ) ) != 0 )
+ 793              		.loc 1 105 7 view .LVU253
+ 794 0076 BAF1000F 		cmp	r10, #0
+ 795 007a 45D1     		bne	.L51
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 25
+
+
+ 796              	.LVL100:
+ 797              	.L61:
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         unipwd[i * 2 + 1] = pwd[i];
+ 798              		.loc 1 109 17 is_stmt 1 view .LVU254
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         unipwd[i * 2 + 1] = pwd[i];
+ 799              		.loc 1 109 5 is_stmt 0 view .LVU255
+ 800 007c 5DB1     		cbz	r5, .L60
+ 801 007e 649B     		ldr	r3, [sp, #400]
+ 802 0080 691E     		subs	r1, r5, #1
+ 803 0082 1944     		add	r1, r1, r3
+ 804 0084 19AA     		add	r2, sp, #100
+ 805 0086 013B     		subs	r3, r3, #1
+ 806              	.LVL101:
+ 807              	.L62:
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 808              		.loc 1 110 9 is_stmt 1 view .LVU256
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 809              		.loc 1 110 27 is_stmt 0 view .LVU257
+ 810 0088 13F8010F 		ldrb	r0, [r3, #1]!	@ zero_extendqisi2
+ 811              	.LVL102:
+ 110:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 812              		.loc 1 110 27 view .LVU258
+ 813 008c 5070     		strb	r0, [r2, #1]
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         unipwd[i * 2 + 1] = pwd[i];
+ 814              		.loc 1 109 29 is_stmt 1 view .LVU259
+ 815              	.LVL103:
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         unipwd[i * 2 + 1] = pwd[i];
+ 816              		.loc 1 109 17 view .LVU260
+ 109:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         unipwd[i * 2 + 1] = pwd[i];
+ 817              		.loc 1 109 5 is_stmt 0 view .LVU261
+ 818 008e 9942     		cmp	r1, r3
+ 819 0090 02F10202 		add	r2, r2, #2
+ 820 0094 F8D1     		bne	.L62
+ 821              	.LVL104:
+ 822              	.L60:
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 823              		.loc 1 112 17 view .LVU262
+ 824 0096 099A     		ldr	r2, [sp, #36]
+ 825 0098 0492     		str	r2, [sp, #16]
+ 826 009a 0122     		movs	r2, #1
+ 827 009c 0B9C     		ldr	r4, [sp, #44]
+ 828              	.LVL105:
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 829              		.loc 1 112 17 view .LVU263
+ 830 009e 0392     		str	r2, [sp, #12]
+ 831 00a0 0C9A     		ldr	r2, [sp, #48]
+ 832 00a2 0297     		str	r7, [sp, #8]
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 833              		.loc 1 112 76 view .LVU264
+ 834 00a4 6B1C     		adds	r3, r5, #1
+ 835              	.LBE36:
+ 836              	.LBE40:
+ 191:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 837              		.loc 1 191 38 view .LVU265
+ 838 00a6 4FEAD909 		lsr	r9, r9, #3
+ 839              	.LVL106:
+ 840              	.LBB41:
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 26
+
+
+ 841              	.LBB37:
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 842              		.loc 1 112 5 is_stmt 1 view .LVU266
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 843              		.loc 1 112 17 is_stmt 0 view .LVU267
+ 844 00aa CDE90024 		strd	r2, r4, [sp]
+ 845 00ae 5B00     		lsls	r3, r3, #1
+ 846 00b0 4946     		mov	r1, r9
+ 847 00b2 11A8     		add	r0, sp, #68
+ 848              	.LVL107:
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 849              		.loc 1 112 17 view .LVU268
+ 850 00b4 19AA     		add	r2, sp, #100
+ 851 00b6 0793     		str	r3, [sp, #28]
+ 852 00b8 FFF7FEFF 		bl	mbedtls_pkcs12_derivation
+ 853              	.LVL108:
+ 112:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 854              		.loc 1 112 7 view .LVU269
+ 855 00bc 8246     		mov	r10, r0
+ 856 00be 18BB     		cbnz	r0, .L51
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( 0 );
+ 857              		.loc 1 119 5 is_stmt 1 view .LVU270
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( 0 );
+ 858              		.loc 1 119 20 is_stmt 0 view .LVU271
+ 859 00c0 079B     		ldr	r3, [sp, #28]
+ 860 00c2 BBF1000F 		cmp	fp, #0
+ 861 00c6 36D1     		bne	.L63
+ 862 00c8 0DAC     		add	r4, sp, #52
+ 863              	.LVL109:
+ 864              	.L66:
+ 119:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( 0 );
+ 865              		.loc 1 119 20 view .LVU272
+ 866              	.LBE37:
+ 867              	.LBE41:
+ 200:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 868              		.loc 1 200 5 is_stmt 1 view .LVU273
+ 869 00ca 19A8     		add	r0, sp, #100
+ 870 00cc FFF7FEFF 		bl	mbedtls_cipher_init
+ 871              	.LVL110:
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 872              		.loc 1 202 5 view .LVU274
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 873              		.loc 1 202 17 is_stmt 0 view .LVU275
+ 874 00d0 3146     		mov	r1, r6
+ 875 00d2 19A8     		add	r0, sp, #100
+ 876 00d4 FFF7FEFF 		bl	mbedtls_cipher_setup
+ 877              	.LVL111:
+ 202:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 878              		.loc 1 202 7 view .LVU276
+ 879 00d8 8246     		mov	r10, r0
+ 880 00da 50B9     		cbnz	r0, .L64
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 881              		.loc 1 205 5 is_stmt 1 view .LVU277
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 882              		.loc 1 205 17 is_stmt 0 view .LVU278
+ 883 00dc 4FFA88F3 		sxtb	r3, r8
+ 884 00e0 4FEAC902 		lsl	r2, r9, #3
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 27
+
+
+ 885 00e4 11A9     		add	r1, sp, #68
+ 886 00e6 19A8     		add	r0, sp, #100
+ 887              	.LVL112:
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 888              		.loc 1 205 17 view .LVU279
+ 889 00e8 FFF7FEFF 		bl	mbedtls_cipher_setkey
+ 890              	.LVL113:
+ 205:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 891              		.loc 1 205 7 view .LVU280
+ 892 00ec 8246     		mov	r10, r0
+ 893 00ee 0028     		cmp	r0, #0
+ 894 00f0 34D0     		beq	.L74
+ 895              	.L64:
+ 896              	.LVL114:
+ 224:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_platform_zeroize( iv,  sizeof( iv  ) );
+ 897              		.loc 1 224 5 is_stmt 1 view .LVU281
+ 898 00f2 11A8     		add	r0, sp, #68
+ 899 00f4 2021     		movs	r1, #32
+ 900 00f6 FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 901              	.LVL115:
+ 225:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     mbedtls_cipher_free( &cipher_ctx );
+ 902              		.loc 1 225 5 view .LVU282
+ 903 00fa 2046     		mov	r0, r4
+ 904 00fc 1021     		movs	r1, #16
+ 905 00fe FFF7FEFF 		bl	mbedtls_platform_zeroize
+ 906              	.LVL116:
+ 226:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 907              		.loc 1 226 5 view .LVU283
+ 908 0102 19A8     		add	r0, sp, #100
+ 909 0104 FFF7FEFF 		bl	mbedtls_cipher_free
+ 910              	.LVL117:
+ 228:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** }
+ 911              		.loc 1 228 5 view .LVU284
+ 912              	.L51:
+ 229:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 913              		.loc 1 229 1 is_stmt 0 view .LVU285
+ 914 0108 5046     		mov	r0, r10
+ 915 010a 5BB0     		add	sp, sp, #364
+ 916              	.LCFI8:
+ 917              		.cfi_remember_state
+ 918              		.cfi_def_cfa_offset 36
+ 919              		@ sp needed
+ 920 010c BDE8F08F 		pop	{r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 921              	.LVL118:
+ 922              	.L55:
+ 923              	.LCFI9:
+ 924              		.cfi_restore_state
+ 925              	.LBB42:
+ 926              	.LBB38:
+ 927              	.LBB34:
+ 928              	.LBB32:
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     *p += salt->len;
+ 929              		.loc 1 74 5 is_stmt 1 view .LVU286
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     *p += salt->len;
+ 930              		.loc 1 74 15 is_stmt 0 view .LVU287
+ 931 0110 A368     		ldr	r3, [r4, #8]
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 28
+
+
+ 932              		.loc 1 75 8 view .LVU288
+ 933 0112 0B9A     		ldr	r2, [sp, #44]
+  74:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****     *p += salt->len;
+ 934              		.loc 1 74 13 view .LVU289
+ 935 0114 0C93     		str	r3, [sp, #48]
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 936              		.loc 1 75 5 is_stmt 1 view .LVU290
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 937              		.loc 1 75 8 is_stmt 0 view .LVU291
+ 938 0116 1344     		add	r3, r3, r2
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT + ret );
+ 939              		.loc 1 77 17 view .LVU292
+ 940 0118 5046     		mov	r0, r10
+ 941              	.LVL119:
+  75:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 942              		.loc 1 75 8 view .LVU293
+ 943 011a A360     		str	r3, [r4, #8]
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT + ret );
+ 944              		.loc 1 77 5 is_stmt 1 view .LVU294
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT + ret );
+ 945              		.loc 1 77 17 is_stmt 0 view .LVU295
+ 946 011c 09AA     		add	r2, sp, #36
+ 947              	.LVL120:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT + ret );
+ 948              		.loc 1 77 17 view .LVU296
+ 949 011e 0791     		str	r1, [sp, #28]
+ 950              	.LVL121:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT + ret );
+ 951              		.loc 1 77 17 view .LVU297
+ 952 0120 FFF7FEFF 		bl	mbedtls_asn1_get_int
+ 953              	.LVL122:
+  77:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT + ret );
+ 954              		.loc 1 77 7 view .LVU298
+ 955 0124 0799     		ldr	r1, [sp, #28]
+ 956 0126 0028     		cmp	r0, #0
+ 957 0128 A3D1     		bne	.L73
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT +
+ 958              		.loc 1 80 5 is_stmt 1 view .LVU299
+  80:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         return( MBEDTLS_ERR_PKCS12_PBE_INVALID_FORMAT +
+ 959              		.loc 1 80 7 is_stmt 0 view .LVU300
+ 960 012a A368     		ldr	r3, [r4, #8]
+ 961 012c 9942     		cmp	r1, r3
+ 962 012e A5D0     		beq	.L61
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 MBEDTLS_ERR_ASN1_LENGTH_MISMATCH );
+ 963              		.loc 1 81 9 is_stmt 1 view .LVU301
+ 964              	.LVL123:
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 MBEDTLS_ERR_ASN1_LENGTH_MISMATCH );
+ 965              		.loc 1 81 15 is_stmt 0 view .LVU302
+ 966 0130 DFF884A0 		ldr	r10, .L75+4
+ 967 0134 E8E7     		b	.L51
+ 968              	.LVL124:
+ 969              	.L63:
+  81:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 MBEDTLS_ERR_ASN1_LENGTH_MISMATCH );
+ 970              		.loc 1 81 15 view .LVU303
+ 971              	.LBE32:
+ 972              	.LBE34:
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 29
+
+
+ 973              		.loc 1 122 5 is_stmt 1 view .LVU304
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 974              		.loc 1 122 17 is_stmt 0 view .LVU305
+ 975 0136 DDE90B52 		ldrd	r5, r2, [sp, #44]
+ 976              	.LVL125:
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 977              		.loc 1 122 17 view .LVU306
+ 978 013a 0999     		ldr	r1, [sp, #36]
+ 979 013c 0092     		str	r2, [sp]
+ 980 013e 0DAC     		add	r4, sp, #52
+ 981              	.LVL126:
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 982              		.loc 1 122 17 view .LVU307
+ 983 0140 0222     		movs	r2, #2
+ 984 0142 0491     		str	r1, [sp, #16]
+ 985 0144 0392     		str	r2, [sp, #12]
+ 986 0146 0297     		str	r7, [sp, #8]
+ 987 0148 5946     		mov	r1, fp
+ 988 014a 2046     		mov	r0, r4
+ 989              	.LVL127:
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 990              		.loc 1 122 17 view .LVU308
+ 991 014c 0195     		str	r5, [sp, #4]
+ 992 014e 19AA     		add	r2, sp, #100
+ 993 0150 FFF7FEFF 		bl	mbedtls_pkcs12_derivation
+ 994              	.LVL128:
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 995              		.loc 1 122 7 view .LVU309
+ 996 0154 8246     		mov	r10, r0
+ 997 0156 0028     		cmp	r0, #0
+ 998 0158 B7D0     		beq	.L66
+ 999 015a D5E7     		b	.L51
+ 1000              	.LVL129:
+ 1001              	.L74:
+ 122:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                    salt.p, salt.len, md_type,
+ 1002              		.loc 1 122 7 view .LVU310
+ 1003              	.LBE38:
+ 1004              	.LBE42:
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 1005              		.loc 1 208 5 is_stmt 1 view .LVU311
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 1006              		.loc 1 208 17 is_stmt 0 view .LVU312
+ 1007 015c F268     		ldr	r2, [r6, #12]
+ 1008 015e 2146     		mov	r1, r4
+ 1009 0160 19A8     		add	r0, sp, #100
+ 1010              	.LVL130:
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 1011              		.loc 1 208 17 view .LVU313
+ 1012 0162 FFF7FEFF 		bl	mbedtls_cipher_set_iv
+ 1013              	.LVL131:
+ 208:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 1014              		.loc 1 208 7 view .LVU314
+ 1015 0166 8246     		mov	r10, r0
+ 1016 0168 0028     		cmp	r0, #0
+ 1017 016a C2D1     		bne	.L64
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 1018              		.loc 1 211 5 is_stmt 1 view .LVU315
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 30
+
+
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 1019              		.loc 1 211 17 is_stmt 0 view .LVU316
+ 1020 016c 19A8     		add	r0, sp, #100
+ 1021              	.LVL132:
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 1022              		.loc 1 211 17 view .LVU317
+ 1023 016e FFF7FEFF 		bl	mbedtls_cipher_reset
+ 1024              	.LVL133:
+ 211:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         goto exit;
+ 1025              		.loc 1 211 7 view .LVU318
+ 1026 0172 8246     		mov	r10, r0
+ 1027 0174 0028     		cmp	r0, #0
+ 1028 0176 BCD1     		bne	.L64
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                 output, &olen ) ) != 0 )
+ 1029              		.loc 1 214 5 is_stmt 1 view .LVU319
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                 output, &olen ) ) != 0 )
+ 1030              		.loc 1 214 17 is_stmt 0 view .LVU320
+ 1031 0178 08AB     		add	r3, sp, #32
+ 1032 017a 0093     		str	r3, [sp]
+ 1033 017c 6699     		ldr	r1, [sp, #408]
+ 1034 017e DDE96723 		ldrd	r2, r3, [sp, #412]
+ 1035 0182 19A8     		add	r0, sp, #100
+ 1036              	.LVL134:
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                 output, &olen ) ) != 0 )
+ 1037              		.loc 1 214 17 view .LVU321
+ 1038 0184 FFF7FEFF 		bl	mbedtls_cipher_update
+ 1039              	.LVL135:
+ 214:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                                 output, &olen ) ) != 0 )
+ 1040              		.loc 1 214 7 view .LVU322
+ 1041 0188 8246     		mov	r10, r0
+ 1042 018a 0028     		cmp	r0, #0
+ 1043 018c B1D1     		bne	.L64
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         ret = MBEDTLS_ERR_PKCS12_PASSWORD_MISMATCH;
+ 1044              		.loc 1 220 5 is_stmt 1 view .LVU323
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         ret = MBEDTLS_ERR_PKCS12_PASSWORD_MISMATCH;
+ 1045              		.loc 1 220 17 is_stmt 0 view .LVU324
+ 1046 018e 689B     		ldr	r3, [sp, #416]
+ 1047 0190 0899     		ldr	r1, [sp, #32]
+ 1048 0192 08AA     		add	r2, sp, #32
+ 1049 0194 1944     		add	r1, r1, r3
+ 1050 0196 19A8     		add	r0, sp, #100
+ 1051              	.LVL136:
+ 220:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****         ret = MBEDTLS_ERR_PKCS12_PASSWORD_MISMATCH;
+ 1052              		.loc 1 220 17 view .LVU325
+ 1053 0198 FFF7FEFF 		bl	mbedtls_cipher_finish
+ 1054              	.LVL137:
+ 221:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 1055              		.loc 1 221 13 view .LVU326
+ 1056 019c 054B     		ldr	r3, .L75
+ 1057 019e B0F1000A 		subs	r10, r0, #0
+ 1058 01a2 18BF     		it	ne
+ 1059 01a4 9A46     		movne	r10, r3
+ 1060 01a6 A4E7     		b	.L64
+ 1061              	.LVL138:
+ 1062              	.L68:
+ 1063              	.LBB43:
+ 1064              	.LBB39:
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 31
+
+
+ 1065              	.LBB35:
+ 1066              	.LBB33:
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 MBEDTLS_ERR_ASN1_UNEXPECTED_TAG );
+ 1067              		.loc 1 68 15 view .LVU327
+ 1068 01a8 DFF810A0 		ldr	r10, .L75+8
+ 1069              	.LVL139:
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 MBEDTLS_ERR_ASN1_UNEXPECTED_TAG );
+ 1070              		.loc 1 68 15 view .LVU328
+ 1071 01ac ACE7     		b	.L51
+ 1072              	.LVL140:
+ 1073              	.L67:
+  68:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c ****                 MBEDTLS_ERR_ASN1_UNEXPECTED_TAG );
+ 1074              		.loc 1 68 15 view .LVU329
+ 1075              	.LBE33:
+ 1076              	.LBE35:
+ 1077              	.LBE39:
+ 1078              	.LBE43:
+ 189:D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/mbedtls/mbedtls-2.16.2/library\pkcs12.c **** 
+ 1079              		.loc 1 189 15 view .LVU330
+ 1080 01ae DFF810A0 		ldr	r10, .L75+12
+ 1081 01b2 A9E7     		b	.L51
+ 1082              	.L76:
+ 1083              		.align	2
+ 1084              	.L75:
+ 1085 01b4 00E2FFFF 		.word	-7680
+ 1086 01b8 1AE1FFFF 		.word	-7910
+ 1087 01bc 1EE1FFFF 		.word	-7906
+ 1088 01c0 00E1FFFF 		.word	-7936
+ 1089              		.cfi_endproc
+ 1090              	.LFE10:
+ 1092              		.text
+ 1093              	.Letext0:
+ 1094              		.file 2 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\lib\\gcc\\arm-none-eabi\\9.3.1\\
+ 1095              		.file 3 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/m
+ 1096              		.file 4 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/m
+ 1097              		.file 5 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/m
+ 1098              		.file 6 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\_ty
+ 1099              		.file 7 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\ree
+ 1100              		.file 8 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\sys\\loc
+ 1101              		.file 9 "t:\\msys\\3rd\\gcc-arm-none-eabi-9-2020-q2-update-win32\\arm-none-eabi\\include\\string.h
+ 1102              		.file 10 "D:/fchai/work/i-cube/I-CUBE-HUAWEI/Middlewares/Third_Party/Huawei/iot_link/network/dtls/
+ 1103              		.file 11 "<built-in>"
+ARM GAS  T:\msys\tmp\cciBKAph.s 			page 32
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 pkcs12.c
+T:\msys\tmp\cciBKAph.s:18     .text.mbedtls_pkcs12_pbe_sha1_rc4_128:00000000 $t
+T:\msys\tmp\cciBKAph.s:27     .text.mbedtls_pkcs12_pbe_sha1_rc4_128:00000000 mbedtls_pkcs12_pbe_sha1_rc4_128
+T:\msys\tmp\cciBKAph.s:52     .text.mbedtls_pkcs12_pbe_sha1_rc4_128:00000004 $d
+T:\msys\tmp\cciBKAph.s:57     .text.mbedtls_pkcs12_derivation:00000000 $t
+T:\msys\tmp\cciBKAph.s:65     .text.mbedtls_pkcs12_derivation:00000000 mbedtls_pkcs12_derivation
+T:\msys\tmp\cciBKAph.s:643    .text.mbedtls_pkcs12_derivation:00000220 $d
+T:\msys\tmp\cciBKAph.s:649    .text.mbedtls_pkcs12_pbe:00000000 $t
+T:\msys\tmp\cciBKAph.s:657    .text.mbedtls_pkcs12_pbe:00000000 mbedtls_pkcs12_pbe
+T:\msys\tmp\cciBKAph.s:1085   .text.mbedtls_pkcs12_pbe:000001b4 $d
+
+UNDEFINED SYMBOLS
+mbedtls_md_info_from_type
+mbedtls_md_init
+mbedtls_md_setup
+mbedtls_md_get_size
+memset
+memcpy
+mbedtls_md_starts
+mbedtls_md_update
+mbedtls_md_finish
+mbedtls_md
+mbedtls_platform_zeroize
+mbedtls_md_free
+mbedtls_cipher_info_from_type
+mbedtls_asn1_get_tag
+mbedtls_cipher_init
+mbedtls_cipher_setup
+mbedtls_cipher_setkey
+mbedtls_cipher_free
+mbedtls_asn1_get_int
+mbedtls_cipher_set_iv
+mbedtls_cipher_reset
+mbedtls_cipher_update
+mbedtls_cipher_finish
